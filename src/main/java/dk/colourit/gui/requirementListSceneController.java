@@ -28,9 +28,7 @@ public class requirementListSceneController {
 
         stage.setScene(scene);
         stage.show();
-
     }
-
 
 
     private static Parent loadFXML(String fxml) throws IOException {

@@ -1,50 +1,54 @@
 package dk.colourit.model;
 
+import java.util.ArrayList;
+
 public class Task {
 
 	private String name;
-
 	private String responsible;
-
 	private MyDate creationDate;
-
 	private MyDate timeEstimate;
-
 	private String description;
-
 	private boolean finito;
 
-	private MyDate myDate;
+	private ArrayList<Documentation> documentations;
 
 
-	private Documentation documentations;
+	public Task(String name, String teamMemberName, MyDate timeEstimate) {
+		
+		this.name = name;
+		this.timeEstimate = timeEstimate;
+		responsible = teamMemberName;
 
-	public Task(String name, String teamMemberName) {
+		// initialise default values.
+		creationDate = MyDate.now();
+		description = "";
+		finito = false;
 
 	}
 
 	public String getName() {
-		return null;
+		return name;
 	}
 
 	public void setName(String name) {
-
+		this.name = name;
 	}
 
 	public String getResponsible() {
-		return null;
+		return responsible;
 	}
 
 	public void setResponsible(String teamMemberName) {
-
+		responsible = teamMemberName;
 	}
 
 	public String getDescription() {
-		return null;
+		return description;
 	}
 
 	public void setDescription(String text) {
-
+		description = text;
 	}
 
 }
