@@ -7,7 +7,7 @@
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.colourit.PrimaryController">
    <children>
       <Label text="Primary View" />
-      <Button fx:id="primaryButton" onAction="#switchToSecondary" text="Switch to Secondary View" />
+      <Button fx:id="primaryButton" onAction="#switchToSecondary" text="Switch to More Options" />
       <Button fx:id="loginButton1" layoutX="30.0" layoutY="67.0" onAction="#switchToLogin" text="Switch to Login View" />
    </children>
    <padding>

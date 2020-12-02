@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="dk.colourit.AddTeamMemberScene"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<GridPane minWidth="250.0" style="-fx-background-color: e1e1e1;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.colourit.AddTeamMemberScene">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="70.0" prefWidth="80.0" />
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Label text="Name" />
+      <Label text="ID Number" GridPane.rowIndex="1" />
+      <Label text="Birthdate" GridPane.rowIndex="2" />
+      <Label text="Role" GridPane.rowIndex="3" />
+      <TextField editable="false" promptText="Birthdate" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField promptText="ID Number" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField promptText="Name" GridPane.columnIndex="1" />
+      <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" style="-fx-background-color: e1e1e1;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+        <items>
+            <TextField promptText="Role" />
+            <Button mnemonicParsing="false" text="Add">
+               <padding>
+                  <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+               </padding>
+            </Button>
+        </items>
+      </SplitPane>
+   </children>
+</GridPane>
