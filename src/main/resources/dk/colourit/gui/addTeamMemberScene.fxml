@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
 <GridPane minWidth="250.0" style="-fx-background-color: e1e1e1;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.colourit.gui.AddTeamMemberScene">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="70.0" prefWidth="80.0" />
@@ -22,22 +21,46 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Label text="Name" />
-      <Label text="ID Number" GridPane.rowIndex="1" />
-      <Label text="Birthdate" GridPane.rowIndex="2" />
-      <Label text="Role" GridPane.rowIndex="3" />
-      <TextField editable="false" promptText="Birthdate" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-      <TextField promptText="ID Number" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <TextField promptText="Name" GridPane.columnIndex="1" />
+      <Label text="Name">
+         <GridPane.margin>
+            <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+         </GridPane.margin></Label>
+      <Label text="ID Number" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+         </GridPane.margin></Label>
+      <Label text="Birthdate" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+         </GridPane.margin></Label>
+      <Label text="Role" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+         </GridPane.margin></Label>
+      <TextField editable="false" promptText="Birthdate" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+         </GridPane.margin></TextField>
+      <TextField promptText="ID Number" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <GridPane.margin>
+            <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+         </GridPane.margin></TextField>
+      <TextField promptText="Name" GridPane.columnIndex="1">
+         <GridPane.margin>
+            <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+         </GridPane.margin></TextField>
       <SplitPane dividerPositions="0.5" prefHeight="160.0" prefWidth="200.0" style="-fx-background-color: e1e1e1;" GridPane.columnIndex="1" GridPane.rowIndex="3">
         <items>
             <TextField promptText="Role" />
-            <Button mnemonicParsing="false" text="Add">
+            <Button fx:id="addTeamMemberButton" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addTeamMember" prefWidth="50.0" style="-fx-background-color: #5f5; -fx-background-radius: 10;" text="Add" textAlignment="CENTER">
                <padding>
                   <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
                </padding>
             </Button>
         </items>
+         <GridPane.margin>
+            <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+         </GridPane.margin>
       </SplitPane>
    </children>
 </GridPane>
