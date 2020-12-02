@@ -31,8 +31,8 @@ public class ColourItGui extends Application {
         return fxmlLoader.load();
     }
 
-    public static void main(String[] args) {
+    public static void launchApp() {
         launch();
     }
-
 }
+

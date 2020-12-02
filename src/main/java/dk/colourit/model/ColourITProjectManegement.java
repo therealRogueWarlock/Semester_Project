@@ -1,7 +1,6 @@
 package dk.colourit.model;
-
-
 import dk.colourit.gui.ColourItGui;
+
 
 public class ColourITProjectManegement {
 
@@ -11,7 +10,11 @@ public class ColourITProjectManegement {
 
 	private ColourItFileHandler colourItFileHandler;
 
-	private ColourItGui colourITGUI;
+
+	public static void main(String[] args) {
+		ColourItGui.launchApp();
+	}
+
 
 	public void selectUserRole() {
 
