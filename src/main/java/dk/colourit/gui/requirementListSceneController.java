@@ -1,4 +1,4 @@
-package dk.colourit;
+package dk.colourit.gui;
 
 public class requirementListSceneController {
 }

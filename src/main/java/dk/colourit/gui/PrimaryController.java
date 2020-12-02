@@ -1,4 +1,4 @@
-package dk.colourit;
+package dk.colourit.gui;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
@@ -7,10 +7,10 @@ public class PrimaryController {
 
     @FXML
     private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
+        ColourItGui.setRoot("secondary");
     }
     @FXML
     private void switchToLogin() throws IOException {
-        App.setRoot("loginScreen");
+        ColourItGui.setRoot("loginScreen");
     }
 }

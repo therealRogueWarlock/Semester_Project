@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.colourit.RequirementListEditPopUpController">
+<GridPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.colourit.gui.RequirementListAddPopUpController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     </columnConstraints>
@@ -24,7 +24,7 @@
             <Insets left="50.0" />
          </GridPane.margin>
       </CheckBox>
-      <Button fx:id="confirmButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Delete task" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+      <Button fx:id="confirmButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Confirm" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets right="50.0" />
          </GridPane.margin>
@@ -44,12 +44,12 @@
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Task name" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Estimated hours" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Responsible Team Member" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <TextField fx:id="taskNameEditTextField" prefHeight="25.0" prefWidth="238.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <TextField fx:id="taskNameTextField" prefHeight="25.0" prefWidth="238.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="estimatedHourstTextField" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="estimatedHoursTextField" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
@@ -59,14 +59,13 @@
                   <Insets right="30.0" />
                </GridPane.margin>
             </TextField>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Task" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Add Task" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <font>
                   <Font size="19.0" />
                </font>
             </Text>
          </children>
       </GridPane>
-      <Button fx:id="confirmEditButton" mnemonicParsing="false" text="Confirm edit" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
    </children>
 
 </GridPane>
