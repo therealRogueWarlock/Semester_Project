@@ -24,7 +24,6 @@ public class Task {
 		creationDate = MyDate.now();
 		description = "";
 		finito = false;
-
 	}
 
 	public String getName() {
@@ -50,5 +49,4 @@ public class Task {
 	public void setDescription(String text) {
 		description = text;
 	}
-
 }

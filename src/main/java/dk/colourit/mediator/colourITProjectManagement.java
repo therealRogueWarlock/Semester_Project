@@ -1,8 +1,13 @@
-package dk.colourit.model;
-import dk.colourit.gui.ColourItGui;
+package dk.colourit.mediator;
 
 
-public class ColourITProjectManegement {
+import dk.colourit.model.ColourItFileHandler;
+import dk.colourit.model.MyDate;
+import dk.colourit.model.ProjectList;
+import dk.colourit.model.TeamMemberList;
+
+
+public class colourITProjectManagement {
 
 	private ProjectList projectList;
 
@@ -10,10 +15,6 @@ public class ColourITProjectManegement {
 
 	private ColourItFileHandler colourItFileHandler;
 
-
-	public static void main(String[] args) {
-		ColourItGui.launchApp();
-	}
 
 
 	public void selectUserRole() {
