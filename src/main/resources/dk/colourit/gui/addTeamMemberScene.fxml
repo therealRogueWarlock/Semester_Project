@@ -37,7 +37,7 @@
          <GridPane.margin>
             <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
          </GridPane.margin></Label>
-      <TextField editable="false" promptText="Birthdate" GridPane.columnIndex="1" GridPane.rowIndex="2">
+      <TextField promptText="Name" GridPane.columnIndex="1">
          <GridPane.margin>
             <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
          </GridPane.margin></TextField>
@@ -45,7 +45,7 @@
          <GridPane.margin>
             <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
          </GridPane.margin></TextField>
-      <TextField promptText="Name" GridPane.columnIndex="1">
+      <TextField editable="false" promptText="Birthdate" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
          </GridPane.margin></TextField>

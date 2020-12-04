@@ -70,16 +70,16 @@
                         </Text>
                     </children>
                 </GridPane>
-            <Button fx:id="backButton" layoutX="542.0" layoutY="149.0" mnemonicParsing="false" onMouseClicked="#backToPrevScene" text="Back" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets right="40.0" />
-               </GridPane.margin>
-            </Button>
                 <Button fx:id="addTaskButton" mnemonicParsing="false" onMouseClicked="#popUpAddTask" text="Add task" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                     <GridPane.margin>
                         <Insets right="100.0" />
                     </GridPane.margin>
                 </Button>
+            <Button fx:id="backButton" layoutX="542.0" layoutY="149.0" mnemonicParsing="false" onMouseClicked="#backToPrevScene" text="Back" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets right="40.0" />
+               </GridPane.margin>
+            </Button>
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" text="All tasks of the requirement" GridPane.rowIndex="1">
                     <GridPane.margin>
                         <Insets left="40.0" />
