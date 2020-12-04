@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class requirementListSceneController {
+public class taskListSceneController {
 
     private Scene scene;
     private Stage stage;
@@ -24,7 +24,7 @@ public class requirementListSceneController {
 
     @FXML
     private void popUpAddTask() throws IOException{
-        scene = new Scene(loadFXML("requirementListAddPopUp"));
+        scene = new Scene(loadFXML("taskListAddPopUp"));
         stage = new Stage();
 
         stage.setScene(scene);
