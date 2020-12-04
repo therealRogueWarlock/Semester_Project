@@ -19,7 +19,7 @@ public class SecondaryController {
 
     @FXML
     private void switchToTaskList() throws IOException {
-        ColourItGui.setRoot("requirementListScene");
+        ColourItGui.setRoot("taskListScene");
     }
 
     @FXML
