@@ -10,13 +10,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.colourit.gui.RequirementListEditPopUpController">
+<GridPane prefHeight="277.0" prefWidth="447.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.colourit.gui.RequirementListEditPopUpController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints maxHeight="332.0" minHeight="10.0" prefHeight="332.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="390.0" minHeight="10.0" prefHeight="163.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="372.0" minHeight="10.0" prefHeight="114.0" vgrow="SOMETIMES" />
     </rowConstraints>
    <children>
       <CheckBox fx:id="highPriorityCheckBox" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="17.0" prefWidth="98.0" text="High Priority" GridPane.rowIndex="1">
@@ -24,12 +24,12 @@
             <Insets left="50.0" />
          </GridPane.margin>
       </CheckBox>
-      <Button fx:id="confirmButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Delete task" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+      <Button fx:id="confirmButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Delete task" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets right="50.0" />
          </GridPane.margin>
       </Button>
-      <GridPane>
+      <GridPane prefHeight="197.0" prefWidth="447.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -66,7 +66,10 @@
             </Text>
          </children>
       </GridPane>
-      <Button fx:id="confirmEditButton" mnemonicParsing="false" text="Confirm edit" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+      <Button fx:id="confirmEditButton" mnemonicParsing="false" text="Confirm edit" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+         <GridPane.margin>
+            <Insets right="70.0" top="10.0" />
+         </GridPane.margin></Button>
    </children>
 
 </GridPane>
