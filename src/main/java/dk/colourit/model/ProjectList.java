@@ -6,23 +6,33 @@ public class ProjectList {
 
 	private Project project;
 
-	private Project[] projects;
+	private ArrayList<Project> projects;
+
 
 	public ProjectList() {
+
 
 	}
 
 	public ArrayList getProjects() {
-		return null;
+		return projects;
 	}
+
 
 	public void addProject(Project project) {
 
 	}
 
-	public Project getProjectsByName(String projectName) {
+	public Project getProjectByName(String projectName) {
+		for (Project project:projects){
+			if (project.getName().equals(projectName)){
+
+				return project;
+			}
+		}
 		return null;
 	}
+
 
 	public ArrayList getProjectsByTeamMember(String name) {
 		return null;

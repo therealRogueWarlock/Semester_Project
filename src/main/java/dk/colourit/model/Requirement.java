@@ -4,47 +4,55 @@ public class Requirement {
 
 	private String name;
 
-	private MyDate creationMyDate;
+	private final MyDate creationDate;
 
-	private MyDate timeEstimate;
+	private int timeEstimate;
 
-	private int priority;
+	private boolean priority;
 
 	private TaskList taskList;
 
-	private MyDate myDate;
 
+	public Requirement(String name, int timeEstimate, boolean priority) {
+		this.creationDate = MyDate.now();
 
-	public Requirement(String name, MyDate creationMyDate, MyDate timeEstimate) {
-
+		this.name = name;
+		this.timeEstimate = timeEstimate;
+		this.priority = priority;
 	}
 
 	public String getName() {
-		return null;
+		return name;
 	}
 
 	public void setName(String name) {
-
+		this.name = name;
 	}
 
-	public String getCreationDate() {
-		return null;
+
+	public int getTimeEstimate() {
+		return timeEstimate;
 	}
 
-	public String getTimeEstimate() {
-		return null;
+	public void setTimeEstimate(int timeEstimate) {
+		this.timeEstimate = timeEstimate;
 	}
 
-	public void setTimeEstimate() {
 
+	public boolean isHighPriority(){
+		return priority;
 	}
 
-	public int getPriority() {
-		return 0;
+
+	public void setPriority(boolean priority) {
+		this.priority = priority;
 	}
 
-	public void setPriority(int priority) {
 
+	public void setTaskList(TaskList taskList) {
+		this.taskList = taskList;
 	}
+
 
 }
+

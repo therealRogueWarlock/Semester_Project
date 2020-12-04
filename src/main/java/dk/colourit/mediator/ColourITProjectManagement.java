@@ -7,7 +7,7 @@ import dk.colourit.model.ProjectList;
 import dk.colourit.model.TeamMemberList;
 
 
-public class colourITProjectManagement {
+public class ColourITProjectManagement {
 
 	private ProjectList projectList;
 
@@ -16,8 +16,15 @@ public class colourITProjectManagement {
 	private ColourItFileHandler colourItFileHandler;
 
 
+	public ColourITProjectManagement(){
+
+
+	}
+
+
 
 	public void selectUserRole() {
+
 
 	}
 
@@ -41,7 +48,8 @@ public class colourITProjectManagement {
 
 	}
 
-	public void taskDocumentation(String projectName, String requirementName, String taskName, int hours, MyDate date, String memberName) {
+	public void taskDocumentation(String projectName, String requirementName, String taskName,
+								  int hours, MyDate date, String memberName) {
 
 	}
 

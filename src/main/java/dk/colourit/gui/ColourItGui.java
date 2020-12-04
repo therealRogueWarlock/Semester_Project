@@ -1,6 +1,7 @@
 package dk.colourit.gui;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,6 +19,11 @@ public class ColourItGui extends Application {
         scene = new Scene(loadFXML("loginScreen"), 635, 604);
         stage.setScene(scene);
         stage.show();
+
+
+        // when primary stage is closed, close all other open windows.
+        stage.setOnCloseRequest(e -> Platform.exit());
+
     }
 
     static void setRoot(String fxml) throws IOException {
@@ -28,6 +34,9 @@ public class ColourItGui extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(ColourItGui.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
+
+
+
 
     public static void launchApp() {
         launch();

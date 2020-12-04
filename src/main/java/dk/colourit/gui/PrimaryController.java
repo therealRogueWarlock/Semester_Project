@@ -14,4 +14,7 @@ public class PrimaryController {
     private void switchToLogin() throws IOException {
         ColourItGui.setRoot("loginScreen");
     }
+
+
+
 }
