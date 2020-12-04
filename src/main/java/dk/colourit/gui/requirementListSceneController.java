@@ -1,5 +1,6 @@
 package dk.colourit.gui;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -30,14 +31,14 @@ public class requirementListSceneController {
         stage.show();
     }
 
+    public void backToPrevScene() throws IOException {
+        ColourItGui.setRoot("secondary");
+    }
+
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(ColourItGui.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
-
-
-
-
 
 }
