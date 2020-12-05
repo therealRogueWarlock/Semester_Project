@@ -25,7 +25,7 @@
             <Insets left="50.0" />
          </GridPane.margin>
       </CheckBox>
-      <Button fx:id="confirmButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Confirm" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+      <Button fx:id="confirmButton" mnemonicParsing="false" onMouseClicked="#addTask" prefHeight="25.0" prefWidth="128.0" text="Confirm" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
          <GridPane.margin>
             <Insets right="50.0" />
          </GridPane.margin>
@@ -51,7 +51,7 @@
                   <Insets right="30.0" />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="estimatedHoursTextField" promptText="Hours (Fx: 65)" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="estimatedHoursTextField" promptText="Hours (ex: 65)" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>
