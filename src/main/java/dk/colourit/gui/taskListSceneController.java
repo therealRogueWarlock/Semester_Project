@@ -31,6 +31,17 @@ public class taskListSceneController {
         stage.show();
     }
 
+    @FXML
+    private void popUpTaskDetails() throws IOException{
+        scene = new Scene(loadFXML("taskDetailsPopUp"));
+        stage = new Stage();
+
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+
     public void backToPrevScene() throws IOException {
         ColourItGui.setRoot("secondary");
     }
@@ -40,5 +51,6 @@ public class taskListSceneController {
         FXMLLoader fxmlLoader = new FXMLLoader(ColourItGui.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
+
 
 }

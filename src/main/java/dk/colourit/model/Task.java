@@ -25,8 +25,7 @@ public class Task {
 		description = "";
 		finito = false;
 	}
-
-	public String getName() {
+public String getName() {
 		return name;
 	}
 
