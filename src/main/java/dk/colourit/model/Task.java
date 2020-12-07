@@ -7,13 +7,13 @@ public class Task {
     private String name;
     private String responsible;
     private MyDate creationDate;
-    private MyDate timeEstimate;
+    private int timeEstimate;
     private String description;
     private boolean finito;
     private ArrayList<Documentation> documentations;
 
 
-    public Task(String name, String teamMemberName, MyDate timeEstimate) {
+    public Task(String name, String teamMemberName, int timeEstimate) {
 
         this.name = name;
         this.timeEstimate = timeEstimate;
@@ -25,9 +25,14 @@ public class Task {
         finito = false;
     }
 
+    public ArrayList<Documentation> getDocumentations() {
+        return documentations;
+    }
+
     public String getName() {
         return name;
     }
+
 
     public void setName(String name) {
         this.name = name;

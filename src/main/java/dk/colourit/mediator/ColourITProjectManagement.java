@@ -41,6 +41,8 @@ public class ColourITProjectManagement {
 		projectList.addProject(new Project("Fissisproject", MyDate.now(), new MyDate(1, 12,2027)));
 
 
+
+
 		for (int i = 0; i < projectList.getProjects().size(); i++) {
 			Project project = projectList.getProjects().get(i);
 
@@ -48,20 +50,16 @@ public class ColourITProjectManagement {
 				project.getTeamMemberList().addTeamMember(teamMemberList.getTeamMember("name", name));
 			}
 
+			project.getRequirementList().addRequirement(new Requirement(("requirement" + i), 10+i, true));
+
+
+			Requirement requirement = project.getRequirementList().getRequirementByName(("requirement" + i));
+			requirement.getTaskList().addTask(new Task(("randomTask" + i), names[i], 10+i));
+
+			Task task = requirement.getTaskList().getTaskByName(("randomTask" + i));
+			task.getDocumentations().add(new Documentation(names[i], 10+i, MyDate.now()));
+
 		}
-
-
-
-
-
-
-		ArrayList<Documentation> documentationArray = new ArrayList<>();
-		documentationArray.add(new Documentation("Peter", 30, MyDate.now()));
-		documentationArray.add(new Documentation("Bob", 33, MyDate.now()));
-		documentationArray.add(new Documentation("Bent", 55, MyDate.now()));
-		documentationArray.add(new Documentation("John", 26, MyDate.now()));
-		ObservableList<Documentation> documentationsList = FXCollections.observableArrayList();
-		documentationsList.addAll(documentationArray);
 
 
 

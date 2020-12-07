@@ -16,6 +16,7 @@ public class Requirement {
 		this.timeEstimate = timeEstimate;
 		this.priority = priority;
 		taskList = new TaskList();
+
 	}
 
 	public String getName() {
@@ -25,6 +26,7 @@ public class Requirement {
 	public void setName(String name) {
 		this.name = name;
 	}
+
 
 
 	public int getTimeEstimate() {
@@ -45,6 +47,10 @@ public class Requirement {
 
 	public void setTaskList(TaskList taskList) {
 		this.taskList = taskList;
+	}
+
+	public TaskList getTaskList() {
+		return taskList;
 	}
 
 }

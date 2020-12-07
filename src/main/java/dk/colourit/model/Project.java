@@ -51,6 +51,9 @@ public class Project {
 		this.requirementList = requirementList;
 	}
 
+	public RequirementList getRequirementList() {
+		return requirementList;
+	}
 
 	public void setTeamMemberList(TeamMemberList teamMemberList) {
 		this.teamMemberList = teamMemberList;
