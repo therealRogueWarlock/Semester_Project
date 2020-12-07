@@ -9,7 +9,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ScrumClickOnTaskController
@@ -29,8 +28,7 @@ public class ScrumClickOnTaskController
   @FXML private TableColumn<Documentation, Integer> timeSpentList;
   @FXML private TableColumn<Documentation, MyDate> daySelectedList;
 
-  public void init()
-  {
+  public void init() {
     ArrayList<Documentation> list = new ArrayList<>();
     list.add(new Documentation("Peter", 30, MyDate.now()));
     list.add(new Documentation("Bob", 33, MyDate.now()));
@@ -47,8 +45,6 @@ public class ScrumClickOnTaskController
 
     logList.setItems(documentationsList);
   }
-
-
   /*
   Mangler noget til TableView
   Team Member

@@ -6,7 +6,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class AddTeamMemberScene extends Controller {
+public class AddTeamMemberSceneController extends Controller {
     @FXML
     private Button addTeamMemberButton;
 
@@ -19,4 +19,5 @@ public class AddTeamMemberScene extends Controller {
     public void init() {
 
     }
+
 }

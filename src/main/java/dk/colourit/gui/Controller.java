@@ -6,7 +6,6 @@ public abstract class Controller {
 
     private ColourITProjectManagement model = new ColourITProjectManagement();
 
-
     public void setModel(ColourITProjectManagement model){
         this.model = model;
     }
@@ -16,4 +15,6 @@ public abstract class Controller {
     }
 
     public abstract void init();
+
+
 }
