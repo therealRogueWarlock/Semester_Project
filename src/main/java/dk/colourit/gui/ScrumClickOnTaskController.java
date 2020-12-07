@@ -44,6 +44,7 @@ public class ScrumClickOnTaskController extends Controller{
 
     documentationTableView.setItems(documentationsList);
   }
+
   /*
   Mangler noget til TableView
   Team Member
