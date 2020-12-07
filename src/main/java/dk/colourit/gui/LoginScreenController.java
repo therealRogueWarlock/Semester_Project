@@ -11,15 +11,15 @@ public class LoginScreenController {
     }
     @FXML
     private void selectedScrumMasterRole() throws IOException {
-        ColourItGui.setRoot("primary");
+        ColourItGui.setRoot("projectListView");
     }
     @FXML
     private void selectedTeamMemberRole() throws IOException {
-        ColourItGui.setRoot("primary");
+        ColourItGui.setRoot("projectListView");
     }
     @FXML
     private void selectedProductOwnerRole() throws IOException {
-        ColourItGui.setRoot("primary");
+        ColourItGui.setRoot("projectListView");
     }
 
 }
