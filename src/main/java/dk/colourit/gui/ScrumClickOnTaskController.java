@@ -22,10 +22,10 @@ public class ScrumClickOnTaskController extends Controller{
   @FXML private DatePicker selectDate;
   @FXML private Button logSpentTime;
 
-  @FXML private TableView<Documentation> logList;
-  @FXML private TableColumn<Documentation, String> memberNameList;
-  @FXML private TableColumn<Documentation, Integer> timeSpentList;
-  @FXML private TableColumn<Documentation, MyDate> daySelectedList;
+  @FXML private TableView<Documentation> documentationTableView;
+  @FXML private TableColumn<Documentation, String> memberNameColumn;
+  @FXML private TableColumn<Documentation, Integer> timeSpentColumn;
+  @FXML private TableColumn<Documentation, MyDate> daySelectedColumn;
 
   public void init() {
     ArrayList<Documentation> list = new ArrayList<>();
@@ -38,11 +38,11 @@ public class ScrumClickOnTaskController extends Controller{
 
     documentationsList.addAll(list);
 
-    memberNameList.setCellValueFactory(new PropertyValueFactory<>("teamMemberName"));
-    timeSpentList.setCellValueFactory(new PropertyValueFactory<>("timeSpent"));
-    daySelectedList.setCellValueFactory(new PropertyValueFactory<>("date"));
+    memberNameColumn.setCellValueFactory(new PropertyValueFactory<>("teamMemberName"));
+    timeSpentColumn.setCellValueFactory(new PropertyValueFactory<>("timeSpent"));
+    daySelectedColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
 
-    logList.setItems(documentationsList);
+    documentationTableView.setItems(documentationsList);
   }
   /*
   Mangler noget til TableView

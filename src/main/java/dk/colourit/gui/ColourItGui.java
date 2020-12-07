@@ -40,7 +40,10 @@ public class ColourItGui extends Application {
         loader.setLocation(ColourItGui.class.getResource(fxml + ".fxml"));
         Parent root = loader.load();
 
+
         Controller controller = loader.getController();
+
+
         controller.init();
 
         return root;
