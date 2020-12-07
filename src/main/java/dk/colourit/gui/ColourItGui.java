@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 
@@ -19,7 +18,6 @@ public class ColourItGui extends Application {
         scene = new Scene(loadFXML("loginScreen"), 635, 604);
         stage.setScene(scene);
         stage.show();
-
 
         // when primary stage is closed, close all other open windows.
         stage.setOnCloseRequest(e -> Platform.exit());

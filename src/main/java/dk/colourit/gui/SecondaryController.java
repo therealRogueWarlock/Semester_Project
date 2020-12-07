@@ -39,8 +39,11 @@ public class SecondaryController {
         return fxmlLoader.load();
     }
 
-  public void switchToDocumentation(ActionEvent actionEvent)
-  {
-      
+  public void switchToDocumentation() throws IOException {
+
+        ColourItGui.setRoot("scrumClickOnTask");
+        
   }
+
+
 }
