@@ -33,6 +33,7 @@ public class ColourITProjectManagement {
 
 
 
+
 		projectList.addProject(new Project("Assproject", MyDate.now(), new MyDate(12, 12,2021)));
 		projectList.addProject(new Project("Buttproject", MyDate.now(), new MyDate(12, 1,2023)));
 		projectList.addProject(new Project("TITIproject", MyDate.now(), new MyDate(1, 12,2024)));
@@ -48,6 +49,7 @@ public class ColourITProjectManagement {
 
 			for (String name : names) {
 				project.getTeamMemberList().addTeamMember(teamMemberList.getTeamMember("name", name));
+
 			}
 
 			project.getRequirementList().addRequirement(new Requirement(("requirement" + i), 10+i, true));

@@ -15,6 +15,8 @@ public class Task {
 
     public Task(String name, String teamMemberName, int timeEstimate) {
 
+        documentations = new ArrayList<>();
+
         this.name = name;
         this.timeEstimate = timeEstimate;
         responsible = teamMemberName;

@@ -15,7 +15,7 @@ public class TeamMember {
     }
 
     public String getName() {
-        return null;
+        return name;
     }
 
     public void setName(String name) {
