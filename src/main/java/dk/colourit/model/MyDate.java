@@ -1,6 +1,7 @@
 package dk.colourit.model;
 
 
+import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -9,6 +10,9 @@ public class MyDate {
 	private int day;
 	private int month;
 	private int year;
+	private DecimalFormat dayMonthFormat = new DecimalFormat("00.##");
+	private DecimalFormat yearFormat = new DecimalFormat("0000.##");
+
 
 	public MyDate(int argDay, int argMonth, int argYear) {
 		day = argDay;
@@ -17,7 +21,8 @@ public class MyDate {
 	}
 
 	public MyDate() {
-
+		//Burde dette ikke være nok, til at oprette MyDate med dags dato?
+		now();
 	}
 
 	public int getDay()
@@ -111,8 +116,9 @@ public class MyDate {
 		return day == other.day && month == other.month && year == other.year;
 	}
 
-	public String toString() {
-		return null;
+	public String toString()   //format.format() to use the decimal format created on line 10-11
+	{
+		return "Date: " + dayMonthFormat.format(day) + "/" + dayMonthFormat.format(month) + " - " + yearFormat.format(year);
 	}
 
 	public static MyDate now()
