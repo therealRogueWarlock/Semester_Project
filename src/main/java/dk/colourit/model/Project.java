@@ -3,11 +3,17 @@ package dk.colourit.model;
 public class Project {
 
 	private String name;
+
 	private MyDate creationDate;
+
 	private MyDate startDate;
+
 	private MyDate deadLine;
+
 	private MyDate endDate;
+
 	private RequirementList requirementList;
+
 	private TeamMemberList teamMemberList;
 
 
@@ -21,9 +27,12 @@ public class Project {
 
 		requirementList = new RequirementList();
 		teamMemberList = new TeamMemberList();
+
 	}
 
-
+	public TeamMemberList getTeamMemberList() {
+		return teamMemberList;
+	}
 
 	public String getName() {
 		return name;
@@ -37,9 +46,11 @@ public class Project {
 		return deadLine;
 	}
 
+
 	public void setRequirementList(RequirementList requirementList) {
 		this.requirementList = requirementList;
 	}
+
 
 	public void setTeamMemberList(TeamMemberList teamMemberList) {
 		this.teamMemberList = teamMemberList;

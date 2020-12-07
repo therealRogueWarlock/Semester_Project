@@ -36,10 +36,9 @@ public class ColourItGui extends Application {
     }
 
 
-
-
     public static void launchApp() {
         launch();
     }
+
 }
 
