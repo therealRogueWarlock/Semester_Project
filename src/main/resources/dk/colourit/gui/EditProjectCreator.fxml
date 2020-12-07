@@ -45,7 +45,7 @@
                </padding>
             </Label>
             <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="6.0" />
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Edit">
+            <Button fx:id="editButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#editButton" text="Edit">
                <padding>
                   <Insets left="15.0" right="15.0" />
                </padding>
@@ -57,9 +57,9 @@
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="54.0" prefWidth="446.0" text="Requirements" />
-                  <TableView prefHeight="493.0" prefWidth="437.0">
+                  <TableView fx:id="requirementTable" prefHeight="493.0" prefWidth="437.0">
                     <columns>
-                      <TableColumn maxWidth="1.7976931348623157E308" prefWidth="445.0" text="Name" />
+                      <TableColumn fx:id="requirementNameColumn" maxWidth="1.7976931348623157E308" prefWidth="445.0" text="Name" />
                     </columns>
                   </TableView>
                </children>
@@ -76,33 +76,33 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" text="Add Team Member ">
+                        <Button fx:id="addTeamMemberButton" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#addTeamMemberButton" text="Add Team Member ">
                            <GridPane.margin>
                               <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" text="Delete Project" GridPane.columnIndex="1">
+                        <Button fx:id="deleteProjectButton" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#deleteProjectButton" text="Delete Project" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
-                        <ChoiceBox maxHeight="1.7976931348623157E308" prefWidth="150.0" GridPane.rowIndex="1">
+                        <ChoiceBox fx:id="teamMemberList" maxHeight="1.7976931348623157E308" onMouseClicked="#teamMemberList" prefWidth="150.0" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
                            </GridPane.margin>
                         </ChoiceBox>
-                        <Button maxHeight="1.7976931348623157E308" mnemonicParsing="false" text="Remove Team Member" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Button fx:id="removeTeamMemberButton" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#removeTeamMemberButton" text="Remove Team Member" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
                      </children>
                   </GridPane>
-                  <TableView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="487.0" prefWidth="446.0">
+                  <TableView fx:id="teamMemberTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="487.0" prefWidth="446.0">
                     <columns>
-                      <TableColumn prefWidth="192.0" text="Team Member Name" />
-                      <TableColumn prefWidth="137.0" text="ID Number" />
-                        <TableColumn minWidth="0.0" prefWidth="116.0" text="Role" />
+                      <TableColumn fx:id="teamMemberNameColumn" prefWidth="192.0" text="Team Member Name" />
+                      <TableColumn fx:id="IDNumberColumn" prefWidth="137.0" text="ID Number" />
+                        <TableColumn fx:id="roleColumn" minWidth="0.0" prefWidth="116.0" text="Role" />
                     </columns>
                   </TableView>
                </children>
