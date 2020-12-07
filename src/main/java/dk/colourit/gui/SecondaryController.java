@@ -1,16 +1,19 @@
 package dk.colourit.gui;
 
+import dk.colourit.model.Documentation;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class SecondaryController {
 
+    public Button documentationListButton;
 
     @FXML
     private void switchToPrimary() throws IOException {
@@ -35,4 +38,9 @@ public class SecondaryController {
         FXMLLoader fxmlLoader = new FXMLLoader(ColourItGui.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
+
+  public void switchToDocumentation(ActionEvent actionEvent)
+  {
+      
+  }
 }
