@@ -4,30 +4,46 @@ import java.util.ArrayList;
 
 public class TaskList {
 
-	private Task[] tasks;
+    private ArrayList<Task> tasks;
 
-	public TaskList() {
+    public TaskList() {
+        tasks = new ArrayList<>();
+    }
 
-	}
+    public ArrayList<Task> getTasks() {
+        return tasks;
+    }
 
-	public ArrayList getTasks() {
-		return null;
-	}
+    public ArrayList<Task> getFinishedTasks() {
+        ArrayList<Task> finishedTasks = new ArrayList<>();
+        for (Task task : tasks) {
+            if (task.isFinito()) {
+                finishedTasks.add(task);
+            }
+        }
+        return finishedTasks;
+    }
 
-	public ArrayList getTasks(boolean finito) {
-		return null;
-	}
+    public Task getTaskByName(String name) {
+        for (Task task : tasks) {
+            if (task.getName().equalsIgnoreCase(name)) {
+                return task;
+            }
+        }
+        return null;
+    }
 
-	public Task getTaskByName() {
-		return null;
-	}
+    public void addTask(Task task) {
+        tasks.add(task);
+    }
 
-	public void addTask(Task task) {
-
-	}
-
-	public void removeTask(String taskName) {
-
-	}
+    public void removeTask(String taskName) {
+        for (Task task : tasks) {
+            if (task.getName().equalsIgnoreCase(taskName)) {
+                tasks.remove(task);
+                break;
+            }
+        }
+    }
 
 }

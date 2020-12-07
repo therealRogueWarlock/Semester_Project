@@ -6,6 +6,7 @@ public class Documentation {
 	private int timeSpent;
 	private MyDate date;
 
+
 	public Documentation(String teamMemberName,int timeSpent, MyDate date) {
 		this.teamMemberName = teamMemberName;
 		this.timeSpent = timeSpent;

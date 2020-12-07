@@ -15,7 +15,6 @@ public class RequirementList {
 		return requirements;
 	}
 
-
 	public Requirement getRequirementByName(String requirementName) {
 
 		for (Requirement requirement:requirements){
@@ -26,7 +25,6 @@ public class RequirementList {
 
 		return null;
 	}
-
 
 	public RequirementList getPriorityList() {
 		ArrayList<Requirement> returnArray = new ArrayList<>();
@@ -46,14 +44,16 @@ public class RequirementList {
 
 	}
 
-
 	public void addRequirement(Requirement requirement) {
 		requirements.add(requirement);
 	}
 
-
-	public void removeRequirement(Requirement requirement) {
-		requirements.remove(requirement);
+	public void removeRequirement(String requirementName) {
+		for (Requirement requirement : requirements) {
+			if (requirement.getName().equalsIgnoreCase(requirementName)) {
+				requirements.remove(requirement);
+				break;
+			}
+		}
 	}
-
 }

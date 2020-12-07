@@ -25,7 +25,7 @@
             <Insets left="50.0" />
          </GridPane.margin>
       </CheckBox>
-      <Button fx:id="confirmButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="128.0" text="Delete task" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <Button fx:id="deleteTask" mnemonicParsing="false" onMouseClicked="#deleteTask" prefHeight="25.0" prefWidth="128.0" text="Delete task" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <GridPane.margin>
             <Insets right="50.0" />
          </GridPane.margin>
@@ -52,7 +52,7 @@
                   <Insets right="30.0" />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="estimatedHourstTextField" promptText="Hours(fx: 65 )" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <TextField fx:id="estimatedHoursTextField" promptText="Hours(fx: 65 )" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets right="30.0" />
                </GridPane.margin>

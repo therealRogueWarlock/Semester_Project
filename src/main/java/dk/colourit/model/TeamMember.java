@@ -2,54 +2,57 @@ package dk.colourit.model;
 
 public class TeamMember {
 
-	private String name;
+    private String name;
+    private int employeeNumber;
+    private int role;
+    private MyDate birthday;
 
-	private int employeeNumber;
+    public TeamMember(String name, int employeeNumber, MyDate birthday) {
+        this.name = name;
+        this.employeeNumber = employeeNumber;
+        this.birthday = birthday;
+        setRole(0);
+    }
 
-	private MyDate birthday;
+    public String getName() {
+        return null;
+    }
 
-	private int role;
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	private TeamMember teamMember;
+    public int getEmployeeNumber() {
+        return employeeNumber;
+    }
 
-	private MyDate myDate;
+    public void setEmployeeNumber(int number) {
+        employeeNumber = number;
+    }
 
-	private ProjectList projectList;
+    public MyDate getBirthday() {
+        return birthday;
+    }
 
-	public TeamMember() {
+    public void setBirthday(MyDate myDate) {
+        birthday = myDate.copy();
+    }
 
-	}
+    public String getRole() {
+        switch (role) {
+            case (1):
+                return "Product Owner";
+            case (2):
+                return "Scrum Master";
+            case (3):
+                return "Project Creator";
+            default:
+                return "Team Member";
+        }
+    }
 
-	public String getName() {
-		return null;
-	}
-
-	public void setName(String name) {
-
-	}
-
-	public int getEmployeeNumber() {
-		return 0;
-	}
-
-	public void setEmployeeNumber(int number) {
-
-	}
-
-	public MyDate getBirthday() {
-		return null;
-	}
-
-	public void setBirthday(MyDate myDate) {
-
-	}
-
-	public String getRole() {
-		return null;
-	}
-
-	public void setRole(int role) {
-
-	}
+    public void setRole(int role) {
+        this.role = role;
+    }
 
 }

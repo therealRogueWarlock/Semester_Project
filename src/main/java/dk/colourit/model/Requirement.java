@@ -3,22 +3,19 @@ package dk.colourit.model;
 public class Requirement {
 
 	private String name;
-
 	private final MyDate creationDate;
-
 	private int timeEstimate;
-
 	private boolean priority;
-
 	private TaskList taskList;
 
 
 	public Requirement(String name, int timeEstimate, boolean priority) {
-		this.creationDate = MyDate.now();
+		creationDate = MyDate.now();
 
 		this.name = name;
 		this.timeEstimate = timeEstimate;
 		this.priority = priority;
+		taskList = new TaskList();
 	}
 
 	public String getName() {
@@ -38,16 +35,13 @@ public class Requirement {
 		this.timeEstimate = timeEstimate;
 	}
 
-
 	public boolean isHighPriority(){
 		return priority;
 	}
 
-
 	public void setPriority(boolean priority) {
 		this.priority = priority;
 	}
-
 
 	public void setTaskList(TaskList taskList) {
 		this.taskList = taskList;
