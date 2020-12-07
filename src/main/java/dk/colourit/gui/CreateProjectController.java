@@ -6,7 +6,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
-public class createProjectController {
+public class CreateProjectController
+{
 
   @FXML private TextField projectName;
   @FXML private DatePicker startDate;
