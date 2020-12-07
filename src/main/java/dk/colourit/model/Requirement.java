@@ -47,6 +47,5 @@ public class Requirement {
 		this.taskList = taskList;
 	}
 
-
 }
 

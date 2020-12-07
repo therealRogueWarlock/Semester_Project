@@ -3,7 +3,6 @@ package dk.colourit.model;
 
 import java.text.DecimalFormat;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 public class MyDate {
 
@@ -123,9 +122,7 @@ public class MyDate {
 
 	public static MyDate now()
 	{
-		GregorianCalendar cal = new GregorianCalendar(Calendar.DAY_OF_MONTH, Calendar.MONTH, Calendar.YEAR);
-		MyDate date = new MyDate(Calendar.DAY_OF_MONTH, Calendar.MONTH, Calendar.YEAR);
-		return date;
+		return new MyDate(Calendar.DAY_OF_MONTH, Calendar.MONTH, Calendar.YEAR);
 	}
 
 }

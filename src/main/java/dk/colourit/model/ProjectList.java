@@ -4,10 +4,7 @@ import java.util.ArrayList;
 
 public class ProjectList {
 
-	private Project project;
-
 	private ArrayList<Project> projects;
-
 
 	public ProjectList() {
 
@@ -45,7 +42,6 @@ public class ProjectList {
 
 		return returnArray;
 	}
-
 
 
 	public void removeProject(String projectName) {
