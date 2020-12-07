@@ -43,6 +43,7 @@ public class ScrumClickOnTaskController extends Controller{
     daySelectedColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
 
     documentationTableView.setItems(documentationsList);
+
   }
 
   /*

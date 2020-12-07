@@ -16,13 +16,13 @@ public class LoginScreenController extends Controller {
     @FXML
     private void selectedProjectCreatorRole() throws IOException {
         model.selectUserRole(3);
-        ColourItGui.setRoot("primary");
+        ColourItGui.setRoot("projectListViewCreator");
     }
 
     @FXML
     private void selectedScrumMasterRole() throws IOException {
         model.selectUserRole(2);
-        ColourItGui.setRoot("projectListView");
+        ColourItGui.setRoot("primary");
     }
 
     @FXML

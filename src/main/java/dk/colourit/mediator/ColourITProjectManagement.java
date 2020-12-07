@@ -64,9 +64,6 @@ public class ColourITProjectManagement {
 		}
 
 
-
-
-
 	}
 
 	public void selectUserRole(int role) {
