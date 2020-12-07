@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class taskListAddPopUpController extends Controller{
+public class TaskListAddPopUpController extends Controller{
 
     @FXML
     private Button confirmButton;

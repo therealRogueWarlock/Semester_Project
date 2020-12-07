@@ -6,7 +6,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class taskDetailsPopUpController extends Controller {
+public class TaskDetailsPopUpController extends Controller {
     public Button confirmEditButton;
     public TextArea taskTextArea;
     public TextField responsibleTeamMemberTextField;
