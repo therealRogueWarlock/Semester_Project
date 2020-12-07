@@ -4,7 +4,7 @@ import dk.colourit.mediator.ColourITProjectManagement;
 
 public abstract class Controller {
 
-    private ColourITProjectManagement model = new ColourITProjectManagement();
+    protected ColourITProjectManagement model = new ColourITProjectManagement();
 
     public void setModel(ColourITProjectManagement model){
         this.model = model;
