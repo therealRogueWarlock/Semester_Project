@@ -6,8 +6,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
-public class CreateProjectController
-{
+public class CreateProjectController extends Controller {
 
   @FXML private TextField projectName;
   @FXML private DatePicker startDate;
@@ -15,6 +14,13 @@ public class CreateProjectController
   @FXML private Button addMember;
   @FXML private Button confirm;
   @FXML private Button reject;
+
+  @Override
+  public void init() {
+
+  }
+
+
   /*
   Mangler noget til TableView
   De 3 kolloner

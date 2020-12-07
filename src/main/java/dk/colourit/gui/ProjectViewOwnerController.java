@@ -3,7 +3,7 @@ package dk.colourit.gui;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-public class ProjectViewOwner {
+public class ProjectViewOwnerController extends Controller{
   public TextField addRequirementInput;
   public Button addRequirementButton;
   public ChoiceBox requirementList;
@@ -31,6 +31,11 @@ public class ProjectViewOwner {
   }
 
   @FXML private void removeRequirementButton(){
+
+  }
+
+  @Override
+  public void init() {
 
   }
 }

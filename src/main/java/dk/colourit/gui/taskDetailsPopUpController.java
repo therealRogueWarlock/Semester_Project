@@ -6,7 +6,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class taskDetailsPopUpController {
+public class taskDetailsPopUpController extends Controller {
     public Button confirmEditButton;
     public TextArea taskTextArea;
     public TextField responsibleTeamMemberTextField;
@@ -20,5 +20,10 @@ public class taskDetailsPopUpController {
     public void deleteTask(){
         //TODO: Implement Task Deletion
             ((Stage) deleteTask.getScene().getWindow()).close(); // Get's the Window the button is in, and casts to a Stage, which can be closed with .close()
+    }
+
+    @Override
+    public void init() {
+
     }
 }

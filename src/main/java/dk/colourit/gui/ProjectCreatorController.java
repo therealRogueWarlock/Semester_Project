@@ -1,4 +1,8 @@
 package dk.colourit.gui;
 
-public class ProjectCreatorController {
+public class ProjectCreatorController extends Controller{
+    @Override
+    public void init() {
+
+    }
 }

@@ -102,4 +102,13 @@ public class ColourITProjectManagement
 
 	}
 
+  public ProjectList getProjectList() {
+    return projectList;
+  }
+
+  public TeamMemberList getTeamMemberList() {
+    return teamMemberList;
+  }
+
+
 }

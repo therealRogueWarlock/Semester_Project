@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class SecondaryController {
+public class SecondaryController extends Controller {
 
     public Button documentationListButton;
 
@@ -39,11 +39,16 @@ public class SecondaryController {
         return fxmlLoader.load();
     }
 
-  public void switchToDocumentation() throws IOException {
+    public void switchToDocumentation() throws IOException {
+
 
         ColourItGui.setRoot("scrumClickOnTask");
-        
-  }
 
+    }
+
+    @Override
+    public void init() {
+
+    }
 
 }

@@ -4,7 +4,15 @@ import javafx.fxml.FXML;
 
 import java.io.IOException;
 
-public class LoginScreenController {
+public class LoginScreenController extends Controller {
+
+
+    @Override
+    public void init() {
+
+    }
+
+
     @FXML
     private void selectedProjectCreatorRole() throws IOException {
         ColourItGui.setRoot("primary");

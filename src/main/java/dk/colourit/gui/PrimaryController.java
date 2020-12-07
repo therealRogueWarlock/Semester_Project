@@ -4,7 +4,7 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class PrimaryController {
+public class PrimaryController extends Controller {
 
 	public Button primaryButton;
 	public Button loginButton1;
@@ -19,5 +19,8 @@ public class PrimaryController {
         ColourItGui.setRoot("loginScreen");
     }
 
+    @Override
+    public void init() {
 
+    }
 }

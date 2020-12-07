@@ -79,11 +79,11 @@
       </HBox>
       <HBox prefHeight="100.0" prefWidth="600.0">
          <children>
-            <TableView prefHeight="100.0" prefWidth="420.0">
+            <TableView fx:id="documentationLogList" prefHeight="100.0" prefWidth="420.0">
               <columns>
-                <TableColumn prefWidth="191.0" text="Team Member" />
-                <TableColumn prefWidth="96.0" text="Time Spent" />
-                  <TableColumn prefWidth="130.0" text="Date" />
+                <TableColumn fx:id="memberNameColumn" prefWidth="191.0" text="Team Member" />
+                <TableColumn fx:id="timeSpentColumn" prefWidth="96.0" text="Time Spent" />
+                <TableColumn fx:id="daySelectedColumn" prefWidth="130.0" text="Date" />
               </columns>
             </TableView>
          </children>

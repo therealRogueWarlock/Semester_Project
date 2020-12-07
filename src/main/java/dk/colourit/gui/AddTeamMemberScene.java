@@ -6,12 +6,17 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class AddTeamMemberScene {
+public class AddTeamMemberScene extends Controller {
     @FXML
     private Button addTeamMemberButton;
 
     @FXML
     private void addTeamMember() throws IOException {
         ((Stage) addTeamMemberButton.getScene().getWindow()).close(); // Get's the Window the button is in, and casts to a Stage, which can be closed with .close()
+    }
+
+    @Override
+    public void init() {
+
     }
 }

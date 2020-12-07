@@ -6,7 +6,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
-public class EditProjectCreator {
+public class EditProjectCreatorController extends Controller{
 
   @FXML public Button editButton;
   @FXML public Button addTeamMemberButton;
@@ -40,4 +40,8 @@ public class EditProjectCreator {
 
   }
 
+  @Override
+  public void init() {
+
+  }
 }

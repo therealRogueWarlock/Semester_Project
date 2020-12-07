@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class taskListSceneController {
+public class taskListSceneController extends Controller {
 
     public TableView highPriorityTableView;
     public TableView lowPriorityTableView;
