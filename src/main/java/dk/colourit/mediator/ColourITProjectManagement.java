@@ -5,25 +5,19 @@ import dk.colourit.model.MyDate;
 import dk.colourit.model.ProjectList;
 import dk.colourit.model.TeamMemberList;
 
-public class ColourITProjectManagement
-{
+public class ColourITProjectManagement {
 
 	private ProjectList projectList;
-
 	private TeamMemberList teamMemberList;
-
 	private ColourItFileHandler colourItFileHandler;
-
-
-
+	private int userRole;
 
 	public ColourITProjectManagement() {
 
-
 	}
 
-	public void selectUserRole() {
-
+	public void selectUserRole(int role) {
+		userRole = role;
 	}
 
 	public void createProject() {
@@ -34,8 +28,7 @@ public class ColourITProjectManagement
 
 	}
 
-	public void addMemberToProject(String projectName, String memberName,
-		int memberRole) {
+	public void addMemberToProject(String projectName, String memberName, int memberRole) {
 
 	}
 
@@ -88,13 +81,13 @@ public class ColourITProjectManagement
 
 	}
 
-  public ProjectList getProjectList() {
-    return projectList;
-  }
+	public ProjectList getProjectList() {
+		return projectList;
+	}
 
-  public TeamMemberList getTeamMemberList() {
-    return teamMemberList;
-  }
+	public TeamMemberList getTeamMemberList() {
+		return teamMemberList;
+	}
 
 
 }
