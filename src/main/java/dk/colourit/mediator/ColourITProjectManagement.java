@@ -1,18 +1,71 @@
 package dk.colourit.mediator;
 
-import dk.colourit.model.ColourItFileHandler;
-import dk.colourit.model.MyDate;
-import dk.colourit.model.ProjectList;
-import dk.colourit.model.TeamMemberList;
+import dk.colourit.model.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import java.util.ArrayList;
 
 public class ColourITProjectManagement {
 
 	private ProjectList projectList;
 	private TeamMemberList teamMemberList;
+
 	private ColourItFileHandler colourItFileHandler;
+
 	private int userRole;
 
 	public ColourITProjectManagement() {
+		projectList = new ProjectList();
+		teamMemberList = new TeamMemberList();
+
+
+		String[] names = {"Sander", "Andreas", "Seb", "Marker", "Crimmer", "Peter"};
+
+		teamMemberList.addTeamMember(new TeamMember("Sander", 12195, MyDate.now() ));
+		teamMemberList.addTeamMember(new TeamMember("Andreas", 124312, MyDate.now() ));
+		teamMemberList.addTeamMember(new TeamMember("Seb", 12825, MyDate.now() ));
+		teamMemberList.addTeamMember(new TeamMember("Marker", 15125, MyDate.now() ));
+		teamMemberList.addTeamMember(new TeamMember("Crimmer", 11825, MyDate.now() ));
+		teamMemberList.addTeamMember(new TeamMember("Peter", 21295, MyDate.now() ));
+
+
+
+
+
+		projectList.addProject(new Project("Assproject", MyDate.now(), new MyDate(12, 12,2021)));
+		projectList.addProject(new Project("Buttproject", MyDate.now(), new MyDate(12, 1,2023)));
+		projectList.addProject(new Project("TITIproject", MyDate.now(), new MyDate(1, 12,2024)));
+		projectList.addProject(new Project("Shitproject", MyDate.now(), new MyDate(12, 1,2025)));
+		projectList.addProject(new Project("ArshSHitproject", MyDate.now(), new MyDate(12, 1,2026)));
+		projectList.addProject(new Project("Fissisproject", MyDate.now(), new MyDate(1, 12,2027)));
+
+
+		for (int i = 0; i < projectList.getProjects().size(); i++) {
+			Project project = projectList.getProjects().get(i);
+
+			for (String name : names) {
+				project.getTeamMemberList().addTeamMember(teamMemberList.getTeamMember("name", name));
+			}
+
+		}
+
+
+
+
+
+
+		ArrayList<Documentation> documentationArray = new ArrayList<>();
+		documentationArray.add(new Documentation("Peter", 30, MyDate.now()));
+		documentationArray.add(new Documentation("Bob", 33, MyDate.now()));
+		documentationArray.add(new Documentation("Bent", 55, MyDate.now()));
+		documentationArray.add(new Documentation("John", 26, MyDate.now()));
+		ObservableList<Documentation> documentationsList = FXCollections.observableArrayList();
+		documentationsList.addAll(documentationArray);
+
+
+
+
 
 	}
 
@@ -28,26 +81,32 @@ public class ColourITProjectManagement {
 
 	}
 
+
 	public void addMemberToProject(String projectName, String memberName, int memberRole) {
 
 	}
+
 
 	public void removeMemberFromProject(String projectName, String memberName) {
 
 	}
 
+
 	public void assignRoleToTeamMember(String projectName, String memberName, String memberRole) {
 
 	}
+
 
 	public void taskDocumentation(String projectName, String requirementName, String taskName,
 								  int hours, MyDate date, String memberName) {
 
 	}
 
+
 	public void finishTask(String taskName) {
 
 	}
+
 
 	public void setRequirementReady(String requirementName, boolean ready) {
 

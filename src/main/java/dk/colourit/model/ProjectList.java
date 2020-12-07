@@ -7,7 +7,7 @@ public class ProjectList {
 	private ArrayList<Project> projects;
 
 	public ProjectList() {
-
+		projects = new ArrayList<>();
 	}
 
 	public ArrayList<Project> getProjects() {

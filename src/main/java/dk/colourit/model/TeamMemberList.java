@@ -25,9 +25,9 @@ public class TeamMemberList {
                 if (teamMember.getName().equalsIgnoreCase(searchTerm))
                     return teamMember;
             }
-
         }
         return null;
+
     }
 
 
