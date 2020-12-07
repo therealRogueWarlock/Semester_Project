@@ -52,5 +52,4 @@ public class taskListSceneController {
         return fxmlLoader.load();
     }
 
-
 }

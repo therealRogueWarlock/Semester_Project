@@ -22,7 +22,6 @@ public class RequirementList {
 				return requirement;
 			}
 		}
-
 		return null;
 	}
 
@@ -43,6 +42,7 @@ public class RequirementList {
 		}
 
 	}
+
 
 	public void addRequirement(Requirement requirement) {
 		requirements.add(requirement);
