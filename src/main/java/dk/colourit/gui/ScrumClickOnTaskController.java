@@ -11,8 +11,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.util.ArrayList;
 
-public class ScrumClickOnTaskController
-{
+public class ScrumClickOnTaskController extends Controller{
 
   @FXML private Label taskName;
   @FXML private Label totalTimeSpent;
