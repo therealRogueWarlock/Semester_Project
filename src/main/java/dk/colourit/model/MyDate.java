@@ -45,12 +45,46 @@ public class MyDate {
 		year = argYear;
 	}
 
-	public boolean isLeapYear() {
-		return false;
+	public boolean isLeapYear()
+	{
+		if (year % 4 == 0)
+		{
+			if (year % 400 == 0)
+			{
+				return true;
+			}
+			else if (year % 100 == 0)
+			{
+				return false;
+			}
+			else
+				return true;
+		}
+		else
+			return false;
 	}
 
-	public int numberOfDaysInMonth() {
-		return 0;
+	public int numberOfDaysInMonth()  {
+		if (month == 1 || month == 3 || month == 5 || month == 7 ||
+				month == 8 || month == 10 || month == 12)
+		{
+			return 31;
+		}
+		else if (month == 4 || month == 6 || month == 9 || month == 11)
+		{
+			return 30;
+		}
+		else if (month == 2 && isLeapYear())
+		{
+			return 29;
+		}
+		else if (month == 2)
+		{
+			return 28;
+		}
+		else
+			//System.out.println("You mistyped the month!");
+			return -1;
 	}
 
 	public int yearsBetween(MyDate myDate) {
