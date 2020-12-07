@@ -47,22 +47,22 @@
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
                   <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="49.0" prefWidth="446.0" text="Requirements" />
-                  <TableView prefHeight="504.0" prefWidth="446.0">
+                  <TableView fx:id="requirementTable" prefHeight="504.0" prefWidth="446.0">
                     <columns>
-                      <TableColumn maxWidth="1.7976931348623157E308" prefWidth="57.0" text="Priority" />
-                        <TableColumn prefWidth="274.0" text="Name" />
-                        <TableColumn prefWidth="114.0" text="Status" />
+                      <TableColumn fx:id="requirementPriorityColumn" maxWidth="1.7976931348623157E308" prefWidth="57.0" text="Priority" />
+                        <TableColumn fx:id="requirementNameColumn" prefWidth="274.0" text="Name" />
+                        <TableColumn fx:id="requirementStatusColumn" prefWidth="114.0" text="Status" />
                     </columns>
                   </TableView>
                </children>
             </VBox>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <TableView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="578.0" prefWidth="446.0">
+                  <TableView fx:id="teamMemberTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="578.0" prefWidth="446.0">
                     <columns>
-                      <TableColumn prefWidth="192.0" text="Team Member Name" />
-                      <TableColumn prefWidth="137.0" text="ID Number" />
-                        <TableColumn minWidth="0.0" prefWidth="116.0" text="Role" />
+                      <TableColumn fx:id="teamMemberNameColumn" prefWidth="192.0" text="Team Member Name" />
+                      <TableColumn fx:id="IDNumberColumn" prefWidth="137.0" text="ID Number" />
+                        <TableColumn fx:id="roleColumn" minWidth="0.0" prefWidth="116.0" text="Role" />
                     </columns>
                   </TableView>
                </children>
