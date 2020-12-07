@@ -3,30 +3,33 @@ package dk.colourit.model;
 
 public class MyDate {
 
-	private int month;
-
 	private int day;
-
+	private int month;
 	private int year;
 
 	public MyDate(int argDay, int argMonth, int argYear) {
-
+		day = argDay;
+		month = argMonth;
+		year = argYear;
 	}
 
 	public MyDate() {
 
 	}
 
-	public int getDay() {
-		return 0;
+	public int getDay()
+	{
+		return day;
 	}
 
-	public int getMonth() {
-		return 0;
+	public int getMonth()
+	{
+		return month;
 	}
 
-	public int getYear() {
-		return 0;
+	public int getYear()
+	{
+		return year;
 	}
 
 	public String getMonthName() {
@@ -39,14 +42,6 @@ public class MyDate {
 
 	public boolean isLeapYear() {
 		return false;
-	}
-
-	public void stepForwardOneDay() {
-
-	}
-
-	public void stepForward(int days) {
-
 	}
 
 	public int numberOfDaysInMonth() {
