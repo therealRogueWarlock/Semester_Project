@@ -187,13 +187,11 @@ public class ColourITProjectManagement
     public ProjectList getProjectList()
     {
         return projectList;
-        //TODO: Er denne på klasse diagram?
     }
 
     public TeamMemberList getTeamMemberList()
     {
         return teamMemberList;
-        //TODO: Er denne på klasse diagram?
     }
 
 }
