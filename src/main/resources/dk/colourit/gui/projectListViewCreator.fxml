@@ -15,6 +15,7 @@
   </columnConstraints>
   <rowConstraints>
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="5.0" percentHeight="20.0" prefHeight="5.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <GridPane prefHeight="271.0" prefWidth="600.0">
@@ -70,5 +71,6 @@
             </TableView>
          </children>
       </GridPane>
+      <Button fx:id="addEmployeeButton" mnemonicParsing="false" onMouseClicked="#addEmployee" text="Add Employee" GridPane.rowIndex="1" />
    </children>
 </GridPane>
