@@ -49,25 +49,30 @@ public class ColourITProjectManagement
         {
             Project project = projectList.getProjects().get(i);
             System.out.println(project + " dummy data " + project.getName());
-            for (String name : names)
-            {
+
+            int j = 0;
+
+            for (String name : names){
                 project.getTeamMemberList()
                     .addTeamMember(teamMemberList.getTeamMember("name", name));
 
+
+                project.getRequirementList().addRequirement(
+                    new Requirement(("requirement" + j), 10 + j, true));
+
+                Requirement requirement = project.getRequirementList()
+                    .getRequirementByName(("requirement" + j));
+                requirement.getTaskList()
+                    .addTask(new Task(("randomTask" + j), names[j], 10 + j));
+
+                Task task = requirement.getTaskList()
+                    .getTaskByName(("randomTask" + j));
+                task.getDocumentations()
+                    .add(new Documentation(names[j], 10 + j, MyDate.now()));
+
+                j++;
+
             }
-
-            project.getRequirementList().addRequirement(
-                new Requirement(("requirement" + i), 10 + i, true));
-
-            Requirement requirement = project.getRequirementList()
-                .getRequirementByName(("requirement" + i));
-            requirement.getTaskList()
-                .addTask(new Task(("randomTask" + i), names[i], 10 + i));
-
-            Task task = requirement.getTaskList()
-                .getTaskByName(("randomTask" + i));
-            task.getDocumentations()
-                .add(new Documentation(names[i], 10 + i, MyDate.now()));
 
         }
     }

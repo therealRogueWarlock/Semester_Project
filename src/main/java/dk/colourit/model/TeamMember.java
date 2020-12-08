@@ -55,4 +55,10 @@ public class TeamMember {
         this.role = role;
     }
 
+    @Override public String toString()
+    {
+        return "TeamMember{" + "name='" + name + '\'' + ", employeeNumber="
+            + employeeNumber + ", role=" + role + ", birthday=" + birthday
+            + '}';
+    }
 }
