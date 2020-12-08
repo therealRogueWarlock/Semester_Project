@@ -3,17 +3,12 @@ package dk.colourit.model;
 public class Project {
 
 	private String name;
-
 	private MyDate creationDate;
-
 	private MyDate startDate;
-
 	private MyDate deadLine;
-
 	private MyDate endDate;
 
 	private RequirementList requirementList;
-
 	private TeamMemberList teamMemberList;
 
 

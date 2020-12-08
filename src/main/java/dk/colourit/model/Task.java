@@ -52,14 +52,16 @@ public class Task {
         return description;
     }
 
-    public boolean isFinito() {
-        return finito;
-    }
-
     public void setDescription(String text) {
         description = text;
     }
 
+    public boolean isFinito() {
+        return finito;
+    }
 
+    public boolean setFinito(boolean arg) {
+        finito = arg;
+    }
 
 }

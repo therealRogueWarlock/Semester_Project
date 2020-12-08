@@ -81,52 +81,70 @@ public class ColourITProjectManagement
         userRole = role;
     }
 
-    public void createProject()
+    public void createProject(String projectName, MyDate getStartDate, MyDate deadline)
     {
-
+        projectList.addProject(new Project(projectName, getStartDate, deadline));
     }
 
     public void deleteProject(String projectName)
     {
-
+        projectList.removeProject(projectName);
     }
 
     public void addMemberToProject(String projectName, String memberName,
         int memberRole)
     {
-
+        projectList.getProjectByName(projectName).getTeamMemberList().
+            getTeamMember("name", memberName).setRole(memberRole);
+        /*
+        Hvad med setRole, SKAL man gøre dette når man laver den?
+         */
     }
 
     public void removeMemberFromProject(String projectName, String memberName)
     {
-
+        projectList.getProjectByName(projectName).getTeamMemberList()
+            .removeTeamMember(memberName);
     }
 
     public void assignRoleToTeamMember(String projectName, String memberName,
-        String memberRole)
+        int memberRole)
     {
-
+        projectList.getProjectByName(projectName).getTeamMemberList()
+            .getTeamMember("name", memberName).setRole(memberRole);
     }
 
     public void taskDocumentation(String projectName, String requirementName,
         String taskName, int hours, MyDate date, String memberName)
     {
-
+        projectList.getProjectByName(projectName)
+            .getRequirementList().getRequirementByName(requirementName)
+            .getTaskList().getTaskByName(taskName).////.getDocumentation
+        //Vi skal vidst lave en Documentation method i vores Task, så vi kan komme ned i den.
     }
 
-    public void finishTask(String taskName)
+    public void finishTask(String projectName, String requirementName, String taskName)
     {
-
+        projectList.getProjectByName(projectName)
+            .getRequirementList().getRequirementByName(requirementName)
+            .getTaskList().getTaskByName(taskName).setFinito(true);
+        /*
+        Skal det også være muligt at sætte til false i denne funktion?
+        Jeg tænker ja, da det ville være fjollet at have en seperat funktion for det.
+         */
     }
 
-    public void setRequirementReady(String requirementName, boolean ready)
+    public void setRequirementReady(String projectName, String requirementName, boolean ready)
     {
-
+        projectList.getProjectByName(projectName)
+            .getRequirementList().getRequirementByName(requirementName).set
+            //Mangler at tilføje
+        //TODO
     }
 
     public void setRequirementApproval(String requirementName, boolean approval)
     {
-
+        //TODO
     }
 
     public void addRequirement(String requirementName)
