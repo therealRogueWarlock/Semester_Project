@@ -2,28 +2,26 @@ package dk.colourit.model;
 
 import java.util.ArrayList;
 
-public class ProjectList
-{
+public class ProjectList {
 
 	private ArrayList<Project> projects;
 
-	public ProjectList()
-	{
+	public ProjectList() {
 		projects = new ArrayList<>();
 	}
 
-	public ArrayList<Project> getProjects()
-	{
+	public ArrayList<Project> getProjects() {
 		return projects;
 	}
 
-	public void addProject(Project project)
-	{
+
+	public void addProject(Project project) {
 		projects.add(project);
 	}
 
 	public Project getProjectByName(String projectName)
 	{
+		//TODO: getName = Peter - projectName = pEtER
 		for (Project project : projects)
 		{
 			if (project.getName().equals(projectName))
@@ -35,8 +33,8 @@ public class ProjectList
 		return null;
 	}
 
-	public ArrayList<Project> getProjectsByTeamMember(String name)
-	{
+
+	public ArrayList<Project> getProjectsByTeamMember(String name) {
 		ArrayList<Project> returnArray = new ArrayList<>();
 
 		for (Project project : projects)
@@ -55,4 +53,5 @@ public class ProjectList
 	{
 		projects.remove(getProjectByName(projectName));
 	}
+
 }
