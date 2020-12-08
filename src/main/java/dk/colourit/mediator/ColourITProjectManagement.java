@@ -177,7 +177,6 @@ public class ColourITProjectManagement
 
         projectList.getProjectByName(projectName)
             .getRequirementList().addRequirement(requirement);
-            //TODO: Det skal vel være en Requirement requirementName, så vi kan oprette et nyt requirement.
     }
 
     public void removeRequirement(String projectName, String requirementName)
