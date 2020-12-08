@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ProjectListViewCreatorController extends Controller
+public class ProjectDetailsSceneController extends Controller
 {
 
 	public TableView<Project> projectTableView;
@@ -61,11 +61,8 @@ public class ProjectListViewCreatorController extends Controller
 	{
 		Project selectedProject = projectTableView.getSelectionModel().getSelectedItem();
 
-		//Debugging: Made to view multiple screens
-		if (selectedProject.getName().equalsIgnoreCase("project1"))
-			ColourItGui.setRoot("editProjectCreator", selectedProject);
-		else
-			ColourItGui.setRoot("projectViewOwner", selectedProject);
+		ColourItGui.setRoot("projectDetailsScene", selectedProject);
+
 	}
 
 	public void addEmployee() throws IOException
