@@ -2,21 +2,26 @@ package dk.colourit.model;
 
 public class Requirement {
 
+	private TaskList taskList; //TODO: Skal dette ikke være en TaskList<Task>? - SBT
 	private String name;
 	private final MyDate creationDate;
 	private int timeEstimate;
 	private int priority;
-	private TaskList taskList;
 	private int status;
-
+		/*
+	0 = notDone
+	1 = readyForApproval
+	2 = approval
+	3 = finished
+	 */
 
 	public Requirement(String name, int timeEstimate, int priority) {
-		creationDate = MyDate.now();
-		status = 0;
-
 		this.name = name;
 		this.timeEstimate = timeEstimate;
 		this.priority = priority;
+
+		creationDate = MyDate.now();
+		status = 0;
 		taskList = new TaskList();
 
 	}
@@ -29,7 +34,9 @@ public class Requirement {
 		this.name = name;
 	}
 
-
+	public MyDate getCreationDate() {
+		return creationDate;
+	}
 
 	public int getTimeEstimate() {
 		return timeEstimate;
@@ -39,7 +46,7 @@ public class Requirement {
 		this.timeEstimate = timeEstimate;
 	}
 
-	public int isHighPriority(){
+	public int getPriority(){
 		return priority;
 	}
 
@@ -47,10 +54,12 @@ public class Requirement {
 		this.priority = priority;
 	}
 
+	//TODO: Er denne metode nødvendigt? - Hvis ja, hvad skal det bruges til? - SBT (Mangler i UML)
 	public void setTaskList(TaskList taskList) {
 		this.taskList = taskList;
 	}
 
+	//TODO: Hvad bruges denne til? - SBT (Mangler i UML)
 	public TaskList getTaskList() {
 		return taskList;
 	}
