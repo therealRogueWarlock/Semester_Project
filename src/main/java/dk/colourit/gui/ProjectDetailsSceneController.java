@@ -71,8 +71,13 @@ public class ProjectDetailsSceneController extends Controller
     return fxmlLoader.load();
   }
 
-  public void deleteProjectButton()
+  public void deleteProjectButton() throws IOException
   {
+    Scene confirmDeleteProjectScene = new Scene(loadFXML("confirmDeleteProject"));
+    Stage stage = new Stage();
+
+    stage.setScene(confirmDeleteProjectScene);
+    stage.show();
   }
 
   public void teamMemberList()
