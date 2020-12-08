@@ -13,15 +13,14 @@ import java.io.IOException;
 public class ColourItGui extends Application {
 
     private static Scene scene;
-
+    private static final
+    ColourITProjectManagement model = new ColourITProjectManagement();
 
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("loginScreen"), 635, 604);
         stage.setScene(scene);
         stage.show();
-
-
 
 
         // when primary stage is closed, close all other open windows.
@@ -40,14 +39,13 @@ public class ColourItGui extends Application {
         loader.setLocation(ColourItGui.class.getResource(fxml + ".fxml"));
         Parent root = loader.load();
 
-
         Controller controller = loader.getController();
 
+        controller.setModel(model);
 
         controller.init();
 
         return root;
-
     }
 
     public static void launchApp() {
