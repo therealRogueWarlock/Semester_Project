@@ -88,7 +88,7 @@ public class ProjectDetailsSceneController extends Controller
   {
   }
 
-  public void backButton() throws IOException
+  public void goBack() throws IOException
   {
     ColourItGui.setRoot("projectListView");
   }

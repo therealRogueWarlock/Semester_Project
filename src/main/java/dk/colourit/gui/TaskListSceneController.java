@@ -45,7 +45,6 @@ public class TaskListSceneController extends Controller {
     public Button addTaskButton;
 
 
-
     public void init(){
         Requirement requirement = (Requirement) getObjectHolderForInit();
 
@@ -74,7 +73,8 @@ public class TaskListSceneController extends Controller {
 
         ObservableList<Task> observableLowPriorityTasks = FXCollections.observableArrayList();
 
-        observableHighPriorityTasks.addAll(lowPriorityTasks);
+        observableLowPriorityTasks.addAll(lowPriorityTasks);
+
 
         taskNameLowColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         estimatedTimeLowColumn.setCellValueFactory(new PropertyValueFactory<>("timeEstimateHour"));
@@ -84,9 +84,9 @@ public class TaskListSceneController extends Controller {
 
     }
 
-    @Override public void backButton()
+    @Override public void goBack() throws IOException
     {
-
+        ColourItGui.setRoot("projectDetailsScene", getPreObjectHolder());
     }
 
     @FXML
@@ -105,11 +105,6 @@ public class TaskListSceneController extends Controller {
 
         stage.setScene(scene);
         stage.show();
-    }
-
-
-    public void backToPrevScene() throws IOException {
-        ColourItGui.setRoot("projectDetailsScene", null);
     }
 
 

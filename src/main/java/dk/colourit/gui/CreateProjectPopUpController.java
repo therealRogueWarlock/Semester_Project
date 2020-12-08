@@ -20,7 +20,7 @@ public class CreateProjectPopUpController extends Controller {
 
   }
 
-  @Override public void backButton()
+  @Override public void goBack()
   {
 
   }

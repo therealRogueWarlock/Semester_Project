@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public abstract class Controller
 {
-
+	private Object preObjectHolder;
 	private Object objectHolderForInit;
 
 	protected ColourITProjectManagement model;
@@ -17,6 +17,7 @@ public abstract class Controller
 
 	public void setObjectHolderForInit(Object objectHolderForInit)
 	{
+		preObjectHolder = this.objectHolderForInit;
 		this.objectHolderForInit = objectHolderForInit;
 	}
 
@@ -42,6 +43,10 @@ public abstract class Controller
 
 	public abstract void init();
 
-	public abstract void backButton() throws IOException;
+	public abstract void goBack() throws IOException;
 
+	public Object getPreObjectHolder()
+	{
+		return preObjectHolder;
+	}
 }
