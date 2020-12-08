@@ -6,7 +6,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
-public class CreateProjectController extends Controller {
+public class CreateProjectPopUpController extends Controller {
 
   @FXML private TextField projectName;
   @FXML private DatePicker startDate;
