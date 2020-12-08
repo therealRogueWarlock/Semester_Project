@@ -52,7 +52,7 @@ public class ProjectListViewCreatorController extends Controller
 
 	}
 
-	public void itemSelected() throws IOException
+	public void itemSelected() throws IOException //SANDER DONT FUCKING REMOVE THIS PLEASE
 	{
 		Project selectedProject = projectTableView.getSelectionModel().getSelectedItem();
 		if (selectedProject.getName().equalsIgnoreCase("project1"))
