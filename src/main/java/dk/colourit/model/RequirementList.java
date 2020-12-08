@@ -15,7 +15,7 @@ public class RequirementList {
     }
 
     public Requirement getRequirementByName(String requirementName) {
-
+        //TODO: Pea brain time, rammer dette forloop projekt listen?
         for (Requirement requirement : requirements) {
             if (requirement.getName().equals(requirementName)) {
                 return requirement;
