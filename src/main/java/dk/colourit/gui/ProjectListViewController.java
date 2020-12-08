@@ -30,6 +30,7 @@ public class ProjectListViewController extends Controller
 	// feeling cute might delete later
 	public Button backButton;
 	public Button createButton;
+	public Button addEmployeeButton;
 
 	@Override public void init()
 	{
