@@ -5,41 +5,57 @@ import dk.colourit.model.Requirement;
 import dk.colourit.model.TeamMember;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class EditProjectCreatorController extends Controller{
-
-  @FXML public Button editButton;
-  @FXML public Button addTeamMemberButton;
-  @FXML public Button deleteProjectButton;
-  @FXML public Button removeTeamMemberButton;
-  @FXML public ChoiceBox teamMemberList;
-
+public class ProjectDetailsSceneController extends Controller
+{
+  public Button editButton;
+  public TextField addRequirementInput;
+  public Button addRequirementButton;
+  public ChoiceBox requirementList;
+  public Button removeRequirementButton;
+  public TableView<Requirement> requirementTable;
+  public TableColumn requirementPriorityColumn;
+  public TableColumn<Requirement, String> requirementNameColumn;
+  public TableColumn requirementStatusColumn;
+  public Button addTeamMemberButton;
+  public Button deleteProjectButton;
+  public ChoiceBox teamMemberList;
+  public Button removeTeamMemberButton;
   public TableView<TeamMember> teamMemberTable;
   public TableColumn<TeamMember, String> teamMemberNameColumn;
-  public TableColumn<TeamMember, Integer> IDNumberColumn;
+  public TableColumn<TeamMember, Integer> idNumberColumn;
   public TableColumn<TeamMember, Integer> roleColumn;
 
-  public TableView<Requirement> requirementTable;
-  public TableColumn<Requirement, String> requirementNameColumn;
-
-  @FXML private void editButton() {
-
+  public void editButton()
+  {
   }
 
-  @FXML private void addTeamMemberButton() throws IOException
+  public void addRequirementInput()
+  {
+  }
+
+  public void addRequirementButton()
+  {
+  }
+
+  public void requirementList()
+  {
+  }
+
+  public void removeRequirementButton()
+  {
+  }
+
+  public void addTeamMemberButton() throws IOException
   {
     Scene addTeamMemberScene = new Scene(loadFXML("addTeamMemberScene"));
     Stage stage = new Stage();
@@ -47,28 +63,30 @@ public class EditProjectCreatorController extends Controller{
     stage.setScene(addTeamMemberScene);
     stage.show();
   }
-
   private static Parent loadFXML(String fxml) throws IOException
   {
     FXMLLoader fxmlLoader = new FXMLLoader(ColourItGui.class.getResource(fxml + ".fxml"));
     return fxmlLoader.load();
   }
 
-
-  @FXML private void deleteProjectButton(){
-
+  public void deleteProjectButton()
+  {
   }
 
-  @FXML private void removeTeamMemberButton(){
-
+  public void teamMemberList()
+  {
   }
 
-  @FXML private void teamMemberList() {
-
+  public void removeTeamMemberButton()
+  {
   }
 
-  @Override
-  public void init() {
+  public void backButton()
+  {
+  }
+
+  @Override public void init()
+  {
     Project project = (Project) getObjectHolderForInit();
     ArrayList<Requirement> requirements = project.getRequirementList().getRequirements();
     ObservableList<Requirement> observableRequirementList =  FXCollections.observableArrayList();
@@ -87,8 +105,12 @@ public class EditProjectCreatorController extends Controller{
     observableTeamMembers.addAll(teamMembers);
 
     teamMemberNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-    IDNumberColumn.setCellValueFactory(new PropertyValueFactory<>("employeeNumber"));
+    idNumberColumn.setCellValueFactory(new PropertyValueFactory<>("employeeNumber"));
     teamMemberNameColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
-
   }
+
+
+
 }
+
+

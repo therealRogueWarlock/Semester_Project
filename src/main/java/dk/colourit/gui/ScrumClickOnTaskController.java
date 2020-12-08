@@ -46,6 +46,11 @@ public class ScrumClickOnTaskController extends Controller{
 
   }
 
+  @Override public void backButton()
+  {
+
+  }
+
   /*
   Mangler noget til TableView
   Team Member

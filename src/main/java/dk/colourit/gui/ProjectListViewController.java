@@ -1,11 +1,11 @@
 package dk.colourit.gui;
 
-import dk.colourit.model.Documentation;
+
 import dk.colourit.model.MyDate;
 import dk.colourit.model.Project;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,12 +13,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
+
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ProjectListViewCreatorController extends Controller
+public class ProjectListViewController extends Controller
 {
 
 	public TableView<Project> projectTableView;
@@ -31,7 +31,6 @@ public class ProjectListViewCreatorController extends Controller
 	public TableColumn projectEdit;
 	public Button backButton;
 	public Button createButton;
-	public Button addButton; // What is the purpose of this one?
 
 	@Override public void init()
 	{
@@ -56,6 +55,11 @@ public class ProjectListViewCreatorController extends Controller
 
 	}
 
+	@Override public void backButton()
+	{
+
+	}
+
 	public void itemSelected() throws IOException //SANDER DONT FUCKING REMOVE THIS PLEASE
 	{
 		Project selectedProject = projectTableView.getSelectionModel().getSelectedItem();
@@ -77,5 +81,14 @@ public class ProjectListViewCreatorController extends Controller
 	{
 		FXMLLoader fxmlLoader = new FXMLLoader(ColourItGui.class.getResource(fxml + ".fxml"));
 		return fxmlLoader.load();
+	}
+
+	public void createProjectButton() throws IOException
+	{
+		Scene createProjectPopUp = new Scene(loadFXML("createProjectPopUp"));
+		Stage stage = new Stage();
+
+		stage.setScene(createProjectPopUp);
+		stage.show();
 	}
 }
