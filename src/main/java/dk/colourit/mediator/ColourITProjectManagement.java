@@ -12,9 +12,7 @@ public class ColourITProjectManagement
 
     private ProjectList projectList;
     private TeamMemberList teamMemberList;
-
     private ColourItFileHandler colourItFileHandler;
-
     private int userRole;
 
     public ColourITProjectManagement()
