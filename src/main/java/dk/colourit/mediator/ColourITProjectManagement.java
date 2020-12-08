@@ -81,6 +81,13 @@ public class ColourITProjectManagement
         userRole = role;
     }
 
+    public int getUserRole() {
+        return userRole;
+    }
+
+    public void createProject(){
+
+
     public void createProject(String projectName, MyDate getStartDate, MyDate deadline)
     {
         projectList.addProject(new Project(projectName, getStartDate, deadline));
@@ -163,18 +170,16 @@ public class ColourITProjectManagement
 
     }
 
-    public void setRequirementPriority(String requirementName, int priority)
-    {
+    public void setRequirementPriority(String requirementName, int priority){
 
     }
 
-    public void addTask(String taskName)
-    {
+    public void addTask(String taskName){
 
     }
 
-    public void editTask(String taskName)
-    {
+    public void editTask(Project project,String taskName){
+
 
     }
 
