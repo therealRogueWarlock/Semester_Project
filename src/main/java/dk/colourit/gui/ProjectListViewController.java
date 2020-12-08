@@ -27,8 +27,7 @@ public class ProjectListViewController extends Controller
 	public TableColumn<Project, MyDate> deadLine;
 
 	public TableColumn<Project, String> projectStatus;
-	// might be deleted
-	public TableColumn projectEdit;
+	// feeling cute might delete later
 	public Button backButton;
 	public Button createButton;
 	public Button addEmployeeButton;
