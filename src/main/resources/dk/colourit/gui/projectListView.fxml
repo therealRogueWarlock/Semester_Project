@@ -15,7 +15,6 @@
   </columnConstraints>
   <rowConstraints>
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="5.0" percentHeight="20.0" prefHeight="5.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <GridPane prefHeight="271.0" prefWidth="600.0">
@@ -43,11 +42,6 @@
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Button fx:id="addButton" mnemonicParsing="false" prefHeight="21.0" prefWidth="93.0" text="Add" GridPane.columnIndex="1">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
                   <Button fx:id="createButton" mnemonicParsing="false" prefHeight="21.0" prefWidth="93.0" text="Create" GridPane.columnIndex="2">
                      <font>
                         <Font size="18.0" />
@@ -63,14 +57,12 @@
             <TableView fx:id="projectTableView" onMouseClicked="#itemSelected" prefHeight="177.0" prefWidth="600.0" GridPane.rowIndex="1">
               <columns>
                 <TableColumn fx:id="projectName" prefWidth="266.0" text="Project name" />
-                <TableColumn fx:id="startDate" prefWidth="90.0" text="Start Date" />
-                <TableColumn fx:id="deadLine" minWidth="2.0" prefWidth="93.0" text="Deadline" />
-                <TableColumn fx:id="projectStatus" minWidth="0.0" prefWidth="76.0" text="Status" />
-                <TableColumn fx:id="projectEdit" prefWidth="74.0" text="Edit" />
+                <TableColumn fx:id="startDate" prefWidth="112.7999267578125" text="Start Date" />
+                <TableColumn fx:id="deadLine" minWidth="2.0" prefWidth="108.00006103515625" text="Deadline" />
+                <TableColumn fx:id="projectStatus" minWidth="0.0" prefWidth="111.99993896484375" text="Status" />
               </columns>
             </TableView>
          </children>
       </GridPane>
-      <Button fx:id="addEmployeeButton" mnemonicParsing="false" onMouseClicked="#addEmployee" text="Add Employee" GridPane.rowIndex="1" />
    </children>
 </GridPane>
