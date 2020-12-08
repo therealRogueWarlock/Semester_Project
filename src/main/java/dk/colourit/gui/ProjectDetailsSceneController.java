@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -34,6 +35,7 @@ public class ProjectDetailsSceneController extends Controller
   public TableColumn<TeamMember, String> teamMemberNameColumn;
   public TableColumn<TeamMember, Integer> idNumberColumn;
   public TableColumn<TeamMember, Integer> roleColumn;
+  public Button backButton;
 
   public void editButton()
   {
@@ -81,6 +83,10 @@ public class ProjectDetailsSceneController extends Controller
   {
   }
 
+  public void backButton()
+  {
+  }
+
   @Override public void init()
   {
     Project project = (Project) getObjectHolderForInit();
@@ -104,8 +110,6 @@ public class ProjectDetailsSceneController extends Controller
     idNumberColumn.setCellValueFactory(new PropertyValueFactory<>("employeeNumber"));
     teamMemberNameColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
   }
-
-
 
 }
 
