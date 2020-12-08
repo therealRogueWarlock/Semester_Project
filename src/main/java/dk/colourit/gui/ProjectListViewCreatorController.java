@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ProjectDetailsSceneController extends Controller
+public class ProjectListViewCreatorController extends Controller
 {
 
 	public TableView<Project> projectTableView;
@@ -32,7 +32,6 @@ public class ProjectDetailsSceneController extends Controller
 	public Button backButton;
 	public Button createButton;
 	public Button addButton; // What is the purpose of this one?
-	public Button addEmployeeButton;
 
 	@Override public void init()
 	{
