@@ -63,7 +63,7 @@ public class ColourITProjectManagement
                 Requirement requirement = project.getRequirementList()
                     .getRequirementByName(("requirement" + j));
                 requirement.getTaskList()
-                    .addTask(new Task(("randomTask" + j), names[j], 10 + j));
+                    .addTask(new Task(("randomTask" + j), names[j], 10 + j, (j%2 == 0)));
 
                 Task task = requirement.getTaskList()
                     .getTaskByName(("randomTask" + j));
@@ -195,9 +195,9 @@ public class ColourITProjectManagement
             .getRequirementList().getRequirementByName(requirementName).setPriority(priority);
     }
 
-    public void addTask(String projectName, String requirementName, String taskName, String teamMemberName, int timeEstimateHour){
+    public void addTask(String projectName, String requirementName, String taskName, String teamMemberName, int timeEstimateHour, boolean isHighPriority){
         //Creating a task
-        Task task = new Task(taskName, teamMemberName, timeEstimateHour);
+        Task task = new Task(taskName, teamMemberName, timeEstimateHour, isHighPriority);
 
         //Adding task to list.
         projectList.getProjectByName(projectName)
