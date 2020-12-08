@@ -26,19 +26,19 @@ public class LoginScreenController extends Controller {
     @FXML
     private void selectedScrumMasterRole() throws IOException {
         model.selectUserRole(2);
-        ColourItGui.setRoot("ProjectListView");
+        ColourItGui.setRoot("projectListView");
     }
 
     @FXML
     private void selectedProductOwnerRole() throws IOException {
         model.selectUserRole(1);
-        ColourItGui.setRoot("ProjectListView");
+        ColourItGui.setRoot("projectListView");
     }
 
     @FXML
     private void selectedTeamMemberRole() throws IOException {
         model.selectUserRole(0);
-        ColourItGui.setRoot("ProjectListView");
+        ColourItGui.setRoot("projectListView");
     }
 
 }

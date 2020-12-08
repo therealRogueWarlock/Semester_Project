@@ -106,7 +106,7 @@
                         <Insets left="30.0" />
                     </GridPane.margin>
                 </Text>
-                <TableView fx:id="highPriorityTableView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                <TableView fx:id="highPriorityTableView" onMouseClicked="#itemSelected" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                     <columns>
                         <TableColumn fx:id="taskNameHighColumn" prefWidth="248.0" text="Task name" />
                         <TableColumn fx:id="estimatedTimeHighColumn" prefWidth="107.0" text="Estimated time" />
@@ -130,7 +130,7 @@
                         <Insets left="30.0" />
                     </GridPane.margin>
                 </Text>
-                <TableView fx:id="lowPriorityTableView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                <TableView fx:id="lowPriorityTableView" onMouseClicked="#itemSelected" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                     <columns>
                         <TableColumn fx:id="taskNameLowColumn" prefWidth="250.0" text="Task name" />
                         <TableColumn fx:id="estimatedTimeLowColumn" prefWidth="105.0" text="Estimated time" />

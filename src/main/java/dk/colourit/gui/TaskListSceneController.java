@@ -7,9 +7,13 @@ import dk.colourit.model.Task;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.event.EventTarget;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -45,7 +49,7 @@ public class TaskListSceneController extends Controller {
     public Button addTaskButton;
 
     public void init(){
-        Requirement requirement = (Requirement) getObjectHolderForInit();
+        Requirement requirement = ColourItGui.getSelectedRequirement();
 
         // getting high priority task from requirement tasklist
         ArrayList<Task> highPriorityTasks = requirement.getTaskList().getHighPriority();
@@ -77,15 +81,13 @@ public class TaskListSceneController extends Controller {
 
     @Override public void goBack() throws IOException
     {
-        System.out.println(getPreObjectHolder());
-        ColourItGui.setRoot("loginScreen");
+        ColourItGui.setRoot("projectDetailsScene");
     }
 
     @FXML
     private void popUpAddTask() throws IOException{
         scene = new Scene(loadFXML("taskListAddPopUp"));
         stage = new Stage();
-
         stage.setScene(scene);
         stage.show();
     }
@@ -94,9 +96,26 @@ public class TaskListSceneController extends Controller {
     private void popUpTaskDetails() throws IOException{
         scene = new Scene(loadFXML("taskDetailsPopUp"));
         stage = new Stage();
-
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void itemSelected(Event event) throws IOException //SANDER DONT FUCKING REMOVE THIS PLEASE
+    {
+        // getting what table is clicked by id
+        String selectedTableId = ((Control) event.getSource()).getId();
+
+        if (selectedTableId.equals("highPriorityTableView")) {
+            // getting the selected task from the table View
+            Task selectedTask = highPriorityTableView.getSelectionModel().getSelectedItem();
+            ColourItGui.setSelectedTask(selectedTask);
+            popUpTaskDetails();
+        } else if (selectedTableId.equals("lowPriorityTableView")) {
+            Task selectedTask = lowPriorityTableView.getSelectionModel().getSelectedItem();
+            ColourItGui.setSelectedTask(selectedTask);
+            popUpTaskDetails();
+        }
+
     }
 
 

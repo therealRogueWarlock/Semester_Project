@@ -19,6 +19,7 @@ public class ColourITProjectManagement
 
         String[] names = {"Sander", "Andreas", "Seb", "Marker", "Crimmer",
             "Peter"};
+
         teamMemberList
             .addTeamMember(new TeamMember("Sander", 12195, MyDate.now()));
         teamMemberList

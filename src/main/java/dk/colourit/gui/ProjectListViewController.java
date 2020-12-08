@@ -34,14 +34,15 @@ public class ProjectListViewController extends Controller
 
 	@Override public void init()
 	{
+
+		/*
 		int user = model.getUserRole();
-		System.out.print(model.getUserRole());
 
 		if (!(user == 3))
 		{
 			createButton.setDisable(true);
 			createButton.setVisible(false);
-		}
+		}*/
 
 		ObservableList<Project> observableProjectList = FXCollections.observableArrayList();
 
@@ -60,16 +61,20 @@ public class ProjectListViewController extends Controller
 
 	}
 
-	public void itemSelected() throws IOException //SANDER DONT FUCKING REMOVE THIS PLEASE
+	public void itemSelected()  //SANDER DONT FUCKING REMOVE THIS PLEASE
 	{
-		Project selectedProject = projectTableView.getSelectionModel().getSelectedItem();
+		try {
+			Project selectedProject = projectTableView.getSelectionModel().getSelectedItem();
+			ColourItGui.setSelectedProject(selectedProject);
+			ColourItGui.setRoot("projectDetailsScene");
+		}catch (Exception e){
+			System.out.println("No project selected");
 
-		ColourItGui.setRoot("projectDetailsScene", selectedProject);
+		}
 
 	}
 
-	public void addEmployee() throws IOException
-	{
+	public void addEmployee() throws IOException{
 		Scene addTeamMemberScene = new Scene(loadFXML("addTeamMemberScene"));
 		Stage stage = new Stage();
 
