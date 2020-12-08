@@ -1,6 +1,7 @@
 package dk.colourit.model;
 
-public class Project {
+public class Project
+{
 
 	private String name;
 	private MyDate creationDate;
@@ -11,8 +12,8 @@ public class Project {
 	private RequirementList requirementList;
 	private TeamMemberList teamMemberList;
 
-
-	public Project(String name, MyDate startDate, MyDate deadLine) {
+	public Project(String name, MyDate startDate, MyDate deadLine)
+	{
 		this.creationDate = MyDate.now();
 		this.endDate = null;
 
@@ -25,35 +26,45 @@ public class Project {
 
 	}
 
-	public TeamMemberList getTeamMemberList() {
+	public TeamMemberList getTeamMemberList()
+	{
 		return teamMemberList;
 	}
 
-	public String getName() {
+	public String getName()
+	{
 		return name;
 	}
 
-	public MyDate getStartDate() {
+	public MyDate getStartDate()
+	{
 		return startDate;
 	}
 
-	public MyDate getDeadLine() {
+	public MyDate getDeadLine()
+	{
 		return deadLine;
 	}
 
-
-	public void setRequirementList(RequirementList requirementList) {
+	public void setRequirementList(RequirementList requirementList)
+	{
 		this.requirementList = requirementList;
 	}
 
-	public RequirementList getRequirementList() {
+	public RequirementList getRequirementList()
+	{
 		return requirementList;
 	}
 
-	public void setTeamMemberList(TeamMemberList teamMemberList) {
+	public void setTeamMemberList(TeamMemberList teamMemberList)
+	{
 		this.teamMemberList = teamMemberList;
 	}
 
+	public void setEndDate(MyDate endDate)
+	{
+		this.endDate = endDate;
+	}
 
 }
 

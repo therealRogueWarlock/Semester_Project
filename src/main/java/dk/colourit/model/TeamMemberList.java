@@ -29,16 +29,11 @@ public class TeamMemberList {
                     return teamMember;
             }
         }
-
         return null;
     }
 
-
-
     public void addTeamMember(TeamMember teamMember) {
-
         teamMembers.add(teamMember);
-
     }
 
     public void removeTeamMember(String name) {

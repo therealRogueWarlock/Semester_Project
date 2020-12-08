@@ -5,6 +5,12 @@ public class TeamMember {
     private String name;
     private int employeeNumber;
     private int role;
+    /*
+    0 = Team Member
+    1 = Product Owner
+    2 = Scrum Master
+    3 = Project Creator
+     */
     private MyDate birthday;
 
     public TeamMember(String name, int employeeNumber, MyDate birthday) {
@@ -53,6 +59,7 @@ public class TeamMember {
 
     public void setRole(int role) {
         this.role = role;
+        //TODO: Sørge for at vi maks kan have en rolle på 3, og mindst 0. - Throw en error, hvis den er udenfor denne ramme! - SBT
     }
 
     @Override public String toString()

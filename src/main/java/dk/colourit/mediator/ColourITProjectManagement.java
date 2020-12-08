@@ -48,33 +48,31 @@ public class ColourITProjectManagement
         for (int i = 0; i < projectList.getProjects().size(); i++)
         {
             Project project = projectList.getProjects().get(i);
-            RequirementList requirementList = project.getRequirementList();
-            //System.out.println(project + " dummy data " + project.getName());
+            System.out.println(project + " dummy data " + project.getName());
 
-            for (String name : names)
-            {
+            int j = 0;
+
+            for (String name : names){
                 project.getTeamMemberList()
                     .addTeamMember(teamMemberList.getTeamMember("name", name));
+
+
+                project.getRequirementList().addRequirement(
+                    new Requirement(("requirement" + j), 10 + j, j));
+
+                Requirement requirement = project.getRequirementList()
+                    .getRequirementByName(("requirement" + j));
+                requirement.getTaskList()
+                    .addTask(new Task(("randomTask" + j), names[j], 10 + j));
+
+                Task task = requirement.getTaskList()
+                    .getTaskByName(("randomTask" + j));
+                task.getDocumentations()
+                    .add(new Documentation(names[j], 10 + j, MyDate.now()));
+
+                j++;
+
             }
-
-
-            for (int j = 0; j < 6; j++)
-            {
-                requirementList.addRequirement(new Requirement("requirement" + j, 10+j, j));
-            }
-
-
-            for (Requirement requirement: requirementList.getRequirements()){
-
-                for (int k = 0; k < 6; k++)
-                {
-                    requirement.getTaskList().addTask(
-                        new Task("task" + k, names[k], k, (k % 2 == 0)));
-                }
-            }
-
-
-
 
         }
     }
@@ -197,9 +195,9 @@ public class ColourITProjectManagement
             .getRequirementList().getRequirementByName(requirementName).setPriority(priority);
     }
 
-    public void addTask(String projectName, String requirementName, String taskName, String teamMemberName, int timeEstimateHour, boolean isHighPriority){
+    public void addTask(String projectName, String requirementName, String taskName, String teamMemberName, int timeEstimateHour){
         //Creating a task
-        Task task = new Task(taskName, teamMemberName, timeEstimateHour, isHighPriority);
+        Task task = new Task(taskName, teamMemberName, timeEstimateHour);
 
         //Adding task to list.
         projectList.getProjectByName(projectName)
