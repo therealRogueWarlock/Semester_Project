@@ -1,5 +1,6 @@
 package dk.colourit.gui;
 
+import dk.colourit.model.Task;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
@@ -7,14 +8,22 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class TaskDetailsPopUpController extends Controller {
+
     public Button confirmEditButton;
-    public TextArea taskTextArea;
-    public TextField responsibleTeamMemberTextField;
-    public TextField estimatedHoursTextField;
-    public TextField taskNameEditTextField;
-    public CheckBox highPriorityCheckBox;
     public Button deleteTask;
 
+    public TextField taskNameEditTextField;
+    public TextField estimatedHoursTextField;
+    public TextField responsibleTeamMemberTextField;
+
+    public CheckBox highPriorityCheckBox;
+
+    public TextArea taskTextArea;
+
+
+    public TaskDetailsPopUpController(){
+
+    }
 
 
     public void deleteTask(){
@@ -24,11 +33,19 @@ public class TaskDetailsPopUpController extends Controller {
 
     @Override
     public void init() {
+        Task task =  ColourItGui.getSelectedTask();
 
+        System.out.println("init task info for popup");
+        taskNameEditTextField.setText(task.getName());
+        estimatedHoursTextField.setText(Integer.toString(task.getTimeEstimateHour()));
+        responsibleTeamMemberTextField.setText(task.getResponsible());
+        taskTextArea.setText(task.getDescription());
     }
 
     @Override public void goBack()
     {
 
     }
+
+
 }

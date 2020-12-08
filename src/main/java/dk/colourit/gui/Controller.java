@@ -7,19 +7,11 @@ import java.io.IOException;
 public abstract class Controller
 {
 
-    private Object objectHolderForInit;
-
     protected ColourITProjectManagement model;
 
     protected Controller(){
 
     }
-
-    public void setObjectHolderForInit(Object objectHolderForInit)
-    {
-        this.objectHolderForInit = objectHolderForInit;
-    }
-
 
     public void setModel(ColourITProjectManagement model)
     {
@@ -41,10 +33,6 @@ public abstract class Controller
     public abstract void goBack() throws IOException;
 
 
-    public Object getObjectHolderForInit()
-    {
-        return objectHolderForInit;
-    }
 
 
 }

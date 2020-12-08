@@ -1,6 +1,7 @@
 package dk.colourit.gui;
 
 import javafx.fxml.FXML;
+import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
 

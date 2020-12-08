@@ -1,9 +1,7 @@
 package dk.colourit.gui;
 
-import dk.colourit.model.MyDate;
-import dk.colourit.model.Project;
-import dk.colourit.model.Requirement;
-import dk.colourit.model.Task;
+import dk.colourit.model.*;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,16 +15,22 @@ import javafx.scene.control.Control;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class TaskListSceneController extends Controller {
 
+    public GridPane mainContainer;
+
+    private TaskList taskList;
 
     public TableView<Task> highPriorityTableView;
     public TableColumn<Task, String> taskNameHighColumn;
@@ -50,12 +54,26 @@ public class TaskListSceneController extends Controller {
 
     public void init(){
         Requirement requirement = ColourItGui.getSelectedRequirement();
+        taskList = requirement.getTaskList();
 
-        // getting high priority task from requirement tasklist
-        ArrayList<Task> highPriorityTasks = requirement.getTaskList().getHighPriority();
+        populateHighPriorityTable();
+        populateLowPriorityTable();
+
+        // setting information text on scene
+        projectNameText.setText(ColourItGui.getSelectedProject().getName());
+        statusText.setText(requirement.getStatus());
+        requirementNameText.setText(requirement.getName());
+
+    }
+
+
+    private void populateHighPriorityTable(){
+
+        // getting high priority task from task list
+        ArrayList<Task> highPriorityTasks = taskList.getHighPriority();
         ObservableList<Task> observableHighPriorityTasks = FXCollections.observableArrayList();
 
-        // creating an observable list from the hihg Priority tasks list
+        // creating an observable list from the high Priority tasks list
         observableHighPriorityTasks.addAll(highPriorityTasks);
 
         taskNameHighColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -65,9 +83,11 @@ public class TaskListSceneController extends Controller {
         // adding the observable list to the high priority table
         highPriorityTableView.setItems(observableHighPriorityTasks);
 
-        // repeat for low priority table view
-        ArrayList<Task> lowPriorityTasks = requirement.getTaskList().getLowPriority();
+    }
 
+    private void populateLowPriorityTable(){
+        // getting the low priority task from task list
+        ArrayList<Task> lowPriorityTasks = taskList.getLowPriority();
         ObservableList<Task> observableLowPriorityTasks = FXCollections.observableArrayList();
 
         observableLowPriorityTasks.addAll(lowPriorityTasks);
@@ -79,6 +99,7 @@ public class TaskListSceneController extends Controller {
         lowPriorityTableView.setItems(observableLowPriorityTasks);
     }
 
+
     @Override public void goBack() throws IOException
     {
         ColourItGui.setRoot("projectDetailsScene");
@@ -86,18 +107,42 @@ public class TaskListSceneController extends Controller {
 
     @FXML
     private void popUpAddTask() throws IOException{
+
         scene = new Scene(loadFXML("taskListAddPopUp"));
         stage = new Stage();
+
         stage.setScene(scene);
-        stage.show();
+
+        // when popup is open primary stage cant be accessed.
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
+
     }
 
     @FXML
     private void popUpTaskDetails() throws IOException{
+        // Disabling the main container for the primary stage
+        //mainContainer.setDisable(true);
+
         scene = new Scene(loadFXML("taskDetailsPopUp"));
         stage = new Stage();
         stage.setScene(scene);
-        stage.show();
+
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
+
+
+
+        // An other was to disable the primary stage with out use of initModality
+
+        // Disabling the main container for the primary stage
+        //mainContainer.setDisable(true)
+
+        // adding an on close request to the pop up, that enable the main container.
+        //stage.setOnCloseRequest(windowEvent -> mainContainer.setDisable(false));
+
+        // show pop up
+        //stage.show();
     }
 
     public void itemSelected(Event event) throws IOException //SANDER DONT FUCKING REMOVE THIS PLEASE
@@ -120,8 +165,16 @@ public class TaskListSceneController extends Controller {
 
 
     private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(ColourItGui.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(ColourItGui.class.getResource(fxml + ".fxml"));
+        Parent root = loader.load();
+
+        Controller controller = loader.getController();
+
+        controller.setModel(ColourItGui.getModel());
+        controller.init();
+
+        return root;
     }
 
 }

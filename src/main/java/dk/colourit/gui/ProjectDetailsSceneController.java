@@ -105,6 +105,7 @@ public class ProjectDetailsSceneController extends Controller
 
         requirementNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         requirementPriorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
+        requirementStatusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
 
         requirementTable.setItems(observableRequirementList);
 

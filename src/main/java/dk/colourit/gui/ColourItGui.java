@@ -44,7 +44,6 @@ public class ColourItGui extends Application {
     }
 
 
-
     public static void setSelectedProject(Project selectedProject) {
         ColourItGui.selectedProject = selectedProject;
     }
@@ -90,6 +89,11 @@ public class ColourItGui extends Application {
         controller.init();
 
         return root;
+    }
+
+
+    public static ColourITProjectManagement getModel(){
+        return model;
     }
 
     public static void launchApp() {

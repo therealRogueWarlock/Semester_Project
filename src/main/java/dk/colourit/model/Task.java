@@ -75,7 +75,6 @@ public class Task {
     }
 
 
-
     public void setTotalTimeSpent(int totalTimeSpent)
     {
         this.totalTimeSpent = totalTimeSpent;

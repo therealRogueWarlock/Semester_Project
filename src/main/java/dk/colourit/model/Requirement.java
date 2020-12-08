@@ -63,5 +63,20 @@ public class Requirement {
 		return taskList;
 	}
 
+	public String getStatus() {
+		switch (status){
+			case 0:{
+				return "Not done";
+			}
+			case 1:{
+				return "Ready for revive";
+			}
+			case 2:{
+				return  "Done";
+			}
+		}
+
+		return null;
+	}
 }
 
