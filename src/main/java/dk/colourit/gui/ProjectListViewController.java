@@ -31,7 +31,6 @@ public class ProjectListViewController extends Controller
 	public TableColumn projectEdit;
 	public Button backButton;
 	public Button createButton;
-	public Button addButton; // What is the purpose of this one?
 
 	@Override public void init()
 	{
@@ -82,5 +81,14 @@ public class ProjectListViewController extends Controller
 	{
 		FXMLLoader fxmlLoader = new FXMLLoader(ColourItGui.class.getResource(fxml + ".fxml"));
 		return fxmlLoader.load();
+	}
+
+	public void createProjectButton() throws IOException
+	{
+		Scene createProjectPopUp = new Scene(loadFXML("createProjectPopUp"));
+		Stage stage = new Stage();
+
+		stage.setScene(createProjectPopUp);
+		stage.show();
 	}
 }
