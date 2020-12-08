@@ -54,7 +54,6 @@ public class Requirement {
 		this.priority = priority;
 	}
 
-	//TODO: Er denne metode nødvendigt? - Hvis ja, hvad skal det bruges til? - SBT (Mangler i UML)
 	public void setTaskList(TaskList taskList) {
 		this.taskList = taskList;
 	}

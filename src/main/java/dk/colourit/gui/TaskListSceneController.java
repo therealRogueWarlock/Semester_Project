@@ -1,23 +1,41 @@
 package dk.colourit.gui;
 
 import dk.colourit.model.MyDate;
+import dk.colourit.model.Project;
+import dk.colourit.model.Requirement;
 import dk.colourit.model.Task;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class TaskListSceneController extends Controller {
 
-    public TableView highPriorityTableView;
-    public TableView lowPriorityTableView;
+
+    public TableView<Task> highPriorityTableView;
+    public TableColumn<Task, String> taskNameHighColumn;
+    public TableColumn<Task, Integer> estimatedTimeHighColumn;
+    public TableColumn<Task, Integer> totalTimeSpentHighColumn;
+    public TableColumn<Task, String> responsibleHighColumn;
+
+    public TableView<Task> lowPriorityTableView;
+    public TableColumn<Task, String> taskNameLowColumn;
+    public TableColumn<Task, Integer> estimatedTimeLowColumn;
+    public TableColumn<Task, Integer> totalTimeSpentLowColumn;
+    public TableColumn<Task, String> responsibleLowColumn;
+
     private Scene scene;
     private Stage stage;
 
@@ -29,6 +47,40 @@ public class TaskListSceneController extends Controller {
 
 
     public void init(){
+        Requirement requirement = (Requirement) getObjectHolderForInit();
+
+        ArrayList<Task> allTask = requirement.getTaskList().getTasks();
+
+        System.out.println(allTask);
+
+        // getting high priority task from requirement tasklist
+        ArrayList<Task> highPriorityTasks = requirement.getTaskList().getHighPriority();
+        ObservableList<Task> observableHighPriorityTasks = FXCollections.observableArrayList();
+
+        System.out.println("High" + highPriorityTasks.toString() );
+
+        // creating an observable list from the hihg Priority tasks list
+        observableHighPriorityTasks.addAll(highPriorityTasks);
+
+        taskNameHighColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        estimatedTimeHighColumn.setCellValueFactory(new PropertyValueFactory<>("timeEstimateHour"));
+        totalTimeSpentHighColumn.setCellValueFactory(new PropertyValueFactory<>("totalTimeSpent"));
+
+        // adding the observable list to the high priority table
+        highPriorityTableView.setItems(observableHighPriorityTasks);
+
+        // repeat for low priority table view
+        ArrayList<Task> lowPriorityTasks = requirement.getTaskList().getLowPriority();
+
+        ObservableList<Task> observableLowPriorityTasks = FXCollections.observableArrayList();
+
+        observableHighPriorityTasks.addAll(lowPriorityTasks);
+
+        taskNameLowColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        estimatedTimeLowColumn.setCellValueFactory(new PropertyValueFactory<>("timeEstimateHour"));
+        totalTimeSpentLowColumn.setCellValueFactory(new PropertyValueFactory<>("totalTimeSpent"));
+
+        lowPriorityTableView.setItems(observableLowPriorityTasks);
 
     }
 
@@ -57,7 +109,7 @@ public class TaskListSceneController extends Controller {
 
 
     public void backToPrevScene() throws IOException {
-        ColourItGui.setRoot("secondary");
+        ColourItGui.setRoot("projectDetailsScene", null);
     }
 
 
