@@ -85,6 +85,16 @@ public class ColourITProjectManagement
         return userRole;
     }
 
+    public ProjectList getProjectList()
+    {
+        return projectList;
+    }
+
+    public TeamMemberList getTeamMemberList()
+    {
+        return teamMemberList;
+    }
+
     public void createProject(String projectName, MyDate getStartDate, MyDate deadline)
     {
         projectList.addProject(new Project(projectName, getStartDate, deadline));
@@ -189,16 +199,6 @@ public class ColourITProjectManagement
     public void removeTask(String projectName, String requirementName, String taskName)
     {
         //TODO
-    }
-
-    public ProjectList getProjectList()
-    {
-        return projectList;
-    }
-
-    public TeamMemberList getTeamMemberList()
-    {
-        return teamMemberList;
     }
 
 }
