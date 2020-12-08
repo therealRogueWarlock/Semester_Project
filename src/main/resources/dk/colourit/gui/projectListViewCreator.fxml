@@ -51,7 +51,7 @@
                   <Insets right="20.0" />
                </GridPane.margin>
             </Button>
-            <TableView fx:id="projectTableView" prefHeight="177.0" prefWidth="600.0" GridPane.rowIndex="1">
+            <TableView fx:id="projectTableView" onMouseClicked="#itemSelected" prefHeight="177.0" prefWidth="600.0" GridPane.rowIndex="1">
               <columns>
                 <TableColumn fx:id="projectName" prefWidth="266.0" text="Project name" />
                 <TableColumn fx:id="startDate" prefWidth="90.0" text="Start Date" />

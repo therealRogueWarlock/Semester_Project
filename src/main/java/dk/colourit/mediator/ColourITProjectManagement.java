@@ -1,149 +1,172 @@
 package dk.colourit.mediator;
 
+import dk.colourit.Main;
 import dk.colourit.model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 
-public class ColourITProjectManagement {
+public class ColourITProjectManagement
+{
+
+    private ProjectList projectList;
+    private TeamMemberList teamMemberList;
+    private ColourItFileHandler colourItFileHandler;
+    private int userRole;
+
+    public ColourITProjectManagement()
+    {
+
+        projectList = new ProjectList();
+        teamMemberList = new TeamMemberList();
+
+        String[] names = {"Sander", "Andreas", "Seb", "Marker", "Crimmer",
+            "Peter"};
+        teamMemberList
+            .addTeamMember(new TeamMember("Sander", 12195, MyDate.now()));
+        teamMemberList
+            .addTeamMember(new TeamMember("Andreas", 124312, MyDate.now()));
+        teamMemberList
+            .addTeamMember(new TeamMember("Seb", 12825, MyDate.now()));
+        teamMemberList
+            .addTeamMember(new TeamMember("Marker", 15125, MyDate.now()));
+        teamMemberList
+            .addTeamMember(new TeamMember("Crimmer", 11825, MyDate.now()));
+        teamMemberList
+            .addTeamMember(new TeamMember("Peter", 21295, MyDate.now()));
 
-	private ProjectList projectList;
-	private TeamMemberList teamMemberList;
+        projectList.addProject(
+            new Project("project1", MyDate.now(), new MyDate(12, 12, 2021)));
+        projectList.addProject(
+            new Project("project2", MyDate.now(), new MyDate(12, 1, 2023)));
+        projectList.addProject(
+            new Project("project3", MyDate.now(), new MyDate(1, 12, 2024)));
+        projectList.addProject(
+            new Project("project4", MyDate.now(), new MyDate(12, 1, 2025)));
+        projectList.addProject(
+            new Project("project5", MyDate.now(), new MyDate(12, 1, 2026)));
+        projectList.addProject(
+            new Project("project6", MyDate.now(), new MyDate(1, 12, 2027)));
 
-	private ColourItFileHandler colourItFileHandler;
+        for (int i = 0; i < projectList.getProjects().size(); i++)
+        {
+            Project project = projectList.getProjects().get(i);
+            System.out.println(project + " dummy data " + project.getName());
+            for (String name : names)
+            {
+                project.getTeamMemberList()
+                    .addTeamMember(teamMemberList.getTeamMember("name", name));
 
-	private int userRole;
+            }
 
-	public ColourITProjectManagement() {
-		projectList = new ProjectList();
-		teamMemberList = new TeamMemberList();
+            project.getRequirementList().addRequirement(
+                new Requirement(("requirement" + i), 10 + i, true));
 
+            Requirement requirement = project.getRequirementList()
+                .getRequirementByName(("requirement" + i));
+            requirement.getTaskList()
+                .addTask(new Task(("randomTask" + i), names[i], 10 + i));
 
-		String[] names = {"Sander", "Andreas", "Seb", "Marker", "Crimmer", "Peter"};
+            Task task = requirement.getTaskList()
+                .getTaskByName(("randomTask" + i));
+            task.getDocumentations()
+                .add(new Documentation(names[i], 10 + i, MyDate.now()));
 
-		teamMemberList.addTeamMember(new TeamMember("Sander", 12195, MyDate.now() ));
-		teamMemberList.addTeamMember(new TeamMember("Andreas", 124312, MyDate.now() ));
-		teamMemberList.addTeamMember(new TeamMember("Seb", 12825, MyDate.now() ));
-		teamMemberList.addTeamMember(new TeamMember("Marker", 15125, MyDate.now() ));
-		teamMemberList.addTeamMember(new TeamMember("Crimmer", 11825, MyDate.now() ));
-		teamMemberList.addTeamMember(new TeamMember("Peter", 21295, MyDate.now() ));
+        }
+    }
 
+    public void selectUserRole(int role)
+    {
+        userRole = role;
+    }
 
+    public void createProject()
+    {
 
+    }
 
+    public void deleteProject(String projectName)
+    {
 
+    }
 
-		projectList.addProject(new Project("Assproject", MyDate.now(), new MyDate(12, 12,2021)));
-		projectList.addProject(new Project("Buttproject", MyDate.now(), new MyDate(12, 1,2023)));
-		projectList.addProject(new Project("TITIproject", MyDate.now(), new MyDate(1, 12,2024)));
-		projectList.addProject(new Project("Shitproject", MyDate.now(), new MyDate(12, 1,2025)));
-		projectList.addProject(new Project("ArshSHitproject", MyDate.now(), new MyDate(12, 1,2026)));
-		projectList.addProject(new Project("Fissisproject", MyDate.now(), new MyDate(1, 12,2027)));
+    public void addMemberToProject(String projectName, String memberName,
+        int memberRole)
+    {
 
+    }
 
+    public void removeMemberFromProject(String projectName, String memberName)
+    {
 
+    }
 
-		for (int i = 0; i < projectList.getProjects().size(); i++) {
-			Project project = projectList.getProjects().get(i);
+    public void assignRoleToTeamMember(String projectName, String memberName,
+        String memberRole)
+    {
 
-			for (String name : names) {
-				project.getTeamMemberList().addTeamMember(teamMemberList.getTeamMember("name", name));
+    }
 
-			}
+    public void taskDocumentation(String projectName, String requirementName,
+        String taskName, int hours, MyDate date, String memberName)
+    {
 
-			project.getRequirementList().addRequirement(new Requirement(("requirement" + i), 10+i, true));
+    }
 
+    public void finishTask(String taskName)
+    {
 
-			Requirement requirement = project.getRequirementList().getRequirementByName(("requirement" + i));
-			requirement.getTaskList().addTask(new Task(("randomTask" + i), names[i], 10+i));
+    }
 
-			Task task = requirement.getTaskList().getTaskByName(("randomTask" + i));
-			task.getDocumentations().add(new Documentation(names[i], 10+i, MyDate.now()));
+    public void setRequirementReady(String requirementName, boolean ready)
+    {
 
-		}
+    }
 
+    public void setRequirementApproval(String requirementName, boolean approval)
+    {
 
-	}
+    }
 
-	public void selectUserRole(int role) {
-		userRole = role;
-	}
+    public void addRequirement(String requirementName)
+    {
 
-	public void createProject() {
+    }
 
-	}
+    public void removeRequirement(String requirementName)
+    {
 
-	public void deleteProject(String projectName) {
+    }
 
-	}
+    public void setRequirementPriority(String requirementName, int priority)
+    {
 
+    }
 
-	public void addMemberToProject(String projectName, String memberName, int memberRole) {
+    public void addTask(String taskName)
+    {
 
-	}
+    }
 
+    public void editTask(String taskName)
+    {
 
-	public void removeMemberFromProject(String projectName, String memberName) {
+    }
 
-	}
+    public void removeTask(int taskName)
+    {
 
+    }
 
-	public void assignRoleToTeamMember(String projectName, String memberName, String memberRole) {
+    public ProjectList getProjectList()
+    {
+        return projectList;
+    }
 
-	}
-
-
-	public void taskDocumentation(String projectName, String requirementName, String taskName,
-								  int hours, MyDate date, String memberName) {
-
-	}
-
-
-	public void finishTask(String taskName) {
-
-	}
-
-
-	public void setRequirementReady(String requirementName, boolean ready) {
-
-	}
-
-	public void setRequirementApproval(String requirementName, boolean approval) {
-
-	}
-
-	public void addRequirement(String requirementName) {
-
-	}
-
-	public void removeRequirement(String requirementName) {
-
-	}
-
-	public void setRequirementPriority(String requirementName, int priority) {
-
-	}
-
-	public void addTask(String taskName) {
-
-	}
-
-	public void editTask(String taskName) {
-
-	}
-
-	public void removeTask(int taskName) {
-
-	}
-
-	public ProjectList getProjectList() {
-		return projectList;
-	}
-
-	public TeamMemberList getTeamMemberList() {
-		return teamMemberList;
-	}
-
+    public TeamMemberList getTeamMemberList()
+    {
+        return teamMemberList;
+    }
 
 }

@@ -1,4 +1,5 @@
 package dk.colourit.model;
 
-public class ColourItFileHandler {
+public class ColourItFileHandler{
+
 }
