@@ -97,7 +97,7 @@ public class ColourITProjectManagement
         projectList.getProjectByName(projectName).getTeamMemberList().
             getTeamMember("name", memberName).setRole(memberRole);
         /*
-        Hvad med setRole, SKAL man gøre dette når man laver den?
+        Hvad med setRole, er dette nødvendigt når man laver den?
          */
     }
 
@@ -117,10 +117,13 @@ public class ColourITProjectManagement
     public void taskDocumentation(String projectName, String requirementName,
         String taskName, int hours, MyDate date, String memberName)
     {
-        projectList.getProjectByName(projectName)
+        /*projectList.getProjectByName(projectName)
             .getRequirementList().getRequirementByName(requirementName)
             .getTaskList().getTaskByName(taskName).////.getDocumentation
+
+         */
         //Vi skal vidst lave en Documentation method i vores Task, så vi kan komme ned i den.
+        //TODO:Mangler documentation method i Task
     }
 
     public void finishTask(String projectName, String requirementName, String taskName)
@@ -136,23 +139,26 @@ public class ColourITProjectManagement
 
     public void setRequirementReady(String projectName, String requirementName, boolean ready)
     {
+        /*
         projectList.getProjectByName(projectName)
             .getRequirementList().getRequirementByName(requirementName).set
+
+         */
             //Mangler at tilføje
-        //TODO
+        //TODO:Ready, approval, finished
     }
 
-    public void setRequirementApproval(String requirementName, boolean approval)
+    public void setRequirementApproval(String projectName, String requirementName, boolean approval)
     {
-        //TODO
+        //TODO: mangler approval i Task
     }
 
-    public void addRequirement(String requirementName)
+    public void addRequirement(String projectName, String requirementName)
     {
 
     }
 
-    public void removeRequirement(String requirementName)
+    public void removeRequirement(String projectName, String requirementName)
     {
 
     }

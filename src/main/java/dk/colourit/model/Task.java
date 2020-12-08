@@ -60,7 +60,7 @@ public class Task {
         return finito;
     }
 
-    public boolean setFinito(boolean arg) {
+    public void setFinito(boolean arg) {
         finito = arg;
     }
 
