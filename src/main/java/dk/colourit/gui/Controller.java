@@ -17,14 +17,9 @@ public abstract class Controller
 
 	public void setObjectHolderForInit(Object objectHolderForInit)
 	{
-		preObjectHolder = this.objectHolderForInit;
 		this.objectHolderForInit = objectHolderForInit;
 	}
 
-	public Object getObjectHolderForInit()
-	{
-		return objectHolderForInit;
-	}
 
 	public void setModel(ColourITProjectManagement model)
 	{
@@ -45,8 +40,17 @@ public abstract class Controller
 
 	public abstract void goBack() throws IOException;
 
+	public Object getObjectHolderForInit()
+	{
+		return objectHolderForInit;
+	}
+
 	public Object getPreObjectHolder()
 	{
 		return preObjectHolder;
+	}
+
+	public void setPreObjectHolder(Object preObjectHolder) {
+		this.preObjectHolder = preObjectHolder;
 	}
 }

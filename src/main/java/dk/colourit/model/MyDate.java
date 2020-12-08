@@ -189,4 +189,8 @@ public class MyDate {
 		return new MyDate(Calendar.DAY_OF_MONTH, Calendar.MONTH, Calendar.YEAR);
 	}
 
+	@Override public String toString()
+	{
+		return day + "/" + month + "/" + year;
+	}
 }

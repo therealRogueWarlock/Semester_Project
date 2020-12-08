@@ -45,13 +45,16 @@ public class ColourItGui extends Application {
 
         Controller controller = loader.getController();
 
-        if (!(obj == null)){
-            controller.setObjectHolderForInit(obj);
-        }
+
+        controller.setObjectHolderForInit(obj);
 
         controller.setModel(model);
 
+
+
         controller.init();
+
+
 
         return root;
     }

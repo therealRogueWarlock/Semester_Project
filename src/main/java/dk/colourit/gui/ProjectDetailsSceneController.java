@@ -128,10 +128,10 @@ public class ProjectDetailsSceneController extends Controller
 
     Requirement selectedRequirement = requirementTable.getSelectionModel().getSelectedItem();
 
+
     ColourItGui.setRoot("taskListScene", selectedRequirement);
 
   }
-
 
 
 }

@@ -44,19 +44,12 @@ public class TaskListSceneController extends Controller {
     public Text requirementNameText;
     public Button addTaskButton;
 
-
     public void init(){
         Requirement requirement = (Requirement) getObjectHolderForInit();
-
-        ArrayList<Task> allTask = requirement.getTaskList().getTasks();
-
-        System.out.println(allTask);
 
         // getting high priority task from requirement tasklist
         ArrayList<Task> highPriorityTasks = requirement.getTaskList().getHighPriority();
         ObservableList<Task> observableHighPriorityTasks = FXCollections.observableArrayList();
-
-        System.out.println("High" + highPriorityTasks.toString() );
 
         // creating an observable list from the hihg Priority tasks list
         observableHighPriorityTasks.addAll(highPriorityTasks);
@@ -75,18 +68,17 @@ public class TaskListSceneController extends Controller {
 
         observableLowPriorityTasks.addAll(lowPriorityTasks);
 
-
         taskNameLowColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         estimatedTimeLowColumn.setCellValueFactory(new PropertyValueFactory<>("timeEstimateHour"));
         totalTimeSpentLowColumn.setCellValueFactory(new PropertyValueFactory<>("totalTimeSpent"));
 
         lowPriorityTableView.setItems(observableLowPriorityTasks);
-
     }
 
     @Override public void goBack() throws IOException
     {
-        ColourItGui.setRoot("projectDetailsScene", getPreObjectHolder());
+        System.out.println(getPreObjectHolder());
+        ColourItGui.setRoot("loginScreen");
     }
 
     @FXML
