@@ -24,6 +24,34 @@ public class TaskList {
         return finishedTasks;
     }
 
+    public ArrayList<Task> getHighPriority(){
+        ArrayList<Task> returnArray = new ArrayList<>();
+
+
+        for (Task task: tasks){
+            if (task.isHighPriority()){
+                returnArray.add(task);
+            }
+        }
+
+        return returnArray;
+    }
+
+    public ArrayList<Task> getLowPriority(){
+        ArrayList<Task> returnArray = new ArrayList<>();
+
+        for (Task task: tasks){
+            if (!task.isHighPriority()){
+                returnArray.add(task);
+            }
+        }
+
+        return returnArray;
+    }
+
+
+
+
     public Task getTaskByName(String name) {
         for (Task task : tasks) {
             if (task.getName().equalsIgnoreCase(name)) {
@@ -45,5 +73,4 @@ public class TaskList {
             }
         }
     }
-
 }

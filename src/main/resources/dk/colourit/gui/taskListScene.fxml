@@ -108,10 +108,10 @@
                 </Text>
                 <TableView fx:id="highPriorityTableView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                     <columns>
-                        <TableColumn prefWidth="248.0" text="Task name" />
-                        <TableColumn prefWidth="107.0" text="Estimated time" />
-                        <TableColumn prefWidth="86.0" text="Time spent" />
-                        <TableColumn prefWidth="193.0" text="Responsible" />
+                        <TableColumn fx:id="taskNameHighColumn" prefWidth="248.0" text="Task name" />
+                        <TableColumn fx:id="estimatedTimeHighColumn" prefWidth="107.0" text="Estimated time" />
+                        <TableColumn fx:id="totalTimeSpentHighColumn" prefWidth="86.0" text="Time spent" />
+                        <TableColumn fx:id="responsibleHighColumn" prefWidth="193.0" text="Responsible" />
                     </columns>
                 </TableView>
             </children>
@@ -132,10 +132,10 @@
                 </Text>
                 <TableView fx:id="lowPriorityTableView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                     <columns>
-                        <TableColumn prefWidth="250.0" text="Task name" />
-                        <TableColumn prefWidth="105.0" text="Estimated time" />
-                        <TableColumn prefWidth="84.0" text="Time spent" />
-                        <TableColumn prefWidth="195.0" text="Resposible" />
+                        <TableColumn fx:id="taskNameLowColumn" prefWidth="250.0" text="Task name" />
+                        <TableColumn fx:id="estimatedTimeLowColumn" prefWidth="105.0" text="Estimated time" />
+                        <TableColumn fx:id="totalTimeSpentLowColumn" prefWidth="84.0" text="Time spent" />
+                        <TableColumn fx:id="responsibleLowColumn" prefWidth="195.0" text="Resposible" />
                     </columns>
                 </TableView>
             </children>
