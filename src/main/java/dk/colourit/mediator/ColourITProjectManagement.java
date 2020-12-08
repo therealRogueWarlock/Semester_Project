@@ -176,23 +176,24 @@ public class ColourITProjectManagement
     }
 
     public void editTask(String projectName, String requirementName, String taskName){
-
-
+        //TODO
     }
 
     public void removeTask(String projectName, String requirementName, String taskName)
     {
-
+        //TODO
     }
 
     public ProjectList getProjectList()
     {
         return projectList;
+        //TODO: Er denne på klasse diagram?
     }
 
     public TeamMemberList getTeamMemberList()
     {
         return teamMemberList;
+        //TODO: Er denne på klasse diagram?
     }
 
 }
