@@ -18,7 +18,7 @@ public class ColourItGui extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("loginScreen"), 635, 604);
+        scene = new Scene(loadFXML("loginScreen",null), 635, 604);
         stage.setScene(scene);
         stage.show();
 
@@ -29,17 +29,25 @@ public class ColourItGui extends Application {
     }
 
     static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
+        scene.setRoot(loadFXML(fxml, null));
     }
 
+    static void setRoot(String fxml, Object obj) throws IOException {
+        scene.setRoot(loadFXML(fxml, obj));
 
-    private static Parent loadFXML(String fxml) throws IOException {
+    }
+
+    private static Parent loadFXML(String fxml, Object obj) throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(ColourItGui.class.getResource(fxml + ".fxml"));
         Parent root = loader.load();
 
         Controller controller = loader.getController();
+
+        if (!(obj == null)){
+            controller.setObjectHolderForInit(obj);
+        }
 
         controller.setModel(model);
 

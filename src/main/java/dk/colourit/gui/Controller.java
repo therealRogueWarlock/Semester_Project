@@ -7,7 +7,19 @@ import java.io.IOException;
 public abstract class Controller
 {
 
+	private Object objectHolderForInit;
+
 	protected ColourITProjectManagement model;
+
+	public void setObjectHolderForInit(Object objectHolderForInit)
+	{
+		this.objectHolderForInit = objectHolderForInit;
+	}
+
+	public Object getObjectHolderForInit()
+	{
+		return objectHolderForInit;
+	}
 
 	public void setModel(ColourITProjectManagement model)
 	{

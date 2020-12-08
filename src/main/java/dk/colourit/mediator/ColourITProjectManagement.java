@@ -15,8 +15,7 @@ public class ColourITProjectManagement
     private ColourItFileHandler colourItFileHandler;
     private int userRole;
 
-    public ColourITProjectManagement()
-    {
+    public ColourITProjectManagement(){
 
         projectList = new ProjectList();
         teamMemberList = new TeamMemberList();
@@ -85,8 +84,8 @@ public class ColourITProjectManagement
         return userRole;
     }
 
-    public void createProject()
-    {
+    public void createProject(){
+
 
     }
 
@@ -143,18 +142,16 @@ public class ColourITProjectManagement
 
     }
 
-    public void setRequirementPriority(String requirementName, int priority)
-    {
+    public void setRequirementPriority(String requirementName, int priority){
 
     }
 
-    public void addTask(String taskName)
-    {
+    public void addTask(String taskName){
 
     }
 
-    public void editTask(String taskName)
-    {
+    public void editTask(Project project,String taskName){
+
 
     }
 

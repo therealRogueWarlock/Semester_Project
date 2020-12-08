@@ -55,9 +55,13 @@ public class ProjectListViewCreatorController extends Controller
 	public void itemSelected() throws IOException //SANDER DONT FUCKING REMOVE THIS PLEASE
 	{
 		Project selectedProject = projectTableView.getSelectionModel().getSelectedItem();
+
+
+
+		//Debugging: Made to view multiple screens
 		if (selectedProject.getName().equalsIgnoreCase("project1"))
-			ColourItGui.setRoot("editProjectCreator");
+			ColourItGui.setRoot("editProjectCreator", selectedProject);
 		else
-			ColourItGui.setRoot("projectViewOwner");
+			ColourItGui.setRoot("projectViewOwner",selectedProject);
 	}
 }
