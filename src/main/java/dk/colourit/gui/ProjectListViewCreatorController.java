@@ -14,51 +14,50 @@ import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
-public class ProjectListViewCreatorController extends Controller{
+public class ProjectListViewCreatorController extends Controller
+{
 
-    public TableView<Project> projectTableView;
-    public TableColumn<Project, String> projectName;
-    public TableColumn<Project, MyDate> startDate;
-    public TableColumn<Project, MyDate> deadLine;
+	public TableView<Project> projectTableView;
+	public TableColumn<Project, String> projectName;
+	public TableColumn<Project, MyDate> startDate;
+	public TableColumn<Project, MyDate> deadLine;
 
+	public TableColumn<Project, String> projectStatus;
+	// might be deleted
+	public TableColumn projectEdit;
+	public Button backButton;
+	public Button createButton;
+	public Button addButton; // What is the purpose of this one?
 
-    public TableColumn<Project, String> projectStatus;
-    // might be deleted
-    public TableColumn projectEdit;
-    public Button backButton;
-    public Button createButton;
-    public Button addButton; // What is the purpose of this one?
+	@Override public void init()
+	{
+		int user = model.getUserRole();
+		System.out.print(model.getUserRole());
 
-    @Override
-    public void init() {
-        int user = model.getUserRole();
-        System.out.print(model.getUserRole());
+		if (!(user == 3))
+		{
+			createButton.setDisable(true);
+			createButton.setVisible(false);
+		}
 
-        if (!(user==3)){
-            createButton.setDisable(true);
-            createButton.setVisible(false);
-        }
+		ObservableList<Project> observableProjectList = FXCollections.observableArrayList();
 
+		observableProjectList.addAll(getModel().getProjectList().getProjects());
 
-        ObservableList<Project> observableProjectList = FXCollections.observableArrayList();
+		projectName.setCellValueFactory(new PropertyValueFactory<>("name"));
+		startDate.setCellValueFactory(new PropertyValueFactory<>("startDate"));
+		deadLine.setCellValueFactory(new PropertyValueFactory<>("deadLine"));
 
-        observableProjectList.addAll(getModel().getProjectList().getProjects());
+		projectTableView.setItems(observableProjectList);
 
-        projectName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        startDate.setCellValueFactory(new PropertyValueFactory<>("startDate"));
-        deadLine.setCellValueFactory(new PropertyValueFactory<>("deadLine"));
+	}
 
-
-        projectTableView.setItems(observableProjectList);
-
-    }
-
-    public void itemSelected()
-    {
-
-        Project selectedProject = projectTableView.getSelectionModel().getSelectedItem();
-        System.out.println(selectedProject.getName());
-
-    }
-
+	public void itemSelected() throws IOException
+	{
+		Project selectedProject = projectTableView.getSelectionModel().getSelectedItem();
+		if (selectedProject.getName().equalsIgnoreCase("project1"))
+			ColourItGui.setRoot("editProjectCreator");
+		else
+			ColourItGui.setRoot("projectViewOwner");
+	}
 }
