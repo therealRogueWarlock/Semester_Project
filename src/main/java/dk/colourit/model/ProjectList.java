@@ -19,10 +19,13 @@ public class ProjectList {
 		projects.add(project);
 	}
 
-	public Project getProjectByName(String projectName) {
-		for (Project project:projects){
-			//TODO: getName = Peter - projectName = pEtER
-			if (project.getName().equals(projectName)){
+	public Project getProjectByName(String projectName)
+	{
+		//TODO: getName = Peter - projectName = pEtER
+		for (Project project : projects)
+		{
+			if (project.getName().equals(projectName))
+			{
 
 				return project;
 			}
@@ -34,8 +37,10 @@ public class ProjectList {
 	public ArrayList<Project> getProjectsByTeamMember(String name) {
 		ArrayList<Project> returnArray = new ArrayList<>();
 
-		for (Project project: projects){
-			if (project.getTeamMemberList().getTeamMember("name", name) != null){
+		for (Project project : projects)
+		{
+			if (project.getTeamMemberList().getTeamMember("name", name) != null)
+			{
 
 				returnArray.add(project);
 			}
@@ -44,9 +49,9 @@ public class ProjectList {
 		return returnArray;
 	}
 
-
-	public void removeProject(String projectName) {
-		//TODO:Skal laves
+	public void removeProject(String projectName)
+	{
+		projects.remove(getProjectByName(projectName));
 	}
 
 }
