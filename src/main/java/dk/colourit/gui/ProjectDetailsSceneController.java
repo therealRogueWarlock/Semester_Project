@@ -22,14 +22,16 @@ public class ProjectDetailsSceneController extends Controller
   public Button addRequirementButton;
   public ChoiceBox requirementList;
   public Button removeRequirementButton;
-  public TableView<Requirement> requirementTable;
-  public TableColumn requirementPriorityColumn;
-  public TableColumn<Requirement, String> requirementNameColumn;
-  public TableColumn requirementStatusColumn;
   public Button addTeamMemberButton;
   public Button deleteProjectButton;
   public ChoiceBox teamMemberList;
   public Button removeTeamMemberButton;
+
+  public TableView<Requirement> requirementTable;
+  public TableColumn requirementPriorityColumn;
+  public TableColumn<Requirement, String> requirementNameColumn;
+  public TableColumn requirementStatusColumn;
+
   public TableView<TeamMember> teamMemberTable;
   public TableColumn<TeamMember, String> teamMemberNameColumn;
   public TableColumn<TeamMember, Integer> idNumberColumn;
