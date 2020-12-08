@@ -95,11 +95,18 @@ public class ColourITProjectManagement
         projectList.removeProject(projectName);
     }
 
-    public void addMemberToProject(String projectName, String memberName,
-        int memberRole)
-    {
-        projectList.getProjectByName(projectName).getTeamMemberList().
-            getTeamMember("name", memberName).setRole(memberRole);
+	public void addMemberToProject(String projectName, String memberName, int memberRole)
+	{
+		// Finds Member from Member List and adds to project
+		TeamMember member = teamMemberList.getTeamMember("name", memberName);
+		projectList.getProjectByName(projectName).getTeamMemberList().addTeamMember(member);
+
+
+
+
+		// Mangler vi ikke at tilføje en member
+		projectList.getProjectByName(projectName).getTeamMemberList().
+			getTeamMember("name", memberName).setRole(memberRole);
         /*
         Hvad med setRole, er dette nødvendigt når man laver den?
          */
@@ -167,32 +174,33 @@ public class ColourITProjectManagement
 
     }
 
-    public void setRequirementPriority(String requirementName, int priority){
+    public void setRequirementPriority(String projectName, String requirementName, int priority){
 
     }
 
-    public void addTask(String taskName){
-
+    public void addTask(String projectName, String requirementName, Task task){
+        //TODO:Hvordan skal Task task sættes op, min hjerne er død lige nu..
     }
 
-    public void editTask(Project project,String taskName){
-
-
+    public void editTask(String projectName, String requirementName, String taskName){
+        //TODO
     }
 
-    public void removeTask(int taskName)
+    public void removeTask(String projectName, String requirementName, String taskName)
     {
-
+        //TODO
     }
 
     public ProjectList getProjectList()
     {
         return projectList;
+        //TODO: Er denne på klasse diagram?
     }
 
     public TeamMemberList getTeamMemberList()
     {
         return teamMemberList;
+        //TODO: Er denne på klasse diagram?
     }
 
 }

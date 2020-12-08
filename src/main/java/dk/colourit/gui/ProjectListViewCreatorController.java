@@ -1,19 +1,26 @@
 package dk.colourit.gui;
 
+import dk.colourit.model.Documentation;
 import dk.colourit.model.MyDate;
 import dk.colourit.model.Project;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class ProjectListViewCreatorController extends Controller
 {
+
 	public TableView<Project> projectTableView;
 	public TableColumn<Project, String> projectName;
 	public TableColumn<Project, MyDate> startDate;
@@ -55,5 +62,20 @@ public class ProjectListViewCreatorController extends Controller
 
 		ColourItGui.setRoot("projectDetailsScene", selectedProject);
 
+	}
+
+	public void addEmployee() throws IOException
+	{
+		Scene addTeamMemberScene = new Scene(loadFXML("addTeamMemberScene"));
+		Stage stage = new Stage();
+
+		stage.setScene(addTeamMemberScene);
+		stage.show();
+	}
+
+	private static Parent loadFXML(String fxml) throws IOException
+	{
+		FXMLLoader fxmlLoader = new FXMLLoader(ColourItGui.class.getResource(fxml + ".fxml"));
+		return fxmlLoader.load();
 	}
 }

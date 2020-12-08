@@ -12,6 +12,7 @@ public class AddTeamMemberSceneController extends Controller {
 
     @FXML
     private void addTeamMember() throws IOException {
+
         ((Stage) addTeamMemberButton.getScene().getWindow()).close(); // Get's the Window the button is in, and casts to a Stage, which can be closed with .close()
     }
 
