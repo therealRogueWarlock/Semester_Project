@@ -102,7 +102,7 @@ public class ColourITProjectManagement
             getTeamMember("name", memberName).setRole(memberRole);
         /*
         Hvad med setRole, er dette nødvendigt når man laver den?
-         */
+         */projectName : String, requirementName : String
     }
 
     public void removeMemberFromProject(String projectName, String memberName)
@@ -167,20 +167,20 @@ public class ColourITProjectManagement
 
     }
 
-    public void setRequirementPriority(String requirementName, int priority){
+    public void setRequirementPriority(String projectName, String requirementName, int priority){
 
     }
 
-    public void addTask(String taskName){
+    public void addTask(String projectName, String requirementName, Task task){
+        //TODO:Hvordan skal Task task sættes op, min hjerne er død lige nu..
+    }
+
+    public void editTask(String projectName, String requirementName, String taskName){
+
 
     }
 
-    public void editTask(Project project,String taskName){
-
-
-    }
-
-    public void removeTask(int taskName)
+    public void removeTask(String projectName, String requirementName, String taskName)
     {
 
     }
