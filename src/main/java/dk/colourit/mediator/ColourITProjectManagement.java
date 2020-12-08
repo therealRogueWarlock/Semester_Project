@@ -85,9 +85,6 @@ public class ColourITProjectManagement
         return userRole;
     }
 
-    public void createProject(){
-
-
     public void createProject(String projectName, MyDate getStartDate, MyDate deadline)
     {
         projectList.addProject(new Project(projectName, getStartDate, deadline));
