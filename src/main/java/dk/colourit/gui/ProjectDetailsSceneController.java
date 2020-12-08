@@ -28,9 +28,9 @@ public class ProjectDetailsSceneController extends Controller
   public Button removeTeamMemberButton;
 
   public TableView<Requirement> requirementTable;
-  public TableColumn requirementPriorityColumn;
+  public TableColumn<Requirement, Integer> requirementPriorityColumn;
   public TableColumn<Requirement, String> requirementNameColumn;
-  public TableColumn requirementStatusColumn;
+  public TableColumn<Requirement, Integer> requirementStatusColumn;
 
   public TableView<TeamMember> teamMemberTable;
   public TableColumn<TeamMember, String> teamMemberNameColumn;
@@ -98,6 +98,7 @@ public class ProjectDetailsSceneController extends Controller
 
 
     requirementNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+    requirementPriorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
 
     requirementTable.setItems(observableRequirementList);
 
@@ -109,7 +110,10 @@ public class ProjectDetailsSceneController extends Controller
 
     teamMemberNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
     idNumberColumn.setCellValueFactory(new PropertyValueFactory<>("employeeNumber"));
-    teamMemberNameColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
+    roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
+    teamMemberTable.setItems(observableTeamMembers);
+
+
   }
 
 

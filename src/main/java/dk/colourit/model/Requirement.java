@@ -5,12 +5,14 @@ public class Requirement {
 	private String name;
 	private final MyDate creationDate;
 	private int timeEstimate;
-	private boolean priority;
+	private int priority;
 	private TaskList taskList;
+	private int status;
 
 
-	public Requirement(String name, int timeEstimate, boolean priority) {
+	public Requirement(String name, int timeEstimate, int priority) {
 		creationDate = MyDate.now();
+		status = 0;
 
 		this.name = name;
 		this.timeEstimate = timeEstimate;
@@ -37,11 +39,11 @@ public class Requirement {
 		this.timeEstimate = timeEstimate;
 	}
 
-	public boolean isHighPriority(){
+	public int isHighPriority(){
 		return priority;
 	}
 
-	public void setPriority(boolean priority) {
+	public void setPriority(int priority) {
 		this.priority = priority;
 	}
 

@@ -58,7 +58,7 @@ public class ColourITProjectManagement
 
 
                 project.getRequirementList().addRequirement(
-                    new Requirement(("requirement" + j), 10 + j, true));
+                    new Requirement(("requirement" + j), 10 + j, j));
 
                 Requirement requirement = project.getRequirementList()
                     .getRequirementByName(("requirement" + j));
@@ -175,7 +175,7 @@ public class ColourITProjectManagement
         //TODO: mangler approval i Task
     }
 
-    public void addRequirement(String projectName, String requirementName, int timeEstimate, boolean priority)
+    public void addRequirement(String projectName, String requirementName, int timeEstimate, int priority)
     {
         //Creating a Requirement
         Requirement requirement = new Requirement(requirementName, timeEstimate, priority);
@@ -190,7 +190,7 @@ public class ColourITProjectManagement
             .getRequirementList().removeRequirement(requirementName);
     }
 
-    public void setRequirementPriority(String projectName, String requirementName, boolean priority){
+    public void setRequirementPriority(String projectName, String requirementName, int priority){
         projectList.getProjectByName(projectName)
             .getRequirementList().getRequirementByName(requirementName).setPriority(priority);
     }

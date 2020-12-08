@@ -32,11 +32,13 @@ public class RequirementList {
     public RequirementList getPriorityList() {
         RequirementList priorityList = new RequirementList();
 
+        /*
         for (Requirement requirement : requirements) {
             if (requirement.isHighPriority()) {
                 priorityList.addRequirement(requirement);
             }
-        }
+        }*/
+
         return priorityList;
     }
 
