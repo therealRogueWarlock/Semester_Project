@@ -64,5 +64,6 @@
             </TableView>
          </children>
       </GridPane>
+       <Button fx:id="addEmployeeButton" mnemonicParsing="false" onMouseClicked="#addEmployee" text="Add Employee" GridPane.rowIndex="1" />
    </children>
 </GridPane>

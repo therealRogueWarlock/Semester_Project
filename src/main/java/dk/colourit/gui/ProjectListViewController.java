@@ -31,6 +31,7 @@ public class ProjectListViewController extends Controller
 	public TableColumn projectEdit;
 	public Button backButton;
 	public Button createButton;
+	public Button addEmployeeButton;
 
 	@Override public void init()
 	{
