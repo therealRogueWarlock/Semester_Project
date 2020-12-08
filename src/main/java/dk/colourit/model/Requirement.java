@@ -11,7 +11,7 @@ public class Requirement {
 		/*
 	0 = notDone
 	1 = readyForApproval
-	2 = approval
+	2 = rejected
 	3 = finished
 	 */
 
