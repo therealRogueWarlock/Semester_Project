@@ -7,18 +7,18 @@ public class Task {
     private String name;
     private String responsible;
     private MyDate creationDate;
-    private int timeEstimate;
+    private int timeEstimateHour;
     private String description;
     private boolean finito;
     private ArrayList<Documentation> documentations;
 
 
-    public Task(String name, String teamMemberName, int timeEstimate) {
+    public Task(String name, String teamMemberName, int timeEstimateHour) {
 
         documentations = new ArrayList<>();
 
         this.name = name;
-        this.timeEstimate = timeEstimate;
+        this.timeEstimateHour = timeEstimateHour;
         responsible = teamMemberName;
 
         // initialise default values.

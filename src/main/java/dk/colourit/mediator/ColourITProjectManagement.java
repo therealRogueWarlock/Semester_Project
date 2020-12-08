@@ -175,31 +175,49 @@ public class ColourITProjectManagement
         //TODO: mangler approval i Task
     }
 
-    public void addRequirement(String projectName, String requirementName)
+    public void addRequirement(String projectName, String requirementName, int timeEstimate, boolean priority)
     {
+        //Creating a Requirement
+        Requirement requirement = new Requirement(requirementName, timeEstimate, priority);
 
+        projectList.getProjectByName(projectName)
+            .getRequirementList().addRequirement(requirement);
     }
 
     public void removeRequirement(String projectName, String requirementName)
     {
-
+        projectList.getProjectByName(projectName)
+            .getRequirementList().removeRequirement(requirementName);
     }
 
-    public void setRequirementPriority(String projectName, String requirementName, int priority){
-
+    public void setRequirementPriority(String projectName, String requirementName, boolean priority){
+        projectList.getProjectByName(projectName)
+            .getRequirementList().getRequirementByName(requirementName).setPriority(priority);
     }
 
-    public void addTask(String projectName, String requirementName, Task task){
-        //TODO:Hvordan skal Task task sættes op, min hjerne er død lige nu..
+    public void addTask(String projectName, String requirementName, String taskName, String teamMemberName, int timeEstimateHour){
+        //Creating a task
+        Task task = new Task(taskName, teamMemberName, timeEstimateHour);
+
+        //Adding task to list.
+        projectList.getProjectByName(projectName)
+            .getRequirementList().getRequirementByName(requirementName)
+            .getTaskList().addTask(task);
     }
 
     public void editTask(String projectName, String requirementName, String taskName){
-        //TODO
+        //Getting task by task name
+        projectList.getProjectByName(projectName)
+            .getRequirementList().getRequirementByName(requirementName)
+            .getTaskList().getTaskByName(taskName);
+            //TODO: Hvordan edited vi igennem den her funktion, skal tilføjes efter sidste getter!
     }
 
     public void removeTask(String projectName, String requirementName, String taskName)
     {
-        //TODO
+        projectList.getProjectByName(projectName)
+            .getRequirementList().getRequirementByName(requirementName)
+            .getTaskList().removeTask(taskName);
     }
 
 }
