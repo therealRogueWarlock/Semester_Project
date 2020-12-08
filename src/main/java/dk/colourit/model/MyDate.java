@@ -19,6 +19,7 @@ public class MyDate {
 		day = now.get(Calendar.DAY_OF_MONTH);
 		month = now.get(Calendar.MONTH) + 1;
 		year = now.get(Calendar.YEAR);
+		//TODO: Muligvis brug: MyDate.now(); - Dog får jeg 0/0/0, hver gang jeg prøver det.
 	}
 
 	public MyDate(int year, int month, int day) {
@@ -64,10 +65,10 @@ public class MyDate {
 			case 12:
 				return "December";
 		}
-		return "";
+		return ""; //TODO:Burde vi lave en exception? - Vi kan dog ikke få udover 1-12, hvis vi bruger skemaet i vores GUI
 	}
 
-	public void set(int day, int month, int year) {
+	public void set(int year, int month, int day) {
 		this.day = Math.abs(day);
 		this.month = Math.abs(month);
 		this.year = Math.abs(year);
@@ -79,6 +80,10 @@ public class MyDate {
 				this.year++;
 			}
 		}
+	}
+
+	public boolean isLeapYear() {
+		return year % 400 == 0 || !((year % 100) == 0) && year % 4 == 0;
 	}
 
 	public int numberOfDaysInMonth(int monthNumber) {
@@ -102,11 +107,12 @@ public class MyDate {
 			case 12:
 				return 31;
 		}
-		return -1;
+		return -1; //TODO: Bør vi implementere exception? (tidligere argument)
 	}
 
 	public int yearsBetween(MyDate newDate) {
 		return Math.abs(this.year - newDate.year);
+		//TODO: Dette giver fulde år, men hvad nu hvis year = 31/12/2019 og newDate er 01/01/2020, burde vi have et fuldt år der?
 	}
 
 	public int daysBetween(MyDate newDate) {
@@ -157,20 +163,6 @@ public class MyDate {
 		return daySum;
 	}
 
-	public boolean isLeapYear() {
-		return year % 400 == 0 || !((year % 100) == 0) && year % 4 == 0;
-	}
-
-	public boolean equals(MyDate newDate) {
-		if (this == newDate) //Checks if this is the same object passed through newDate
-			return true;
-		if (this.year != newDate.year)
-			return false;
-		if (this.month != newDate.month)
-			return false;
-		return this.day == newDate.day;
-	}
-
 	public boolean isBefore(MyDate newDate) {
 		if (this.year > newDate.year)
 			return false;
@@ -181,16 +173,24 @@ public class MyDate {
 	}
 
 	public MyDate copy() {
-		return new MyDate(this.year, this.month, this.day);
+		return new MyDate(year, month, day);
 	}
 
-	public static MyDate now()
-	{
-		return new MyDate(Calendar.DAY_OF_MONTH, Calendar.MONTH, Calendar.YEAR);
+	public boolean equals(Object obj) {
+		if(!(obj instanceof MyDate))
+			return false;
+		MyDate other = (MyDate) obj;
+		return year == other.year && month == other.month && day == other.day;
 	}
 
 	@Override public String toString()
 	{
 		return day + "/" + month + "/" + year;
+	}
+
+	public static MyDate now()
+	{
+		GregorianCalendar now = new GregorianCalendar();
+		return new MyDate(now.get(Calendar.DATE), now.get(Calendar.MONTH)+1, now.get(Calendar.YEAR));
 	}
 }
