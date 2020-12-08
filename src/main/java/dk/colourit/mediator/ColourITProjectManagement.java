@@ -131,22 +131,6 @@ public class ColourITProjectManagement
          */
 	}
 
-	public void setRequirementReady(String projectName, String requirementName, boolean ready)
-	{
-        /*
-        projectList.getProjectByName(projectName)
-            .getRequirementList().getRequirementByName(requirementName).set
-
-         */
-		//Mangler at tilføje
-		//TODO:Ready, approval, finished
-	}
-
-	public void setRequirementApproval(String projectName, String requirementName, boolean approval)
-	{
-		//TODO: mangler approval i Task
-	}
-
 	public void addRequirement(String projectName, String requirementName, int timeEstimate, int priority)
 	{
 		//Creating a Requirement
@@ -164,6 +148,22 @@ public class ColourITProjectManagement
 	{
 		projectList.getProjectByName(projectName).getRequirementList().getRequirementByName(requirementName)
 			.setPriority(priority);
+	}
+
+	public void setRequirementApproval(String projectName, String requirementName, boolean approval)
+	{
+		//TODO: mangler approval i Task
+	}
+
+	public void setRequirementReady(String projectName, String requirementName, boolean ready)
+	{
+        /*
+        projectList.getProjectByName(projectName)
+            .getRequirementList().getRequirementByName(requirementName).set
+
+         */
+		//Mangler at tilføje
+		//TODO:Ready, approval, finished
 	}
 
 	public void addTask(String projectName, String requirementName, String taskName, String teamMemberName,

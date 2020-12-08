@@ -2,52 +2,60 @@ package dk.colourit.model;
 
 import java.util.ArrayList;
 
-public class RequirementList {
+public class RequirementList
+{
 
-    private ArrayList<Requirement> requirements;
+	private ArrayList<Requirement> requirements;
 
-    public RequirementList() {
-        requirements = new ArrayList<>();
-    }
+	public RequirementList()
+	{
+		requirements = new ArrayList<>();
+	}
 
-    public ArrayList<Requirement> getRequirements() {
-        return requirements;
-    }
+	public ArrayList<Requirement> getRequirements()
+	{
+		return requirements;
+	}
 
-    public Requirement getRequirementByName(String requirementName) {
-        //TODO: Pea brain time, rammer dette forloop projekt listen?
-        for (Requirement requirement : requirements) {
-            if (requirement.getName().equals(requirementName)) {
-                return requirement;
-            }
-        }
+	public Requirement getRequirementByName(String requirementName)
+	{
+		for (Requirement requirement : requirements)
+		{
+			if (requirement.getName().equals(requirementName))
+			{
+				return requirement;
+			}
+		}
+		return null;
+	}
 
-        return null;
-    }
+	public RequirementList getPriorityList()
+	{
+		RequirementList priorityList = new RequirementList();
+		for (Requirement requirement : requirements)
+		{
+			if (requirement.getPriority() > 0)
+			{
+				priorityList.addRequirement(requirement);
+			}
+		}
+		return priorityList;
+	}
 
-    public RequirementList getPriorityList() {
-        RequirementList priorityList = new RequirementList();
+	public void addRequirement(Requirement requirement)
+	{
+		requirements.add(requirement);
+	}
 
-        /*
-        for (Requirement requirement : requirements) {
-            if (requirement.isHighPriority()) {
-                priorityList.addRequirement(requirement);
-            }
-        }*/
-
-        return priorityList;
-    }
-
-    public void addRequirement(Requirement requirement) {
-        requirements.add(requirement);
-    }
-
-    public void removeRequirement(String requirementName) {
-        for (Requirement requirement : requirements) {
-            if (requirement.getName().equalsIgnoreCase(requirementName)) {
-                requirements.remove(requirement);
-                break;
-            }
-        }
-    }
+	public void removeRequirement(String requirementName)
+	{
+		for (Requirement requirement : requirements)
+		{
+			if (requirement.getName().equalsIgnoreCase(requirementName))
+			{
+				requirements.remove(requirement);
+				break;
+			}
+		}
+	}
 }
