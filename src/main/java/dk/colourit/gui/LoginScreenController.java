@@ -32,7 +32,7 @@ public class LoginScreenController extends Controller {
     @FXML
     private void selectedProductOwnerRole() throws IOException {
         model.selectUserRole(1);
-        ColourItGui.setRoot("ProjectListViewC");
+        ColourItGui.setRoot("ProjectListView");
     }
 
     @FXML
