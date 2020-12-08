@@ -12,6 +12,11 @@ public class LoginScreenController extends Controller {
 
     }
 
+    @Override public void back()
+    {
+
+    }
+
     @FXML
     private void selectedProjectCreatorRole() throws IOException {
         model.selectUserRole(3);

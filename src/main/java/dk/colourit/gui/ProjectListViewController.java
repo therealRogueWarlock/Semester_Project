@@ -56,6 +56,11 @@ public class ProjectListViewController extends Controller
 
 	}
 
+	@Override public void back()
+	{
+
+	}
+
 	public void itemSelected() throws IOException //SANDER DONT FUCKING REMOVE THIS PLEASE
 	{
 		Project selectedProject = projectTableView.getSelectionModel().getSelectedItem();

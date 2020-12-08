@@ -11,6 +11,10 @@ public abstract class Controller
 
 	protected ColourITProjectManagement model;
 
+	protected Controller(){
+
+	}
+
 	public void setObjectHolderForInit(Object objectHolderForInit)
 	{
 		this.objectHolderForInit = objectHolderForInit;
@@ -37,5 +41,7 @@ public abstract class Controller
 	}
 
 	public abstract void init();
+
+	public abstract void back();
 
 }

@@ -32,6 +32,10 @@ public class TaskListSceneController extends Controller {
 
     }
 
+    @Override public void back()
+    {
+
+    }
 
     @FXML
     private void popUpAddTask() throws IOException{

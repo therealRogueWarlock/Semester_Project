@@ -1,11 +1,7 @@
 package dk.colourit.mediator;
 
-import dk.colourit.Main;
-import dk.colourit.model.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
+import dk.colourit.model.*;
 
 public class ColourITProjectManagement
 {

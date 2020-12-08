@@ -20,6 +20,11 @@ public class CreateProjectPopUpController extends Controller {
 
   }
 
+  @Override public void back()
+  {
+
+  }
+
 
   /*
   Mangler noget til TableView

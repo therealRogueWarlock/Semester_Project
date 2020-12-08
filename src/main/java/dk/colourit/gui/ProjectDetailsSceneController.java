@@ -105,7 +105,10 @@ public class ProjectDetailsSceneController extends Controller
     teamMemberNameColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
   }
 
+  @Override public void back()
+  {
 
+  }
 
 }
 
