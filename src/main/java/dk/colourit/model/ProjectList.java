@@ -46,7 +46,7 @@ public class ProjectList {
 
 
 	public void removeProject(String projectName) {
-
+		//TODO:Skal laves
 	}
 
 }
