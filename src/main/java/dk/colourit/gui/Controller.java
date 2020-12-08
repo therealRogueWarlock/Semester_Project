@@ -2,21 +2,28 @@ package dk.colourit.gui;
 
 import dk.colourit.mediator.ColourITProjectManagement;
 
-public abstract class Controller {
+import java.io.IOException;
 
-    protected ColourITProjectManagement model;
+public abstract class Controller
+{
 
+	protected ColourITProjectManagement model;
 
-    public void setModel(ColourITProjectManagement model){
-        this.model = model;
-    }
+	public void setModel(ColourITProjectManagement model)
+	{
+		this.model = model;
+	}
 
-    public ColourITProjectManagement getModel() {
-        return model;
-    }
+	public ColourITProjectManagement getModel()
+	{
+		return model;
+	}
 
-    public abstract void init();
+	public void loginScreen() throws IOException
+	{
+		ColourItGui.setRoot("loginScreen");
+	}
 
-
+	public abstract void init();
 
 }

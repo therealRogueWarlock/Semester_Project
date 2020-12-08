@@ -83,6 +83,10 @@ public class ColourITProjectManagement
         userRole = role;
     }
 
+    public int getUserRole() {
+        return userRole;
+    }
+
     public void createProject()
     {
 

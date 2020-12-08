@@ -14,10 +14,6 @@ public class PrimaryController extends Controller {
         ColourItGui.setRoot("secondary");
     }
 
-    @FXML
-    private void switchToLogin() throws IOException {
-        ColourItGui.setRoot("loginScreen");
-    }
 
     @Override
     public void init() {
