@@ -10,10 +10,6 @@ public class RequirementList {
         requirements = new ArrayList<>();
     }
 
-//    public RequirementList(ArrayList<Requirement> requirements) {
-//        this.requirements = requirements;
-//    }
-
     public ArrayList<Requirement> getRequirements() {
         return requirements;
     }
