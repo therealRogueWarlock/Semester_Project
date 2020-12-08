@@ -92,7 +92,7 @@ public class ColourITProjectManagement
         /*
         Hvad med setRole, er dette nødvendigt når man laver den?
          */
-	}
+    }
 
 	public void removeMemberFromProject(String projectName, String memberName)
 	{
@@ -153,23 +153,21 @@ public class ColourITProjectManagement
 
 	}
 
-	public void setRequirementPriority(String requirementName, int priority)
-	{
+    public void setRequirementPriority(String requirementName, int priority){
 
 	}
 
-	public void addTask(String taskName)
-	{
+    public void addTask(String taskName){
+
+    }
+
+    public void editTask(Project project,String taskName){
+
 
 	}
 
-	public void editTask(Project project, String taskName)
-	{
-
-	}
-
-	public void removeTask(int taskName)
-	{
+    public void removeTask(int taskName)
+    {
 
 	}
 
