@@ -81,6 +81,10 @@ public class ProjectDetailsSceneController extends Controller
   {
   }
 
+  public void backButton()
+  {
+  }
+
   @Override public void init()
   {
     Project project = (Project) getObjectHolderForInit();
@@ -105,10 +109,7 @@ public class ProjectDetailsSceneController extends Controller
     teamMemberNameColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
   }
 
-  @Override public void back()
-  {
 
-  }
 
 }
 
