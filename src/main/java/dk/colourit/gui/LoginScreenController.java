@@ -12,7 +12,7 @@ public class LoginScreenController extends Controller {
 
     }
 
-    @Override public void back()
+    @Override public void backButton()
     {
 
     }
