@@ -23,7 +23,6 @@ public class Project
 
 		requirementList = new RequirementList();
 		teamMemberList = new TeamMemberList();
-
 	}
 
 	public TeamMemberList getTeamMemberList()
