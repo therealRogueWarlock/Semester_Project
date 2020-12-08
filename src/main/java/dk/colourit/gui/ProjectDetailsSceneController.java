@@ -91,11 +91,12 @@ public class ProjectDetailsSceneController extends Controller
   @Override public void init()
   {
     Project project = (Project) getObjectHolderForInit();
+
     ArrayList<Requirement> requirements = project.getRequirementList().getRequirements();
+
     ObservableList<Requirement> observableRequirementList =  FXCollections.observableArrayList();
 
     observableRequirementList.addAll(requirements);
-
 
     requirementNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
     requirementPriorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
@@ -113,6 +114,16 @@ public class ProjectDetailsSceneController extends Controller
     roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
     teamMemberTable.setItems(observableTeamMembers);
 
+
+  }
+
+
+  public void itemSelected() throws IOException //SANDER DONT FUCKING REMOVE THIS PLEASE
+  {
+
+    Requirement selectedRequirement = requirementTable.getSelectionModel().getSelectedItem();
+
+    ColourItGui.setRoot("taskListScene", selectedRequirement);
 
   }
 
