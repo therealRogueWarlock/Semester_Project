@@ -21,12 +21,10 @@ public class ProjectList {
 
 	public Project getProjectByName(String projectName)
 	{
-		//TODO: getName = Peter - projectName = pEtER
 		for (Project project : projects)
 		{
-			if (project.getName().equals(projectName))
+			if (project.getName().equalsIgnoreCase(projectName))
 			{
-
 				return project;
 			}
 		}
