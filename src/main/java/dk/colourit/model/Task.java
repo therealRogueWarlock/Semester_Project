@@ -71,8 +71,15 @@ public class Task {
 		setDescription(taskDescription);
 	}
 
-	public boolean getFinito() {
+	public boolean isFinito() {
 		return finito;
+	}
+
+	public String getStatus() {
+		if (finito)
+			return "Finished";
+		else
+			return "Not Finished";
 	}
 
 	public void setFinito(boolean arg) {
@@ -106,8 +113,6 @@ public class Task {
 	public void setDocumentation(Documentation documentation) {
 		documentations.add(documentation);
 	}
-
-
 
 
 	@Override
