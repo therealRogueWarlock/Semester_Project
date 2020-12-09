@@ -78,8 +78,7 @@ public class TeamMember
 
 	@Override public String toString()
 	{
-		return "TeamMember{" + "name='" + name + '\'' + ", employeeNumber=" + employeeNumber + ", role=" + role
-			+ ", birthday=" + birthday + '}';
+		return name + " | ID: " + employeeNumber;
 	}
 
 }

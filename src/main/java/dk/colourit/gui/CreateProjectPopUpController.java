@@ -1,6 +1,8 @@
 package dk.colourit.gui;
 
 import dk.colourit.model.MyDate;
+import dk.colourit.model.TeamMember;
+import dk.colourit.model.TeamMemberList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -16,7 +18,7 @@ public class CreateProjectPopUpController extends Controller {
   @FXML private DatePicker startDate;
   @FXML private DatePicker deadLine;
 
-  @FXML private ComboBox selectMember;
+  @FXML private ComboBox<TeamMember> selectMember;
   @FXML private Button addMember;
   @FXML private Button confirm;
   @FXML private Button reject;
@@ -24,7 +26,10 @@ public class CreateProjectPopUpController extends Controller {
   @Override
   public void init() {
 
+    selectMember.getItems().addAll(ColourItGui.getModel().getTeamMemberList().getTeamMembers());
+
   }
+
 
   @Override public void goBack()
   {

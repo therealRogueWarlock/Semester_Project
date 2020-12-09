@@ -155,15 +155,11 @@ public class ColourITProjectManagement
         //TODO:Mangler documentation method i Task
     }
 
-    public void finishTask(String projectName, String requirementName, String taskName)
+    public void finishTask(String projectName, String requirementName, String taskName, boolean trueFalse)
     {
         projectList.getProjectByName(projectName)
             .getRequirementList().getRequirementByName(requirementName)
-            .getTaskList().getTaskByName(taskName).setFinito(true);
-        /*
-        Skal det også være muligt at sætte til false i denne funktion?
-        Jeg tænker ja, da det ville være fjollet at have en seperat funktion for det.
-         */
+            .getTaskList().getTaskByName(taskName).setFinito(trueFalse);
     }
 
     public void setRequirementReady(String projectName, String requirementName, boolean ready)

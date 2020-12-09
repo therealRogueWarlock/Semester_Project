@@ -45,6 +45,40 @@ public class RequirementListSceneController extends Controller
     public ChoiceBox<TeamMember> addTeamMemberList;
     public ChoiceBox<TeamMember> removeTeamMemberList;
 
+    @Override public void init()
+    {
+        addTeamMemberList.getItems().addAll(ColourItGui.getModel().getTeamMemberList().getTeamMembers());
+        removeTeamMemberList.getItems().addAll(ColourItGui.getModel().getTeamMemberList().getTeamMembers());
+
+
+        Project project = ColourItGui.getSelectedProject();
+
+        ArrayList<Requirement> requirements = project.getRequirementList().getRequirements();
+
+        ObservableList<Requirement> observableRequirementList =  FXCollections.observableArrayList();
+
+        observableRequirementList.addAll(requirements);
+
+        requirementNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        requirementPriorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
+        requirementStatusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+
+        requirementTable.setItems(observableRequirementList);
+
+
+        ArrayList<TeamMember> teamMembers = project.getTeamMemberList().getTeamMembers();
+        ObservableList<TeamMember> observableTeamMembers =  FXCollections.observableArrayList();
+
+        observableTeamMembers.addAll(teamMembers);
+
+        teamMemberNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        idNumberColumn.setCellValueFactory(new PropertyValueFactory<>("employeeNumber"));
+        roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
+        teamMemberTable.setItems(observableTeamMembers);
+
+        requirementList.getItems().addAll(requirements);
+    }
+
     public void editButton()
     {
     }
@@ -91,36 +125,6 @@ public class RequirementListSceneController extends Controller
     public void goBack() throws IOException
     {
         ColourItGui.setRoot("projectListView");
-    }
-
-    @Override public void init()
-    {
-        Project project = ColourItGui.getSelectedProject();
-
-        ArrayList<Requirement> requirements = project.getRequirementList().getRequirements();
-
-        ObservableList<Requirement> observableRequirementList =  FXCollections.observableArrayList();
-
-        observableRequirementList.addAll(requirements);
-
-        requirementNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        requirementPriorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
-        requirementStatusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
-
-        requirementTable.setItems(observableRequirementList);
-
-
-        ArrayList<TeamMember> teamMembers = project.getTeamMemberList().getTeamMembers();
-        ObservableList<TeamMember> observableTeamMembers =  FXCollections.observableArrayList();
-
-        observableTeamMembers.addAll(teamMembers);
-
-        teamMemberNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        idNumberColumn.setCellValueFactory(new PropertyValueFactory<>("employeeNumber"));
-        roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
-        teamMemberTable.setItems(observableTeamMembers);
-
-
     }
 
     public void itemSelected() throws IOException //SANDER DON'T FUCKING REMOVE THIS PLEASE
