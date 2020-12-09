@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -21,7 +22,6 @@ public class requirementListSceneController extends Controller
     public Button editButton;
     public Button backButton;
 
-    public TextField addRequirementInput;
     public Button addRequirementButton;
 
     public ChoiceBox<Requirement> requirementList;
@@ -30,7 +30,6 @@ public class requirementListSceneController extends Controller
     public Button deleteProjectButton;
 
     public Button addTeamMemberButton;
-    public ChoiceBox<TeamMember> teamMemberList;
     public Button removeTeamMemberButton;
 
     public TableView<Requirement> requirementTable;
@@ -42,6 +41,8 @@ public class requirementListSceneController extends Controller
     public TableColumn<TeamMember, String> teamMemberNameColumn;
     public TableColumn<TeamMember, Integer> idNumberColumn;
     public TableColumn<TeamMember, Integer> roleColumn;
+    public ChoiceBox<TeamMember> addTeamMemberList;
+    public ChoiceBox removeTeamMemberList;
 
     public void editButton()
     {
@@ -66,17 +67,11 @@ public class requirementListSceneController extends Controller
 
     public void addTeamMemberButton() throws IOException
     {
-        Scene addTeamMemberScene = new Scene(loadFXML("addTeamMemberScene"));
-        Stage stage = new Stage();
 
-        stage.setScene(addTeamMemberScene);
+    }
 
-        // when the popUp closes the this controller updates data on scene
-        stage.setOnCloseRequest(WindowEvent -> this.init());
-
-        // when popup is open primary stage cant be accessed.
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.showAndWait();
+    public void removeTeamMemberButton()
+    {
     }
 
     private static Parent loadFXML(String fxml) throws IOException
@@ -92,14 +87,6 @@ public class requirementListSceneController extends Controller
 
         stage.setScene(confirmDeleteProjectScene);
         stage.show();
-    }
-
-    public void teamMemberList()
-    {
-    }
-
-    public void removeTeamMemberButton()
-    {
     }
 
     public void goBack() throws IOException
@@ -136,7 +123,6 @@ public class requirementListSceneController extends Controller
 
 
     }
-
 
     public void itemSelected() throws IOException //SANDER DON'T FUCKING REMOVE THIS PLEASE
     {

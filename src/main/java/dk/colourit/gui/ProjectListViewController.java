@@ -76,39 +76,14 @@ public class ProjectListViewController extends Controller
 	}
 
 	public void addEmployee() throws IOException{
-		Scene addTeamMemberScene = new Scene(loadFXML("addTeamMemberScene"));
-		Stage stage = new Stage();
 
-		stage.setScene(addTeamMemberScene);
-		stage.show();
-	}
+		createPopUp("addTeamMemberScene");
 
-	private static Parent loadFXML(String fxml) throws IOException
-	{
-
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(ColourItGui.class.getResource(fxml + ".fxml"));
-		Parent root = loader.load();
-
-		Controller controller = loader.getController();
-
-		controller.init();
-
-		return root;
 	}
 
 	public void createProjectButton() throws IOException
 	{
-		Scene createProjectPopUp = new Scene(loadFXML("createProjectPopUp"));
-		Stage stage = new Stage();
+		createPopUp("createProjectPopUp");
 
-		stage.setScene(createProjectPopUp);
-
-		// when the popUp closes the this controller updates data on scene
-		stage.setOnCloseRequest(WindowEvent -> this.init());
-
-		// when popup is open primary stage cant be accessed.
-		stage.initModality(Modality.APPLICATION_MODAL);
-		stage.showAndWait();
 	}
 }

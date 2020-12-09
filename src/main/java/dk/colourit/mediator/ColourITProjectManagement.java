@@ -113,17 +113,17 @@ public class ColourITProjectManagement
         projectList.removeProject(projectName);
     }
 
-	public void addMemberToProject(String projectName, String memberName, int memberRole)
+	public void addMemberToProject(Project project, String memberName, int memberRole)
 	{
 		// Finds Member from Member List and adds to project
+
 		TeamMember member = teamMemberList.getTeamMember("name", memberName);
-		projectList.getProjectByName(projectName).getTeamMemberList().addTeamMember(member);
 
-
+		project.getTeamMemberList().addTeamMember(member);
 
 
 		// Mangler vi ikke at tilføje en member
-		projectList.getProjectByName(projectName).getTeamMemberList().
+		project.getTeamMemberList().
 			getTeamMember("name", memberName).setRole(memberRole);
         /*
         Hvad med setRole, er dette nødvendigt når man laver den?
