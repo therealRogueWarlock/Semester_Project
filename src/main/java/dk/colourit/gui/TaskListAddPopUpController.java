@@ -1,10 +1,7 @@
 package dk.colourit.gui;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class TaskListAddPopUpController extends Controller {
@@ -13,9 +10,9 @@ public class TaskListAddPopUpController extends Controller {
 	public CheckBox highPriorityCheckBox;
 	public TextField taskNameTextField;
 	public TextField estimatedHoursTextField;
-	public TextField responsibleTeamMemberTextField;
 	public TextArea taskDescription;
 	public Button cancelButton;
+	private ChoiceBox responsibleTeamMember;
 
 	@FXML
 	private void addTask() {
