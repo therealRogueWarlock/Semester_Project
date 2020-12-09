@@ -35,7 +35,7 @@
       </BorderPane>
       <BorderPane prefHeight="24.0" prefWidth="526.0" GridPane.rowIndex="2">
          <center>
-            <Button fx:id="cancelDeleteButton" mnemonicParsing="false" onMouseClicked="#cancelDelete" prefHeight="20.0" prefWidth="70.0" text="Cancel" />
+            <Button fx:id="cancelDeleteButton" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="20.0" prefWidth="70.0" text="Cancel" />
          </center>
       </BorderPane>
    </children>
