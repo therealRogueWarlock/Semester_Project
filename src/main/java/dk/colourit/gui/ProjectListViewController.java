@@ -16,6 +16,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 
@@ -84,8 +85,17 @@ public class ProjectListViewController extends Controller
 
 	private static Parent loadFXML(String fxml) throws IOException
 	{
-		FXMLLoader fxmlLoader = new FXMLLoader(ColourItGui.class.getResource(fxml + ".fxml"));
-		return fxmlLoader.load();
+
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(ColourItGui.class.getResource(fxml + ".fxml"));
+		Parent root = loader.load();
+
+		Controller controller = loader.getController();
+
+		controller.setModel(model);
+		controller.init();
+
+		return root;
 	}
 
 	public void createProjectButton() throws IOException
@@ -95,8 +105,13 @@ public class ProjectListViewController extends Controller
 
 		stage.setScene(createProjectPopUp);
 
+		stage.setOnCloseRequest(WindowEvent -> this.init());
+
+
 		// when popup is open primary stage cant be accessed.
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.showAndWait();
+
+
 	}
 }

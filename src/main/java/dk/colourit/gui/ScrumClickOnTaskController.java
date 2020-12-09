@@ -29,10 +29,6 @@ public class ScrumClickOnTaskController extends Controller{
 
   public void init() {
     ArrayList<Documentation> list = new ArrayList<>();
-    list.add(new Documentation("Peter", 30, MyDate.now()));
-    list.add(new Documentation("Bob", 33, MyDate.now()));
-    list.add(new Documentation("Bent", 55, MyDate.now()));
-    list.add(new Documentation("John", 26, MyDate.now()));
 
     ObservableList<Documentation> documentationsList = FXCollections.observableArrayList();
 

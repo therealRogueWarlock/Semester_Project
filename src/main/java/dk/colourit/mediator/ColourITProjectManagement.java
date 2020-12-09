@@ -104,6 +104,7 @@ public class ColourITProjectManagement
 
     public void createProject(String projectName, MyDate getStartDate, MyDate deadline)
     {
+        // TODO: add validation logic to projectList.addProject
         projectList.addProject(new Project(projectName, getStartDate, deadline));
     }
 

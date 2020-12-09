@@ -2,6 +2,7 @@ package dk.colourit.model;
 
 
 import java.text.DecimalFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -21,6 +22,16 @@ public class MyDate {
 		year = now.get(Calendar.YEAR);
 		//TODO: Muligvis brug: MyDate.now(); - Dog får jeg 0/0/0, hver gang jeg prøver det.
 	}
+
+	public MyDate(LocalDate localDate){
+
+		year = localDate.getYear();
+		month = localDate.getMonthValue();
+		day = localDate.getDayOfMonth();
+
+	}
+
+
 
 	public MyDate(int year, int month, int day) {
 		set(day, month, year);

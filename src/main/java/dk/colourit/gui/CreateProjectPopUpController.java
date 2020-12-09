@@ -1,11 +1,14 @@
 package dk.colourit.gui;
 
+import dk.colourit.model.MyDate;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+
+import java.time.LocalDate;
 
 public class CreateProjectPopUpController extends Controller {
 
@@ -30,16 +33,16 @@ public class CreateProjectPopUpController extends Controller {
 
   public void confirmCreateProject() {
     String projectName = this.projectName.getText();
+    LocalDate startDate = this.startDate.getValue();
+    LocalDate deadLine = this.deadLine.getValue();
+
+    model.createProject(projectName,new MyDate(startDate), new MyDate(deadLine));
 
 
 
+  }
 
-
-
-
-    model.createProject();
-
-
+  public void closePopUp() {
   }
 
 

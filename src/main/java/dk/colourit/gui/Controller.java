@@ -7,7 +7,7 @@ import java.io.IOException;
 public abstract class Controller
 {
 
-    protected ColourITProjectManagement model;
+    protected static ColourITProjectManagement model;
 
     protected Controller(){
 
