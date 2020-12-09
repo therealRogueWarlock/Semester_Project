@@ -46,7 +46,7 @@ public class RequirementListSceneController extends Controller
 
     public ChoiceBox<TeamMember> addTeamMemberChoiceBox;
     public ChoiceBox<TeamMember> removeTeamMemberChoiceBox;
-
+    public ChoiceBox<String> selectRoleChoiceBox;
 
     @Override public void init()
     {
@@ -57,6 +57,9 @@ public class RequirementListSceneController extends Controller
         populateRequirementTable(project);
 
         populateTeamMemberTable(project);
+
+        selectRoleChoiceBox.getItems().addAll("Team Member", "Project Creator", "Scrum Master", "Product Owner");
+
 
     }
 
@@ -69,7 +72,7 @@ public class RequirementListSceneController extends Controller
         ArrayList<TeamMember> projectTeamMembers =  project.getTeamMemberList().getTeamMembers();
 
         TeamMemberList employees =  ColourItGui.getModel()
-                .getTeamMemberList();
+                .getTeamMemberList().getCopy();
 
         ArrayList<TeamMember> employeesNotInProject = employees.getRemaindingTeamMembers(projectTeamMembers);
 
@@ -79,6 +82,7 @@ public class RequirementListSceneController extends Controller
 
         ArrayList<Requirement> requirements = project.getRequirementList().getRequirements();
         requirementChoiceBox.getItems().addAll(requirements);
+
     }
 
     public void populateRequirementTable(Project project){
