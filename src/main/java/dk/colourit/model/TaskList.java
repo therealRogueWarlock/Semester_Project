@@ -24,6 +24,10 @@ public class TaskList {
         return finishedTasks;
     }
 
+    public int getListSize(){
+        return tasks.size();
+    }
+
     public ArrayList<Task> getHighPriority(){
         ArrayList<Task> returnArray = new ArrayList<>();
 
