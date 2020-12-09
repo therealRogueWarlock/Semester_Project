@@ -4,7 +4,7 @@ public class TeamMember
 {
     private String name;
     private int employeeNumber;
-//    private String role;
+    private String role;
     /*
     0 = Team Member
     1 = Product Owner
@@ -51,15 +51,15 @@ public class TeamMember
         birthday = myDate.copy();
     }
 
-//    public String getRole()
-//    {
-//        return role;
-//    }
-//
-//    public void setRole(String role)
-//    {
-//        this.role = role;
-//    }
+    public String getRole()
+    {
+        return role;
+    }
+
+    public void setRole(String role)
+    {
+        this.role = role;
+    }
 
     @Override public String toString()
     {
