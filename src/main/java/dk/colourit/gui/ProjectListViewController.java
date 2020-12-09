@@ -48,7 +48,7 @@ public class ProjectListViewController extends Controller
 
 		ObservableList<Project> observableProjectList = FXCollections.observableArrayList();
 
-		observableProjectList.addAll(getModel().getProjectList().getProjects());
+		observableProjectList.addAll(ColourItGui.getModel().getProjectList().getProjects());
 
 		projectName.setCellValueFactory(new PropertyValueFactory<>("name"));
 		startDate.setCellValueFactory(new PropertyValueFactory<>("startDate"));
@@ -92,7 +92,6 @@ public class ProjectListViewController extends Controller
 
 		Controller controller = loader.getController();
 
-		controller.setModel(model);
 		controller.init();
 
 		return root;

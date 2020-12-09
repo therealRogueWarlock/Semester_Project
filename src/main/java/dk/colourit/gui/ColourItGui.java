@@ -84,10 +84,10 @@ public class ColourItGui extends Application {
 
         Controller controller = loader.getController();
 
-        controller.setModel(model);
         controller.init();
 
         return root;
+
     }
 
 
