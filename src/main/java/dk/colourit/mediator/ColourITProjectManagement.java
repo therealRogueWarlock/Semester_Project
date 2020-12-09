@@ -20,19 +20,6 @@ public class ColourITProjectManagement
         String[] names = {"Sander", "Andreas", "Seb", "Marker", "Crimmer",
             "Peter"};
 
-        teamMemberList
-            .addTeamMember(new TeamMember("Sander", 12195, MyDate.now()));
-        teamMemberList
-            .addTeamMember(new TeamMember("Andreas", 124312, MyDate.now()));
-        teamMemberList
-            .addTeamMember(new TeamMember("Seb", 12825, MyDate.now()));
-        teamMemberList
-            .addTeamMember(new TeamMember("Marker", 15125, MyDate.now()));
-        teamMemberList
-            .addTeamMember(new TeamMember("Crimmer", 11825, MyDate.now()));
-        teamMemberList
-            .addTeamMember(new TeamMember("Peter", 21295, MyDate.now()));
-
         projectList.addProject(
             new Project("project1", MyDate.now(), new MyDate(12, 12, 2021)));
         projectList.addProject(
@@ -139,11 +126,12 @@ public class ColourITProjectManagement
          */
     }
 
+    /*
     public void removeMemberFromProject(String projectName, String memberName)
     {
         projectList.getProjectByName(projectName).getTeamMemberList()
             .removeTeamMember(memberName);
-    }
+    }*/
 
     public void assignRoleToTeamMember(String projectName, String memberName,
         int memberRole)

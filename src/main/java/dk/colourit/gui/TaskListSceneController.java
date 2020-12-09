@@ -73,6 +73,7 @@ public class TaskListSceneController extends Controller {
         taskNameHighColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         estimatedTimeHighColumn.setCellValueFactory(new PropertyValueFactory<>("timeEstimateHour"));
         totalTimeSpentHighColumn.setCellValueFactory(new PropertyValueFactory<>("totalTimeSpent"));
+        responsibleHighColumn.setCellValueFactory(new PropertyValueFactory<>("responsible"));
 
         // adding the observable list to the high priority table
         highPriorityTableView.setItems(observableHighPriorityTasks);
@@ -89,6 +90,7 @@ public class TaskListSceneController extends Controller {
         taskNameLowColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         estimatedTimeLowColumn.setCellValueFactory(new PropertyValueFactory<>("timeEstimateHour"));
         totalTimeSpentLowColumn.setCellValueFactory(new PropertyValueFactory<>("totalTimeSpent"));
+        responsibleLowColumn.setCellValueFactory(new PropertyValueFactory<>("responsible"));
 
         lowPriorityTableView.setItems(observableLowPriorityTasks);
     }
