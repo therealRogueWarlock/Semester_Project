@@ -171,20 +171,18 @@ public class ColourITProjectManagement
             .getTaskList().getTaskByName(taskName).setFinito(trueFalse);
     }
 
-    public void setRequirementReady(String projectName, String requirementName, boolean ready)
+    public void setRequirementStatus(String projectName, String requirementName, int status)
     {
-        /*
         projectList.getProjectByName(projectName)
-            .getRequirementList().getRequirementByName(requirementName).set
-
-         */
-            //Mangler at tilføje
-        //TODO:Ready, approval, finished
-    }
-
-    public void setRequirementApproval(String projectName, String requirementName, boolean approval)
-    {
-        //TODO: mangler approval i Task
+            .getRequirementList().getRequirementByName(requirementName).setStatus(status);
+        /*
+        All choices are via GUI
+        Status via ComboBox, with selection of following:
+        0 = notDone
+        1 = readyForApproval
+        2 = rejected
+        3 = finished
+        */
     }
 
     public void addRequirement(Project project, String requirementName, int timeEstimate, int priority)

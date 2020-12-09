@@ -63,6 +63,12 @@ public class Requirement {
 		return taskList;
 	}
 
+	public void setStatus(int status)
+	{
+		this.status = status;
+		//Only status between 0 and 3, can be chosen via GUI
+	}
+
 	public String getStatus() {
 		switch (status){
 			case 0:{
@@ -72,7 +78,10 @@ public class Requirement {
 				return "Ready for revive";
 			}
 			case 2:{
-				return  "Done";
+				return  "Rejected";
+			}
+			case 3:{
+				return  "Finished";
 			}
 		}
 
