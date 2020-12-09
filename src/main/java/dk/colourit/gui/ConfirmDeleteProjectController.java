@@ -3,7 +3,7 @@ package dk.colourit.gui;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class confirmDeleteProjectController
+public class ConfirmDeleteProjectController
 {
   public Button confirmDeleteButton;
   public Button cancelDeleteButton;

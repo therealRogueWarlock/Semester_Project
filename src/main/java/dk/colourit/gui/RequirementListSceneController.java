@@ -10,14 +10,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
-import javafx.stage.Modality;
+
+
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class requirementListSceneController extends Controller
+public class RequirementListSceneController extends Controller
 {
     public Button editButton;
     public Button backButton;
@@ -41,8 +41,9 @@ public class requirementListSceneController extends Controller
     public TableColumn<TeamMember, String> teamMemberNameColumn;
     public TableColumn<TeamMember, Integer> idNumberColumn;
     public TableColumn<TeamMember, Integer> roleColumn;
+
     public ChoiceBox<TeamMember> addTeamMemberList;
-    public ChoiceBox removeTeamMemberList;
+    public ChoiceBox<TeamMember> removeTeamMemberList;
 
     public void editButton()
     {
@@ -50,11 +51,9 @@ public class requirementListSceneController extends Controller
 
     public void addRequirementButton() throws IOException
     {
-        Scene addRequirementScene = new Scene(loadFXML("addRequirementScenePopUp"));
-        Stage stage = new Stage();
 
-        stage.setScene(addRequirementScene);
-        stage.show();
+        createPopUp("addRequirementScenePopUp");
+
     }
 
     public void requirementList()
