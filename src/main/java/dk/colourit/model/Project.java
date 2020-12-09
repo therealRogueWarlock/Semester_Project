@@ -20,12 +20,18 @@ public class Project
 		this.endDate = null;
 
 		if (name.isEmpty() || name.isBlank())
+		{
 			throw new InvalidParameterException();
+		}
 		else
+		{
 			this.name = name;
+		}
 
 		if (startDate.isBefore(creationDate) || deadLine.isBefore(creationDate) || deadLine.isBefore(startDate))
+		{
 			throw new InvalidParameterException();
+		}
 		else
 		{
 			this.startDate = startDate;
