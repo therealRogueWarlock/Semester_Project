@@ -2,7 +2,7 @@ package dk.colourit.model;
 
 public class Requirement {
 
-	private TaskList taskList; //TODO: Skal dette ikke være en TaskList<Task>? - SBT
+	private TaskList taskList;
 	private String name;
 	private final MyDate creationDate;
 	private int timeEstimate;
