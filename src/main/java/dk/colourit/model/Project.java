@@ -62,7 +62,7 @@ public class Project
 
 		procentFinished = ((double)finishedRequirement/totalRequirements)*100;
 
-		return finishedRequirement + "/" + totalRequirements + " finished";
+		return finishedRequirement + "/" + totalRequirements + " requirements finished";
 		//TODO:Lege projekt - Skal fungere ordentligt!
 	}
 

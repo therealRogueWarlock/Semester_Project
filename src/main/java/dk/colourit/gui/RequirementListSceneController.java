@@ -65,7 +65,7 @@ public class RequirementListSceneController extends Controller
 
         // setting information text on scene
         projectNameLabel.setText(ColourItGui.getSelectedProject().getName());
-        // statusLabel.setText(project.getStatus());
+        statusLabel.setText(project.getStatus());
     }
 
     public void populateChoiceBoxes(Project project){
