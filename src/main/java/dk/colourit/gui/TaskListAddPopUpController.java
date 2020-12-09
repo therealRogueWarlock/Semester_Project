@@ -15,6 +15,7 @@ public class TaskListAddPopUpController extends Controller {
 	public TextField estimatedHoursTextField;
 	public TextField responsibleTeamMemberTextField;
 	public TextArea taskDescription;
+	public Button cancelButton;
 
 	@FXML
 	private void addTask() {
