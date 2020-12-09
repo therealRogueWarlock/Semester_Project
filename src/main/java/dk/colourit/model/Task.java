@@ -14,7 +14,7 @@ public class Task {
 	private boolean finito;
 	private ArrayList<Documentation> documentations;
 
-	public Task(String name, String teamMemberName, int timeEstimateHour, boolean highPriority) {
+	public Task(String name, int timeEstimateHour, String teamMemberName, boolean highPriority, String description) {
 		documentations = new ArrayList<>();
 
 		this.highPriority = highPriority;
@@ -25,7 +25,7 @@ public class Task {
 
 		// initialise default values.
 		creationDate = MyDate.now();
-		setDescription("");
+		setDescription(description);
 		finito = false;
 
 		totalTimeSpent = 0;

@@ -4,16 +4,14 @@ import dk.colourit.model.*;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class ColourITProjectManagement
-{
+public class ColourITProjectManagement {
 
 	private ProjectList projectList;
 	private TeamMemberList teamMemberList;
 	private ColourItFileHandler colourItFileHandler;
 	private int userRole;
 
-	public ColourITProjectManagement()
-	{
+	public ColourITProjectManagement() {
 //Dummy Data ??
 		projectList = new ProjectList();
 		teamMemberList = new TeamMemberList();
@@ -36,15 +34,12 @@ public class ColourITProjectManagement
 		teamMemberList.addTeamMember(new TeamMember("johnbob", 12133, MyDate.now()));
 
 
-
-		for (int i = 0; i < projectList.getProjects().size(); i++)
-		{
+		for (int i = 0; i < projectList.getProjects().size(); i++) {
 			Project project = projectList.getProjects().get(i);
 
 			int j = 0;
 
-			for (String name : names)
-			{
+			for (String name : names) {
 
 				project.getRequirementList().addRequirement(new Requirement(("requirement" + j), 10 + j, j));
 
@@ -54,9 +49,8 @@ public class ColourITProjectManagement
 				int randomNum = ThreadLocalRandom.current().nextInt(0, 4);
 				requirement.setStatus(randomNum);
 
-				for (int k = 0; k < 5; k++)
-				{
-					Task randomTask = new Task(("randomTask" + k), names[k], 10 + k, (k % 2 == 0));
+				for (int k = 0; k < 5; k++) {
+					Task randomTask = new Task(("randomTask" + k), 10 + k, names[k], (k % 2 == 0), "Gay person: " + names[k]);
 
 					requirement.getTaskList().addTask(randomTask);
 				}
@@ -76,48 +70,39 @@ public class ColourITProjectManagement
 		//Dummy data ??
 	}
 
-	public void selectUserRole(int role)
-	{
+	public void selectUserRole(int role) {
 		userRole = role;
 	}
 
-	public int getUserRole()
-	{
+	public int getUserRole() {
 		return userRole;
 	}
 
-	public ProjectList getProjectList()
-	{
+	public ProjectList getProjectList() {
 		return projectList;
 	}
 
-	public TeamMemberList getTeamMemberList()
-	{
+	public TeamMemberList getTeamMemberList() {
 		return teamMemberList;
 	}
 
-	public void createProject(String projectName, MyDate getStartDate, MyDate deadline)
-	{
+	public void createProject(String projectName, MyDate getStartDate, MyDate deadline) {
 		// TODO: add validation logic to projectList.addProject
 		projectList.addProject(new Project(projectName, getStartDate, deadline));
 	}
 
-	public void deleteProject(Project project)
-	{
+	public void deleteProject(Project project) {
 		projectList.removeProject(project);
 	}
 
 
-
-	public void addEmployee(String name, int employeeNumber, MyDate birthday)
-	{
+	public void addEmployee(String name, int employeeNumber, MyDate birthday) {
 
 		teamMemberList.addTeamMember(new TeamMember(name, employeeNumber, birthday));
 
 	}
 
-	public void addMemberToProject(Project project, TeamMember teamMember, String memberRole)
-	{
+	public void addMemberToProject(Project project, TeamMember teamMember, String memberRole) {
 
 		teamMember.setRole(memberRole);
 		project.getTeamMemberList().addTeamMember(teamMember);
@@ -125,30 +110,26 @@ public class ColourITProjectManagement
 	}
 
 
-	public void assignRoleToTeamMember(String projectName, String memberName, String memberRole)
-	{
+	public void assignRoleToTeamMember(String projectName, String memberName, String memberRole) {
 		projectList.getProjectByName(projectName).getTeamMemberList().getTeamMember("name", memberName)
-			.setRole(memberRole);
+				.setRole(memberRole);
 	}
 
 	public void taskDocumentation(String projectName, String requirementName, String taskName, int hours, MyDate date,
-		String memberName)
-	{
+								  String memberName) {
 		Documentation documentation = new Documentation(teamMemberList.getTeamMember("name", memberName), hours, date);
 		projectList.getProjectByName(projectName).getRequirementList().getRequirementByName(requirementName)
-			.getTaskList().getTaskByName(taskName).setDocumentation(documentation);
+				.getTaskList().getTaskByName(taskName).setDocumentation(documentation);
 	}
 
-	public void finishTask(String projectName, String requirementName, String taskName, boolean trueFalse)
-	{
+	public void finishTask(String projectName, String requirementName, String taskName, boolean trueFalse) {
 		projectList.getProjectByName(projectName).getRequirementList().getRequirementByName(requirementName)
-			.getTaskList().getTaskByName(taskName).setFinito(trueFalse);
+				.getTaskList().getTaskByName(taskName).setFinito(trueFalse);
 	}
 
-	public void setRequirementStatus(String projectName, String requirementName, int status)
-	{
+	public void setRequirementStatus(String projectName, String requirementName, int status) {
 		projectList.getProjectByName(projectName).getRequirementList().getRequirementByName(requirementName)
-			.setStatus(status);
+				.setStatus(status);
         /*
         All choices are via GUI
         Status via ComboBox, with selection of following:
@@ -159,8 +140,7 @@ public class ColourITProjectManagement
         */
 	}
 
-	public void addRequirement(Project project, String requirementName, int timeEstimate, int priority)
-	{
+	public void addRequirement(Project project, String requirementName, int timeEstimate, int priority) {
 		//Creating a Requirement
 		Requirement requirement = new Requirement(requirementName, timeEstimate, priority);
 
@@ -168,40 +148,35 @@ public class ColourITProjectManagement
 
 	}
 
-	public void removeRequirement(String projectName, String requirementName)
-	{
+	public void removeRequirement(String projectName, String requirementName) {
 		projectList.getProjectByName(projectName).getRequirementList().removeRequirement(requirementName);
 	}
 
-	public void setRequirementPriority(String projectName, String requirementName, int priority)
-	{
+	public void setRequirementPriority(String projectName, String requirementName, int priority) {
 		projectList.getProjectByName(projectName).getRequirementList().getRequirementByName(requirementName)
-			.setPriority(priority);
+				.setPriority(priority);
 	}
 
 	public void addTask(String projectName, String requirementName, String taskName, String teamMemberName,
-		int timeEstimateHour, boolean isHighPriority)
-	{
+						int timeEstimateHour, boolean isHighPriority, String taskDesc) {
 		//Creating a task
-		Task task = new Task(taskName, teamMemberName, timeEstimateHour, isHighPriority);
+		Task task = new Task(taskName, timeEstimateHour, teamMemberName, isHighPriority, taskDesc);
 
 		//Adding task to list.
 		projectList.getProjectByName(projectName).getRequirementList().getRequirementByName(requirementName)
-			.getTaskList().addTask(task);
+				.getTaskList().addTask(task);
 	}
 
-	public void editTask(String projectName, String requirementName, String taskName)
-	{
+	public void editTask(String projectName, String requirementName, String taskName) {
 		//Getting task by task name
 		projectList.getProjectByName(projectName).getRequirementList().getRequirementByName(requirementName)
-			.getTaskList().getTaskByName(taskName);
+				.getTaskList().getTaskByName(taskName);
 		//TODO: Hvordan edited vi igennem den her funktion, skal tilføjes efter sidste getter!
 	}
 
-	public void removeTask(String projectName, String requirementName, String taskName)
-	{
+	public void removeTask(String projectName, String requirementName, String taskName) {
 		projectList.getProjectByName(projectName).getRequirementList().getRequirementByName(requirementName)
-			.getTaskList().removeTask(taskName);
+				.getTaskList().removeTask(taskName);
 	}
 
 }

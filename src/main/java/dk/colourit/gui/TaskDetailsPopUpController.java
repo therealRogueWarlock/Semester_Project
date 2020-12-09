@@ -34,7 +34,7 @@ public class TaskDetailsPopUpController extends Controller {
 	public void deleteTask() {
 		//TODO: Implement Task Deletion
 
-		cancel();
+		goBack();
 	}
 
 	@Override
@@ -57,21 +57,16 @@ public class TaskDetailsPopUpController extends Controller {
 
 //		System.out.println(ColourItGui.getSelectedTask().getName());
 		ColourItGui.getSelectedTask().editTask(name, time, memberName, checked, taskDescription);
-		cancel();
+		goBack();
 	}
 
 	@Override
 	public void goBack() // Lazy fix
 	{
-		cancel();
-	}
-
-
-	@FXML
-	private void cancel() {
 		getParentController().init();
 		((Stage) deleteTask.getScene().getWindow()).close(); // Get's the Window the button is in, and casts to a Stage, which can be closed with .close()
 	}
+
 
 	@FXML
 	private void documentationPopup() throws IOException {

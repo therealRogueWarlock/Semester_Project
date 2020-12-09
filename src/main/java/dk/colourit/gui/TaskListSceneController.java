@@ -5,7 +5,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Control;
 import javafx.scene.control.TableColumn;
@@ -13,10 +12,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 
 
 import java.io.IOException;
@@ -45,6 +40,7 @@ public class TaskListSceneController extends Controller {
     public Text statusText;
     public Text requirementNameText;
     public Button addTaskButton;
+    public Button backButton;
 
     public void init(){
         Requirement requirement = ColourItGui.getSelectedRequirement();

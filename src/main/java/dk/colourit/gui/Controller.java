@@ -27,7 +27,6 @@ public abstract class Controller
 
     public abstract void goBack() throws IOException;
 
-
     public void createPopUp(String fxmlName) throws IOException {
 
         Scene scene = new Scene(loadFXML(fxmlName));
