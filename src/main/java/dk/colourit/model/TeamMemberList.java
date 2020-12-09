@@ -36,13 +36,10 @@ public class TeamMemberList {
         teamMembers.add(teamMember);
     }
 
-    public void removeTeamMember(String name) {
-        for (TeamMember teamMember : teamMembers) {
-            if (teamMember.getName().equalsIgnoreCase(name)) {
-                teamMembers.remove(teamMember);
-                break;
-            }
-        }
+    public void removeTeamMember(TeamMember teamMember) {
+
+        teamMembers.remove(teamMember);
+
     }
 
 }

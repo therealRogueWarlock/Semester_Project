@@ -24,9 +24,10 @@ public class RequirementListSceneController extends Controller
 
     public Button addRequirementButton;
 
-    public ChoiceBox<Requirement> requirementList;
-    public Button removeRequirementButton;
 
+    public ChoiceBox<Requirement> requirementChoiceBox;
+
+    public Button removeRequirementButton;
     public Button deleteProjectButton;
 
     public Button addTeamMemberButton;
@@ -42,19 +43,38 @@ public class RequirementListSceneController extends Controller
     public TableColumn<TeamMember, Integer> idNumberColumn;
     public TableColumn<TeamMember, Integer> roleColumn;
 
-    public ChoiceBox<TeamMember> addTeamMemberList;
-    public ChoiceBox<TeamMember> removeTeamMemberList;
+    public ChoiceBox<TeamMember> addTeamMemberChoiceBox;
+    public ChoiceBox<TeamMember> removeTeamMemberChoiceBox;
+
 
     @Override public void init()
     {
-        addTeamMemberList.getItems().addAll(ColourItGui.getModel().getTeamMemberList().getTeamMembers());
-        removeTeamMemberList.getItems().addAll(ColourItGui.getModel().getTeamMemberList().getTeamMembers());
-
-
         Project project = ColourItGui.getSelectedProject();
 
-        ArrayList<Requirement> requirements = project.getRequirementList().getRequirements();
+        populateChoiceBoxes(project);
 
+        populateRequirementTable(project);
+
+        populateTeamMemberTable(project);
+
+    }
+
+    public void populateChoiceBoxes(Project project){
+
+        addTeamMemberChoiceBox.getItems().clear();
+        removeTeamMemberChoiceBox.getItems().clear();
+        requirementChoiceBox.getItems().clear();
+
+        addTeamMemberChoiceBox.getItems().addAll(ColourItGui.getModel().getTeamMemberList().getTeamMembers());
+        removeTeamMemberChoiceBox.getItems().addAll(project.getTeamMemberList().getTeamMembers());
+
+        ArrayList<Requirement> requirements = project.getRequirementList().getRequirements();
+        requirementChoiceBox.getItems().addAll(requirements);
+    }
+
+    public void populateRequirementTable(Project project){
+
+        ArrayList<Requirement> requirements = project.getRequirementList().getRequirements();
         ObservableList<Requirement> observableRequirementList =  FXCollections.observableArrayList();
 
         observableRequirementList.addAll(requirements);
@@ -64,7 +84,9 @@ public class RequirementListSceneController extends Controller
         requirementStatusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
 
         requirementTable.setItems(observableRequirementList);
+    }
 
+    public void populateTeamMemberTable(Project project){
 
         ArrayList<TeamMember> teamMembers = project.getTeamMemberList().getTeamMembers();
         ObservableList<TeamMember> observableTeamMembers =  FXCollections.observableArrayList();
@@ -76,8 +98,9 @@ public class RequirementListSceneController extends Controller
         roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
         teamMemberTable.setItems(observableTeamMembers);
 
-        requirementList.getItems().addAll(requirements);
+
     }
+
 
     public void editButton()
     {
@@ -90,21 +113,45 @@ public class RequirementListSceneController extends Controller
 
     }
 
-    public void requirementList()
-    {
-    }
-
     public void removeRequirementButton()
     {
+
     }
 
     public void addTeamMemberButton() throws IOException
     {
+        try {
+            TeamMember selectedTeamMember = addTeamMemberChoiceBox.getSelectionModel().getSelectedItem();
+            System.out.println(selectedTeamMember);
+            Project selectedProject = ColourItGui.getSelectedProject();
+            selectedProject.getTeamMemberList().addTeamMember(selectedTeamMember);
+
+            init();
+
+        } catch (Exception e){
+            System.out.println("No selected team member from choice box");
+        }
+
 
     }
 
     public void removeTeamMemberButton()
     {
+        try {
+            TeamMember selectedTeamMember = removeTeamMemberChoiceBox.getSelectionModel().getSelectedItem();
+            System.out.println(selectedTeamMember);
+
+            Project selectedProject = ColourItGui.getSelectedProject();
+
+            selectedProject.getTeamMemberList().removeTeamMember(selectedTeamMember);
+
+            init();
+
+        } catch (Exception e){
+            System.out.println("No selected team member from choice box");
+        }
+
+
     }
 
     private static Parent loadFXML(String fxml) throws IOException
