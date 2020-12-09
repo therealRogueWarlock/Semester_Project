@@ -20,19 +20,6 @@ public class ColourITProjectManagement
         String[] names = {"Sander", "Andreas", "Seb", "Marker", "Crimmer",
             "Peter"};
 
-        teamMemberList
-            .addTeamMember(new TeamMember("Sander", 12195, MyDate.now()));
-        teamMemberList
-            .addTeamMember(new TeamMember("Andreas", 124312, MyDate.now()));
-        teamMemberList
-            .addTeamMember(new TeamMember("Seb", 12825, MyDate.now()));
-        teamMemberList
-            .addTeamMember(new TeamMember("Marker", 15125, MyDate.now()));
-        teamMemberList
-            .addTeamMember(new TeamMember("Crimmer", 11825, MyDate.now()));
-        teamMemberList
-            .addTeamMember(new TeamMember("Peter", 21295, MyDate.now()));
-
         projectList.addProject(
             new Project("project1", MyDate.now(), new MyDate(12, 12, 2021)));
         projectList.addProject(
@@ -139,11 +126,12 @@ public class ColourITProjectManagement
          */
     }
 
+    /*
     public void removeMemberFromProject(String projectName, String memberName)
     {
         projectList.getProjectByName(projectName).getTeamMemberList()
             .removeTeamMember(memberName);
-    }
+    }*/
 
     public void assignRoleToTeamMember(String projectName, String memberName,
         int memberRole)
@@ -171,20 +159,18 @@ public class ColourITProjectManagement
             .getTaskList().getTaskByName(taskName).setFinito(trueFalse);
     }
 
-    public void setRequirementReady(String projectName, String requirementName, boolean ready)
+    public void setRequirementStatus(String projectName, String requirementName, int status)
     {
-        /*
         projectList.getProjectByName(projectName)
-            .getRequirementList().getRequirementByName(requirementName).set
-
-         */
-            //Mangler at tilføje
-        //TODO:Ready, approval, finished
-    }
-
-    public void setRequirementApproval(String projectName, String requirementName, boolean approval)
-    {
-        //TODO: mangler approval i Task
+            .getRequirementList().getRequirementByName(requirementName).setStatus(status);
+        /*
+        All choices are via GUI
+        Status via ComboBox, with selection of following:
+        0 = notDone
+        1 = readyForApproval
+        2 = rejected
+        3 = finished
+        */
     }
 
     public void addRequirement(Project project, String requirementName, int timeEstimate, int priority)

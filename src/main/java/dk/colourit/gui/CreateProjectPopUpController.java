@@ -4,50 +4,62 @@ import dk.colourit.model.MyDate;
 import dk.colourit.model.TeamMember;
 import dk.colourit.model.TeamMemberList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.security.InvalidParameterException;
 import java.time.LocalDate;
 
-public class CreateProjectPopUpController extends Controller {
+public class CreateProjectPopUpController extends Controller
+{
 
-  @FXML private TextField projectName;
-  @FXML private DatePicker startDate;
-  @FXML private DatePicker deadLine;
+	@FXML private TextField projectName;
+	@FXML private DatePicker startDate;
+	@FXML private DatePicker deadLine;
 
-  @FXML private ComboBox<TeamMember> selectMember;
-  @FXML private Button addMember;
-  @FXML private Button confirm;
-  @FXML private Button reject;
+	@FXML private ComboBox<TeamMember> selectMember;
+	@FXML private Button addMember;
+	@FXML private Button confirm;
+	@FXML private Button reject;
 
-  @Override
-  public void init() {
+	@FXML public Label statusLabel;
 
-    selectMember.getItems().addAll(ColourItGui.getModel().getTeamMemberList().getTeamMembers());
+	@Override public void init()
+	{
 
-  }
+		selectMember.getItems().addAll(ColourItGui.getModel().getTeamMemberList().getTeamMembers());
 
+	}
 
-  @Override public void goBack()
-  {
+	@Override public void goBack()
+	{
 
-  }
+	}
 
-  public void confirmCreateProject() {
-    String projectName = this.projectName.getText();
-    LocalDate startDate = this.startDate.getValue();
-    LocalDate deadLine = this.deadLine.getValue();
+	public void confirmCreateProject()
+	{
+		String projectName = this.projectName.getText();
+		LocalDate startDate = this.startDate.getValue();
+		LocalDate deadLine = this.deadLine.getValue();
+		try
+		{
+			ColourItGui.getModel().createProject(projectName, new MyDate(startDate), new MyDate(deadLine));
+			statusLabel.setText("Project Created");
+			statusLabel.setTextFill(Color.web("#22DD33"));
+		}
+		catch (RuntimeException e)
+		{
+			statusLabel.setText("Project Creation Failed");
+			statusLabel.setTextFill(Color.web("#FF3344"));
+		}
+	}
 
-    ColourItGui.getModel().createProject(projectName,new MyDate(startDate), new MyDate(deadLine));
-    //ColourItGui.refresh(); // might become a working solution
-  }
-
-  public void closePopUp() {
-    ((Stage) confirm.getScene().getWindow()).close(); // Get's the Window the button is in, and casts to a Stage, which can be closed with .close()
-  }
+	public void closePopUp()
+	{
+		((Stage) confirm.getScene().getWindow())
+			.close(); // Get's the Window the button is in, and casts to a Stage, which can be closed with .close()
+	}
 
 
 
@@ -60,8 +72,5 @@ public class CreateProjectPopUpController extends Controller {
   ID
   Role
   */
-
-
-
 
 }
