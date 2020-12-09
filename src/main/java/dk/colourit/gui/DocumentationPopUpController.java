@@ -15,34 +15,20 @@ import java.util.ArrayList;
 
 public class DocumentationPopUpController extends Controller {
 
-	@FXML
 	public Label taskName;
-	@FXML
 	public Label totalTimeSpent;
-	@FXML
 	public ComboBox<TeamMember> selectMember;
-	@FXML
 	public TextField addTimeSpent;
-	@FXML
 	public DatePicker selectDate;
-	@FXML
 	public Button logSpentTime;
-	@FXML
 	public CheckBox taskFinished;
 
-	@FXML
 	public TableView<Documentation> documentationTableView;
-	@FXML
 	public TableColumn<Documentation, String> memberNameColumn;
-	@FXML
 	public TableColumn<Documentation, Integer> timeSpentColumn;
-	@FXML
 	public TableColumn<Documentation, MyDate> daySelectedColumn;
 
-	@FXML
 	public Button confirm;
-	@FXML
-	public Button reject;
 
 	public void init() {
 		populateComboBox();
