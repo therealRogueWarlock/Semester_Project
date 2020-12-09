@@ -55,10 +55,11 @@ public class TeamMemberList {
         return new TeamMemberList(teamMembersCopy);
     }
 
-    public TeamMemberList subtractArgListFromThisList(ArrayList<TeamMember> teamMembers){
+    public TeamMemberList subtractArgListFromThisList(TeamMemberList teamMemberList){
 
-        for (TeamMember teamMember:teamMembers){
-            this.teamMembers.remove(teamMember);
+        for (TeamMember teamMember:teamMemberList.getTeamMembers()) {
+            TeamMember duplicate  = this.getTeamMember("name", teamMember.getName());
+            this.removeTeamMember(duplicate);
         }
 
         return this;

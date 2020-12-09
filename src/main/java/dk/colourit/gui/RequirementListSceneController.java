@@ -101,12 +101,12 @@ public class RequirementListSceneController extends Controller
     private void populateAddTeamMemberChoiceBox(Project project){
         addTeamMemberChoiceBox.getItems().clear();
 
-        ArrayList<TeamMember> teamMembersOnProject =  project.getTeamMemberList().getTeamMembers();
+        TeamMemberList projectTeamMemberList =  project.getTeamMemberList();
 
         TeamMemberList employeesCopy =  ColourItGui.getModel()
                 .getTeamMemberList().getCopy();
 
-        TeamMemberList employeesNotInProject = employeesCopy.subtractArgListFromThisList(teamMembersOnProject);
+        TeamMemberList employeesNotInProject = employeesCopy.subtractArgListFromThisList(projectTeamMemberList);
 
         addTeamMemberChoiceBox.getItems().addAll(employeesNotInProject.getTeamMembers());
 
