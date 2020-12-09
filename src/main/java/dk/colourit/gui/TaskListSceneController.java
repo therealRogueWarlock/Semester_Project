@@ -102,7 +102,7 @@ public class TaskListSceneController extends Controller {
 
     @Override public void goBack() throws IOException
     {
-        ColourItGui.setRoot("projectDetailsScene");
+        ColourItGui.setRoot("requirementListScene");
     }
 
     @FXML

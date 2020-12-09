@@ -5,11 +5,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 public class CreateProjectPopUpController extends Controller {
 
   @FXML private TextField projectName;
   @FXML private DatePicker startDate;
+  @FXML private DatePicker deadLine;
+
   @FXML private ComboBox selectMember;
   @FXML private Button addMember;
   @FXML private Button confirm;
@@ -24,6 +27,22 @@ public class CreateProjectPopUpController extends Controller {
   {
 
   }
+
+  public void confirmCreateProject() {
+    String projectName = this.projectName.getText();
+
+
+
+
+
+
+
+    model.createProject();
+
+
+  }
+
+
 
 
 

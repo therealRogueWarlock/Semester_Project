@@ -14,6 +14,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -69,7 +70,6 @@ public class ProjectListViewController extends Controller
 			ColourItGui.setRoot("requirementListScene");
 		}catch (Exception e){
 			System.out.println("No project selected");
-
 		}
 
 	}
@@ -94,6 +94,9 @@ public class ProjectListViewController extends Controller
 		Stage stage = new Stage();
 
 		stage.setScene(createProjectPopUp);
-		stage.show();
+
+		// when popup is open primary stage cant be accessed.
+		stage.initModality(Modality.APPLICATION_MODAL);
+		stage.showAndWait();
 	}
 }
