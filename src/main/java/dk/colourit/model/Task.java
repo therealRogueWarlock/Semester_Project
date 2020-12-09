@@ -51,6 +51,10 @@ public class Task {
 		responsible = teamMemberName;
 	}
 
+	public boolean getPriority() {
+		return highPriority;
+	}
+
 	public String getDescription() {
 		return description;
 	}

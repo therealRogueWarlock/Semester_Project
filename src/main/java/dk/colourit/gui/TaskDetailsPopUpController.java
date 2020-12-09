@@ -46,6 +46,7 @@ public class TaskDetailsPopUpController extends Controller {
 		estimatedHoursTextField.setText(Integer.toString(task.getTimeEstimateHour()));
 		responsibleTeamMemberTextField.setText(task.getResponsible());
 		taskTextArea.setText(task.getDescription());
+		highPriorityCheckBox.setSelected(task.getPriority());
 	}
 
 	public void confirmEdit() {
