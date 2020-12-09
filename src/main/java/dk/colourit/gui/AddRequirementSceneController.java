@@ -8,43 +8,45 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class AddRequirementSceneController extends Controller
-{
-  public TextField requirementNameTextField;
-  public TextField priorityTextField;
-  public TextField timeEstimateField;
-  public TextArea requirementDescriptionTextArea;
-  public Button addRequirementButton;
+public class AddRequirementSceneController extends Controller {
+	public TextField requirementNameTextField;
+	public TextField priorityTextField;
+	public TextField timeEstimateField;
+	public TextArea requirementDescriptionTextArea;
+	public Button addRequirementButton;
 
-  public void addRequirement()
-  {
-    String requirementNameTextFieldText = requirementNameTextField.getText();
+	public void addRequirement() {
+		String requirementNameTextFieldText = requirementNameTextField.getText();
 
-    String timeEstimateText = timeEstimateField.getText();
-    int timeEstimate = Integer.parseInt(timeEstimateText);
+		String timeEstimateText = timeEstimateField.getText();
+		int timeEstimate = Integer.parseInt(timeEstimateText);
 
-    String priorityText = priorityTextField.getText();
-    int priority = Integer.parseInt(priorityText);
+		String priorityText = priorityTextField.getText();
+		int priority = Integer.parseInt(priorityText);
 
+		Project selectedProject = ColourItGui.getSelectedProject();
 
+		ColourItGui.getModel().addRequirement(selectedProject, requirementNameTextFieldText, timeEstimate, priority);
+		clearInputFields();
 
-    Project selectedProject = ColourItGui.getSelectedProject();
+		getParentController().init();
+	}
 
-    ColourItGui.getModel().addRequirement(selectedProject, requirementNameTextFieldText, timeEstimate, priority);
+	@Override
+	public void init() {
+		// Doesn't need anything initialized
+	}
 
+	private void clearInputFields() {
+		requirementNameTextField.clear();
+		priorityTextField.clear();
+		timeEstimateField.clear();
+		requirementDescriptionTextArea.clear();
+	}
 
+	@Override
+	public void goBack() throws IOException {
 
-    //model.addRequirement(selectedProject);
-  }
-
-  @Override
-  public void init() {
-
-  }
-
-  @Override
-  public void goBack() throws IOException {
-
-  }
+	}
 
 }
