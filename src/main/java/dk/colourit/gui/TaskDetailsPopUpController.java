@@ -44,7 +44,7 @@ public class TaskDetailsPopUpController extends Controller {
 
     @Override public void goBack()
     {
-
+        //TODO: Der skal laves en knap der går tilbage
     }
 
 
