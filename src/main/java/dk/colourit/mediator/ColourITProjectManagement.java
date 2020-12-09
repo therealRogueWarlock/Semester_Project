@@ -12,7 +12,7 @@ public class ColourITProjectManagement
 
 	public ColourITProjectManagement()
 	{
-
+//Dummy Data ??
 		projectList = new ProjectList();
 		teamMemberList = new TeamMemberList();
 
@@ -57,6 +57,7 @@ public class ColourITProjectManagement
 			}
 
 		}
+		//Dummy data ??
 	}
 
 	public void selectUserRole(int role)
