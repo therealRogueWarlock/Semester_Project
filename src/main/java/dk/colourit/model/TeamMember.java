@@ -67,6 +67,11 @@ public class TeamMember
         return name + " | ID: " + employeeNumber;
     }
 
+    public TeamMember getCopy(){
+        return new TeamMember(name,employeeNumber,birthday);
+    }
+
+
 }
 
 class OutOfRangeException extends RuntimeException

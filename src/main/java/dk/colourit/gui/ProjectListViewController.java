@@ -41,6 +41,11 @@ public class ProjectListViewController extends Controller
 	public TableColumn<TeamMember, Integer> idNumberColumn;
 	public TableColumn<TeamMember, MyDate> birthdayColumn;
 
+	public ProjectListViewController(){
+
+	}
+
+
 	@Override public void init()
 	{
 

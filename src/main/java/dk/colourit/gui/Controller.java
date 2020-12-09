@@ -64,8 +64,9 @@ public abstract class Controller
 
         Controller controller = loader.getController();
 
-        controller.setParentController(this);
         controller.init();
+
+        controller.setParentController(this);
 
         return root;
     }

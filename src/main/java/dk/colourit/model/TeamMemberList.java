@@ -47,15 +47,22 @@ public class TeamMemberList {
     }
 
     public TeamMemberList getCopy(){
-        return new TeamMemberList(teamMembers);
+        ArrayList<TeamMember> teamMembersCopy = new ArrayList<>();
+
+        for (TeamMember teamMember: teamMembers){
+            teamMembersCopy.add(teamMember.getCopy());
+        }
+        return new TeamMemberList(teamMembersCopy);
     }
 
-    public ArrayList<TeamMember>  getRemaindingTeamMembers(ArrayList<TeamMember> teamMembers){
-        ArrayList<TeamMember> returnArray = getTeamMembers();
+    public TeamMemberList subtractArgListFromThisList(ArrayList<TeamMember> teamMembers){
 
         for (TeamMember teamMember:teamMembers){
-            returnArray.remove(teamMember);
+            this.teamMembers.remove(teamMember);
         }
-        return returnArray;
+
+        return this;
     }
+
+
 }
