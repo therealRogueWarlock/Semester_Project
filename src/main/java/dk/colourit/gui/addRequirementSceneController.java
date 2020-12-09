@@ -13,7 +13,7 @@ public class addRequirementSceneController
   public TextArea requirementDescriptionTextArea;
   public Button addRequirementButton;
 
-  public void addRequirementMember()
+  public void addRequirement()
   {
     Project selectedProject = ColourItGui.getSelectedProject();
     String requirementNameTextFieldText = requirementNameTextField.getText();
