@@ -2,6 +2,8 @@ package dk.colourit.mediator;
 
 import dk.colourit.model.*;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class ColourITProjectManagement
 {
 
@@ -37,6 +39,10 @@ public class ColourITProjectManagement
 				project.getRequirementList().addRequirement(new Requirement(("requirement" + j), 10 + j, j));
 
 				Requirement requirement = project.getRequirementList().getRequirementByName(("requirement" + j));
+
+
+				int randomNum = ThreadLocalRandom.current().nextInt(0, 4);
+				requirement.setStatus(randomNum);
 
 				for (int k = 0; k < 5; k++)
 				{

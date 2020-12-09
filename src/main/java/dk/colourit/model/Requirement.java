@@ -66,8 +66,8 @@ public class Requirement {
 	public void setTaskList(TaskList taskList) {
 		this.taskList = taskList;
 	}
-
 	//TODO: Hvad bruges denne til? - SBT (Mangler i UML)
+
 	public TaskList getTaskList() {
 		return taskList;
 	}
@@ -87,10 +87,10 @@ public class Requirement {
 				return "Ready for review";
 			}
 			case 2:{
-				return  "Rejected";
+				return "Rejected";
 			}
 			case 3:{
-				return  "Finished";
+				return "Finished";
 			}
 		}
 

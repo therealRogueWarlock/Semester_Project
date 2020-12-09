@@ -1,6 +1,7 @@
 package dk.colourit.model;
 
 import java.security.InvalidParameterException;
+import java.util.ArrayList;
 
 public class Project
 {
@@ -10,6 +11,7 @@ public class Project
 	private MyDate startDate;
 	private MyDate deadLine;
 	private MyDate endDate;
+	private double status; //nyt
 
 	private RequirementList requirementList;
 	private TeamMemberList teamMemberList;
@@ -18,6 +20,7 @@ public class Project
 	{
 		this.creationDate = MyDate.now();
 		this.endDate = null;
+		status = 0;
 
 		if (name.isEmpty() || name.isBlank())
 		{
@@ -40,6 +43,27 @@ public class Project
 
 		requirementList = new RequirementList();
 		teamMemberList = new TeamMemberList();
+	}
+
+
+	public String getStatus() {
+		ArrayList<Requirement> requirements = requirementList.getRequirements();
+
+		int totalRequirements=requirements.size();
+
+		int finishedRequirement=0;
+		double procentFinished;
+
+		for (Requirement requirement:requirements)
+		{
+			if(requirement.getStatus().equals("Finished"))
+				finishedRequirement++;
+		}
+
+		procentFinished = ((double)finishedRequirement/totalRequirements)*100;
+
+		return finishedRequirement + "/" + totalRequirements + " finished";
+		//TODO:Lege projekt - Skal fungere ordentligt!
 	}
 
 	public String getName()

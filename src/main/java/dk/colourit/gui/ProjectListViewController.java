@@ -28,8 +28,8 @@ public class ProjectListViewController extends Controller
 	public TableColumn<Project, String> projectName;
 	public TableColumn<Project, MyDate> startDate;
 	public TableColumn<Project, MyDate> deadLine;
-
 	public TableColumn<Project, String> projectStatus;
+
 	// feeling cute might delete later
 	public Button backButton;
 	public Button createButton;
@@ -68,6 +68,7 @@ public class ProjectListViewController extends Controller
 		projectName.setCellValueFactory(new PropertyValueFactory<>("name"));
 		startDate.setCellValueFactory(new PropertyValueFactory<>("startDate"));
 		deadLine.setCellValueFactory(new PropertyValueFactory<>("deadLine"));
+		projectStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
 		projectTableView.setItems(observableProjects);
 
