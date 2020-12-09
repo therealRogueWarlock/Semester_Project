@@ -69,10 +69,13 @@ public class Requirement {
 				return "Not done";
 			}
 			case 1:{
-				return "Ready for revive";
+				return "Ready for review";
 			}
 			case 2:{
-				return  "Done";
+				return  "Rejected";
+			}
+			case 3:{
+				return  "Finished";
 			}
 		}
 
