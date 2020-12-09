@@ -42,6 +42,11 @@ public abstract class Controller
 
     }
 
+    public static void refreshRoot(){
+
+    }
+
+
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(ColourItGui.class.getResource(fxml + ".fxml"));

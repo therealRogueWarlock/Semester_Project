@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.time.LocalDate;
 
@@ -41,11 +42,11 @@ public class CreateProjectPopUpController extends Controller {
     LocalDate deadLine = this.deadLine.getValue();
 
     ColourItGui.getModel().createProject(projectName,new MyDate(startDate), new MyDate(deadLine));
-
-
+    //ColourItGui.refresh(); // might become a working solution
   }
 
   public void closePopUp() {
+    ((Stage) confirm.getScene().getWindow()).close(); // Get's the Window the button is in, and casts to a Stage, which can be closed with .close()
   }
 
 
