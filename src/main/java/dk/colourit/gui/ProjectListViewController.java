@@ -61,7 +61,7 @@ public class ProjectListViewController extends Controller
 
 	}
 
-	public void itemSelected()  //SANDER DONT FUCKING REMOVE THIS PLEASE
+	public void itemSelected()  //SANDER DON'T FUCKING REMOVE THIS PLEASE
 	{
 		try {
 			Project selectedProject = projectTableView.getSelectionModel().getSelectedItem();
