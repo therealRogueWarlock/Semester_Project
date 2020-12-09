@@ -18,7 +18,6 @@ public class Documentation {
 		teamMemberList.addTeamMember(member);
 		this.timeSpent = timeSpent;
 		this.date = date;
-
 	}
 
 	public void logTimeSpent(int timeSpent, MyDate date, TeamMember teamMemberName){

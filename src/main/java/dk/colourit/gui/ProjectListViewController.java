@@ -3,6 +3,7 @@ package dk.colourit.gui;
 
 import dk.colourit.model.MyDate;
 import dk.colourit.model.Project;
+import dk.colourit.model.TeamMember;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -34,10 +35,10 @@ public class ProjectListViewController extends Controller
 	public Button createButton;
 	public Button addEmployeeButton;
 
-	public TableView employeeTableView;
-	public TableColumn employeeNameColumn;
-	public TableColumn idNumberColumn;
-	public TableColumn birthdayColumn;
+	public TableView<TeamMember> employeeTableView;
+	public TableColumn<TeamMember, String> employeeNameColumn;
+	public TableColumn<TeamMember, Integer> idNumberColumn;
+	public TableColumn<TeamMember, MyDate> birthdayColumn;
 
 	@Override public void init()
 	{
@@ -51,15 +52,24 @@ public class ProjectListViewController extends Controller
 			createButton.setVisible(false);
 		}*/
 
-		ObservableList<Project> observableProjectList = FXCollections.observableArrayList();
+		ObservableList<TeamMember> observableTeamMembers = FXCollections.observableArrayList();
 
-		observableProjectList.addAll(ColourItGui.getModel().getProjectList().getProjects());
+		observableTeamMembers.addAll(ColourItGui.getModel().getTeamMemberList().getTeamMembers());
+
+		employeeNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+		idNumberColumn.setCellValueFactory(new PropertyValueFactory<>("employeeNumber"));
+		birthdayColumn.setCellValueFactory(new PropertyValueFactory<>("birthday"));
+		employeeTableView.setItems(observableTeamMembers);
+
+
+		ObservableList<Project> observableProjects = FXCollections.observableArrayList();
+		observableProjects.addAll(ColourItGui.getModel().getProjectList().getProjects());
 
 		projectName.setCellValueFactory(new PropertyValueFactory<>("name"));
 		startDate.setCellValueFactory(new PropertyValueFactory<>("startDate"));
 		deadLine.setCellValueFactory(new PropertyValueFactory<>("deadLine"));
 
-		projectTableView.setItems(observableProjectList);
+		projectTableView.setItems(observableProjects);
 
 	}
 
