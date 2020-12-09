@@ -48,7 +48,7 @@ public class CreateProjectPopUpController extends Controller
 			statusLabel.setText("Project Created");
 			statusLabel.setTextFill(Color.web("#22DD33"));
 		}
-		catch (Exception e)//ColourItGui.refresh(); // might become a working solution
+		catch (RuntimeException e)
 		{
 			statusLabel.setText("Project Creation Failed");
 			statusLabel.setTextFill(Color.web("#FF3344"));
