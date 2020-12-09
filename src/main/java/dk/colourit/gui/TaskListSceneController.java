@@ -102,7 +102,7 @@ public class TaskListSceneController extends Controller {
 
     @Override public void goBack() throws IOException
     {
-        ColourItGui.setRoot("projectDetailsScene");
+        ColourItGui.setRoot("requirementListScene");
     }
 
     @FXML
@@ -145,7 +145,7 @@ public class TaskListSceneController extends Controller {
         //stage.show();
     }
 
-    public void itemSelected(Event event) throws IOException //SANDER DONT FUCKING REMOVE THIS PLEASE
+    public void itemSelected(Event event) throws IOException //SANDER DON'T FUCKING REMOVE THIS PLEASE
     {
         // getting what table is clicked by id
         String selectedTableId = ((Control) event.getSource()).getId();
