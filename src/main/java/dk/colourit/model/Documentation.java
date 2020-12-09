@@ -13,6 +13,13 @@ public class Documentation {
 		this.date = null;
 
 	}
+	public Documentation(TeamMember member, int timeSpent, MyDate date) {
+		teamMemberList = new TeamMemberList();
+		teamMemberList.addTeamMember(member);
+		this.timeSpent = timeSpent;
+		this.date = date;
+
+	}
 
 	public void logTimeSpent(int timeSpent, MyDate date, TeamMember teamMemberName){
 		teamMemberList.addTeamMember(teamMemberName);
