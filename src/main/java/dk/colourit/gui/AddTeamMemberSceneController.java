@@ -36,7 +36,6 @@ public class AddTeamMemberSceneController extends Controller {
 
     @Override
     public void init() {
-        roleComboBox.getItems().addAll("Team Member", "Project Creator", "Scrum Master", "Product Owner");
 
 
     }
