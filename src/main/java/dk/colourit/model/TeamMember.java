@@ -5,7 +5,7 @@ public class TeamMember
 
 	private String name;
 	private int employeeNumber;
-	private int role;
+	private String role;
 	/*
 	0 = Team Member
 	1 = Product Owner
@@ -19,7 +19,7 @@ public class TeamMember
 		this.name = name;
 		this.employeeNumber = employeeNumber;
 		this.birthday = birthday;
-		setRole(0);
+		setRole("Team Member");
 	}
 
 	public String getName()
@@ -54,26 +54,12 @@ public class TeamMember
 
 	public String getRole()
 	{
-		switch (role)
-		{
-			case (1):
-				return "Product Owner";
-			case (2):
-				return "Scrum Master";
-			case (3):
-				return "Project Creator";
-			default:
-				return "Team Member";
-		}
+		return role;
 	}
 
-	public void setRole(int role)
+	public void setRole(String role)
 	{
 		this.role = role;
-		if (role < 0 || role > 4)
-		{
-			throw new OutOfRangeException("Role out of range [0 - 3]");
-		}
 	}
 
 	@Override public String toString()

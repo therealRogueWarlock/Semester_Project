@@ -98,7 +98,7 @@ public class ColourITProjectManagement
 
 	}
 
-	public void addMemberToProject(Project project, String memberName, int memberRole)
+	public void addMemberToProject(Project project, String memberName, String memberRole)
 	{
 		// Finds Member from Member List and adds to project
 
@@ -121,7 +121,7 @@ public class ColourITProjectManagement
             .removeTeamMember(memberName);
     }*/
 
-	public void assignRoleToTeamMember(String projectName, String memberName, int memberRole)
+	public void assignRoleToTeamMember(String projectName, String memberName, String memberRole)
 	{
 		projectList.getProjectByName(projectName).getTeamMemberList().getTeamMember("name", memberName)
 			.setRole(memberRole);
