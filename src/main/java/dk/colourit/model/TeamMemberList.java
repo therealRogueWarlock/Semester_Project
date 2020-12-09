@@ -10,6 +10,10 @@ public class TeamMemberList {
         teamMembers = new ArrayList<>();
     }
 
+    public TeamMemberList(ArrayList<TeamMember> teamMembers) {
+        this.teamMembers = new ArrayList<>(teamMembers);
+    }
+
     public ArrayList<TeamMember> getTeamMembers() {
         return teamMembers;
     }
@@ -42,6 +46,9 @@ public class TeamMemberList {
 
     }
 
+    public TeamMemberList getCopy(){
+        return new TeamMemberList(teamMembers);
+    }
 
     public ArrayList<TeamMember>  getRemaindingTeamMembers(ArrayList<TeamMember> teamMembers){
         ArrayList<TeamMember> returnArray = getTeamMembers();
