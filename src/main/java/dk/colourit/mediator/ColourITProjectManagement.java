@@ -129,14 +129,6 @@ public class ColourITProjectManagement
 	public void taskDocumentation(String projectName, String requirementName, String taskName, int hours, MyDate date,
 		String memberName)
 	{
-        /*projectList.getProjectByName(projectName)
-            .getRequirementList().getRequirementByName(requirementName)
-            .getTaskList().getTaskByName(taskName).////.getDocumentation
-
-         */
-		//Vi skal vidst lave en Documentation method i vores Task, så vi kan komme ned i den.
-		//TODO:Mangler documentation method i Task
-
 		Documentation documentation = new Documentation(teamMemberList.getTeamMember("name", memberName), hours, date);
 		projectList.getProjectByName(projectName).getRequirementList().getRequirementByName(requirementName)
 			.getTaskList().getTaskByName(taskName).setDocumentation(documentation);
