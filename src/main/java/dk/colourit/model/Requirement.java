@@ -1,5 +1,7 @@
 package dk.colourit.model;
 
+import java.security.InvalidParameterException;
+
 public class Requirement {
 
 	private TaskList taskList;
@@ -16,9 +18,9 @@ public class Requirement {
 	 */
 
 	public Requirement(String name, int timeEstimate, int priority) {
-		this.name = name;
-		this.timeEstimate = timeEstimate;
-		this.priority = priority;
+		setName(name);
+		setTimeEstimate(timeEstimate);
+		setPriority(priority);
 
 		creationDate = MyDate.now();
 		status = 0;
@@ -31,7 +33,10 @@ public class Requirement {
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		if (name.isEmpty()||name.isBlank())
+			throw new InvalidParameterException("No name found");
+		else
+			this.name = name;
 	}
 
 	public MyDate getCreationDate() {
@@ -43,6 +48,8 @@ public class Requirement {
 	}
 
 	public void setTimeEstimate(int timeEstimate) {
+		if (timeEstimate<0)
+			timeEstimate = 0;
 		this.timeEstimate = timeEstimate;
 	}
 
@@ -51,6 +58,8 @@ public class Requirement {
 	}
 
 	public void setPriority(int priority) {
+		if (priority<0)
+			priority = 0;
 		this.priority = priority;
 	}
 
