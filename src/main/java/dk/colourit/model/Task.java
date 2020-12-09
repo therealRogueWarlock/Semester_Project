@@ -71,7 +71,7 @@ public class Task {
 		setDescription(taskDescription);
 	}
 
-	public boolean isFinito() {
+	public boolean getFinito() {
 		return finito;
 	}
 

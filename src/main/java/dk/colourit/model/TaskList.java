@@ -17,7 +17,7 @@ public class TaskList {
     public ArrayList<Task> getFinishedTasks() {
         ArrayList<Task> finishedTasks = new ArrayList<>();
         for (Task task : tasks) {
-            if (task.isFinito()) {
+            if (task.getFinito()) {
                 finishedTasks.add(task);
             }
         }
