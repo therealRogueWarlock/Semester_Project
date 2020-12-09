@@ -1,6 +1,7 @@
 package dk.colourit.model;
 
 public class Documentation {
+	// Depending on time, add a description text. Keep out of Constructor (or add overload constructor)
 
 	private String teamMemberName;
 	private int timeSpent;

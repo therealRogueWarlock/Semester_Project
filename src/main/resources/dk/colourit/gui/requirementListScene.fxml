@@ -43,7 +43,7 @@
                </padding>
             </Label>
             <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="6.0" />
-            <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Total time spent">
+            <Label fx:id="totalTimeSpentLabel" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="Total time spent">
                <padding>
                   <Insets left="15.0" right="15.0" />
                </padding>
