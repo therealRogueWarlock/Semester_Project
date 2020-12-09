@@ -44,7 +44,7 @@
          </GridPane.margin></TextField>
       <SplitPane prefHeight="160.0" prefWidth="200.0" style="-fx-background-color: e1e1e1;" GridPane.columnIndex="1" GridPane.rowIndex="3">
         <items>
-            <Button fx:id="addTeamMemberButton" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addTeamMember" prefWidth="50.0" style="-fx-background-color: #5f5; -fx-background-radius: 10;" text="Add" textAlignment="CENTER">
+            <Button fx:id="addRequirementButton" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addRequirementMember" prefWidth="50.0" style="-fx-background-color: #5f5; -fx-background-radius: 10;" text="Add" textAlignment="CENTER">
                <padding>
                   <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
                </padding>
