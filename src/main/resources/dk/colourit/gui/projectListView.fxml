@@ -20,6 +20,7 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints minHeight="25.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -44,6 +45,11 @@
                </font>
             </Button>
             <Button fx:id="addEmployeeButton" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#addEmployee" prefHeight="21.0" prefWidth="160.0" text="Add Employee" GridPane.columnIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="exportButton" mnemonicParsing="false" onAction="#exportToWebsite" prefHeight="39.0" prefWidth="184.0" text="Export to website" GridPane.columnIndex="4">
                <font>
                   <Font size="18.0" />
                </font>

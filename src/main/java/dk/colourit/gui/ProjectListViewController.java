@@ -34,6 +34,7 @@ public class ProjectListViewController extends Controller
 	public Button backButton;
 	public Button createButton;
 	public Button addEmployeeButton;
+	public Button exportButton;
 
 	public TableView<TeamMember> employeeTableView;
 	public TableColumn<TeamMember, String> employeeNameColumn;
@@ -72,6 +73,11 @@ public class ProjectListViewController extends Controller
 
 		projectTableView.setItems(observableProjects);
 
+	}
+
+	public void exportToWebsite()
+	{
+		//TODO: Skal eksportere til vores hjemmeside via XML.
 	}
 
 	@Override public void goBack()
