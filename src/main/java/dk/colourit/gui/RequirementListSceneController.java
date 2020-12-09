@@ -73,7 +73,7 @@ public class RequirementListSceneController extends Controller {
 		totalTimeSpentLabel.setText(ColourItGui.getSelectedProject().getTotalTime() +
 				" hours spent on " +
 				ColourItGui.getSelectedProject().getName());
-
+		teamMemberTable.setSelectionModel(null);
 	}
 
 	private void populateRoleChoiceBox(Project project) {

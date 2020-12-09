@@ -42,7 +42,6 @@ public class ProjectListViewController extends Controller
 	public TableColumn<TeamMember, MyDate> birthdayColumn;
 
 	public ProjectListViewController(){
-
 	}
 
 
@@ -78,6 +77,7 @@ public class ProjectListViewController extends Controller
 
 		projectTableView.setItems(observableProjects);
 
+		employeeTableView.setSelectionModel(null);
 	}
 
 	public void exportToWebsite()
