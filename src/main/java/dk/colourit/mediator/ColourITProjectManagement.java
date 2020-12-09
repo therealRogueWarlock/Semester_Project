@@ -113,8 +113,17 @@ public class ColourITProjectManagement
         projectList.removeProject(projectName);
     }
 
-	public void addMemberToProject(Project project, String memberName, int memberRole)
-	{
+
+    public void addEmployee(String name, int employeeNumber, MyDate birthday){
+
+        teamMemberList.addTeamMember(new TeamMember(name,employeeNumber,birthday));
+
+    }
+
+
+
+
+	public void addMemberToProject(Project project, String memberName, int memberRole) {
 		// Finds Member from Member List and adds to project
 
 		TeamMember member = teamMemberList.getTeamMember("name", memberName);
