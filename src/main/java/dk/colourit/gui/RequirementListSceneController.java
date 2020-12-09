@@ -49,7 +49,7 @@ public class RequirementListSceneController extends Controller
     {
         addTeamMemberList.getItems().addAll(ColourItGui.getModel().getTeamMemberList().getTeamMembers());
         removeTeamMemberList.getItems().addAll(ColourItGui.getModel().getTeamMemberList().getTeamMembers());
-        //requirementList.getItems().addAll(ColourItGui.getModel().get
+
 
         Project project = ColourItGui.getSelectedProject();
 
@@ -75,6 +75,8 @@ public class RequirementListSceneController extends Controller
         idNumberColumn.setCellValueFactory(new PropertyValueFactory<>("employeeNumber"));
         roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
         teamMemberTable.setItems(observableTeamMembers);
+
+        requirementList.getItems().addAll(requirements);
     }
 
     public void editButton()
