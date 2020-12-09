@@ -1,9 +1,6 @@
 package dk.colourit.gui;
 
-import dk.colourit.model.Project;
-import dk.colourit.model.Requirement;
-import dk.colourit.model.TeamMember;
-import dk.colourit.model.TeamMemberList;
+import dk.colourit.model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -48,19 +45,27 @@ public class RequirementListSceneController extends Controller
     public ChoiceBox<TeamMember> removeTeamMemberChoiceBox;
     public ChoiceBox<String> selectRoleChoiceBox;
 
+    public Label projectNameLabel;
+    public Label statusLabel;
+
+    private RequirementList requirementList;
+
     @Override public void init()
     {
         Project project = ColourItGui.getSelectedProject();
 
         populateChoiceBoxes(project);
-
         populateRequirementTable(project);
-
         populateTeamMemberTable(project);
 
         selectRoleChoiceBox.getItems().addAll("Team Member", "Project Creator", "Scrum Master", "Product Owner");
 
+        Project project1 = ColourItGui.getSelectedProject();
+        requirementList = project1.getRequirementList();
 
+        // setting information text on scene
+        projectNameLabel.setText(ColourItGui.getSelectedProject().getName());
+        // statusLabel.setText(project.getStatus());
     }
 
     public void populateChoiceBoxes(Project project){
