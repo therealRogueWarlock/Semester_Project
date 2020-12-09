@@ -8,7 +8,6 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -77,11 +76,6 @@
                      </rowConstraints>
                      <children>
                         <Label text="Requirements" />
-                        <TextField fx:id="addRequirementInput" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#addRequirementInput" promptText="Name" GridPane.columnIndex="1">
-                           <GridPane.margin>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </GridPane.margin>
-                        </TextField>
                         <Button fx:id="addRequirementButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#addRequirementButton" text="Add Requirement" GridPane.columnIndex="2">
                            <GridPane.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

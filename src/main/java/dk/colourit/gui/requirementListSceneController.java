@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class requirementListSceneController extends Controller
 {
     public Button editButton;
+    public Button backButton;
 
     public TextField addRequirementInput;
     public Button addRequirementButton;
