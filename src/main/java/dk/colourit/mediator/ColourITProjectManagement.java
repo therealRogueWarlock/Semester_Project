@@ -86,10 +86,12 @@ public class ColourITProjectManagement
 		projectList.addProject(new Project(projectName, getStartDate, deadline));
 	}
 
-	public void deleteProject(String projectName)
+	public void deleteProject(Project project)
 	{
-		projectList.removeProject(projectName);
+		projectList.removeProject(project);
 	}
+
+
 
 	public void addEmployee(String name, int employeeNumber, MyDate birthday)
 	{

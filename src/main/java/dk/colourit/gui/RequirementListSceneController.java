@@ -170,11 +170,9 @@ public class RequirementListSceneController extends Controller
 
     public void deleteProjectButton() throws IOException
     {
-        Scene confirmDeleteProjectScene = new Scene(loadFXML("confirmDeleteProject"));
-        Stage stage = new Stage();
 
-        stage.setScene(confirmDeleteProjectScene);
-        stage.show();
+        createPopUp("confirmDeleteProject");
+
     }
 
     public void goBack() throws IOException

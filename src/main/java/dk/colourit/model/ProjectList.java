@@ -47,9 +47,9 @@ public class ProjectList {
 		return returnArray;
 	}
 
-	public void removeProject(String projectName)
+	public void removeProject(Project project)
 	{
-		projects.remove(getProjectByName(projectName));
+		projects.remove(project);
 	}
 
 }

@@ -47,12 +47,16 @@ public class CreateProjectPopUpController extends Controller
 			ColourItGui.getModel().createProject(projectName, new MyDate(startDate), new MyDate(deadLine));
 			statusLabel.setText("Project Created");
 			statusLabel.setTextFill(Color.web("#22DD33"));
+			getParentController().init();
 		}
 		catch (RuntimeException e)
 		{
 			statusLabel.setText("Project Creation Failed");
 			statusLabel.setTextFill(Color.web("#FF3344"));
 		}
+
+
+
 	}
 
 	public void closePopUp()
