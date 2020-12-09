@@ -107,6 +107,9 @@ public class Task {
 		documentations.add(documentation);
 	}
 
+
+
+
 	@Override
 	public String toString() {
 		return "Task{" + "name='" + name + '\'' + ", responsible='" + responsible + '\'' + ", timeEstimateHour="

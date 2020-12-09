@@ -21,6 +21,8 @@ public class TaskListSceneController extends Controller {
 
     public GridPane mainContainer;
 
+
+
     private TaskList taskList;
 
     public TableView<Task> highPriorityTableView;
@@ -28,13 +30,14 @@ public class TaskListSceneController extends Controller {
     public TableColumn<Task, Integer> estimatedTimeHighColumn;
     public TableColumn<Task, Integer> totalTimeSpentHighColumn;
     public TableColumn<Task, String> responsibleHighColumn;
+    public TableColumn<Task, String> taskStatusHighColumn;
 
     public TableView<Task> lowPriorityTableView;
     public TableColumn<Task, String> taskNameLowColumn;
     public TableColumn<Task, Integer> estimatedTimeLowColumn;
     public TableColumn<Task, Integer> totalTimeSpentLowColumn;
     public TableColumn<Task, String> responsibleLowColumn;
-
+    public TableColumn taskStatusLowColumn;
 
     public Text projectNameText;
     public Text statusText;
@@ -113,19 +116,22 @@ public class TaskListSceneController extends Controller {
     public void itemSelected(Event event) throws IOException //SANDER DON'T FUCKING REMOVE THIS PLEASE
     {
         // getting what table is clicked by id
+
+
         String selectedTableId = ((Control) event.getSource()).getId();
 
-        if (selectedTableId.equals("highPriorityTableView")) {
-            // getting the selected task from the table View
-            Task selectedTask = highPriorityTableView.getSelectionModel().getSelectedItem();
-            ColourItGui.setSelectedTask(selectedTask);
-            popUpTaskDetails();
-        } else if (selectedTableId.equals("lowPriorityTableView")) {
-            Task selectedTask = lowPriorityTableView.getSelectionModel().getSelectedItem();
-            ColourItGui.setSelectedTask(selectedTask);
-            popUpTaskDetails();
+        if (selectedTableId != null) {
+            if (selectedTableId.equals("highPriorityTableView")) {
+                // getting the selected task from the table View
+                Task selectedTask = highPriorityTableView.getSelectionModel().getSelectedItem();
+                ColourItGui.setSelectedTask(selectedTask);
+                popUpTaskDetails();
+            } else if (selectedTableId.equals("lowPriorityTableView")) {
+                Task selectedTask = lowPriorityTableView.getSelectionModel().getSelectedItem();
+                ColourItGui.setSelectedTask(selectedTask);
+                popUpTaskDetails();
+            }
         }
-
     }
 
 }
