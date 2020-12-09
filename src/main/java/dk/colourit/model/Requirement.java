@@ -78,5 +78,10 @@ public class Requirement {
 
 		return null;
 	}
+
+	public String toString()
+	{
+		return name;
+	}
 }
 
