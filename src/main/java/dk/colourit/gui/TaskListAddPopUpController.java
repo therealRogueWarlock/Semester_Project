@@ -1,5 +1,6 @@
 package dk.colourit.gui;
 
+import dk.colourit.model.TeamMember;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -12,24 +13,24 @@ public class TaskListAddPopUpController extends Controller {
 	public TextField estimatedHoursTextField;
 	public TextArea taskDescription;
 	public Button cancelButton;
-	private ChoiceBox responsibleTeamMember;
+	public ChoiceBox<TeamMember> responsibleTeamMember;
+
+	@Override
+	public void init() {
+		responsibleTeamMember.getItems().addAll(ColourItGui.getSelectedProject().getTeamMemberList().getTeamMembers());
+	}
 
 	@FXML
 	private void addTask() {
 		String name = taskNameTextField.getText();
 		int time = Integer.parseInt(estimatedHoursTextField.getText());
-		String member = responsibleTeamMemberTextField.getText();
+		TeamMember member = responsibleTeamMember.getSelectionModel().getSelectedItem();
 		boolean priority = highPriorityCheckBox.isSelected();
 		String taskDesc = taskDescription.getText();
 //		ColourItGui.getSelectedRequirement().getTaskList().addTask(new Task(name, time, member, priority, taskDesc));
 
-		ColourItGui.getModel().addTask(ColourItGui.getSelectedProject().getName(), ColourItGui.getSelectedRequirement().getName(), name, member, time, priority, taskDesc);
+		ColourItGui.getModel().addTask(ColourItGui.getSelectedProject().getName(), ColourItGui.getSelectedRequirement().getName(), name, member.getName(), time, priority, taskDesc);
 		goBack();
-	}
-
-	@Override
-	public void init() {
-
 	}
 
 	@Override
