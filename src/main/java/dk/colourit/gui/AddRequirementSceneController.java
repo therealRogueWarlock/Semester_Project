@@ -12,13 +12,28 @@ public class AddRequirementSceneController extends Controller
 {
   public TextField requirementNameTextField;
   public TextField priorityTextField;
+  public TextField timeEstimateField;
   public TextArea requirementDescriptionTextArea;
   public Button addRequirementButton;
 
   public void addRequirement()
   {
-    Project selectedProject = ColourItGui.getSelectedProject();
     String requirementNameTextFieldText = requirementNameTextField.getText();
+
+    String timeEstimateText = timeEstimateField.getText();
+    int timeEstimate = Integer.parseInt(timeEstimateText);
+
+    String priorityText = priorityTextField.getText();
+    int priority = Integer.parseInt(priorityText);
+
+
+
+    Project selectedProject = ColourItGui.getSelectedProject();
+
+    ColourItGui.getModel().addRequirement(selectedProject, requirementNameTextFieldText, timeEstimate, priority);
+
+
+
     //model.addRequirement(selectedProject);
   }
 
