@@ -115,6 +115,10 @@ public class Task
 		return totalTimeSpent;
 	}
 
+	public void setDocumentation(Documentation documentation){
+		documentations.add(documentation);
+	}
+
 	@Override public String toString()
 	{
 		return "Task{" + "name='" + name + '\'' + ", responsible='" + responsible + '\'' + ", timeEstimateHour="

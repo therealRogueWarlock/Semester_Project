@@ -42,6 +42,7 @@ public class RequirementList
 		return priorityList;
 	}
 
+
 	public void addRequirement(Requirement requirement)
 	{
 		requirements.add(requirement);
