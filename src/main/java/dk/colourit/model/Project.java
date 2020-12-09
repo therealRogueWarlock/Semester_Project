@@ -103,11 +103,17 @@ public class Project
 		return teamMemberList;
 	}
 
+
 	public void setEndDate(MyDate endDate)
 	{
 		this.endDate = endDate;
 		//TODO: endDate = MyDate.now(); - Hvad med dette, når vi færdiggøre projektet via en knap i GUI?
 	}
+
+
+
+
+
 
 }
 

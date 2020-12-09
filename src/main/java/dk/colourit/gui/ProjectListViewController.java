@@ -99,7 +99,6 @@ public class ProjectListViewController extends Controller
 		}catch (Exception e){
 			System.out.println("No project selected");
 		}
-
 	}
 
 	public void addEmployee() throws IOException{

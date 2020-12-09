@@ -47,7 +47,7 @@
                   <Insets left="5.0" />
                </GridPane.margin>
             </Label>
-            <Button fx:id="addMember" mnemonicParsing="false" text="Add Member" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Button fx:id="addMember" onMouseClicked="#addTeamMember" mnemonicParsing="false" text="Add Member" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -72,11 +72,10 @@
             <Insets />
          </VBox.margin>
       </GridPane>
-      <TableView maxHeight="1.7976931348623157E308" prefHeight="200.0" prefWidth="483.0">
+      <TableView fx:id="teamMemberTableView" maxHeight="1.7976931348623157E308" prefHeight="200.0" prefWidth="483.0">
         <columns>
-          <TableColumn prefWidth="198.40009152889252" text="Name" />
-          <TableColumn prefWidth="94.39996337890625" text="ID" />
-            <TableColumn prefWidth="124.800048828125" text="Role" />
+          <TableColumn fx:id="nameColumn" prefWidth="198.40009152889252" text="Name" />
+          <TableColumn fx:id="idColumn" prefWidth="94.39996337890625" text="ID" />
         </columns>
          <VBox.margin>
             <Insets top="15.0" />

@@ -5,12 +5,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -70,6 +67,10 @@ public class RequirementListSceneController extends Controller
         populateTeamMemberTable(project);
     }
 
+
+
+
+
     private void populateRoleChoiceBox(Project project){
         selectRoleChoiceBox.getItems().clear();
 
@@ -95,7 +96,6 @@ public class RequirementListSceneController extends Controller
 
         removeTeamMemberChoiceBox.getItems().addAll(project.getTeamMemberList().getTeamMembers());
     }
-
 
 
     private void populateAddTeamMemberChoiceBox(Project project){
@@ -127,6 +127,7 @@ public class RequirementListSceneController extends Controller
         requirementTable.setItems(observableRequirementList);
     }
 
+
     private void populateTeamMemberTable(Project project){
 
         ArrayList<TeamMember> teamMembers = project.getTeamMemberList().getTeamMembers();
@@ -142,29 +143,25 @@ public class RequirementListSceneController extends Controller
     }
 
 
+
     public void editButton()
     {
     }
 
     public void addRequirementButton() throws IOException
     {
-
         createPopUp("addRequirementScenePopUp");
-
     }
 
     public void removeRequirementButton()
     {
-
     }
 
-    public void addTeamMemberButton() throws IOException
+    public void addTeamMemberButton()
     {
 
         TeamMember selectedTeamMember = addTeamMemberChoiceBox.getSelectionModel().getSelectedItem();
-
         String selectedRole = selectRoleChoiceBox.getSelectionModel().getSelectedItem();
-
 
         if (selectedTeamMember != null && selectedRole != null) {
 
@@ -176,7 +173,6 @@ public class RequirementListSceneController extends Controller
             //selectedProject.getTeamMemberList().addTeamMember(selectedTeamMember);
             init();
         }
-
 
     }
 
