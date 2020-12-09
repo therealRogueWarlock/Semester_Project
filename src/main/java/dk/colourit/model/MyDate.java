@@ -76,7 +76,9 @@ public class MyDate {
 			case 12:
 				return "December";
 		}
-		return ""; //TODO:Burde vi lave en exception? - Vi kan dog ikke få udover 1-12, hvis vi bruger skemaet i vores GUI
+		return "";
+		//We are using DatePicker in our GUI, so months out of range won't be possible.
+
 	}
 
 	public void set(int year, int month, int day) {
@@ -118,7 +120,8 @@ public class MyDate {
 			case 12:
 				return 31;
 		}
-		return -1; //TODO: Bør vi implementere exception? (tidligere argument)
+		return -1;
+		//We are using DatePicker in GUI, so user can't select out of range.
 	}
 
 	public int yearsBetween(MyDate newDate) {
