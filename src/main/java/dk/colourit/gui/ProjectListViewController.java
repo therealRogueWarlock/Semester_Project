@@ -66,7 +66,7 @@ public class ProjectListViewController extends Controller
 		try {
 			Project selectedProject = projectTableView.getSelectionModel().getSelectedItem();
 			ColourItGui.setSelectedProject(selectedProject);
-			ColourItGui.setRoot("projectDetailsScene");
+			ColourItGui.setRoot("requirementListScene");
 		}catch (Exception e){
 			System.out.println("No project selected");
 

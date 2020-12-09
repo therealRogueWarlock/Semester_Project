@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ProjectDetailsSceneController extends Controller
+public class requirementListSceneController extends Controller
 {
     public Button editButton;
     public TextField addRequirementInput;
