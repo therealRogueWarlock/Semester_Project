@@ -17,8 +17,7 @@ public class RequirementList
 		return requirements;
 	}
 
-	public Requirement getRequirementByName(String requirementName)
-	{
+	public Requirement getRequirementByName(String requirementName)	{
 		for (Requirement requirement : requirements)
 		{
 			if (requirement.getName().equals(requirementName))
@@ -29,8 +28,7 @@ public class RequirementList
 		return null;
 	}
 
-	public RequirementList getPriorityList()
-	{
+	public RequirementList getPriorityList() {
 		RequirementList priorityList = new RequirementList();
 		for (Requirement requirement : requirements)
 		{
