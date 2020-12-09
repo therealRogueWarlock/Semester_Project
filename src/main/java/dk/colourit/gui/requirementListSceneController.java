@@ -46,15 +46,13 @@ public class requirementListSceneController extends Controller
     {
     }
 
-    public void addRequirementInput()
+    public void addRequirementButton() throws IOException
     {
-    }
+        Scene addRequirementScene = new Scene(loadFXML("addRequirementScenePopUp"));
+        Stage stage = new Stage();
 
-    public void addRequirementButton()
-    {
-        Project selectedProject = ColourItGui.getSelectedProject();
-        String requirementName = addRequirementInput.getText();
-        //model.addRequirement(selectedProject);
+        stage.setScene(addRequirementScene);
+        stage.show();
     }
 
     public void requirementList()
