@@ -46,7 +46,7 @@ public class RequirementListSceneController extends Controller
 
     public ChoiceBox<TeamMember> addTeamMemberChoiceBox;
     public ChoiceBox<TeamMember> removeTeamMemberChoiceBox;
-
+    public ChoiceBox<String> selectRoleChoiceBox;
 
     @Override public void init()
     {
@@ -57,6 +57,9 @@ public class RequirementListSceneController extends Controller
         populateRequirementTable(project);
 
         populateTeamMemberTable(project);
+
+        selectRoleChoiceBox.getItems().addAll("Team Member", "Project Creator", "Scrum Master", "Product Owner");
+
 
     }
 
