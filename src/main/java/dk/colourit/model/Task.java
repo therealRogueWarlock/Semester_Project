@@ -2,8 +2,7 @@ package dk.colourit.model;
 
 import java.util.ArrayList;
 
-public class Task
-{
+public class Task {
 
 	private String name;
 	private String responsible;
@@ -15,8 +14,7 @@ public class Task
 	private boolean finito;
 	private ArrayList<Documentation> documentations;
 
-	public Task(String name, String teamMemberName, int timeEstimateHour, boolean highPriority)
-	{
+	public Task(String name, String teamMemberName, int timeEstimateHour, boolean highPriority) {
 		documentations = new ArrayList<>();
 
 		this.highPriority = highPriority;
@@ -33,95 +31,81 @@ public class Task
 		totalTimeSpent = 0;
 	}
 
-	public ArrayList<Documentation> getDocumentations()
-	{
+	public ArrayList<Documentation> getDocumentations() {
 		return documentations;
 	}
 
-	public String getName()
-	{
+	public String getName() {
 		return name;
 	}
 
-	public void setName(String name)
-	{
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getResponsible()
-	{
+	public String getResponsible() {
 		return responsible;
 	}
 
-	public void setResponsible(String teamMemberName)
-	{
+	public void setResponsible(String teamMemberName) {
 		responsible = teamMemberName;
 	}
 
-	public String getDescription()
-	{
+	public String getDescription() {
 		return description;
 	}
 
-	public void setDescription(String text)
-	{
+	public void setDescription(String text) {
 		description = text;
 	}
 
-	public void editTask(String name, int timeEstimateHour, String description)
-	{
+	public void editTask(String name, int time, String memberName, boolean checked, String taskDescription) {
 		setName(name);
-		setTimeEstimateHour(timeEstimateHour);
-		setDescription(description);
+		setTimeEstimateHour(time);
+		setResponsible(memberName);
+		highPriority = checked;
+		setDescription(taskDescription);
 	}
 
-	public boolean isFinito()
-	{
+	public boolean isFinito() {
 		return finito;
 	}
 
-	public void setFinito(boolean arg)
-	{
+	public void setFinito(boolean arg) {
 		finito = arg;
 	}
 
-	public boolean isHighPriority()
-	{
+	public boolean isHighPriority() {
 		return highPriority;
 	}
 
-	public void setTotalTimeSpent(int totalTimeSpent)
-	{
+	public void setTotalTimeSpent(int totalTimeSpent) {
 		this.totalTimeSpent = totalTimeSpent;
 	}
 
-	public int getTimeEstimateHour()
-	{
+	public int getTimeEstimateHour() {
 		return timeEstimateHour;
 	}
 
-	private void setTimeEstimateHour(int timeEstimateHour)
-	{
+	private void setTimeEstimateHour(int timeEstimateHour) {
 		this.timeEstimateHour = timeEstimateHour;
 	}
 
-	public int getTotalTimeSpent()
-	{
+	public int getTotalTimeSpent() {
 		totalTimeSpent = 0;
-		for (Documentation documentation : documentations)
-		{
+		for (Documentation documentation : documentations) {
 			totalTimeSpent += documentation.getTimeSpent();
 		}
 		return totalTimeSpent;
 	}
 
-	public void setDocumentation(Documentation documentation){
+	public void setDocumentation(Documentation documentation) {
 		documentations.add(documentation);
 	}
 
-	@Override public String toString()
-	{
+	@Override
+	public String toString() {
 		return "Task{" + "name='" + name + '\'' + ", responsible='" + responsible + '\'' + ", timeEstimateHour="
-			+ timeEstimateHour + ", highPriority=" + highPriority + ", totalTimeSpent=" + totalTimeSpent + '}';
+				+ timeEstimateHour + ", highPriority=" + highPriority + ", totalTimeSpent=" + totalTimeSpent + '}';
 	}
 }

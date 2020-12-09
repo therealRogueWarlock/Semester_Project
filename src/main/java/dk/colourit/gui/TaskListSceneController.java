@@ -61,7 +61,7 @@ public class TaskListSceneController extends Controller {
 
 
     private void populateHighPriorityTable(){
-
+        highPriorityTableView.getItems().clear();
         // getting high priority task from task list
         ArrayList<Task> highPriorityTasks = taskList.getHighPriority();
         ObservableList<Task> observableHighPriorityTasks = FXCollections.observableArrayList();
@@ -80,6 +80,7 @@ public class TaskListSceneController extends Controller {
     }
 
     private void populateLowPriorityTable(){
+        lowPriorityTableView.getItems().clear();
         // getting the low priority task from task list
         ArrayList<Task> lowPriorityTasks = taskList.getLowPriority();
         ObservableList<Task> observableLowPriorityTasks = FXCollections.observableArrayList();

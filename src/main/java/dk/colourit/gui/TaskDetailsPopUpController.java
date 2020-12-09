@@ -1,50 +1,85 @@
 package dk.colourit.gui;
 
 import dk.colourit.model.Task;
+import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class TaskDetailsPopUpController extends Controller {
 
-    public Button confirmEditButton;
-    public Button deleteTask;
+	public Button confirmEditButton;
+	public Button deleteTask;
+	public Button documentationButton;
+	public Button cancelButton;
 
-    public TextField taskNameEditTextField;
-    public TextField estimatedHoursTextField;
-    public TextField responsibleTeamMemberTextField;
+	public TextField taskNameEditTextField;
+	public TextField estimatedHoursTextField;
+	public TextField responsibleTeamMemberTextField;
 
-    public CheckBox highPriorityCheckBox;
+	public CheckBox highPriorityCheckBox;
 
-    public TextArea taskTextArea;
-
-
-    public TaskDetailsPopUpController(){
-
-    }
-
-    public void deleteTask(){
-        //TODO: Implement Task Deletion
-            ((Stage) deleteTask.getScene().getWindow()).close(); // Get's the Window the button is in, and casts to a Stage, which can be closed with .close()
-    }
-
-    @Override
-    public void init() {
-        Task task =  ColourItGui.getSelectedTask();
-
-        System.out.println("init task info for popup");
-        taskNameEditTextField.setText(task.getName());
-        estimatedHoursTextField.setText(Integer.toString(task.getTimeEstimateHour()));
-        responsibleTeamMemberTextField.setText(task.getResponsible());
-        taskTextArea.setText(task.getDescription());
-    }
-
-    @Override public void goBack()
-    {
-        //TODO: Der skal laves en knap der går tilbage
-    }
+	public TextArea taskTextArea;
 
 
+	public TaskDetailsPopUpController() {
+
+	}
+
+	public void deleteTask() {
+		//TODO: Implement Task Deletion
+
+		cancel();
+	}
+
+	@Override
+	public void init() {
+		Task task = ColourItGui.getSelectedTask();
+
+		System.out.println("init task info for popup");
+		taskNameEditTextField.setText(task.getName());
+		estimatedHoursTextField.setText(Integer.toString(task.getTimeEstimateHour()));
+		responsibleTeamMemberTextField.setText(task.getResponsible());
+		taskTextArea.setText(task.getDescription());
+	}
+
+	public void confirmEdit() {
+		String name = taskNameEditTextField.getText();
+		int time = Integer.parseInt(estimatedHoursTextField.getText());
+		String memberName = responsibleTeamMemberTextField.getText();
+		boolean checked = highPriorityCheckBox.isSelected();
+		String taskDescription = taskTextArea.getText();
+
+//		System.out.println(ColourItGui.getSelectedTask().getName());
+		ColourItGui.getSelectedTask().editTask(name, time, memberName, checked, taskDescription);
+		cancel();
+	}
+
+	@Override
+	public void goBack() // Lazy fix
+	{
+		cancel();
+	}
+
+
+	@FXML
+	private void cancel() {
+		getParentController().init();
+		((Stage) deleteTask.getScene().getWindow()).close(); // Get's the Window the button is in, and casts to a Stage, which can be closed with .close()
+	}
+
+	@FXML
+	private void documentationPopup() throws IOException {
+		createPopUp("documentationPopUp");
+	}
+
+	@FXML
+	private void enableEditConfirmationButton() {
+		confirmEditButton.setDisable(false);
+	}
 }
