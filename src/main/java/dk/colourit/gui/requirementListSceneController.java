@@ -18,13 +18,17 @@ import java.util.ArrayList;
 public class requirementListSceneController extends Controller
 {
     public Button editButton;
+
     public TextField addRequirementInput;
     public Button addRequirementButton;
-    public ChoiceBox requirementList;
+
+    public ChoiceBox<Requirement> requirementList;
     public Button removeRequirementButton;
-    public Button addTeamMemberButton;
+
     public Button deleteProjectButton;
-    public ChoiceBox teamMemberList;
+
+    public Button addTeamMemberButton;
+    public ChoiceBox<TeamMember> teamMemberList;
     public Button removeTeamMemberButton;
 
     public TableView<Requirement> requirementTable;
@@ -47,6 +51,9 @@ public class requirementListSceneController extends Controller
 
     public void addRequirementButton()
     {
+        Project selectedProject = ColourItGui.getSelectedProject();
+        String requirementName = addRequirementInput.getText();
+        //model.addRequirement(selectedProject);
     }
 
     public void requirementList()

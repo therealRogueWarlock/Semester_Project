@@ -182,13 +182,13 @@ public class ColourITProjectManagement
         //TODO: mangler approval i Task
     }
 
-    public void addRequirement(String projectName, String requirementName, int timeEstimate, int priority)
+    public void addRequirement(Project project, String requirementName, int timeEstimate, int priority)
     {
         //Creating a Requirement
         Requirement requirement = new Requirement(requirementName, timeEstimate, priority);
 
-        projectList.getProjectByName(projectName)
-            .getRequirementList().addRequirement(requirement);
+        project.getRequirementList().addRequirement(requirement);
+
     }
 
     public void removeRequirement(String projectName, String requirementName)

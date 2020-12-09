@@ -105,13 +105,11 @@ public class ProjectListViewController extends Controller
 
 		stage.setScene(createProjectPopUp);
 
+		// when the popUp closes the this controller updates data on scene
 		stage.setOnCloseRequest(WindowEvent -> this.init());
-
 
 		// when popup is open primary stage cant be accessed.
 		stage.initModality(Modality.APPLICATION_MODAL);
 		stage.showAndWait();
-
-
 	}
 }
