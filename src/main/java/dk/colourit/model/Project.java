@@ -1,5 +1,7 @@
 package dk.colourit.model;
 
+import java.security.InvalidParameterException;
+
 public class Project
 {
 
@@ -17,9 +19,24 @@ public class Project
 		this.creationDate = MyDate.now();
 		this.endDate = null;
 
-		this.name = name;
-		this.startDate = startDate;
-		this.deadLine = deadLine;
+		if (name.isEmpty() || name.isBlank())
+		{
+			throw new InvalidParameterException();
+		}
+		else
+		{
+			this.name = name;
+		}
+
+		if (startDate.isBefore(creationDate) || deadLine.isBefore(creationDate) || deadLine.isBefore(startDate))
+		{
+			throw new InvalidParameterException();
+		}
+		else
+		{
+			this.startDate = startDate;
+			this.deadLine = deadLine;
+		}
 
 		requirementList = new RequirementList();
 		teamMemberList = new TeamMemberList();

@@ -2,6 +2,7 @@ package dk.colourit.model;
 
 
 import java.text.DecimalFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -21,6 +22,16 @@ public class MyDate {
 		year = now.get(Calendar.YEAR);
 		//TODO: Muligvis brug: MyDate.now(); - Dog får jeg 0/0/0, hver gang jeg prøver det.
 	}
+
+	public MyDate(LocalDate localDate){
+
+		year = localDate.getYear();
+		month = localDate.getMonthValue();
+		day = localDate.getDayOfMonth();
+
+	}
+
+
 
 	public MyDate(int year, int month, int day) {
 		set(day, month, year);
@@ -65,7 +76,9 @@ public class MyDate {
 			case 12:
 				return "December";
 		}
-		return ""; //TODO:Burde vi lave en exception? - Vi kan dog ikke få udover 1-12, hvis vi bruger skemaet i vores GUI
+		return "";
+		//We are using DatePicker in our GUI, so months out of range won't be possible.
+
 	}
 
 	public void set(int year, int month, int day) {
@@ -107,7 +120,8 @@ public class MyDate {
 			case 12:
 				return 31;
 		}
-		return -1; //TODO: Bør vi implementere exception? (tidligere argument)
+		return -1;
+		//We are using DatePicker in GUI, so user can't select out of range.
 	}
 
 	public int yearsBetween(MyDate newDate) {
@@ -191,6 +205,6 @@ public class MyDate {
 	public static MyDate now()
 	{
 		GregorianCalendar now = new GregorianCalendar();
-		return new MyDate(now.get(Calendar.DATE), now.get(Calendar.MONTH)+1, now.get(Calendar.YEAR));
+		return new MyDate(now.get(Calendar.DATE), (now.get(Calendar.MONTH)+1), now.get(Calendar.YEAR));
 	}
 }

@@ -33,11 +33,10 @@ public class ColourItGui extends Application {
         stage.setScene(scene);
         stage.show();
 
-
         // when primary stage is closed, close all other open windows.
         stage.setOnCloseRequest(e -> Platform.exit());
-
     }
+
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
@@ -85,10 +84,10 @@ public class ColourItGui extends Application {
 
         Controller controller = loader.getController();
 
-        controller.setModel(model);
         controller.init();
 
         return root;
+
     }
 
 

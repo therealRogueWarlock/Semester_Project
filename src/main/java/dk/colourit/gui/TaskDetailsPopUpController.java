@@ -25,7 +25,6 @@ public class TaskDetailsPopUpController extends Controller {
 
     }
 
-
     public void deleteTask(){
         //TODO: Implement Task Deletion
             ((Stage) deleteTask.getScene().getWindow()).close(); // Get's the Window the button is in, and casts to a Stage, which can be closed with .close()
@@ -44,7 +43,7 @@ public class TaskDetailsPopUpController extends Controller {
 
     @Override public void goBack()
     {
-
+        //TODO: Der skal laves en knap der går tilbage
     }
 
 

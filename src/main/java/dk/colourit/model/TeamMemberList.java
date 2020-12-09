@@ -10,6 +10,10 @@ public class TeamMemberList {
         teamMembers = new ArrayList<>();
     }
 
+    public TeamMemberList(ArrayList<TeamMember> teamMembers) {
+        this.teamMembers = new ArrayList<>(teamMembers);
+    }
+
     public ArrayList<TeamMember> getTeamMembers() {
         return teamMembers;
     }
@@ -36,13 +40,22 @@ public class TeamMemberList {
         teamMembers.add(teamMember);
     }
 
-    public void removeTeamMember(String name) {
-        for (TeamMember teamMember : teamMembers) {
-            if (teamMember.getName().equalsIgnoreCase(name)) {
-                teamMembers.remove(teamMember);
-                break;
-            }
-        }
+    public void removeTeamMember(TeamMember teamMember) {
+
+        teamMembers.remove(teamMember);
+
     }
 
+    public TeamMemberList getCopy(){
+        return new TeamMemberList(teamMembers);
+    }
+
+    public ArrayList<TeamMember>  getRemaindingTeamMembers(ArrayList<TeamMember> teamMembers){
+        ArrayList<TeamMember> returnArray = getTeamMembers();
+
+        for (TeamMember teamMember:teamMembers){
+            returnArray.remove(teamMember);
+        }
+        return returnArray;
+    }
 }

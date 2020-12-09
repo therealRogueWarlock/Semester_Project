@@ -1,13 +1,9 @@
 package dk.colourit.gui;
 
 import dk.colourit.model.*;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.event.EventTarget;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -21,7 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,8 +40,6 @@ public class TaskListSceneController extends Controller {
     public TableColumn<Task, Integer> totalTimeSpentLowColumn;
     public TableColumn<Task, String> responsibleLowColumn;
 
-    private Scene scene;
-    private Stage stage;
 
     public Text projectNameText;
     public Text statusText;
@@ -79,6 +73,7 @@ public class TaskListSceneController extends Controller {
         taskNameHighColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         estimatedTimeHighColumn.setCellValueFactory(new PropertyValueFactory<>("timeEstimateHour"));
         totalTimeSpentHighColumn.setCellValueFactory(new PropertyValueFactory<>("totalTimeSpent"));
+        responsibleHighColumn.setCellValueFactory(new PropertyValueFactory<>("responsible"));
 
         // adding the observable list to the high priority table
         highPriorityTableView.setItems(observableHighPriorityTasks);
@@ -95,6 +90,7 @@ public class TaskListSceneController extends Controller {
         taskNameLowColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         estimatedTimeLowColumn.setCellValueFactory(new PropertyValueFactory<>("timeEstimateHour"));
         totalTimeSpentLowColumn.setCellValueFactory(new PropertyValueFactory<>("totalTimeSpent"));
+        responsibleLowColumn.setCellValueFactory(new PropertyValueFactory<>("responsible"));
 
         lowPriorityTableView.setItems(observableLowPriorityTasks);
     }
@@ -102,50 +98,23 @@ public class TaskListSceneController extends Controller {
 
     @Override public void goBack() throws IOException
     {
-        ColourItGui.setRoot("projectDetailsScene");
+        ColourItGui.setRoot("requirementListScene");
     }
 
     @FXML
     private void popUpAddTask() throws IOException{
-
-        scene = new Scene(loadFXML("taskListAddPopUp"));
-        stage = new Stage();
-
-        stage.setScene(scene);
-
-        // when popup is open primary stage cant be accessed.
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.showAndWait();
+        createPopUp("taskListAddPopUp");
 
     }
 
     @FXML
     private void popUpTaskDetails() throws IOException{
-        // Disabling the main container for the primary stage
-        //mainContainer.setDisable(true);
 
-        scene = new Scene(loadFXML("taskDetailsPopUp"));
-        stage = new Stage();
-        stage.setScene(scene);
+        createPopUp("taskDetailsPopUp");
 
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.showAndWait();
-
-
-
-        // An other was to disable the primary stage with out use of initModality
-
-        // Disabling the main container for the primary stage
-        //mainContainer.setDisable(true)
-
-        // adding an on close request to the pop up, that enable the main container.
-        //stage.setOnCloseRequest(windowEvent -> mainContainer.setDisable(false));
-
-        // show pop up
-        //stage.show();
     }
 
-    public void itemSelected(Event event) throws IOException //SANDER DONT FUCKING REMOVE THIS PLEASE
+    public void itemSelected(Event event) throws IOException //SANDER DON'T FUCKING REMOVE THIS PLEASE
     {
         // getting what table is clicked by id
         String selectedTableId = ((Control) event.getSource()).getId();
@@ -161,20 +130,6 @@ public class TaskListSceneController extends Controller {
             popUpTaskDetails();
         }
 
-    }
-
-
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(ColourItGui.class.getResource(fxml + ".fxml"));
-        Parent root = loader.load();
-
-        Controller controller = loader.getController();
-
-        controller.setModel(ColourItGui.getModel());
-        controller.init();
-
-        return root;
     }
 
 }

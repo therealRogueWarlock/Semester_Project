@@ -3,6 +3,7 @@ package dk.colourit.gui;
 
 import dk.colourit.model.MyDate;
 import dk.colourit.model.Project;
+import dk.colourit.model.TeamMember;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -14,7 +15,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 
@@ -32,6 +35,11 @@ public class ProjectListViewController extends Controller
 	public Button createButton;
 	public Button addEmployeeButton;
 
+	public TableView<TeamMember> employeeTableView;
+	public TableColumn<TeamMember, String> employeeNameColumn;
+	public TableColumn<TeamMember, Integer> idNumberColumn;
+	public TableColumn<TeamMember, MyDate> birthdayColumn;
+
 	@Override public void init()
 	{
 
@@ -44,15 +52,24 @@ public class ProjectListViewController extends Controller
 			createButton.setVisible(false);
 		}*/
 
-		ObservableList<Project> observableProjectList = FXCollections.observableArrayList();
+		ObservableList<TeamMember> observableTeamMembers = FXCollections.observableArrayList();
 
-		observableProjectList.addAll(getModel().getProjectList().getProjects());
+		observableTeamMembers.addAll(ColourItGui.getModel().getTeamMemberList().getTeamMembers());
+
+		employeeNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+		idNumberColumn.setCellValueFactory(new PropertyValueFactory<>("employeeNumber"));
+		birthdayColumn.setCellValueFactory(new PropertyValueFactory<>("birthday"));
+		employeeTableView.setItems(observableTeamMembers);
+
+
+		ObservableList<Project> observableProjects = FXCollections.observableArrayList();
+		observableProjects.addAll(ColourItGui.getModel().getProjectList().getProjects());
 
 		projectName.setCellValueFactory(new PropertyValueFactory<>("name"));
 		startDate.setCellValueFactory(new PropertyValueFactory<>("startDate"));
 		deadLine.setCellValueFactory(new PropertyValueFactory<>("deadLine"));
 
-		projectTableView.setItems(observableProjectList);
+		projectTableView.setItems(observableProjects);
 
 	}
 
@@ -61,39 +78,27 @@ public class ProjectListViewController extends Controller
 
 	}
 
-	public void itemSelected()  //SANDER DONT FUCKING REMOVE THIS PLEASE
+	public void itemSelected()  //SANDER DON'T FUCKING REMOVE THIS PLEASE
 	{
 		try {
 			Project selectedProject = projectTableView.getSelectionModel().getSelectedItem();
 			ColourItGui.setSelectedProject(selectedProject);
-			ColourItGui.setRoot("projectDetailsScene");
+			ColourItGui.setRoot("requirementListScene");
 		}catch (Exception e){
 			System.out.println("No project selected");
-
 		}
 
 	}
 
 	public void addEmployee() throws IOException{
-		Scene addTeamMemberScene = new Scene(loadFXML("addTeamMemberScene"));
-		Stage stage = new Stage();
 
-		stage.setScene(addTeamMemberScene);
-		stage.show();
-	}
+		createPopUp("addTeamMemberScene");
 
-	private static Parent loadFXML(String fxml) throws IOException
-	{
-		FXMLLoader fxmlLoader = new FXMLLoader(ColourItGui.class.getResource(fxml + ".fxml"));
-		return fxmlLoader.load();
 	}
 
 	public void createProjectButton() throws IOException
 	{
-		Scene createProjectPopUp = new Scene(loadFXML("createProjectPopUp"));
-		Stage stage = new Stage();
+		createPopUp("createProjectPopUp");
 
-		stage.setScene(createProjectPopUp);
-		stage.show();
 	}
 }
