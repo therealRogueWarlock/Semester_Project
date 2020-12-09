@@ -27,6 +27,16 @@ public class ColourITProjectManagement
 		projectList.addProject(new Project("project5", MyDate.now(), new MyDate(12, 1, 2026)));
 		projectList.addProject(new Project("project6", MyDate.now(), new MyDate(1, 12, 2027)));
 
+
+		teamMemberList.addTeamMember(new TeamMember("Sander", 16233, MyDate.now()));
+		teamMemberList.addTeamMember(new TeamMember("john", 12833, MyDate.now()));
+		teamMemberList.addTeamMember(new TeamMember("seb", 12333, MyDate.now()));
+		teamMemberList.addTeamMember(new TeamMember("pølle", 12833, MyDate.now()));
+		teamMemberList.addTeamMember(new TeamMember("marker", 12303, MyDate.now()));
+		teamMemberList.addTeamMember(new TeamMember("johnbob", 12133, MyDate.now()));
+
+
+
 		for (int i = 0; i < projectList.getProjects().size(); i++)
 		{
 			Project project = projectList.getProjects().get(i);
@@ -106,28 +116,14 @@ public class ColourITProjectManagement
 
 	}
 
-	public void addMemberToProject(Project project, String memberName, String memberRole)
+	public void addMemberToProject(Project project, TeamMember teamMember, String memberRole)
 	{
-		// Finds Member from Member List and adds to project
 
-		TeamMember member = teamMemberList.getTeamMember("name", memberName);
+		teamMember.setRole(memberRole);
+		project.getTeamMemberList().addTeamMember(teamMember);
 
-		project.getTeamMemberList().addTeamMember(member);
-
-		// Mangler vi ikke at tilføje en member
-		project.getTeamMemberList().
-			getTeamMember("name", memberName).setRole(memberRole);
-        /*
-        Hvad med setRole, er dette nødvendigt når man laver den?
-         */
 	}
 
-    /*
-    public void removeMemberFromProject(String projectName, String memberName)
-    {
-        projectList.getProjectByName(projectName).getTeamMemberList()
-            .removeTeamMember(memberName);
-    }*/
 
 	public void assignRoleToTeamMember(String projectName, String memberName, String memberRole)
 	{

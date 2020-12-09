@@ -57,7 +57,6 @@ public class TaskListSceneController extends Controller {
         projectNameText.setText(ColourItGui.getSelectedProject().getName());
         statusText.setText(requirement.getStatus());
         requirementNameText.setText(requirement.getName());
-
     }
 
 

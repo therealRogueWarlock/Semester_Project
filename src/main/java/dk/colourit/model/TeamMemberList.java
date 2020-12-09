@@ -1,75 +1,68 @@
 package dk.colourit.model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class TeamMemberList {
 
-//	private ArrayList<TeamMember> teamMembers;
-	private HashMap<TeamMember, String> teamMembersHash;
+    private ArrayList<TeamMember> teamMembers;
 
-	public TeamMemberList() {
-		teamMembersHash = new HashMap<>();
-	}
+    public TeamMemberList() {
+        teamMembers = new ArrayList<>();
+    }
 
-	public TeamMemberList(HashMap<TeamMember, String> teamMembers) {
-		this.teamMembersHash = new HashMap<>(teamMembers);
-	}
+    public TeamMemberList(ArrayList<TeamMember> teamMembers) {
+        this.teamMembers = new ArrayList<>(teamMembers);
+    }
 
-	public HashMap<TeamMember, String> getTeamMembers() {
-		return teamMembersHash;
-	}
+    public ArrayList<TeamMember> getTeamMembers() {
+        return teamMembers;
+    }
 
-	public TeamMember getTeamMember(String searchMethod, String searchTerm) {
+    public TeamMember getTeamMember(String searchMethod, String searchTerm) {
 
-		if (searchMethod.equalsIgnoreCase("id")) {
-			for (TeamMember teamMember : teamMembersHash.keySet()) {
-				if (teamMember.getEmployeeNumber() == Integer.parseInt(searchTerm))
-					return teamMember;
-			}
-		}
+        if (searchMethod.equalsIgnoreCase("id")) {
+            for (TeamMember teamMember : teamMembers) {
+                if (teamMember.getEmployeeNumber() == Integer.parseInt(searchTerm))
+                    return teamMember;
+            }
+        }
 
-		if (searchMethod.equalsIgnoreCase("name")) {
-			for (TeamMember teamMember : teamMembersHash.keySet()) {
-				if (teamMember.getName().equalsIgnoreCase(searchTerm))
-					return teamMember;
-			}
-		}
-		return null;
-	}
+        if (searchMethod.equalsIgnoreCase("name")) {
+            for (TeamMember teamMember : teamMembers) {
+                if (teamMember.getName().equalsIgnoreCase(searchTerm))
+                    return teamMember;
+            }
+        }
+        return null;
+    }
 
-	public void addTeamMember(TeamMember teamMember, String role) {
-		teamMembersHash.put(teamMember, role);
-	}
+    public void addTeamMember(TeamMember teamMember) {
+        teamMembers.add(teamMember);
+    }
 
-	public void removeTeamMember(TeamMember teamMember) {
+    public void removeTeamMember(TeamMember teamMember) {
 
-		teamMembersHash.remove(teamMember);
-	}
+        teamMembers.remove(teamMember);
 
-	public TeamMemberList getCopy() {
-		return new TeamMemberList(teamMembersHash);
-	}
+    }
 
-	public HashMap<TeamMember,String> getRemainingTeamMembers(HashMap<TeamMember,String> teamMembers) {
-		HashMap<TeamMember,String> returnHash = getTeamMembers();
+    public TeamMemberList getCopy(){
+        ArrayList<TeamMember> teamMembersCopy = new ArrayList<>();
 
-		for (TeamMember teamMember : teamMembers.keySet()) {
-			returnHash.remove(teamMember);
-		}
-		return returnHash;
-	}
+        for (TeamMember teamMember: teamMembers){
+            teamMembersCopy.add(teamMember.getCopy());
+        }
+        return new TeamMemberList(teamMembersCopy);
+    }
 
-	public ArrayList<TeamMember> getRemainingTeamMembers(ArrayList<TeamMember> teamMembers) {
-		ArrayList<TeamMember> returnArray = toArrayList();
+    public TeamMemberList subtractArgListFromThisList(ArrayList<TeamMember> teamMembers){
 
-		for (TeamMember teamMember : teamMembers) {
-			returnArray.remove(teamMember);
-		}
-		return returnArray;
-	}
+        for (TeamMember teamMember:teamMembers){
+            this.teamMembers.remove(teamMember);
+        }
 
-	public ArrayList<TeamMember> toArrayList(){
-		return new ArrayList<TeamMember>(teamMembersHash.keySet());
-	}
+        return this;
+    }
+
+
 }
