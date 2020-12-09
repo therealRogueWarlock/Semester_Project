@@ -191,6 +191,6 @@ public class MyDate {
 	public static MyDate now()
 	{
 		GregorianCalendar now = new GregorianCalendar();
-		return new MyDate(now.get(Calendar.DATE), now.get(Calendar.MONTH)+1, now.get(Calendar.YEAR));
+		return new MyDate(now.get(Calendar.DATE), (now.get(Calendar.MONTH)+1), now.get(Calendar.YEAR));
 	}
 }

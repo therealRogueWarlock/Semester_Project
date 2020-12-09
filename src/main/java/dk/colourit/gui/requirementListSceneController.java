@@ -124,7 +124,7 @@ public class requirementListSceneController extends Controller
     }
 
 
-    public void itemSelected() throws IOException //SANDER DONT FUCKING REMOVE THIS PLEASE
+    public void itemSelected() throws IOException //SANDER DON'T FUCKING REMOVE THIS PLEASE
     {
 
         Requirement selectedRequirement = requirementTable.getSelectionModel().getSelectedItem();
