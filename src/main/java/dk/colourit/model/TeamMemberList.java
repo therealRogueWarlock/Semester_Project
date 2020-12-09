@@ -42,4 +42,13 @@ public class TeamMemberList {
 
     }
 
+
+    public ArrayList<TeamMember>  getRemaindingTeamMembers(ArrayList<TeamMember> teamMembers){
+        ArrayList<TeamMember> returnArray = getTeamMembers();
+
+        for (TeamMember teamMember:teamMembers){
+            returnArray.remove(teamMember);
+        }
+        return returnArray;
+    }
 }

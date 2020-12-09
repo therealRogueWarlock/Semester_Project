@@ -40,9 +40,6 @@ public class ColourITProjectManagement
             int j = 0;
 
             for (String name : names){
-                project.getTeamMemberList()
-                    .addTeamMember(teamMemberList.getTeamMember("name", name));
-
 
                 project.getRequirementList().addRequirement(
                     new Requirement(("requirement" + j), 10 + j, j));

@@ -34,6 +34,11 @@ public class ProjectListViewController extends Controller
 	public Button createButton;
 	public Button addEmployeeButton;
 
+	public TableView employeeTableView;
+	public TableColumn employeeNameColumn;
+	public TableColumn idNumberColumn;
+	public TableColumn birthdayColumn;
+
 	@Override public void init()
 	{
 

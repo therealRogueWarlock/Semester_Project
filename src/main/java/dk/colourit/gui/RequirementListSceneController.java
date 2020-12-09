@@ -3,6 +3,7 @@ package dk.colourit.gui;
 import dk.colourit.model.Project;
 import dk.colourit.model.Requirement;
 import dk.colourit.model.TeamMember;
+import dk.colourit.model.TeamMemberList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -65,7 +66,15 @@ public class RequirementListSceneController extends Controller
         removeTeamMemberChoiceBox.getItems().clear();
         requirementChoiceBox.getItems().clear();
 
-        addTeamMemberChoiceBox.getItems().addAll(ColourItGui.getModel().getTeamMemberList().getTeamMembers());
+        ArrayList<TeamMember> projectTeamMembers =  project.getTeamMemberList().getTeamMembers();
+
+        TeamMemberList employees =  ColourItGui.getModel()
+                .getTeamMemberList();
+
+        ArrayList<TeamMember> employeesNotInProject = employees.getRemaindingTeamMembers(projectTeamMembers);
+
+        addTeamMemberChoiceBox.getItems().addAll(employeesNotInProject);
+
         removeTeamMemberChoiceBox.getItems().addAll(project.getTeamMemberList().getTeamMembers());
 
         ArrayList<Requirement> requirements = project.getRequirementList().getRequirements();
@@ -120,16 +129,15 @@ public class RequirementListSceneController extends Controller
 
     public void addTeamMemberButton() throws IOException
     {
-        try {
-            TeamMember selectedTeamMember = addTeamMemberChoiceBox.getSelectionModel().getSelectedItem();
-            System.out.println(selectedTeamMember);
+
+        TeamMember selectedTeamMember = addTeamMemberChoiceBox.getSelectionModel().getSelectedItem();
+
+        if (selectedTeamMember != null) {
+
             Project selectedProject = ColourItGui.getSelectedProject();
             selectedProject.getTeamMemberList().addTeamMember(selectedTeamMember);
 
             init();
-
-        } catch (Exception e){
-            System.out.println("No selected team member from choice box");
         }
 
 
@@ -137,20 +145,16 @@ public class RequirementListSceneController extends Controller
 
     public void removeTeamMemberButton()
     {
-        try {
-            TeamMember selectedTeamMember = removeTeamMemberChoiceBox.getSelectionModel().getSelectedItem();
-            System.out.println(selectedTeamMember);
 
+        TeamMember selectedTeamMember = removeTeamMemberChoiceBox.getSelectionModel().getSelectedItem();
+
+        if (selectedTeamMember != null) {
             Project selectedProject = ColourItGui.getSelectedProject();
 
             selectedProject.getTeamMemberList().removeTeamMember(selectedTeamMember);
 
             init();
-
-        } catch (Exception e){
-            System.out.println("No selected team member from choice box");
         }
-
 
     }
 

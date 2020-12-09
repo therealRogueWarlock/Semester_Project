@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.colourit.gui.RequirementListSceneController">
+<VBox prefHeight="609.0" prefWidth="996.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.colourit.gui.RequirementListSceneController">
   <children>
     <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
       <padding>
@@ -111,14 +111,19 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </ChoiceBox>
-                        <Button fx:id="addTeamMemberButton" mnemonicParsing="false" onMouseClicked="#addTeamMemberButton" text="Add Team Member ">
+                        <ChoiceBox fx:id="selectRoleChoiceBox" prefHeight="25.0" prefWidth="84.0">
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </ChoiceBox>
+                        <Button fx:id="addTeamMemberButton" mnemonicParsing="false" onMouseClicked="#addTeamMemberButton" prefHeight="25.0" prefWidth="166.0" text="Add Team Member ">
                            <HBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </Button>
-                        <Button fx:id="deleteProjectButton" mnemonicParsing="false" onMouseClicked="#deleteProjectButton" text="Delete Project">
+                        <Button fx:id="deleteProjectButton" mnemonicParsing="false" onMouseClicked="#deleteProjectButton" prefHeight="25.0" prefWidth="140.0" text="Delete Project">
                            <HBox.margin>
-                              <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </HBox.margin>
                         </Button>
                      </children>
