@@ -2,7 +2,6 @@ package dk.colourit.model;
 
 public class TeamMember
 {
-
     private String name;
     private int employeeNumber;
     private String role;
@@ -19,7 +18,7 @@ public class TeamMember
         this.name = name;
         this.employeeNumber = employeeNumber;
         this.birthday = birthday;
-        setRole("Team Member");
+//        setRole("Team Member");
     }
 
     public String getName()
