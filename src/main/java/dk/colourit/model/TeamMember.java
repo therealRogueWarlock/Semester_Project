@@ -2,10 +2,9 @@ package dk.colourit.model;
 
 public class TeamMember
 {
-
     private String name;
     private int employeeNumber;
-    private String role;
+//    private String role;
     /*
     0 = Team Member
     1 = Product Owner
@@ -19,7 +18,7 @@ public class TeamMember
         this.name = name;
         this.employeeNumber = employeeNumber;
         this.birthday = birthday;
-        setRole("Team Member");
+//        setRole("Team Member");
     }
 
     public String getName()
@@ -52,15 +51,15 @@ public class TeamMember
         birthday = myDate.copy();
     }
 
-    public String getRole()
-    {
-        return role;
-    }
-
-    public void setRole(String role)
-    {
-        this.role = role;
-    }
+//    public String getRole()
+//    {
+//        return role;
+//    }
+//
+//    public void setRole(String role)
+//    {
+//        this.role = role;
+//    }
 
     @Override public String toString()
     {
