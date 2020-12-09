@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -48,13 +49,15 @@ public class requirementListSceneController extends Controller
 
     public void addRequirementInput()
     {
+
+
     }
 
     public void addRequirementButton()
     {
         Project selectedProject = ColourItGui.getSelectedProject();
         String requirementName = addRequirementInput.getText();
-        //model.addRequirement(selectedProject);
+        //ColourItGui.getModel().addRequirement(selectedProject);
     }
 
     public void requirementList()
@@ -71,8 +74,15 @@ public class requirementListSceneController extends Controller
         Stage stage = new Stage();
 
         stage.setScene(addTeamMemberScene);
-        stage.show();
+
+        // when the popUp closes the this controller updates data on scene
+        stage.setOnCloseRequest(WindowEvent -> this.init());
+
+        // when popup is open primary stage cant be accessed.
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
     }
+
     private static Parent loadFXML(String fxml) throws IOException
     {
         FXMLLoader fxmlLoader = new FXMLLoader(ColourItGui.class.getResource(fxml + ".fxml"));

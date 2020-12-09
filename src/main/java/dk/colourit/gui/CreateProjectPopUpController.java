@@ -6,7 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 
 import java.time.LocalDate;
 
@@ -36,8 +35,7 @@ public class CreateProjectPopUpController extends Controller {
     LocalDate startDate = this.startDate.getValue();
     LocalDate deadLine = this.deadLine.getValue();
 
-    model.createProject(projectName,new MyDate(startDate), new MyDate(deadLine));
-
+    ColourItGui.getModel().createProject(projectName,new MyDate(startDate), new MyDate(deadLine));
 
 
   }

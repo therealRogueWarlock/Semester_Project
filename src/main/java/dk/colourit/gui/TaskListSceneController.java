@@ -1,13 +1,9 @@
 package dk.colourit.gui;
 
 import dk.colourit.model.*;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
-import javafx.event.EventHandler;
-import javafx.event.EventTarget;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -21,7 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -171,7 +167,6 @@ public class TaskListSceneController extends Controller {
 
         Controller controller = loader.getController();
 
-        controller.setModel(ColourItGui.getModel());
         controller.init();
 
         return root;
