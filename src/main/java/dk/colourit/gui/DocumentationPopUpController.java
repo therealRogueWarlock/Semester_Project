@@ -79,6 +79,7 @@ public class DocumentationPopUpController extends Controller {
 
 	public void confirm(){
 		ColourItGui.getSelectedTask().setFinito(taskFinished.isSelected());
+		getParentController().getParentController().init();
 		goBack();
 	}
 
@@ -94,5 +95,6 @@ public class DocumentationPopUpController extends Controller {
 		ColourItGui.getSelectedTask().getDocumentations().add(new Documentation(member, timeSpent, date));
 		init();
 		getParentController().init();
+		getParentController().getParentController().init();
 	}
 }

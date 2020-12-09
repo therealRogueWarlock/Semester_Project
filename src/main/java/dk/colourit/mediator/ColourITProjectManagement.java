@@ -46,8 +46,7 @@ public class ColourITProjectManagement {
 				Requirement requirement = project.getRequirementList().getRequirementByName(("requirement" + j));
 
 
-				int randomNum = ThreadLocalRandom.current().nextInt(0, 4);
-				requirement.setStatus(randomNum);
+				requirement.setStatus("Not Done");
 
 				for (int k = 0; k < 5; k++) {
 					Task randomTask = new Task(("randomTask" + k), 10 + k, names[k], (k % 2 == 0), "Gay person: " + names[k]);
@@ -127,17 +126,9 @@ public class ColourITProjectManagement {
 				.getTaskList().getTaskByName(taskName).setFinito(trueFalse);
 	}
 
-	public void setRequirementStatus(String projectName, String requirementName, int status) {
+	public void setRequirementStatus(String projectName, String requirementName, String status) {
 		projectList.getProjectByName(projectName).getRequirementList().getRequirementByName(requirementName)
 				.setStatus(status);
-        /*
-        All choices are via GUI
-        Status via ComboBox, with selection of following:
-        0 = notDone
-        1 = readyForApproval
-        2 = rejected
-        3 = finished
-        */
 	}
 
 	public void addRequirement(Project project, String requirementName, int timeEstimate, int priority) {

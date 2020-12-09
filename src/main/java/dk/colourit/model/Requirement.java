@@ -9,13 +9,8 @@ public class Requirement {
 	private final MyDate creationDate;
 	private int timeEstimate;
 	private int priority;
-	private int status;
-		/*
-	0 = notDone
-	1 = readyForApproval
-	2 = rejected
-	3 = finished
-	 */
+	private String status;
+
 
 	public Requirement(String name, int timeEstimate, int priority) {
 		setName(name);
@@ -23,7 +18,7 @@ public class Requirement {
 		setPriority(priority);
 
 		creationDate = MyDate.now();
-		status = 0;
+		status = "Not Done";
 		taskList = new TaskList();
 
 	}
@@ -33,7 +28,7 @@ public class Requirement {
 	}
 
 	public void setName(String name) {
-		if (name.isEmpty()||name.isBlank())
+		if (name.isEmpty() || name.isBlank())
 			throw new InvalidParameterException("No name found");
 		else
 			this.name = name;
@@ -48,57 +43,40 @@ public class Requirement {
 	}
 
 	public void setTimeEstimate(int timeEstimate) {
-		if (timeEstimate<0)
+		if (timeEstimate < 0)
 			timeEstimate = 0;
 		this.timeEstimate = timeEstimate;
 	}
 
-	public int getPriority(){
+	public int getPriority() {
 		return priority;
 	}
 
 	public void setPriority(int priority) {
-		if (priority<0)
+		if (priority < 0)
 			priority = 0;
 		this.priority = priority;
 	}
-
-	public void setTaskList(TaskList taskList) {
-		this.taskList = taskList;
-	}
-	//TODO: Hvad bruges denne til? - SBT (Mangler i UML)
 
 	public TaskList getTaskList() {
 		return taskList;
 	}
 
-	public void setStatus(int status)
-	{
+	public void setStatus(String status) {
 		this.status = status;
-		//Only status between 0 and 3, can be chosen via GUI
 	}
 
 	public String getStatus() {
-		switch (status){
-			case 0:{
-				return "Not done";
-			}
-			case 1:{
-				return "Ready for review";
-			}
-			case 2:{
-				return "Rejected";
-			}
-			case 3:{
-				return "Finished";
-			}
-		}
+		if (taskList.getListSize() == 0) return "No Tasks";
 
-		return null;
+		if (!(status.equalsIgnoreCase("finished") || status.equalsIgnoreCase("rejected"))) {
+			if (taskList.getListSize() > taskList.getFinishedTasks().size()) return "Not Done";
+			else return "Ready for Review";
+		}
+		return status;
 	}
 
-	public String toString()
-	{
+	public String toString() {
 		return name;
 	}
 }
