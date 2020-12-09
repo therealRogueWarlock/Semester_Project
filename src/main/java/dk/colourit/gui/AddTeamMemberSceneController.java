@@ -14,9 +14,6 @@ public class AddTeamMemberSceneController extends Controller {
     public DatePicker birthdateDatePicker;
 
     @FXML
-    private Button addTeamMemberButton;
-
-    @FXML
     private void addTeamMember() throws IOException {
 
         String teamMemberName = nameTextField.getText();
