@@ -2,32 +2,26 @@ package dk.colourit.model;
 
 public class Documentation {
 
-	private TeamMemberList teamMemberList;
+	private String teamMemberName;
 	private int timeSpent;
 	private MyDate date;
 
 
 	public Documentation() {
-		teamMemberList = new TeamMemberList();
+		teamMemberName = null;
 		this.timeSpent = 0;
 		this.date = null;
 
 	}
+
+	public String getTeamMemberName() {
+		return teamMemberName;
+	}
+
 	public Documentation(TeamMember member, int timeSpent, MyDate date) {
-		teamMemberList = new TeamMemberList();
-		teamMemberList.addTeamMember(member);
+		teamMemberName = member.getName();
 		this.timeSpent = timeSpent;
 		this.date = date;
-	}
-
-	public void logTimeSpent(int timeSpent, MyDate date, TeamMember teamMemberName){
-		teamMemberList.addTeamMember(teamMemberName);
-		this.timeSpent = timeSpent;
-		this.date = date;
-	}
-
-	public TeamMemberList getTeamMemberList() {
-		return teamMemberList;
 	}
 
 	public int getTimeSpent() {
@@ -39,7 +33,7 @@ public class Documentation {
 	}
 
 	public String toString() {
-		return "Documentation:" + teamMemberList + " " + date + " " + timeSpent;
+		return "Documentation:" + teamMemberName + " " + date + " " + timeSpent;
 	}
 
 }

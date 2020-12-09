@@ -5,63 +5,94 @@ import dk.colourit.model.MyDate;
 import dk.colourit.model.TeamMember;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
-public class DocumentationPopUpController extends Controller{
+public class DocumentationPopUpController extends Controller {
 
-  @FXML private Label taskName;
-  @FXML private Label totalTimeSpent;
-  @FXML private CheckBox taskFinished;
-  @FXML private TextArea documentationText;
-  @FXML private ComboBox selectMember;
-  @FXML private TextField addTimeSpent;
-  @FXML private DatePicker selectDate;
-  @FXML private Button logSpentTime;
+	@FXML
+	public Label taskName;
+	@FXML
+	public Label totalTimeSpent;
+	@FXML
+	public ComboBox<TeamMember> selectMember;
+	@FXML
+	public TextField addTimeSpent;
+	@FXML
+	public DatePicker selectDate;
+	@FXML
+	public Button logSpentTime;
+	@FXML
+	public CheckBox taskFinished;
 
-  @FXML private TableView<Documentation> documentationTableView;
-  @FXML private TableColumn<Documentation, String> memberNameColumn;
-  @FXML private TableColumn<Documentation, Integer> timeSpentColumn;
-  @FXML private TableColumn<Documentation, MyDate> daySelectedColumn;
+	@FXML
+	public TableView<Documentation> documentationTableView;
+	@FXML
+	public TableColumn<Documentation, String> memberNameColumn;
+	@FXML
+	public TableColumn<Documentation, Integer> timeSpentColumn;
+	@FXML
+	public TableColumn<Documentation, MyDate> daySelectedColumn;
 
-  public void init() {
-    ArrayList<Documentation> list = new ArrayList<>();
-    list.add(new Documentation(new TeamMember("Peter", 123, MyDate.now()), 30, MyDate.now()));
-    list.add(new Documentation(new TeamMember("Bob", 123, MyDate.now()), 33, MyDate.now()));
-    list.add(new Documentation(new TeamMember("Bent", 123, MyDate.now()), 55, MyDate.now()));
-    list.add(new Documentation(new TeamMember("John", 123, MyDate.now()), 26, MyDate.now()));
+	@FXML
+	public Button confirm;
+	@FXML
+	public Button reject;
 
-    ObservableList<Documentation> documentationsList = FXCollections.observableArrayList();
+	public void init() {
+		populateComboBox();
+		populateTableView();
+	}
 
-    documentationsList.addAll(list);
 
-    memberNameColumn.setCellValueFactory(new PropertyValueFactory<>("teamMemberName"));
-    timeSpentColumn.setCellValueFactory(new PropertyValueFactory<>("timeSpent"));
-    daySelectedColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+	private void populateComboBox() {
+		selectMember.getItems().clear();
+		ArrayList<TeamMember> teamMembers = ColourItGui.getSelectedProject().getTeamMemberList().getTeamMembers();
+		System.out.println(teamMembers);
+		selectMember.getItems().addAll(teamMembers);
+	}
 
-    documentationTableView.setItems(documentationsList);
+	private void populateTableView() {
+		ArrayList<Documentation> documentations = ColourItGui.getSelectedTask().getDocumentations();
 
-  }
+		ObservableList<Documentation> observableDocumentations = FXCollections.observableArrayList();
 
-  @Override public void goBack()
-  {
+		observableDocumentations.addAll(documentations);
 
-  }
+		memberNameColumn.setCellValueFactory(new PropertyValueFactory<>("teamMemberName"));
+		timeSpentColumn.setCellValueFactory(new PropertyValueFactory<>("timeSpent"));
+		daySelectedColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
 
-  /*
-  Mangler noget til TableView
-  Team Member
-  Time Spent
-  https://www.tutorialspoint.com/how-to-add-data-to-a-tableview-in-javafx
-   */
-  @FXML private Button confirm;
-  @FXML private Button reject;
+		documentationTableView.setItems(observableDocumentations);
+	}
 
-  public void onAddItem(ActionEvent event) {
-  }
+	@Override
+	public void goBack() {
+		getParentController().init();
+		((Stage) confirm.getScene().getWindow()).close(); // Get's the Window the button is in, and casts to a Stage, which can be closed with .close()
+	}
 
+	public void confirm(){
+		ColourItGui.getSelectedTask().setFinito(taskFinished.isSelected());
+		goBack();
+	}
+
+	public void toggleDisabledLogSpentTimeButton(){
+		logSpentTime.setDisable(!(logSpentTime.isDisable()));
+	}
+
+	@FXML
+	private void addDocumentation() {
+		TeamMember member = (TeamMember) selectMember.getSelectionModel().getSelectedItem();
+		int timeSpent = Integer.parseInt(addTimeSpent.getText());
+		MyDate date = new MyDate(selectDate.getValue());
+		ColourItGui.getSelectedTask().getDocumentations().add(new Documentation(member, timeSpent, date));
+		init();
+		getParentController().init();
+	}
 }
