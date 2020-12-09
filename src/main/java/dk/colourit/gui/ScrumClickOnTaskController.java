@@ -2,6 +2,7 @@ package dk.colourit.gui;
 
 import dk.colourit.model.Documentation;
 import dk.colourit.model.MyDate;
+import dk.colourit.model.TeamMember;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,6 +30,10 @@ public class ScrumClickOnTaskController extends Controller{
 
   public void init() {
     ArrayList<Documentation> list = new ArrayList<>();
+    list.add(new Documentation(new TeamMember("Peter", 123, MyDate.now()), 30, MyDate.now()));
+    list.add(new Documentation(new TeamMember("Bob", 123, MyDate.now()), 33, MyDate.now()));
+    list.add(new Documentation(new TeamMember("Bent", 123, MyDate.now()), 55, MyDate.now()));
+    list.add(new Documentation(new TeamMember("John", 123, MyDate.now()), 26, MyDate.now()));
 
     ObservableList<Documentation> documentationsList = FXCollections.observableArrayList();
 
