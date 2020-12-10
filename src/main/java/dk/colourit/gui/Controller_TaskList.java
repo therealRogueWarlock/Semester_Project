@@ -7,10 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Control;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
@@ -43,8 +40,9 @@ public class  Controller_TaskList extends Controller {
 	public Button rejectButton;
 	public Button approveButton;
 	public Button editRequirement;
+    public Label roleSelectedLabel;
 
-	private TaskList taskList;
+    private TaskList taskList;
 
 	public void init( ) {
 		Requirement requirement = ColourItGui.getSelectedRequirement( );
@@ -102,6 +100,8 @@ public class  Controller_TaskList extends Controller {
 		projectNameText.setText(ColourItGui.getSelectedProject( ).getName( ));
 		statusText.setText(requirement.getStatus( ));
 		requirementNameText.setText(requirement.getName( ));
+
+		roleSelectedLabel.setText(ColourItGui.getModel().getUseRoleString());
 	}
 
 

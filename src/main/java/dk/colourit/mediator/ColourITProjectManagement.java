@@ -77,6 +77,16 @@ public class ColourITProjectManagement {
 		return userRole;
 	}
 
+	public String getUseRoleString(){
+		switch (userRole){
+			case 0: return "Team member";
+			case 1: return "Product owner";
+			case 2: return "Scrum master";
+			case 3: return "Project creator";
+		}
+		return "";
+	}
+
 	public ProjectList getProjectList() {
 		return projectList;
 	}

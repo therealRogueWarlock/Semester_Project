@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -15,7 +16,8 @@ import java.io.IOException;
 
 public class Controller_ProjectList extends Controller {
 
-	@FXML protected Button backButton;
+    public Label roleSelectedLabel;
+    @FXML protected Button backButton;
 	@FXML protected Button createButton;
 	@FXML protected Button addEmployeeButton;
 	@FXML protected Button exportButton;
@@ -40,6 +42,8 @@ public class Controller_ProjectList extends Controller {
 		populateEmployeeTable();
 
 		buttonLogic( );
+
+		roleSelectedLabel.setText(ColourItGui.getModel().getUseRoleString());
 	}
 
 	// general button logic

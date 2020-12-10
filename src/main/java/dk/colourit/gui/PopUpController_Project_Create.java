@@ -43,6 +43,10 @@ public class PopUpController_Project_Create extends Controller {
 
 	private ArrayList<TeamMember> teamMembersForProject;
 
+	public PopUpController_Project_Create() {
+		teamMembersForProject = new ArrayList<>();
+	}
+
 
 	@Override
 	public void init() {
@@ -50,12 +54,9 @@ public class PopUpController_Project_Create extends Controller {
 		populateTeamMemberTableView();
 	}
 
-	public PopUpController_Project_Create() {
-		teamMembersForProject = new ArrayList<>();
-	}
 
 	private void populateTeamMemberTableView() {
-		// TODO: Describe what happens
+		// setting cell factory to new Property Factory. will check for if obj has getter for field and use return value
 		nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 		idColumn.setCellValueFactory(new PropertyValueFactory<>("employeeNumber"));
 

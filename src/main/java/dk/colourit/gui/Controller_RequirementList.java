@@ -18,7 +18,8 @@ import java.util.ArrayList;
 public class Controller_RequirementList extends Controller {
 
 	public Label statusLabel;
-	@FXML
+    public Label roleSelectedLabel;
+    @FXML
 	protected Button editButton;
 	@FXML
 	protected Button backButton;
@@ -102,8 +103,23 @@ public class Controller_RequirementList extends Controller {
 		deleteProjectButton.setVisible(true);
 	}
 
-
 	// functions for populating data on scene
+	private void populateProjectInfo(Project project){
+
+		totalTimeSpentLabel.setText(project.getTotalTime( ) + " hours spent on " + project.getName( ));
+
+		teamMemberTable.setSelectionModel(null);
+
+		deadlineLabel.setText("Deadline: " + project.getDeadLine( ).toString( ));
+
+		if ( project.getRequirementList( ).getRequirements( ).size( ) <= project.getRequirementList( )
+				.getFinishedRequirements( ).size( ) )
+
+			project.setEndDate( );
+
+		roleSelectedLabel.setText(ColourItGui.getModel().getUseRoleString());
+	}
+
 	private void populateRoleChoiceBox(Project project) {
 		selectRoleChoiceBox.getItems( ).clear( );
 
@@ -169,19 +185,6 @@ public class Controller_RequirementList extends Controller {
 		teamMemberTable.setItems(observableTeamMembers);
 	}
 
-	private void populateProjectInfo(Project project){
-
-		totalTimeSpentLabel.setText(project.getTotalTime( ) + " hours spent on " + project.getName( ));
-
-		teamMemberTable.setSelectionModel(null);
-
-		deadlineLabel.setText("Deadline: " + project.getDeadLine( ).toString( ));
-
-		if ( project.getRequirementList( ).getRequirements( ).size( ) <= project.getRequirementList( )
-				.getFinishedRequirements( ).size( ) )
-
-			project.setEndDate( );
-	}
 
 
 	// functions for button functionality

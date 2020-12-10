@@ -39,13 +39,14 @@ public class PopUpController_Documentation extends Controller {
         populateComboBox();
         populateTableView();
 
-        /*Editable false, to make sure user can't make invalid input. Like strings
-		and invalid MyDate data.
-		*/
+
+        //Editable false, to make sure user can't make invalid input. Like strings and invalid MyDate data.
         selectDate.setEditable(false);
     }
 
 
+
+    // functions for populating data on popup.
     private void populateComboBox() {
         selectMember.getItems().clear();
         ArrayList<TeamMember> teamMembers = ColourItGui.getSelectedProject().getTeamMemberList().getTeamMembers();
@@ -67,6 +68,8 @@ public class PopUpController_Documentation extends Controller {
         documentationTableView.setItems(observableDocumentations);
     }
 
+
+    // functions for button functionality
     @Override
     public void goBack() {
         getParentController().init();
