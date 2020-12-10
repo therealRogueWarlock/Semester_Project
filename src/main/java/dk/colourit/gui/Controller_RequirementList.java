@@ -1,6 +1,9 @@
 package dk.colourit.gui;
 
-import dk.colourit.model.*;
+import dk.colourit.model.Project;
+import dk.colourit.model.Requirement;
+import dk.colourit.model.TeamMember;
+import dk.colourit.model.TeamMemberList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -87,6 +90,8 @@ public class Controller_RequirementList extends Controller {
 				ColourItGui.getSelectedProject( ).getName( ));
 		teamMemberTable.setSelectionModel(null);
 		deadlineLabel.setText("Deadline: " + ColourItGui.getSelectedProject( ).getDeadLine( ).toString( ));
+		if ( ColourItGui.getSelectedProject( ).getRequirementList( ).getRequirements( ).size( ) <= ColourItGui.getSelectedProject( ).getRequirementList( ).getFinishedRequirements( ).size( ) )
+			ColourItGui.getSelectedProject( ).setEndDate( );
 	}
 
 	private void populateRoleChoiceBox(Project project) {

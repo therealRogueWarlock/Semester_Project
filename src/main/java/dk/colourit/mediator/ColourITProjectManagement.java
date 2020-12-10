@@ -86,7 +86,6 @@ public class ColourITProjectManagement {
 	}
 
 	public void createProject(String projectName, MyDate getStartDate, MyDate deadline) {
-		// TODO: add validation logic to projectList.addProject
 		projectList.addProject(new Project(projectName, getStartDate, deadline));
 	}
 
@@ -157,10 +156,9 @@ public class ColourITProjectManagement {
 	}
 
 	public void editTask(String projectName, String requirementName, String taskName) {
-		//Getting task by task name
+		// Getting task by task name
 		projectList.getProjectByName(projectName).getRequirementList().getRequirementByName(requirementName)
 				.getTaskList().getTaskByName(taskName);
-		//TODO: Hvordan edited vi igennem den her funktion, skal tilføjes efter sidste getter!
 	}
 
 	public void removeTask(String projectName, String requirementName, String taskName) {

@@ -55,7 +55,7 @@ public class PopUpController_Project_Create extends Controller {
 	}
 
 	private void populateTeamMemberTableView() {
-		//TODO: Describe what happens
+		// TODO: Describe what happens
 		nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 		idColumn.setCellValueFactory(new PropertyValueFactory<>("employeeNumber"));
 

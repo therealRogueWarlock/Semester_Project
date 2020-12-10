@@ -17,7 +17,7 @@ public class Project {
 	private TeamMemberList teamMemberList;
 
 	// Throws second Error and not the First error when all fields are blank | ???
-	public Project( String name, MyDate startDate, MyDate deadLine ) {
+	public Project(String name, MyDate startDate, MyDate deadLine) {
 		this.creationDate = MyDate.now( );
 		this.endDate = null;
 		status = 0;
@@ -25,12 +25,12 @@ public class Project {
 		teamMemberList = new TeamMemberList( );
 
 		if ( name.isEmpty( ) || name.isBlank( ) ) {
-			throw new MissingFormatArgumentException( "Empty Name Field" );
+			throw new MissingFormatArgumentException("Empty Name Field");
 		} else {
 			this.name = name;
 		}
-		if ( startDate.isBefore( creationDate ) || deadLine.isBefore( creationDate ) || deadLine.isBefore( startDate ) ) {
-			throw new DateTimeException( "Invalid Date" );
+		if ( startDate.isBefore(creationDate) || deadLine.isBefore(creationDate) || deadLine.isBefore(startDate) ) {
+			throw new DateTimeException("Invalid Date");
 		} else {
 			this.startDate = startDate;
 			this.deadLine = deadLine;
@@ -53,17 +53,14 @@ public class Project {
 		int totalRequirements = requirements.size( );
 
 		int finishedRequirement = 0;
-		double procentFinished;
 
 		for ( Requirement requirement : requirements ) {
-			if ( requirement.getStatus( ).equals( "Finished" ) )
+			if ( requirement.getStatus( ).equals("Finished") )
 				finishedRequirement++;
 		}
 
-		procentFinished = ( (double) finishedRequirement / totalRequirements ) * 100;
-
-		return finishedRequirement + "/" + totalRequirements + " requirements finished";
-		//TODO:Lege projekt - Skal fungere ordentligt!
+		return finishedRequirement + " / " + totalRequirements + " requirements finished";
+		// TODO: Lege projekt - Skal fungere ordentligt! (Andreas er nysgerrig på hvad der menes)
 	}
 
 	public String getName( ) {
@@ -78,27 +75,21 @@ public class Project {
 		return deadLine;
 	}
 
-	public void setRequirementList( RequirementList requirementList ) {
-		this.requirementList = requirementList;
-		//TODO: Hvad bruges denne funktion til? - SBT - (Tror jeg har forstået det, men stadig lige forklares tak)
-	}
-
 	public RequirementList getRequirementList( ) {
 		return requirementList;
-	}
-
-	public void setTeamMemberList( TeamMemberList teamMemberList ) {
-		this.teamMemberList = teamMemberList;
-		//TODO: Hvad bruges denne funktion til? - SBT - (Tror jeg har forstået det, men stadig lige forklares tak)
 	}
 
 	public TeamMemberList getTeamMemberList( ) {
 		return teamMemberList;
 	}
 
+	public void setTeamMemberList(TeamMemberList teamMemberList) {
+		// Used in PopUpController_Project_Create when creating a project to put the local teamMemberList onto the project
+		this.teamMemberList = teamMemberList;
+	}
+
 	public void setEndDate( ) {
 		this.endDate = MyDate.now( );
-		//TODO: Når alle Requirements er done, så skal denne kaldes af ProjectController.init()
 	}
 
 }

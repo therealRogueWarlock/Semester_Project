@@ -1,6 +1,5 @@
 package dk.colourit.model;
 
-
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.Calendar;
@@ -14,43 +13,45 @@ public class MyDate {
 	private DecimalFormat dayMonthFormat = new DecimalFormat("00.##");
 	private DecimalFormat yearFormat = new DecimalFormat("0000.##");
 
-
-	public MyDate() {
-		Calendar now = GregorianCalendar.getInstance();
+	public MyDate( ) {
+		Calendar now = GregorianCalendar.getInstance( );
 		day = now.get(Calendar.DAY_OF_MONTH);
 		month = now.get(Calendar.MONTH) + 1;
 		year = now.get(Calendar.YEAR);
-		//TODO: Muligvis brug: MyDate.now(); - Dog får jeg 0/0/0, hver gang jeg prøver det.
+		// TODO: Muligvis brug: MyDate.now(); - Dog får jeg 0/0/0, hver gang jeg prøver det.
 	}
 
-	public MyDate(LocalDate localDate){
+	public MyDate(LocalDate localDate) {
 
-		year = localDate.getYear();
-		month = localDate.getMonthValue();
-		day = localDate.getDayOfMonth();
+		year = localDate.getYear( );
+		month = localDate.getMonthValue( );
+		day = localDate.getDayOfMonth( );
 
 	}
-
-
 
 	public MyDate(int year, int month, int day) {
 		set(day, month, year);
 	}
 
-	public int getYear() {
+	public static MyDate now( ) {
+		GregorianCalendar now = new GregorianCalendar( );
+		return new MyDate(now.get(Calendar.DATE), ( now.get(Calendar.MONTH) + 1 ), now.get(Calendar.YEAR));
+	}
+
+	public int getYear( ) {
 		return year;
 	}
 
-	public int getMonth() {
+	public int getMonth( ) {
 		return month;
 	}
 
-	public int getDay() {
+	public int getDay( ) {
 		return day;
 	}
 
-	public String getMonthName() {
-		switch (month) {
+	public String getMonthName( ) {
+		switch ( month ) {
 			case 1:
 				return "January";
 			case 2:
@@ -85,25 +86,25 @@ public class MyDate {
 		this.day = Math.abs(day);
 		this.month = Math.abs(month);
 		this.year = Math.abs(year);
-		while (this.day > numberOfDaysInMonth(this.month)) {
+		while ( this.day > numberOfDaysInMonth(this.month) ) {
 			this.day -= numberOfDaysInMonth(this.month);
 			this.month++;
-			while (this.month > 12) {
+			while ( this.month > 12 ) {
 				this.month -= 12;
 				this.year++;
 			}
 		}
 	}
 
-	public boolean isLeapYear() {
-		return year % 400 == 0 || !((year % 100) == 0) && year % 4 == 0;
+	public boolean isLeapYear( ) {
+		return year % 400 == 0 || ! ( ( year % 100 ) == 0 ) && year % 4 == 0;
 	}
 
 	public int numberOfDaysInMonth(int monthNumber) {
-		if (isLeapYear() && monthNumber == 2) {
+		if ( isLeapYear( ) && monthNumber == 2 ) {
 			return 29;
 		}
-		switch (monthNumber) {
+		switch ( monthNumber ) {
 			case 2:
 				return 28;
 			case 4:
@@ -120,13 +121,14 @@ public class MyDate {
 			case 12:
 				return 31;
 		}
-		return -1;
+		return - 1;
 		//We are using DatePicker in GUI, so user can't select out of range.
 	}
 
 	public int yearsBetween(MyDate newDate) {
-		return Math.abs(this.year - newDate.year);
-		//TODO: Dette giver fulde år, men hvad nu hvis year = 31/12/2019 og newDate er 01/01/2020, burde vi have et fuldt år der?
+		if ( newDate.getMonth() > month )
+			return Math.abs(year - newDate.getYear());
+		return Math.abs(year - newDate.getYear()) - 1;
 	}
 
 	public int daysBetween(MyDate newDate) {
@@ -134,41 +136,41 @@ public class MyDate {
 		MyDate firstDate;
 		MyDate lastDate;
 
-		if (newDate.isBefore(this)) {
-			firstDate = newDate.copy();
-			lastDate = this.copy();
+		if ( newDate.isBefore(this) ) {
+			firstDate = newDate.copy( );
+			lastDate = this.copy( );
 		} else {
-			firstDate = this.copy();
-			lastDate = newDate.copy();
+			firstDate = this.copy( );
+			lastDate = newDate.copy( );
 		}
 
-		if (firstDate.year < lastDate.year) {
-			for (int i = firstDate.year; i < lastDate.year; i++) {
+		if ( firstDate.year < lastDate.year ) {
+			for ( int i = firstDate.year ; i < lastDate.year ; i++ ) {
 				daySum += 365;
 			}
 		}
-		if (firstDate.month < lastDate.month) {
-			for (int j = firstDate.month; j < lastDate.month; j++) {
+		if ( firstDate.month < lastDate.month ) {
+			for ( int j = firstDate.month ; j < lastDate.month ; j++ ) {
 				daySum += numberOfDaysInMonth(j);
 			}
-			if (firstDate.day > lastDate.day) {
+			if ( firstDate.day > lastDate.day ) {
 				daySum += numberOfDaysInMonth(firstDate.month) - firstDate.day;
 				daySum += lastDate.day;
 			} else {
 				daySum += lastDate.day - firstDate.day;
 			}
-		} else if (lastDate.month < firstDate.month) {
-			for (int j = lastDate.month; j < firstDate.month; j++) {
+		} else if ( lastDate.month < firstDate.month ) {
+			for ( int j = lastDate.month ; j < firstDate.month ; j++ ) {
 				daySum += numberOfDaysInMonth(j);
 			}
-			if (lastDate.day > firstDate.day) {
+			if ( lastDate.day > firstDate.day ) {
 				daySum += numberOfDaysInMonth(lastDate.month) - lastDate.day;
 				daySum += firstDate.day;
 			} else {
 				daySum += firstDate.day - lastDate.day;
 			}
 		} else {
-			if (firstDate.day > lastDate.day) {
+			if ( firstDate.day > lastDate.day ) {
 				daySum += firstDate.day - lastDate.day;
 			} else {
 				daySum += lastDate.day - firstDate.day;
@@ -178,33 +180,27 @@ public class MyDate {
 	}
 
 	public boolean isBefore(MyDate newDate) {
-		if (this.year > newDate.year)
+		if ( this.year > newDate.year )
 			return false;
-		else if (this.month > newDate.month)
+		else if ( this.month > newDate.month )
 			return false;
 		else
 			return this.day < newDate.day;
 	}
 
-	public MyDate copy() {
+	public MyDate copy( ) {
 		return new MyDate(year, month, day);
 	}
 
 	public boolean equals(Object obj) {
-		if(!(obj instanceof MyDate))
+		if ( ! ( obj instanceof MyDate ) )
 			return false;
 		MyDate other = (MyDate) obj;
 		return year == other.year && month == other.month && day == other.day;
 	}
 
-	@Override public String toString()
-	{
+	@Override
+	public String toString( ) {
 		return day + "/" + month + "/" + year;
-	}
-
-	public static MyDate now()
-	{
-		GregorianCalendar now = new GregorianCalendar();
-		return new MyDate(now.get(Calendar.DATE), (now.get(Calendar.MONTH)+1), now.get(Calendar.YEAR));
 	}
 }
