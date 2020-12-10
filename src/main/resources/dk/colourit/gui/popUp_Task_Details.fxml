@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -21,6 +22,7 @@
     <rowConstraints>
         <RowConstraints maxHeight="427.0" minHeight="10.0" prefHeight="419.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="195.0" minHeight="10.0" prefHeight="106.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="195.0" minHeight="20.0" prefHeight="20.0" vgrow="NEVER" />
     </rowConstraints>
    <children>
       <GridPane prefHeight="425.0" prefWidth="447.0">
@@ -77,7 +79,7 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="105.0" prefWidth="128.0" spacing="5.0">
                      <children>
-                        <Button fx:id="confirmEditButton" onMouseClicked="#confirmEdit" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefWidth="100.0" text="Confirm edit" />
+                        <Button fx:id="confirmEditButton" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#confirmEdit" prefWidth="100.0" text="Confirm edit" />
                         <Button fx:id="cancelButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="25.0" prefWidth="100.0" text="Cancel" />
                      </children>
                      <padding>
@@ -103,6 +105,11 @@
             </HBox>
          </children>
       </AnchorPane>
+    <Label text="Colour IT © Group 7" textFill="#545454" GridPane.rowIndex="2">
+        <font>
+            <Font name="System Italic" size="12.0" />
+        </font>
+    </Label>
    </children>
 
 </GridPane>
