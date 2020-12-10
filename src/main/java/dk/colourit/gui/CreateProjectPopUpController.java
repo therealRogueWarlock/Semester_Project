@@ -14,112 +14,103 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.security.InvalidParameterException;
+import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.MissingFormatArgumentException;
+import java.util.MissingResourceException;
 
-public class CreateProjectPopUpController extends Controller
-{
-
+public class CreateProjectPopUpController extends Controller {
 	public TableView<TeamMember> teamMemberTableView;
 	public TableColumn<TeamMember, String> nameColumn;
 	public TableColumn<TeamMember, Integer> idColumn;
 
+	@FXML
+	private TextField projectName;
+	@FXML
+	private DatePicker startDate;
+	@FXML
+	private DatePicker deadLine;
+	@FXML
+	private ComboBox<TeamMember> selectMember;
 
+	@FXML
+	private Button confirm;
 
-	@FXML private TextField projectName;
-	@FXML private DatePicker startDate;
-	@FXML private DatePicker deadLine;
-	@FXML private ComboBox<TeamMember> selectMember;
+	@FXML
+	public Label statusLabel;
 
 	private ArrayList<TeamMember> teamMembersForProject;
 
 
-	@FXML private Button confirm;
-
-
-	@FXML public Label statusLabel;
-
-
-	public CreateProjectPopUpController(){
-		teamMembersForProject = new ArrayList<>();
-	}
-
-
-	@Override public void init()
-	{
+	@Override
+	public void init() {
 		populateTeamMemberChoiceBox();
 		populateTeamMemberTableView();
 	}
 
+	public CreateProjectPopUpController() {
+		teamMembersForProject = new ArrayList<>();
+	}
 
-	private void populateTeamMemberTableView(){
+	private void populateTeamMemberTableView() {
+		//TODO: Describe what happens
 		nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 		idColumn.setCellValueFactory(new PropertyValueFactory<>("employeeNumber"));
 
-		// converting team members array observable
+		// Converting a TeamMember ArrayList to an ObservableArrayList
 		ObservableList<TeamMember> observableTeamMembersForProject = FXCollections.observableArrayList();
 		observableTeamMembersForProject.addAll(teamMembersForProject);
 
-		// adding observable list to teamMember table view
+		// Adding the ObservableArrayList to the TableView
 		teamMemberTableView.setItems(observableTeamMembersForProject);
 	}
 
-
-
-	private void populateTeamMemberChoiceBox(){
+	private void populateTeamMemberChoiceBox() {
+		// Safety clear on anything which might possibly have gotten into the list
 		selectMember.getItems().clear();
+		// Adds the ArrayList of TeamMembers to the ChoiceBox
 		selectMember.getItems().addAll(ColourItGui.getModel().getTeamMemberList().getCopy().getTeamMembers());
 	}
 
-
-	@Override public void goBack(){
-
-	}
-
-	public void confirmCreateProject()
-	{
+	public void confirmCreateProject() {
 		String projectName = this.projectName.getText();
 		LocalDate startDate = this.startDate.getValue();
 		LocalDate deadLine = this.deadLine.getValue();
-		try
-		{
-
+		try {
 			Project constructProject = new Project(projectName, new MyDate(startDate), new MyDate(deadLine));
-
 			constructProject.setTeamMemberList(new TeamMemberList(teamMembersForProject));
 			ColourItGui.getModel().getProjectList().addProject(constructProject);
 
 			statusLabel.setText("Project Created");
 			statusLabel.setTextFill(Color.web("#22DD33"));
 			getParentController().init();
-		}
-		catch (RuntimeException e)
-		{
-			statusLabel.setText("Project Creation Failed");
+		} catch (DateTimeException dateTimeException) {
+			statusLabel.setText("Failed | Invalid Date");
+			statusLabel.setTextFill(Color.web("#FF3344"));
+		} catch (MissingFormatArgumentException missingFormatArgumentException) {
+			statusLabel.setText("Failed | Name Field Empty");
+			statusLabel.setTextFill(Color.web("#FF3344"));
+		} catch (NullPointerException nullPointerException) {
+			statusLabel.setText("Failed | Missing Date(s)");
 			statusLabel.setTextFill(Color.web("#FF3344"));
 		}
-
 	}
-
-	public void closePopUp()
-	{
-		// Get's the Window the button is in, and casts to a Stage, which can be closed with .close()
-		((Stage) confirm.getScene().getWindow()).close();
-	}
-
 
 	public void addTeamMember() {
-
 		TeamMember selectedTeamMember = selectMember.getSelectionModel().getSelectedItem();
 
 		if (selectedTeamMember != null) {
 			if (!teamMembersForProject.contains(selectedTeamMember)) {
-
 				teamMembersForProject.add(selectedTeamMember);
 				populateTeamMemberTableView();
 			}
 		}
+	}
 
-
+	@Override
+	public void goBack() {
+		((Stage) confirm.getScene().getWindow()).close();
 	}
 }

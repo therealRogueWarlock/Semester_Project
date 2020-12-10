@@ -94,7 +94,6 @@ public class ColourITProjectManagement {
 		projectList.removeProject(project);
 	}
 
-
 	public void addEmployee(String name, int employeeNumber, MyDate birthday) {
 
 		teamMemberList.addTeamMember(new TeamMember(name, employeeNumber, birthday));
@@ -107,7 +106,6 @@ public class ColourITProjectManagement {
 		project.getTeamMemberList().addTeamMember(teamMember);
 
 	}
-
 
 	public void assignRoleToTeamMember(String projectName, String memberName, String memberRole) {
 		projectList.getProjectByName(projectName).getTeamMemberList().getTeamMember("name", memberName)
@@ -169,5 +167,4 @@ public class ColourITProjectManagement {
 		projectList.getProjectByName(projectName).getRequirementList().getRequirementByName(requirementName)
 				.getTaskList().removeTask(taskName);
 	}
-
 }

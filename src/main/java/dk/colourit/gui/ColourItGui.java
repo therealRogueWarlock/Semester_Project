@@ -37,11 +37,9 @@ public class ColourItGui extends Application {
         stage.setOnCloseRequest(e -> Platform.exit());
     }
 
-
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
-
 
     public static void setSelectedProject(Project selectedProject) {
         ColourItGui.selectedProject = selectedProject;
@@ -75,7 +73,6 @@ public class ColourItGui extends Application {
         return selectedDocumentation;
     }
 
-
     private static Parent loadFXML(String fxml) throws IOException {
 
         FXMLLoader loader = new FXMLLoader();
@@ -89,7 +86,6 @@ public class ColourItGui extends Application {
         return root;
 
     }
-
 
     public static ColourITProjectManagement getModel(){
         return model;

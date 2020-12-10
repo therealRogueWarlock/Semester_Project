@@ -6,60 +6,72 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-
-
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class RequirementListSceneController extends Controller {
-	public Button editButton;
-	public Button backButton;
 
-	public Button addRequirementButton;
+	public Label statusLabel;
+	@FXML
+	protected Button editButton;
+	@FXML
+	protected Button backButton;
+	@FXML
+	protected Button addRequirementButton;
+	@FXML
+	protected Button removeRequirementButton;
+	@FXML
+	protected Button deleteProjectButton;
+	@FXML
+	protected Button addTeamMemberButton;
+	@FXML
+	protected Button removeTeamMemberButton;
+	@FXML
+	private Label projectNameLabel;
+	@FXML
+	private TableView<Requirement> requirementTable;
+	@FXML
+	private TableColumn<Requirement, Integer> requirementPriorityColumn;
+	@FXML
+	private TableColumn<Requirement, String> requirementNameColumn;
+	@FXML
+	private TableColumn<Requirement, Integer> requirementStatusColumn;
+	@FXML
+	private TableView<TeamMember> teamMemberTable;
+	@FXML
+	private TableColumn<TeamMember, String> teamMemberNameColumn;
+	@FXML
+	private TableColumn<TeamMember, Integer> idNumberColumn;
+	@FXML
+	private TableColumn<TeamMember, Integer> roleColumn;
+	@FXML
+	private ChoiceBox<TeamMember> addTeamMemberChoiceBox;
+	@FXML
+	private ChoiceBox<TeamMember> removeTeamMemberChoiceBox;
+	@FXML
+	private ChoiceBox<Requirement> requirementChoiceBox;
+	@FXML
+	private ChoiceBox<String> selectRoleChoiceBox;
+	@FXML
+	private Label totalTimeSpentLabel;
+	@FXML
+	private Label deadlineLabel;
 
-
-	public ChoiceBox<Requirement> requirementChoiceBox;
-
-	public Button removeRequirementButton;
-	public Button deleteProjectButton;
-
-	public Button addTeamMemberButton;
-	public Button removeTeamMemberButton;
-
-	public TableView<Requirement> requirementTable;
-	public TableColumn<Requirement, Integer> requirementPriorityColumn;
-	public TableColumn<Requirement, String> requirementNameColumn;
-	public TableColumn<Requirement, Integer> requirementStatusColumn;
-
-	public TableView<TeamMember> teamMemberTable;
-	public TableColumn<TeamMember, String> teamMemberNameColumn;
-	public TableColumn<TeamMember, Integer> idNumberColumn;
-	public TableColumn<TeamMember, Integer> roleColumn;
-
-	public ChoiceBox<TeamMember> addTeamMemberChoiceBox;
-	public ChoiceBox<TeamMember> removeTeamMemberChoiceBox;
-	public ChoiceBox<String> selectRoleChoiceBox;
-	public Label totalTimeSpentLabel;
-
-
-	public RequirementListSceneController() {
+	public RequirementListSceneController( ) {
 
 	}
 
-
-	public Label projectNameLabel;
-	public Label statusLabel;
-
-	private RequirementList requirementList;
+	private static Parent loadFXML(String fxml) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(ColourItGui.class.getResource(fxml + ".fxml"));
+		return fxmlLoader.load( );
+	}
 
 	@Override
-	public void init() {
-		Project project = ColourItGui.getSelectedProject();
+	public void init( ) {
+		Project project = ColourItGui.getSelectedProject( );
 
 		populateRequirementChoiceBox(project);
 
@@ -70,58 +82,54 @@ public class RequirementListSceneController extends Controller {
 		populateRequirementTable(project);
 		populateTeamMemberTable(project);
 
-		totalTimeSpentLabel.setText(ColourItGui.getSelectedProject().getTotalTime() +
+		totalTimeSpentLabel.setText(ColourItGui.getSelectedProject( ).getTotalTime( ) +
 				" hours spent on " +
-				ColourItGui.getSelectedProject().getName());
+				ColourItGui.getSelectedProject( ).getName( ));
 		teamMemberTable.setSelectionModel(null);
+		deadlineLabel.setText("Deadline: " + ColourItGui.getSelectedProject( ).getDeadLine( ).toString( ));
 	}
 
 	private void populateRoleChoiceBox(Project project) {
-		selectRoleChoiceBox.getItems().clear();
+		selectRoleChoiceBox.getItems( ).clear( );
 
-		selectRoleChoiceBox.getItems().addAll("Team Member", "Project Creator", "Scrum Master", "Product Owner");
-
+		selectRoleChoiceBox.getItems( ).addAll("Team Member", "Project Creator", "Scrum Master", "Product Owner");
 
 		// setting information text on scene
-		projectNameLabel.setText(ColourItGui.getSelectedProject().getName());
-		statusLabel.setText(project.getStatus());
+		projectNameLabel.setText(ColourItGui.getSelectedProject( ).getName( ));
+		statusLabel.setText(project.getStatus( ));
 	}
-
 
 	private void populateRequirementChoiceBox(Project project) {
-		requirementChoiceBox.getItems().clear();
+		requirementChoiceBox.getItems( ).clear( );
 
-		ArrayList<Requirement> requirements = project.getRequirementList().getRequirements();
-		requirementChoiceBox.getItems().addAll(requirements);
+		ArrayList<Requirement> requirements = project.getRequirementList( ).getRequirements( );
+		requirementChoiceBox.getItems( ).addAll(requirements);
 	}
-
 
 	private void populateRemoveTeamMemberChoiceBox(Project project) {
-		removeTeamMemberChoiceBox.getItems().clear();
+		removeTeamMemberChoiceBox.getItems( ).clear( );
 
-		removeTeamMemberChoiceBox.getItems().addAll(project.getTeamMemberList().getTeamMembers());
+		removeTeamMemberChoiceBox.getItems( ).addAll(project.getTeamMemberList( ).getTeamMembers( ));
 	}
 
-
 	private void populateAddTeamMemberChoiceBox(Project project) {
-		addTeamMemberChoiceBox.getItems().clear();
+		addTeamMemberChoiceBox.getItems( ).clear( );
 
-		TeamMemberList projectTeamMemberList = project.getTeamMemberList();
+		TeamMemberList projectTeamMemberList = project.getTeamMemberList( );
 
-		TeamMemberList employeesCopy = ColourItGui.getModel()
-				.getTeamMemberList().getCopy();
+		TeamMemberList employeesCopy = ColourItGui.getModel( )
+				.getTeamMemberList( ).getCopy( );
 
 		TeamMemberList employeesNotInProject = employeesCopy.subtractArgListFromThisList(projectTeamMemberList);
 
-		addTeamMemberChoiceBox.getItems().addAll(employeesNotInProject.getTeamMembers());
+		addTeamMemberChoiceBox.getItems( ).addAll(employeesNotInProject.getTeamMembers( ));
 
 	}
 
-
 	private void populateRequirementTable(Project project) {
 
-		ArrayList<Requirement> requirements = project.getRequirementList().getRequirements();
-		ObservableList<Requirement> observableRequirementList = FXCollections.observableArrayList();
+		ArrayList<Requirement> requirements = project.getRequirementList( ).getRequirements( );
+		ObservableList<Requirement> observableRequirementList = FXCollections.observableArrayList( );
 
 		observableRequirementList.addAll(requirements);
 
@@ -134,8 +142,8 @@ public class RequirementListSceneController extends Controller {
 
 	private void populateTeamMemberTable(Project project) {
 
-		ArrayList<TeamMember> teamMembers = project.getTeamMemberList().getTeamMembers();
-		ObservableList<TeamMember> observableTeamMembers = FXCollections.observableArrayList();
+		ArrayList<TeamMember> teamMembers = project.getTeamMemberList( ).getTeamMembers( );
+		ObservableList<TeamMember> observableTeamMembers = FXCollections.observableArrayList( );
 
 		observableTeamMembers.addAll(teamMembers);
 
@@ -146,79 +154,71 @@ public class RequirementListSceneController extends Controller {
 		teamMemberTable.setItems(observableTeamMembers);
 	}
 
-
-	public void editButton() {
+	public void editButton( ) {
+		// TODO: Implement Edit Scene and Functionality for a Project
 	}
 
-	public void addRequirementButton() throws IOException {
+	public void addRequirementButton( ) throws IOException {
 
 		createPopUp("addRequirementScenePopUp");
 
 	}
 
-	public void removeRequirementButton() {
+	public void removeRequirementButton( ) {
 
 	}
 
-	public void addTeamMemberButton() throws IOException {
+	public void addTeamMemberButton( ) throws IOException {
 
-		TeamMember selectedTeamMember = addTeamMemberChoiceBox.getSelectionModel().getSelectedItem();
+		TeamMember selectedTeamMember = addTeamMemberChoiceBox.getSelectionModel( ).getSelectedItem( );
 
-		String selectedRole = selectRoleChoiceBox.getSelectionModel().getSelectedItem();
+		String selectedRole = selectRoleChoiceBox.getSelectionModel( ).getSelectedItem( );
 
+		if ( selectedTeamMember != null && selectedRole != null ) {
 
-		if (selectedTeamMember != null && selectedRole != null) {
+			Project selectedProject = ColourItGui.getSelectedProject( );
 
-			Project selectedProject = ColourItGui.getSelectedProject();
-
-			ColourItGui.getModel().addMemberToProject(selectedProject, selectedTeamMember, selectedRole);
+			ColourItGui.getModel( ).addMemberToProject(selectedProject, selectedTeamMember, selectedRole);
 
 			//selectedTeamMember.setRole(selectedRole);
 			//selectedProject.getTeamMemberList().addTeamMember(selectedTeamMember);
-			init();
-		}
-
-
-	}
-
-	public void removeTeamMemberButton() {
-
-		TeamMember selectedTeamMember = removeTeamMemberChoiceBox.getSelectionModel().getSelectedItem();
-
-		if (selectedTeamMember != null) {
-			Project selectedProject = ColourItGui.getSelectedProject();
-
-			selectedProject.getTeamMemberList().removeTeamMember(selectedTeamMember);
-
-			init();
+			init( );
 		}
 
 	}
 
-	private static Parent loadFXML(String fxml) throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(ColourItGui.class.getResource(fxml + ".fxml"));
-		return fxmlLoader.load();
+	public void removeTeamMemberButton( ) {
+
+		TeamMember selectedTeamMember = removeTeamMemberChoiceBox.getSelectionModel( ).getSelectedItem( );
+
+		if ( selectedTeamMember != null ) {
+			Project selectedProject = ColourItGui.getSelectedProject( );
+
+			selectedProject.getTeamMemberList( ).removeTeamMember(selectedTeamMember);
+
+			init( );
+		}
+
 	}
 
-	public void deleteProjectButton() throws IOException {
+	public void deleteProjectButton( ) throws IOException {
 
 		createPopUp("confirmDeleteProject");
 
 	}
 
-	public void goBack() throws IOException {
+	public void goBack( ) throws IOException {
 		ColourItGui.setRoot("projectListView");
 	}
 
-	public void itemSelected() throws IOException //SANDER DON'T FUCKING REMOVE THIS PLEASE
+	public void itemSelected( ) throws IOException //SANDER DON'T FUCKING REMOVE THIS PLEASE
 	{
 
-		Requirement selectedRequirement = requirementTable.getSelectionModel().getSelectedItem();
+		Requirement selectedRequirement = requirementTable.getSelectionModel( ).getSelectedItem( );
 		ColourItGui.setSelectedRequirement(selectedRequirement);
 		ColourItGui.setRoot("taskListScene");
 
 	}
-
 
 }
 
