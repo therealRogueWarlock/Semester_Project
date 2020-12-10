@@ -51,7 +51,7 @@
                 </Label>
                 <Separator orientation="VERTICAL" prefHeight="46.0" prefWidth="0.0" />
             </HBox>
-            <Button fx:id="editButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#editButton" prefHeight="46.0" prefWidth="133.0" text="Edit Project" HBox.hgrow="ALWAYS">
+            <Button fx:id="editProjectButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#editButton" prefHeight="46.0" prefWidth="133.0" text="Edit Project" HBox.hgrow="ALWAYS">
                 <padding>
                     <Insets left="15.0" right="15.0" />
                 </padding>
@@ -88,17 +88,17 @@
                         <Font name="System Bold" size="15.0" />
                     </font>
                 </Label>
-                <Button fx:id="addRequirementButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#addRequirementButton" text="Add Requirement" visible="false" GridPane.columnIndex="2">
+                <Button fx:id="addRequirementButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#addRequirementButton" text="Add Requirement" GridPane.columnIndex="2">
                     <GridPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                     </GridPane.margin>
                 </Button>
-                <ChoiceBox fx:id="requirementChoiceBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="150.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <ChoiceBox fx:id="requirementChoiceBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <GridPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                     </GridPane.margin>
                 </ChoiceBox>
-                <Button fx:id="removeRequirementButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#removeRequirementButton" text="Remove Requirement" visible="false" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                <Button fx:id="removeRequirementButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#removeRequirementButton" text="Remove Requirement" GridPane.columnIndex="2" GridPane.rowIndex="1">
                     <GridPane.margin>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                     </GridPane.margin>
@@ -120,29 +120,29 @@
                         <padding>
                             <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
                         </padding>
-                        <ChoiceBox fx:id="addTeamMemberChoiceBox" prefWidth="150.0" visible="false">
+                        <ChoiceBox fx:id="addTeamMemberChoiceBox" prefWidth="150.0">
                             <HBox.margin>
                                 <Insets />
                             </HBox.margin>
                         </ChoiceBox>
-                        <ChoiceBox fx:id="selectRoleChoiceBox" prefHeight="25.0" prefWidth="84.0" visible="false">
+                        <ChoiceBox fx:id="selectRoleChoiceBox" prefHeight="25.0" prefWidth="84.0">
                             <HBox.margin>
                                 <Insets />
                             </HBox.margin>
                         </ChoiceBox>
-                        <Button fx:id="addTeamMemberButton" mnemonicParsing="false" onMouseClicked="#addTeamMemberButton" prefHeight="25.0" prefWidth="153.0" text="Add Team Member " visible="false">
+                        <Button fx:id="addTeamMemberButton" mnemonicParsing="false" onMouseClicked="#addTeamMemberButton" prefHeight="25.0" prefWidth="153.0" text="Add Team Member ">
                             <HBox.margin>
                                 <Insets />
                             </HBox.margin>
                         </Button>
                     </HBox>
                     <HBox layoutY="45.0" prefHeight="45.0" prefWidth="492.0">
-                        <ChoiceBox fx:id="removeTeamMemberChoiceBox" prefWidth="150.0" visible="false">
+                        <ChoiceBox fx:id="removeTeamMemberChoiceBox" prefWidth="150.0">
                             <HBox.margin>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </HBox.margin>
                         </ChoiceBox>
-                        <Button fx:id="removeTeamMemberButton" mnemonicParsing="false" onMouseClicked="#removeTeamMemberButton" prefHeight="25.0" prefWidth="112.0" text="Remove Team Member" visible="false">
+                        <Button fx:id="removeTeamMemberButton" mnemonicParsing="false" onMouseClicked="#removeTeamMemberButton" prefHeight="25.0" prefWidth="112.0" text="Remove Team Member">
                             <HBox.margin>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </HBox.margin>

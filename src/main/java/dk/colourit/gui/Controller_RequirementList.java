@@ -20,7 +20,7 @@ public class Controller_RequirementList extends Controller {
 	public Label statusLabel;
     public Label roleSelectedLabel;
     @FXML
-	protected Button editButton;
+	protected Button editProjectButton;
 	@FXML
 	protected Button backButton;
 	@FXML
@@ -98,32 +98,33 @@ public class Controller_RequirementList extends Controller {
 	}
 
 	private void activateRoleButtonLogic(){
-		if (ColourItGui.getModel().getUserRole() == 3){
-			projectCreatorButtonLogic();
+
+		// if the role is not 1 ( product owner) make buttons associated with the role invisible
+		if (ColourItGui.getModel().getUserRole() != 1){
+			removeProductOwnerButtons();
 		}
 
-		if (ColourItGui.getModel().getUserRole() == 1){
-			productOwnerButtonLogic();
+		if (ColourItGui.getModel().getUserRole() != 3){
+			removeProjectCreatorButtons();
 		}
-	}
-
-	private void projectCreatorButtonLogic(){
-
-		deleteProjectButton.setVisible(true);
-		addTeamMemberChoiceBox.setVisible(true);
-		selectRoleChoiceBox.setVisible(true);
-		addTeamMemberButton.setVisible(true);
-		removeTeamMemberChoiceBox.setVisible(true);
-		removeTeamMemberButton.setVisible(true);
 
 	}
 
-	private void productOwnerButtonLogic(){
+	private void removeProjectCreatorButtons(){
+		deleteProjectButton.setVisible(false);
+		addTeamMemberChoiceBox.setVisible(false);
+		selectRoleChoiceBox.setVisible(false);
+		addTeamMemberButton.setVisible(false);
+		removeTeamMemberChoiceBox.setVisible(false);
+		removeTeamMemberButton.setVisible(false);
+		editProjectButton.setVisible(false);
 
-		addRequirementButton.setVisible(true);
-		removeRequirementButton.setVisible(true);
-		requirementChoiceBox.setVisible(true);
+	}
 
+	private void removeProductOwnerButtons(){
+		addRequirementButton.setVisible(false);
+		removeRequirementButton.setVisible(false);
+		requirementChoiceBox.setVisible(false);
 	}
 
 

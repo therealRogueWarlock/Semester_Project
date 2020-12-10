@@ -43,17 +43,14 @@ public class Controller_ProjectList extends Controller {
 
 		buttonLogic( );
 
-
-
 		roleSelectedLabel.setText(ColourItGui.getModel().getUseRoleString());
 	}
 
 	// general button logic
 	private void buttonLogic( ) {
-		// If role picked on LoginScreen is Project Creator, set visibility of Create Project button to True. Otherwise set it to false
-		if ( ColourItGui.getModel( ).getUserRole( ) == 3 )
-			createButton.setVisible(true);
-
+		// If the role is not project creator hide create button
+		if ( ColourItGui.getModel( ).getUserRole( ) != 3 )
+			createButton.setVisible(false);
 	}
 
 	// functions for populating data one scene
@@ -99,8 +96,6 @@ public class Controller_ProjectList extends Controller {
 
 	public void itemSelected( ) {  //SANDER DON'T FUCKING REMOVE THIS PLEASE
 
-
-
 		try {
 			Project selectedProject = projectTableView.getSelectionModel( ).getSelectedItem( );
 			ColourItGui.getModel().setSelectedProject(selectedProject);
@@ -117,4 +112,5 @@ public class Controller_ProjectList extends Controller {
 	public void createProjectButton( ) throws IOException {
 		createPopUp("popUp_Project_Create");
 	}
+
 }
