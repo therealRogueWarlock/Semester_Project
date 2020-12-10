@@ -18,39 +18,40 @@ public class PopUpController_Requirement_Add extends Controller {
 	public Button addRequirementButton;
 
 	@Override
-	public void init() {
+	public void init( ) {
 		// Doesn't need anything initialized
 	}
 
-	public void addRequirement() {
-		String requirementNameTextFieldText = requirementNameTextField.getText();
-
-		String timeEstimateText = timeEstimateField.getText();
+	public void addRequirement( ) {
+		String requirementNameTextFieldText = requirementNameTextField.getText( );
+		String timeEstimateText = timeEstimateField.getText( );
+		String priorityText;
 		int timeEstimate = Integer.parseInt(timeEstimateText);
-
-		String priorityText = priorityTextField.getText();
+		if ( ! ( priorityTextField.getText( ).isBlank( ) ) )
+			priorityText = priorityTextField.getText( );
+		else
+			priorityText = "0";
 		int priority = Integer.parseInt(priorityText);
-
-		Project selectedProject = ColourItGui.getModel().getSelectedProject();
+		Project selectedProject = ColourItGui.getModel( ).getSelectedProject( );
 
 		// getting RequirementList from selected project and adding a new requirement.
-		selectedProject.getRequirementList()
-				.addRequirement(new Requirement(requirementNameTextFieldText,timeEstimate, priority));
+		selectedProject.getRequirementList( )
+				.addRequirement(new Requirement(requirementNameTextFieldText, timeEstimate, priority));
 
-		clearInputFields();
-		getParentController().init();
+		clearInputFields( );
+		getParentController( ).init( );
 	}
 
-	private void clearInputFields() {
-		requirementNameTextField.clear();
-		priorityTextField.clear();
-		timeEstimateField.clear();
-		requirementDescriptionTextArea.clear();
+	private void clearInputFields( ) {
+		requirementNameTextField.clear( );
+		priorityTextField.clear( );
+		timeEstimateField.clear( );
+		requirementDescriptionTextArea.clear( );
 	}
 
 	@Override
-	public void goBack() throws IOException {
-getParentController().init();
+	public void goBack( ) throws IOException {
+		getParentController( ).init( );
 	}
 
 }
