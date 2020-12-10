@@ -30,7 +30,7 @@ public class PopUpController_Requirement_Add extends Controller {
 		String priorityText = priorityTextField.getText();
 		int priority = Integer.parseInt(priorityText);
 
-		Project selectedProject = ColourItGui.getSelectedProject();
+		Project selectedProject = ColourItGui.getModel().getSelectedProject();
 
 		ColourItGui.getModel().addRequirement(selectedProject, requirementNameTextFieldText, timeEstimate, priority);
 		clearInputFields();

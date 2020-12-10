@@ -17,7 +17,7 @@ public class PopUpController_TaskList_Add extends Controller {
 
 	@Override
 	public void init() {
-		responsibleTeamMember.getItems().addAll(ColourItGui.getSelectedProject().getTeamMemberList().getTeamMembers());
+		responsibleTeamMember.getItems().addAll(ColourItGui.getModel().getSelectedProject().getTeamMemberList().getTeamMembers());
 	}
 
 	@FXML
@@ -29,7 +29,7 @@ public class PopUpController_TaskList_Add extends Controller {
 		String taskDesc = taskDescription.getText();
 //		ColourItGui.getSelectedRequirement().getTaskList().addTask(new Task(name, time, member, priority, taskDesc));
 
-		ColourItGui.getModel().addTask(ColourItGui.getSelectedProject().getName(), ColourItGui.getSelectedRequirement().getName(), name, member.getName(), time, priority, taskDesc);
+		ColourItGui.getModel().addTask(ColourItGui.getModel().getSelectedProject().getName(), ColourItGui.getModel().getSelectedRequirement().getName(), name, member.getName(), time, priority, taskDesc);
 		goBack();
 	}
 
