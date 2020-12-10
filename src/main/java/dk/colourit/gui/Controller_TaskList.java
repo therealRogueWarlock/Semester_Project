@@ -42,6 +42,7 @@ public class  Controller_TaskList extends Controller {
 	public Button backButton;
 	public Button rejectButton;
 	public Button approveButton;
+	public Button editRequirement;
 
 	private TaskList taskList;
 
@@ -158,7 +159,11 @@ public class  Controller_TaskList extends Controller {
 	@FXML
 	private void popUpAddTask( ) throws IOException {
 		createPopUp("popUp_TaskList_Add");
+	}
 
+	@FXML
+	private void editRequirement( ) throws IOException {
+		createPopUp("popUp_Requirement_Edit");
 	}
 
 	@FXML
