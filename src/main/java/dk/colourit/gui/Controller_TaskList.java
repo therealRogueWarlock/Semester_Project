@@ -51,12 +51,8 @@ public class  Controller_TaskList extends Controller {
 		taskList = requirement.getTaskList( );
 
 
-
-
 		populateHighPriorityTable( );
 		populateLowPriorityTable( );
-
-
 
 
 		// logic
@@ -71,6 +67,7 @@ public class  Controller_TaskList extends Controller {
 		statusText.setText(requirement.getStatus( ));
 		requirementNameText.setText(requirement.getName( ));
 	}
+
 
 	private void populateHighPriorityTable( ) {
 		highPriorityTableView.getItems( ).clear( );
@@ -116,13 +113,11 @@ public class  Controller_TaskList extends Controller {
 		}
 	}
 
-
 	private void activateRoleButtonLogic(){
 		if (ColourItGui.getModel().getUserRole() == 1){
 			productOwnerButtonLogic();
 		}
 	}
-
 
 	private void productOwnerButtonLogic(){
 		// if the requirement is ready for review the approve or reject button will show
@@ -140,6 +135,7 @@ public class  Controller_TaskList extends Controller {
 	}
 
 
+	// functions for button functionality
 	public void approve( ) throws IOException {
 		ColourItGui.getSelectedRequirement( ).setStatus("Approved");
 		goBack( );
