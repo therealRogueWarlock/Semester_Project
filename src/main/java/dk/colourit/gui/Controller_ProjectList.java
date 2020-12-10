@@ -93,6 +93,7 @@ public class Controller_ProjectList extends Controller {
 
 	@Override
 	public void goBack( ) {
+		init();
 	}
 
 
