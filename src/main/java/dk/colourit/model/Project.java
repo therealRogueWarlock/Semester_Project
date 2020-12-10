@@ -64,7 +64,6 @@ public class Project {
 		else
 			percentage = Math.floorDiv(100 * finishedRequirement, totalRequirements);
 		return percentage + "% Completed";
-		// TODO: Lege projekt - Skal fungere ordentligt! (Andreas er nysgerrig på hvad der menes)
 	}
 
 	public String getName( ) {
