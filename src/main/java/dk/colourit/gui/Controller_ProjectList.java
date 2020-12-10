@@ -93,13 +93,17 @@ public class Controller_ProjectList extends Controller {
 	public void goBack( ) {
 	}
 
+
 	public void itemSelected( ) {  //SANDER DON'T FUCKING REMOVE THIS PLEASE
+
+
+
 		try {
 			Project selectedProject = projectTableView.getSelectionModel( ).getSelectedItem( );
 			ColourItGui.setSelectedProject(selectedProject);
 			ColourItGui.setRoot("requirementList");
 		} catch ( Exception e ) {
-			System.out.println("No project selected");
+			//System.out.println("No project selected");
 		}
 	}
 

@@ -178,12 +178,20 @@ public class  Controller_TaskList extends Controller {
 			if ( selectedTableId.equals("highPriorityTableView") ) {
 				// getting the selected task from the table View
 				Task selectedTask = highPriorityTableView.getSelectionModel( ).getSelectedItem( );
-				ColourItGui.setSelectedTask(selectedTask);
-				popUpTaskDetails( );
+
+				if(selectedTask!=null)
+				{
+					ColourItGui.setSelectedTask(selectedTask);
+					popUpTaskDetails( );
+				}
 			} else if ( selectedTableId.equals("lowPriorityTableView") ) {
 				Task selectedTask = lowPriorityTableView.getSelectionModel( ).getSelectedItem( );
-				ColourItGui.setSelectedTask(selectedTask);
-				popUpTaskDetails( );
+
+				if(selectedTask!=null)
+				{
+					ColourItGui.setSelectedTask(selectedTask);
+					popUpTaskDetails( );
+				}
 			}
 		}
 	}

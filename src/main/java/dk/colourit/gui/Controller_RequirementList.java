@@ -249,8 +249,12 @@ public class Controller_RequirementList extends Controller {
 	public void itemSelected( ) throws IOException //SANDER DON'T FUCKING REMOVE THIS PLEASE
 	{
 		Requirement selectedRequirement = requirementTable.getSelectionModel( ).getSelectedItem( );
-		ColourItGui.setSelectedRequirement(selectedRequirement);
-		ColourItGui.setRoot("taskList");
+
+		if(selectedRequirement!=null)
+		{
+			ColourItGui.setSelectedRequirement(selectedRequirement);
+			ColourItGui.setRoot("taskList");
+		}
 	}
 }
 
