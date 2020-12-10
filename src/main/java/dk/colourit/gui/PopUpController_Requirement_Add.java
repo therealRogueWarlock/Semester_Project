@@ -47,7 +47,7 @@ public class PopUpController_Requirement_Add extends Controller {
 
 	@Override
 	public void goBack() throws IOException {
-
+getParentController().init();
 	}
 
 }

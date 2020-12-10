@@ -39,7 +39,7 @@ public class PopUpController_Requirement_Edit extends Controller{
 
     @Override
     public void goBack() throws IOException {
-
+        getParentController().init();
     }
 
     public void confirmEdit()

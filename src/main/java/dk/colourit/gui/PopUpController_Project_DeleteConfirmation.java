@@ -24,6 +24,7 @@ public class PopUpController_Project_DeleteConfirmation extends Controller
 
   @Override
   public void goBack() throws IOException {
+    getParentController().init();
     ((Stage) cancelDeleteButton.getScene().getWindow()).close(); // Get's the Window the button is in, and casts to a Stage, which can be closed with .close()
   }
 
