@@ -106,6 +106,10 @@ public class Controller_TaskList extends Controller {
 			rejectButton.setDisable(false);
 			rejectButton.setVisible(true);
 		}
+		if ( ColourItGui.getSelectedRequirement( ).getStatus( ).equalsIgnoreCase("finished") ) {
+			addTaskButton.setDisable(true);
+			addTaskButton.setVisible(false);
+		}
 	}
 
 	public void approve( ) throws IOException {
