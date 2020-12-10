@@ -37,6 +37,14 @@ public class Project {
 		}
 	}
 
+	public void setStartDate(MyDate startDate) {
+		this.startDate = startDate;
+	}
+
+	public void setDeadLine(MyDate deadLine) {
+		this.deadLine = deadLine;
+	}
+
 	public int getTotalTime( ) {
 		int time = 0;
 		for ( Requirement req : requirementList.getRequirements( ) ) {
