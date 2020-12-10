@@ -101,9 +101,7 @@ public class PopUpController_Documentation extends Controller {
 			if ( MyDate.now( ).isBefore(new MyDate(selectDate.getValue( ))) )
 				throw new DateTimeException("Date can't be later than current day");
 			MyDate date = new MyDate(selectDate.getValue( ));
-			Documentation doc = new Documentation(member, timeSpent, date);
-			ColourItGui.getModel( ).getSelectedTask( ).getDocumentations( ).add(doc);
-			ColourItGui.getModel().setSelectedDocumentation(doc);
+			ColourItGui.getModel( ).getSelectedTask( ).getDocumentations( ).add(new Documentation(member, timeSpent, date));
 			init( );
 //			getParentController( ).init( );
 //			getParentController( ).getParentController( ).init( );
