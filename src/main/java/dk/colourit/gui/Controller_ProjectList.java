@@ -89,7 +89,7 @@ public class Controller_ProjectList extends Controller {
 
 	// functions for button/table functionality
 	public void exportToWebsite( ) {
-		// TODO: Skal eksportere til vores hjemmeside via XML.
+		ColourItGui.getModel().saveToFile();
 	}
 
 	@Override

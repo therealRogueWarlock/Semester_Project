@@ -1,19 +1,20 @@
 package dk.colourit.model;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public class MyDate {
+public class MyDate implements Serializable {
 
 	private int day;
 	private int month;
 	private int year;
-	private DecimalFormat dayMonthFormat = new DecimalFormat("00.##");
-	private DecimalFormat yearFormat = new DecimalFormat("0000.##");
 
 	public MyDate( ) {
+
+
 		Calendar now = GregorianCalendar.getInstance( );
 		day = now.get(Calendar.DAY_OF_MONTH);
 		month = now.get(Calendar.MONTH) + 1;

@@ -1,8 +1,9 @@
 package dk.colourit.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ProjectList {
+public class ProjectList implements Serializable {
 
 	private ArrayList<Project> projects;
 
@@ -14,6 +15,9 @@ public class ProjectList {
 		return projects;
 	}
 
+	public ArrayList<Project> getAllProjects() {
+		return projects;
+	}
 
 	public void addProject(Project project) {
 		projects.add(project);
@@ -51,5 +55,7 @@ public class ProjectList {
 	{
 		projects.remove(project);
 	}
+
+
 
 }

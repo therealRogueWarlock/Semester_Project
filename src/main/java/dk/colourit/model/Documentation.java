@@ -1,6 +1,8 @@
 package dk.colourit.model;
 
-public class Documentation {
+import java.io.Serializable;
+
+public class Documentation implements Serializable {
 	// Depending on time, add a description text. Keep out of Constructor (or add overload constructor)
 
 	private String teamMemberName;

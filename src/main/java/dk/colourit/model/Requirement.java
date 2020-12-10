@@ -1,8 +1,9 @@
 package dk.colourit.model;
 
+import java.io.Serializable;
 import java.security.InvalidParameterException;
 
-public class Requirement {
+public class Requirement implements Serializable {
 
 	private TaskList taskList;
 	private String name;

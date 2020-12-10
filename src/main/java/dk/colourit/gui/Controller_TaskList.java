@@ -151,7 +151,6 @@ public class  Controller_TaskList extends Controller {
 	}
 
 
-
 	// functions for button functionality
 	public void approve( ) throws IOException {
 		ColourItGui.getModel().getSelectedRequirement( ).setStatus("Approved");

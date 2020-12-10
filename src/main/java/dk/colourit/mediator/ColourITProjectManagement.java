@@ -10,8 +10,6 @@ public class ColourITProjectManagement {
 	private ProjectList projectList;
 	private TeamMemberList teamMemberList;
 
-	private ColourItFileHandler colourItFileHandler;
-
 	private int userRole;
 
 	private  Project selectedProject;
@@ -19,8 +17,8 @@ public class ColourITProjectManagement {
 	private  Task selectedTask;
 	private  Documentation selectedDocumentation;
 
-
 	public ColourITProjectManagement() {
+
 		//Dummy Data ??
 		projectList = new ProjectList();
 		teamMemberList = new TeamMemberList();
@@ -60,22 +58,26 @@ public class ColourITProjectManagement {
 				for (int k = 0; k < 5; k++) {
 					Task randomTask = new Task(("randomTask" + k), 10 + k, names[k], (k % 2 == 0), "Gay person: " + names[k]);
 
-					//requirement.getTaskList().addTask(randomTask);
+					requirement.getTaskList().addTask(randomTask);
 				}
 
-                /*
+
                 Task task = requirement.getTaskList()
-                    .getTaskByName(("randomTask" + j));
+                    .getTaskByName(("randomTask1"));
 
                 for (int l = 0; l <5 ; l++) {
-                    task.getDocumentations().add(new Documentation(names[l], 10 + l, MyDate.now()));
-                }*/
+                    task.getDocumentations().add(new Documentation(teamMemberList.getTeamMembers().get(l), 10 + l, MyDate.now()));
+                }
 
 				j++;
 			}
 
 		}
 		//Dummy data ??
+	}
+
+	public void saveToFile(){
+		ColourItFileHandler.save(projectList);
 	}
 
 	public Project getSelectedProject( ) {

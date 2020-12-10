@@ -1,10 +1,11 @@
 package dk.colourit.model;
 
+import java.io.Serializable;
 import java.time.DateTimeException;
 import java.util.ArrayList;
 import java.util.MissingFormatArgumentException;
 
-public class Project {
+public class Project implements Serializable {
 
 	private String name;
 	private MyDate creationDate;
