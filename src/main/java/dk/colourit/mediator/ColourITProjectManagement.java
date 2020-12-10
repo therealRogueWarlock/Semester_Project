@@ -51,7 +51,7 @@ public class ColourITProjectManagement {
 				for (int k = 0; k < 5; k++) {
 					Task randomTask = new Task(("randomTask" + k), 10 + k, names[k], (k % 2 == 0), "Gay person: " + names[k]);
 
-					requirement.getTaskList().addTask(randomTask);
+					//requirement.getTaskList().addTask(randomTask);
 				}
 
                 /*

@@ -18,7 +18,7 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Controller_TaskList extends Controller {
+public class  Controller_TaskList extends Controller {
 
 	public GridPane mainContainer;
 	public TableView<Task> highPriorityTableView;
@@ -27,29 +27,34 @@ public class Controller_TaskList extends Controller {
 	public TableColumn<Task, Integer> totalTimeSpentHighColumn;
 	public TableColumn<Task, String> responsibleHighColumn;
 	public TableColumn<Task, String> taskStatusHighColumn;
+
 	public TableView<Task> lowPriorityTableView;
 	public TableColumn<Task, String> taskNameLowColumn;
 	public TableColumn<Task, Integer> estimatedTimeLowColumn;
 	public TableColumn<Task, Integer> totalTimeSpentLowColumn;
 	public TableColumn<Task, String> responsibleLowColumn;
 	public TableColumn<Task, String> taskStatusLowColumn;
+
 	public Text projectNameText;
 	public Text statusText;
 	public Text requirementNameText;
 	public Button addTaskButton;
 	public Button backButton;
+	public Button rejectButton;
+	public Button approveButton;
+
 	private TaskList taskList;
-	@FXML
-	private Button rejectButton;
-	@FXML
-	private Button approveButton;
 
 	public void init( ) {
 		Requirement requirement = ColourItGui.getSelectedRequirement( );
 		taskList = requirement.getTaskList( );
 
+
+
+
 		populateHighPriorityTable( );
 		populateLowPriorityTable( );
+
 		scrumButtons( );
 
 		// setting information text on scene
@@ -106,14 +111,17 @@ public class Controller_TaskList extends Controller {
 			rejectButton.setDisable(false);
 			rejectButton.setVisible(true);
 		}
-		if ( ColourItGui.getSelectedRequirement( ).getStatus( ).equalsIgnoreCase("finished") ) {
+
+		if ( ColourItGui.getSelectedRequirement( ).getStatus( ).equalsIgnoreCase("Approved") ) {
 			addTaskButton.setDisable(true);
 			addTaskButton.setVisible(false);
 		}
+
+
 	}
 
 	public void approve( ) throws IOException {
-		ColourItGui.getSelectedRequirement( ).setStatus("Finished");
+		ColourItGui.getSelectedRequirement( ).setStatus("Approved");
 		goBack( );
 	}
 

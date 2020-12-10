@@ -67,10 +67,6 @@ public class Controller_RequirementList extends Controller {
 
 	}
 
-	private static Parent loadFXML(String fxml) throws IOException {
-		FXMLLoader fxmlLoader = new FXMLLoader(ColourItGui.class.getResource(fxml + ".fxml"));
-		return fxmlLoader.load( );
-	}
 
 	@Override
 	public void init( ) {

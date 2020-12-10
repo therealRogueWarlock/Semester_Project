@@ -69,7 +69,7 @@ public class Requirement {
 	public String getStatus() {
 		if (taskList.getListSize() == 0) return "No Tasks";
 
-		if (!(status.equalsIgnoreCase("finished") || status.equalsIgnoreCase("rejected"))) {
+		if (!(status.equalsIgnoreCase("Approved") || status.equalsIgnoreCase("rejected"))) {
 			if (taskList.getListSize() > taskList.getFinishedTasks().size()) return "Not Done";
 			else return "Ready for Review";
 		}
