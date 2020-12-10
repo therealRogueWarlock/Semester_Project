@@ -61,6 +61,14 @@
             <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
          </GridPane.margin>
       </DatePicker>
+      <Label fx:id="validationLabel" layoutX="10.0" layoutY="132.0" text=" " textFill="RED" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </Label>
     <Label text="Colour IT © Group 7" textFill="#545454" GridPane.columnSpan="2" GridPane.rowIndex="4">
     <font>
         <Font name="System Italic" size="12.0" />
