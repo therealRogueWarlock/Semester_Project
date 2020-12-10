@@ -1,5 +1,6 @@
 package dk.colourit.gui;
 
+import dk.colourit.mediator.ColourITProjectManagement;
 import dk.colourit.model.Requirement;
 import dk.colourit.model.Task;
 import dk.colourit.model.TaskList;
@@ -45,7 +46,7 @@ public class  Controller_TaskList extends Controller {
     private TaskList taskList;
 
 	public void init( ) {
-		Requirement requirement = ColourItGui.getSelectedRequirement( );
+		Requirement requirement = ColourItGui.getModel().getSelectedRequirement( );
 		taskList = requirement.getTaskList( );
 
 		populateHighPriorityTable();
@@ -97,7 +98,7 @@ public class  Controller_TaskList extends Controller {
 
 	private void populateInformationText(Requirement requirement){
 		// setting information text on scene
-		projectNameText.setText(ColourItGui.getSelectedProject( ).getName( ));
+		projectNameText.setText(ColourItGui.getModel().getSelectedProject( ).getName( ));
 		statusText.setText(requirement.getStatus( ));
 		requirementNameText.setText(requirement.getName( ));
 
@@ -107,8 +108,8 @@ public class  Controller_TaskList extends Controller {
 
 	// functions for button disable/enable logic
 	private void generalButtonLogic(){
-		if (ColourItGui.getSelectedRequirement().getStatus().equalsIgnoreCase("Approved") ||
-				ColourItGui.getSelectedProject().getTeamMemberList().getTeamMembers().size() == 0 ) {
+		if (ColourItGui.getModel().getSelectedRequirement().getStatus().equalsIgnoreCase("Approved") ||
+				ColourItGui.getModel().getSelectedProject().getTeamMemberList().getTeamMembers().size() == 0 ) {
 			addTaskButton.setDisable(true);
 		}
 	}
@@ -121,7 +122,7 @@ public class  Controller_TaskList extends Controller {
 
 	private void productOwnerButtonLogic(){
 		// if the requirement is ready for review the approve or reject button will show
-		if ( ( ColourItGui.getSelectedRequirement( ).getStatus( ).equalsIgnoreCase("ready for review") ) ) {
+		if ( ( ColourItGui.getModel().getSelectedRequirement( ).getStatus( ).equalsIgnoreCase("ready for review") ) ) {
 			approveButton.setDisable(false);
 			approveButton.setVisible(true);
 			rejectButton.setDisable(false);
@@ -137,12 +138,12 @@ public class  Controller_TaskList extends Controller {
 
 	// functions for button functionality
 	public void approve( ) throws IOException {
-		ColourItGui.getSelectedRequirement( ).setStatus("Approved");
+		ColourItGui.getModel().getSelectedRequirement( ).setStatus("Approved");
 		goBack( );
 	}
 
 	public void reject( ) throws IOException {
-		ColourItGui.getSelectedRequirement( ).setStatus("Rejected");
+		ColourItGui.getModel().getSelectedRequirement( ).setStatus("Rejected");
 		goBack( );
 	}
 
@@ -181,7 +182,7 @@ public class  Controller_TaskList extends Controller {
 
 				if(selectedTask!=null)
 				{
-					ColourItGui.setSelectedTask(selectedTask);
+					ColourItGui.getModel().setSelectedTask(selectedTask);
 					popUpTaskDetails( );
 				}
 			} else if ( selectedTableId.equals("lowPriorityTableView") ) {
@@ -189,7 +190,7 @@ public class  Controller_TaskList extends Controller {
 
 				if(selectedTask!=null)
 				{
-					ColourItGui.setSelectedTask(selectedTask);
+					ColourItGui.getModel().setSelectedTask(selectedTask);
 					popUpTaskDetails( );
 				}
 			}

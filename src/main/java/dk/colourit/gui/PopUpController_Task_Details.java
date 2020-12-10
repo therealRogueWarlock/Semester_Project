@@ -29,15 +29,13 @@ public class PopUpController_Task_Details extends Controller {
 
 	@Override
 	public void init() {
-		Task task = ColourItGui.getSelectedTask();
+		Task task = ColourItGui.getModel().getSelectedTask();
 
-		System.out.println("init task info for popup");
 		taskNameEditTextField.setText(task.getName());
 		estimatedHoursTextField.setText(Integer.toString(task.getTimeEstimateHour()));
 		responsibleTeamMemberTextField.setText(task.getResponsible());
 		taskTextArea.setText(task.getDescription());
 		highPriorityCheckBox.setSelected(task.getPriority());
-
 
 		activateRoleButtonLogic();
 	}
@@ -64,7 +62,7 @@ public class PopUpController_Task_Details extends Controller {
 
 
 	public void deleteTask() {
-		ColourItGui.getSelectedRequirement().getTaskList().removeTask(ColourItGui.getSelectedTask().getName());
+		ColourItGui.getModel().getSelectedRequirement().getTaskList().removeTask(ColourItGui.getModel().getSelectedTask().getName());
 
 		goBack();
 	}
@@ -77,7 +75,7 @@ public class PopUpController_Task_Details extends Controller {
 		String taskDescription = taskTextArea.getText();
 
 //		System.out.println(ColourItGui.getSelectedTask().getName());
-		ColourItGui.getSelectedTask().editTask(name, time, memberName, checked, taskDescription);
+		ColourItGui.getModel().getSelectedTask().editTask(name, time, memberName, checked, taskDescription);
 		goBack();
 	}
 

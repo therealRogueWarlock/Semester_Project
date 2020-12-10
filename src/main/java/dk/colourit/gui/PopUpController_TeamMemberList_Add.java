@@ -35,7 +35,7 @@ public class PopUpController_TeamMemberList_Add extends Controller {
 
     @Override public void goBack()
     {
-
+        getParentController().init();
     }
 
 }

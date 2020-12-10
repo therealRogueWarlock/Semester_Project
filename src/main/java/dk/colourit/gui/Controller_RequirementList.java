@@ -73,7 +73,9 @@ public class Controller_RequirementList extends Controller {
 
 	@Override
 	public void init( ) {
-		Project project = ColourItGui.getSelectedProject( );
+
+		Project project = ColourItGui.getModel().getSelectedProject( );
+
 
 		populateProjectInfo(project);
 
@@ -128,7 +130,7 @@ public class Controller_RequirementList extends Controller {
 		selectRoleChoiceBox.getItems( ).addAll("Team Member", "Project Creator", "Scrum Master", "Product Owner");
 
 		// setting information text on scene
-		projectNameLabel.setText(ColourItGui.getSelectedProject( ).getName( ));
+		projectNameLabel.setText(ColourItGui.getModel().getSelectedProject( ).getName( ));
 		statusLabel.setText(project.getStatus( ));
 	}
 
@@ -175,7 +177,6 @@ public class Controller_RequirementList extends Controller {
 	}
 
 	private void populateTeamMemberTable(Project project) {
-
 		ArrayList<TeamMember> teamMembers = project.getTeamMemberList( ).getTeamMembers( );
 		ObservableList<TeamMember> observableTeamMembers = FXCollections.observableArrayList( );
 
@@ -191,7 +192,6 @@ public class Controller_RequirementList extends Controller {
 
 
 	// functions for button functionality
-
 	public void editButton( ) throws IOException {
 		createPopUp("popUp_Project_Edit");
 		// TODO: Implement Edit Scene and Functionality for a Project - use popUp_Project_Edit.fxml and PopUpController_Project_Edit.java
@@ -211,17 +211,18 @@ public class Controller_RequirementList extends Controller {
 
 		String selectedRole = selectRoleChoiceBox.getSelectionModel( ).getSelectedItem( );
 
+		// if the the choice boxes er selected
 		if ( selectedTeamMember != null && selectedRole != null ) {
+			// getting selected project
+			Project selectedProject = ColourItGui.getModel().getSelectedProject( );
 
-			Project selectedProject = ColourItGui.getSelectedProject( );
+			// adding the selected role to the selected team member
+			selectedTeamMember.setRole(selectedRole);
+			// adding the team member to the projects team member list
+			selectedProject.getTeamMemberList().addTeamMember(selectedTeamMember);
 
-			ColourItGui.getModel( ).addMemberToProject(selectedProject, selectedTeamMember, selectedRole);
-
-			//selectedTeamMember.setRole(selectedRole);
-			//selectedProject.getTeamMemberList().addTeamMember(selectedTeamMember);
-			init( );
+			init();
 		}
-
 	}
 
 	public void removeTeamMemberButton( ) {
@@ -229,7 +230,7 @@ public class Controller_RequirementList extends Controller {
 		TeamMember selectedTeamMember = removeTeamMemberChoiceBox.getSelectionModel( ).getSelectedItem( );
 
 		if ( selectedTeamMember != null ) {
-			Project selectedProject = ColourItGui.getSelectedProject( );
+			Project selectedProject = ColourItGui.getModel().getSelectedProject( );
 
 			selectedProject.getTeamMemberList( ).removeTeamMember(selectedTeamMember);
 
@@ -243,6 +244,7 @@ public class Controller_RequirementList extends Controller {
 	}
 
 	public void goBack( ) throws IOException {
+		init();
 		ColourItGui.setRoot("projectList");
 	}
 
@@ -252,7 +254,7 @@ public class Controller_RequirementList extends Controller {
 
 		if(selectedRequirement!=null)
 		{
-			ColourItGui.setSelectedRequirement(selectedRequirement);
+			ColourItGui.getModel().setSelectedRequirement(selectedRequirement);
 			ColourItGui.setRoot("taskList");
 		}
 	}

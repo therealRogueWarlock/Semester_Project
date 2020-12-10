@@ -23,11 +23,11 @@ public class PopUpController_Project_Edit extends Controller {
 	@FXML
 	private void confirm( ) throws IOException {
 		if ( ! nameField.getText( ).isBlank( ) && ! nameField.getText( ).isEmpty( ) ) {
-			ColourItGui.getSelectedProject( ).setName(nameField.getText( ));
+			ColourItGui.getModel().getSelectedProject( ).setName(nameField.getText( ));
 			if ( ! ( startDate.getValue() == null ) )
-				ColourItGui.getSelectedProject( ).setStartDate(new MyDate(startDate.getValue( )));
-			if ( ! ( deadLine.getValue() == null ) && ColourItGui.getSelectedProject( ).getStartDate( ).isBefore(new MyDate(deadLine.getValue( ))) )
-				ColourItGui.getSelectedProject( ).setDeadLine(new MyDate(deadLine.getValue( )));
+				ColourItGui.getModel().getSelectedProject( ).setStartDate(new MyDate(startDate.getValue( )));
+			if ( ! ( deadLine.getValue() == null ) && ColourItGui.getModel().getSelectedProject( ).getStartDate( ).isBefore(new MyDate(deadLine.getValue( ))) )
+				ColourItGui.getModel().getSelectedProject( ).setDeadLine(new MyDate(deadLine.getValue( )));
 			goBack( );
 		}
 	}

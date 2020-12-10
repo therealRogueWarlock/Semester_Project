@@ -43,6 +43,8 @@ public class Controller_ProjectList extends Controller {
 
 		buttonLogic( );
 
+
+
 		roleSelectedLabel.setText(ColourItGui.getModel().getUseRoleString());
 	}
 
@@ -91,6 +93,7 @@ public class Controller_ProjectList extends Controller {
 
 	@Override
 	public void goBack( ) {
+		init();
 	}
 
 
@@ -100,7 +103,7 @@ public class Controller_ProjectList extends Controller {
 
 		try {
 			Project selectedProject = projectTableView.getSelectionModel( ).getSelectedItem( );
-			ColourItGui.setSelectedProject(selectedProject);
+			ColourItGui.getModel().setSelectedProject(selectedProject);
 			ColourItGui.setRoot("requirementList");
 		} catch ( Exception e ) {
 			//System.out.println("No project selected");

@@ -1,12 +1,12 @@
 package dk.colourit.gui;
 
 import dk.colourit.model.Requirement;
-import dk.colourit.model.Task;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+
 
 import java.io.IOException;
 
@@ -24,7 +24,7 @@ public class PopUpController_Requirement_Edit extends Controller{
 
         @Override
         public void init( ) {
-            Requirement requirement = ColourItGui.getSelectedRequirement();
+            Requirement requirement = ColourItGui.getModel().getSelectedRequirement();
 
             requirementNameTextField.setText(requirement.getName());
             priorityTextField.setText(Integer.toString(requirement.getPriority()));
@@ -49,10 +49,10 @@ public class PopUpController_Requirement_Edit extends Controller{
         int timeEstimate = Integer.parseInt(timeEstimateField.getText());
         String requiredDescription = requirementDescriptionTextArea.getText();
 
-        ColourItGui.getSelectedRequirement().setName(name);
-        ColourItGui.getSelectedRequirement().setPriority(priority);
-        ColourItGui.getSelectedRequirement().setTimeEstimate(timeEstimate);
-        ColourItGui.getSelectedRequirement().setRequirementDescription(requiredDescription);
+        ColourItGui.getModel().getSelectedRequirement().setName(name);
+        ColourItGui.getModel().getSelectedRequirement().setPriority(priority);
+        ColourItGui.getModel().getSelectedRequirement().setTimeEstimate(timeEstimate);
+        ColourItGui.getModel().getSelectedRequirement().setRequirementDescription(requiredDescription);
         //TODO: requirementDescriptionTextArea - Virker den nu?
 
         goBack();

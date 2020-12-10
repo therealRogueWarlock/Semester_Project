@@ -1,6 +1,7 @@
 package dk.colourit.gui;
 
 import dk.colourit.model.Project;
+import dk.colourit.model.Requirement;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -30,11 +31,13 @@ public class PopUpController_Requirement_Add extends Controller {
 		String priorityText = priorityTextField.getText();
 		int priority = Integer.parseInt(priorityText);
 
-		Project selectedProject = ColourItGui.getSelectedProject();
+		Project selectedProject = ColourItGui.getModel().getSelectedProject();
 
-		ColourItGui.getModel().addRequirement(selectedProject, requirementNameTextFieldText, timeEstimate, priority);
+		// getting RequirementList from selected project and adding a new requirement.
+		selectedProject.getRequirementList()
+				.addRequirement(new Requirement(requirementNameTextFieldText,timeEstimate, priority));
+
 		clearInputFields();
-
 		getParentController().init();
 	}
 
@@ -47,7 +50,7 @@ public class PopUpController_Requirement_Add extends Controller {
 
 	@Override
 	public void goBack() throws IOException {
-
+getParentController().init();
 	}
 
 }
