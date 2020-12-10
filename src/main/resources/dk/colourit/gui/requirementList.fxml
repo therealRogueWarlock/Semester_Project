@@ -109,7 +109,7 @@
                     <TableColumn fx:id="requirementPriorityColumn" maxWidth="1.7976931348623157E308" prefWidth="57.0" text="Priority" />
                     <TableColumn fx:id="requirementNameColumn" prefWidth="274.0" text="Name" />
                     <TableColumn fx:id="requirementStatusColumn" prefWidth="141.0" text="Status" />
-               <TableColumn fx:id="requirementTimeEstimateColumn" prefWidth="163.0" text="Time Estimate" />
+               <TableColumn fx:id="requirementTimeEstimateColumn" prefWidth="134.0" text="Time Estimate" />
                 </columns>
             </TableView>
         </VBox>
@@ -166,11 +166,14 @@
                    <Font name="System Italic" size="12.0" />
                </font>
             <HBox.margin>
-               <Insets right="480.0" />
+               <Insets left="10.0" right="470.0" />
             </HBox.margin>
            </Label>
          <Label fx:id="roleSelectedLabel" text="Role Selected" />
       </children>
+      <VBox.margin>
+         <Insets bottom="5.0" top="5.0" />
+      </VBox.margin>
    </HBox>
 
 </VBox>
