@@ -5,25 +5,24 @@ import dk.colourit.model.Project;
 import dk.colourit.model.TeamMember;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 
 public class Controller_ProjectList extends Controller {
 
+	@FXML
+	protected Button backButton;
+	@FXML
+	protected Button createButton;
+	@FXML
+	protected Button addEmployeeButton;
+	@FXML
+	protected Button exportButton;
 	@FXML
 	private TableView<Project> projectTableView;
 	@FXML
@@ -34,7 +33,6 @@ public class Controller_ProjectList extends Controller {
 	private TableColumn<Project, MyDate> deadLine;
 	@FXML
 	private TableColumn<Project, String> projectStatus;
-
 	@FXML
 	private TableView<TeamMember> employeeTableView;
 	@FXML
@@ -44,15 +42,6 @@ public class Controller_ProjectList extends Controller {
 	@FXML
 	private TableColumn<TeamMember, MyDate> birthdayColumn;
 
-	@FXML
-	protected Button backButton;
-	@FXML
-	protected Button createButton;
-	@FXML
-	protected Button addEmployeeButton;
-	@FXML
-	protected Button exportButton;
-
 	public Controller_ProjectList( ) {
 	}
 
@@ -61,24 +50,35 @@ public class Controller_ProjectList extends Controller {
 
 		ObservableList<TeamMember> observableTeamMembers = FXCollections.observableArrayList( );
 
-		observableTeamMembers.addAll( ColourItGui.getModel( ).getTeamMemberList( ).getTeamMembers( ) );
+		observableTeamMembers.addAll(ColourItGui.getModel( ).getTeamMemberList( ).getTeamMembers( ));
 
-		employeeNameColumn.setCellValueFactory( new PropertyValueFactory<>( "name" ) );
-		idNumberColumn.setCellValueFactory( new PropertyValueFactory<>( "employeeNumber" ) );
-		birthdayColumn.setCellValueFactory( new PropertyValueFactory<>( "birthday" ) );
-		employeeTableView.setItems( observableTeamMembers );
+		employeeNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+		idNumberColumn.setCellValueFactory(new PropertyValueFactory<>("employeeNumber"));
+		birthdayColumn.setCellValueFactory(new PropertyValueFactory<>("birthday"));
+		employeeTableView.setItems(observableTeamMembers);
 
 		ObservableList<Project> observableProjects = FXCollections.observableArrayList( );
-		observableProjects.addAll( ColourItGui.getModel( ).getProjectList( ).getProjects( ) );
+		observableProjects.addAll(ColourItGui.getModel( ).getProjectList( ).getProjects( ));
 
-		projectName.setCellValueFactory( new PropertyValueFactory<>( "name" ) );
-		startDate.setCellValueFactory( new PropertyValueFactory<>( "startDate" ) );
-		deadLine.setCellValueFactory( new PropertyValueFactory<>( "deadLine" ) );
-		projectStatus.setCellValueFactory( new PropertyValueFactory<>( "status" ) );
+		projectName.setCellValueFactory(new PropertyValueFactory<>("name"));
+		startDate.setCellValueFactory(new PropertyValueFactory<>("startDate"));
+		deadLine.setCellValueFactory(new PropertyValueFactory<>("deadLine"));
+		projectStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
-		projectTableView.setItems( observableProjects );
+		projectTableView.setItems(observableProjects);
 
-		employeeTableView.setSelectionModel( null );
+		employeeTableView.setSelectionModel(null);
+
+		buttonLogic( );
+
+	}
+
+	private void buttonLogic( ) {
+		// If role picked on LoginScreen is Project Creator, set visibility of Create Project button to True. Otherwise set it to false
+		if ( ! ( ColourItGui.getModel( ).getUserRole( ) == 3 ) )
+			createButton.setVisible(false);
+		else
+			createButton.setVisible(true);
 	}
 
 	public void exportToWebsite( ) {
@@ -93,18 +93,18 @@ public class Controller_ProjectList extends Controller {
 	public void itemSelected( ) {  //SANDER DON'T FUCKING REMOVE THIS PLEASE
 		try {
 			Project selectedProject = projectTableView.getSelectionModel( ).getSelectedItem( );
-			ColourItGui.setSelectedProject( selectedProject );
-			ColourItGui.setRoot( "requirementList" );
+			ColourItGui.setSelectedProject(selectedProject);
+			ColourItGui.setRoot("requirementList");
 		} catch ( Exception e ) {
-			System.out.println( "No project selected" );
+			System.out.println("No project selected");
 		}
 	}
 
 	public void addEmployee( ) throws IOException {
-		createPopUp( "popUp_TeamMemberList_Add" );
+		createPopUp("popUp_TeamMemberList_Add");
 	}
 
 	public void createProjectButton( ) throws IOException {
-		createPopUp( "popUp_Project_Create" );
+		createPopUp("popUp_Project_Create");
 	}
 }
