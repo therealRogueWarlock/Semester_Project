@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class AddTeamMemberSceneController extends Controller {
+public class PopUpController_TeamMemberList_Add extends Controller {
     public TextField nameTextField;
     public TextField idNumberTextField;
 

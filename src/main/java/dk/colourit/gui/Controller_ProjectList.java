@@ -22,7 +22,7 @@ import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 
-public class ProjectListViewController extends Controller {
+public class Controller_ProjectList extends Controller {
 
 	@FXML
 	private TableView<Project> projectTableView;
@@ -53,7 +53,7 @@ public class ProjectListViewController extends Controller {
 	@FXML
 	protected Button exportButton;
 
-	public ProjectListViewController( ) {
+	public Controller_ProjectList( ) {
 	}
 
 	@Override

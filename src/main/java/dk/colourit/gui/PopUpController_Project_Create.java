@@ -21,7 +21,7 @@ import java.util.InputMismatchException;
 import java.util.MissingFormatArgumentException;
 import java.util.MissingResourceException;
 
-public class CreateProjectPopUpController extends Controller {
+public class PopUpController_Project_Create extends Controller {
 	public TableView<TeamMember> teamMemberTableView;
 	public TableColumn<TeamMember, String> nameColumn;
 	public TableColumn<TeamMember, Integer> idColumn;
@@ -50,7 +50,7 @@ public class CreateProjectPopUpController extends Controller {
 		populateTeamMemberTableView();
 	}
 
-	public CreateProjectPopUpController() {
+	public PopUpController_Project_Create() {
 		teamMembersForProject = new ArrayList<>();
 	}
 

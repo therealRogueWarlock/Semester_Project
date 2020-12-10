@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class AddRequirementSceneController extends Controller {
+public class PopUpController_Requirement_Add extends Controller {
 	public TextField requirementNameTextField;
 	public TextField priorityTextField;
 	public TextField timeEstimateField;

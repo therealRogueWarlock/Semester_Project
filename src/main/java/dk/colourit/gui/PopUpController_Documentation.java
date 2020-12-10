@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 
-public class DocumentationPopUpController extends Controller {
+public class PopUpController_Documentation extends Controller {
 
     public Label taskName;
     public Label totalTimeSpent;

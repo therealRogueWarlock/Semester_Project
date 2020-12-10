@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="609.0" prefWidth="996.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.colourit.gui.RequirementListSceneController">
+<VBox prefHeight="609.0" prefWidth="996.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.colourit.gui.Controller_RequirementList">
     <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
         <padding>
             <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />

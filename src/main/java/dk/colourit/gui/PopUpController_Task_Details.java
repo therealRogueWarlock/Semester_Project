@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class TaskDetailsPopUpController extends Controller {
+public class PopUpController_Task_Details extends Controller {
 
 	public Button confirmEditButton;
 	public Button deleteTask;
@@ -39,7 +39,7 @@ public class TaskDetailsPopUpController extends Controller {
 		highPriorityCheckBox.setSelected(task.getPriority());
 	}
 
-	public TaskDetailsPopUpController() {
+	public PopUpController_Task_Details() {
 
 	}
 

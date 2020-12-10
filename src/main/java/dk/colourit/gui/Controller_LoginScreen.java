@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 
 import java.io.IOException;
 
-public class LoginScreenController extends Controller {
+public class Controller_LoginScreen extends Controller {
 
 
     @Override

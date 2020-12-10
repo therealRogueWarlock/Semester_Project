@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
-public class TaskListAddPopUpController extends Controller {
+public class PopUpController_TaskList_Add extends Controller {
 
 	public Button confirmButton;
 	public CheckBox highPriorityCheckBox;

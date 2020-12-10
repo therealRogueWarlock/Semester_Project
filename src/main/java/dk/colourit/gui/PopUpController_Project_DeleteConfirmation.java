@@ -5,7 +5,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ConfirmDeleteProjectController extends Controller
+public class PopUpController_Project_DeleteConfirmation extends Controller
 {
   public Button confirmDeleteButton;
   public Button cancelDeleteButton;

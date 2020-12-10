@@ -17,7 +17,7 @@ import javafx.scene.text.Text;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class TaskListSceneController extends Controller {
+public class Controller_TaskList extends Controller {
 
 	public GridPane mainContainer;
 

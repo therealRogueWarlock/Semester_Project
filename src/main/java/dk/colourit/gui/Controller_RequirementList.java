@@ -12,7 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class RequirementListSceneController extends Controller {
+public class Controller_RequirementList extends Controller {
 
 	public Label statusLabel;
 	@FXML
@@ -60,7 +60,7 @@ public class RequirementListSceneController extends Controller {
 	@FXML
 	private Label deadlineLabel;
 
-	public RequirementListSceneController( ) {
+	public Controller_RequirementList( ) {
 
 	}
 
