@@ -40,7 +40,7 @@ public class  Controller_TaskList extends Controller {
 	public Button backButton;
 	public Button rejectButton;
 	public Button approveButton;
-	public Button editRequirement;
+	public Button editRequirementButton;
     public Label roleSelectedLabel;
 
     private TaskList taskList;
@@ -108,6 +108,7 @@ public class  Controller_TaskList extends Controller {
 
 	// functions for button disable/enable logic
 	private void generalButtonLogic(){
+		// if the requirement is Approved or the project team mebmer list is 0 you cant add a task.
 		if (ColourItGui.getModel().getSelectedRequirement().getStatus().equalsIgnoreCase("Approved") ||
 				ColourItGui.getModel().getSelectedProject().getTeamMemberList().getTeamMembers().size() == 0 ) {
 			addTaskButton.setDisable(true);
@@ -115,25 +116,35 @@ public class  Controller_TaskList extends Controller {
 	}
 
 	private void activateRoleButtonLogic(){
+		if (ColourItGui.getModel().getUserRole() != 1){
+			removeProductOwnerButtons();
+		}
+
+		// if the role is product Owner activate logic for product owner buttons
 		if (ColourItGui.getModel().getUserRole() == 1){
-			productOwnerButtonLogic();
+			productOwnerButtonsLogic();
+		}
+
+	}
+
+	private void removeProductOwnerButtons(){
+		editRequirementButton.setVisible(false);
+		approveButton.setVisible(false);
+		rejectButton.setVisible(false);
+	}
+
+	private void productOwnerButtonsLogic(){
+		// if the requirement is ready for review the approve or reject button will show
+		if ( ( ColourItGui.getModel().getSelectedRequirement( ).getStatus( )
+				.equalsIgnoreCase("ready for review"))) {
+			approveButton.setDisable(false);
+			rejectButton.setDisable(false);
+		} else {
+			approveButton.setDisable(true);
+			rejectButton.setDisable(true);
 		}
 	}
 
-	private void productOwnerButtonLogic(){
-		// if the requirement is ready for review the approve or reject button will show
-		if ( ( ColourItGui.getModel().getSelectedRequirement( ).getStatus( ).equalsIgnoreCase("ready for review") ) ) {
-			approveButton.setDisable(false);
-			approveButton.setVisible(true);
-			rejectButton.setDisable(false);
-			rejectButton.setVisible(true);
-		} else {
-			approveButton.setDisable(true);
-			approveButton.setVisible(false);
-			rejectButton.setDisable(true);
-			rejectButton.setVisible(false);
-		}
-	}
 
 
 	// functions for button functionality

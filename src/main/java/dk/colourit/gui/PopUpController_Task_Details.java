@@ -42,27 +42,26 @@ public class PopUpController_Task_Details extends Controller {
 
 
 	private void generalButtonLogic(){
-
 	}
 
 
 	private void activateRoleButtonLogic(){
-		if (ColourItGui.getModel().getUserRole() == 2){
-			scrumMasterButtonLogic();
+
+		// if the user role is not scrum master, remove scrum masters buttons.
+		if (ColourItGui.getModel().getUserRole() != 2){
+			removeScrumMasterButtons();
 		}
+
 	}
 
-	private void scrumMasterButtonLogic(){
-		documentationButton.setVisible(true);
+	private void removeScrumMasterButtons(){
+		documentationButton.setVisible(false);
 	}
-
-
-
-
 
 
 	public void deleteTask() {
-		ColourItGui.getModel().getSelectedRequirement().getTaskList().removeTask(ColourItGui.getModel().getSelectedTask().getName());
+		ColourItGui.getModel().getSelectedRequirement().getTaskList()
+				.removeTask(ColourItGui.getModel().getSelectedTask().getName());
 
 		goBack();
 	}

@@ -11,6 +11,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import java.time.DateTimeException;
 import java.util.ArrayList;
 
 public class PopUpController_Documentation extends Controller {
@@ -33,7 +34,8 @@ public class PopUpController_Documentation extends Controller {
     @FXML private TableColumn<Documentation, String> memberNameColumn;
     @FXML private TableColumn<Documentation, Integer> timeSpentColumn;
     @FXML private TableColumn<Documentation, MyDate> daySelectedColumn;
-
+    @FXML
+    private Label validationLabel;
 
     public void init() {
         populateComboBox();
@@ -44,7 +46,10 @@ public class PopUpController_Documentation extends Controller {
         selectDate.setEditable(false);
     }
 
+public void remove(){
 
+        goBack();
+}
 
     // functions for populating data on popup.
     private void populateComboBox() {
@@ -88,12 +93,16 @@ public class PopUpController_Documentation extends Controller {
 
     @FXML
     private void addDocumentation() {
-        TeamMember member = (TeamMember) selectMember.getSelectionModel().getSelectedItem();
+        try {TeamMember member = (TeamMember) selectMember.getSelectionModel().getSelectedItem();
         int timeSpent = Integer.parseInt(addTimeSpent.getText());
+        if ( MyDate.now().isBefore(new MyDate(selectDate.getValue())) ) throw new DateTimeException("Date can't be later than current day");
         MyDate date = new MyDate(selectDate.getValue());
         ColourItGui.getModel().getSelectedTask().getDocumentations().add(new Documentation(member, timeSpent, date));
         init();
         getParentController().init();
         getParentController().getParentController().init();
+    }catch ( DateTimeException dateTimeException ){
+        validationLabel.setText("Invalid date");
+        }
     }
 }

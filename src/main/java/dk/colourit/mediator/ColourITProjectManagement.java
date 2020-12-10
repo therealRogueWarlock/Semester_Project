@@ -110,7 +110,6 @@ public class ColourITProjectManagement {
 		this.selectedDocumentation = selectedDocumentation;
 	}
 
-
 	public void selectUserRole(int role) {
 		userRole = role;
 	}
@@ -118,7 +117,6 @@ public class ColourITProjectManagement {
 	public int getUserRole() {
 		return userRole;
 	}
-
 
 	public String getUseRoleString(){
 		switch (userRole){
@@ -130,6 +128,18 @@ public class ColourITProjectManagement {
 		return "";
 	}
 
+	public void addProject(Project project) {
+		projectList.addProject(project);
+	}
+
+	public void deleteProject(Project project) {
+		projectList.removeProject(project);
+	}
+
+	public void addEmployee(String name, int employeeNumber, MyDate birthday) {
+		teamMemberList.addTeamMember(new TeamMember(name, employeeNumber, birthday));
+	}
+
 	public ProjectList getProjectList() {
 		return projectList;
 	}
@@ -138,19 +148,6 @@ public class ColourITProjectManagement {
 		return teamMemberList;
 	}
 
-	public void createProject(String projectName, MyDate getStartDate, MyDate deadline) {
-		projectList.addProject(new Project(projectName, getStartDate, deadline));
-	}
-
-	public void deleteProject(Project project) {
-		projectList.removeProject(project);
-	}
-
-	public void addEmployee(String name, int employeeNumber, MyDate birthday) {
-
-		teamMemberList.addTeamMember(new TeamMember(name, employeeNumber, birthday));
-
-	}
 
 	public void addMemberToProject(Project project, TeamMember teamMember, String memberRole) {
 		teamMember.setRole(memberRole);

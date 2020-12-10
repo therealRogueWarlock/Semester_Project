@@ -80,9 +80,14 @@ public class PopUpController_Project_Create extends Controller {
 		LocalDate startDate = this.startDate.getValue();
 		LocalDate deadLine = this.deadLine.getValue();
 		try {
+
+			// if there is already a project with given name, trow input error.
+			if (ColourItGui.getModel().getProjectList().getProjectByName(projectName) != null)
+				throw new InputMismatchException();
+
 			Project constructProject = new Project(projectName, new MyDate(startDate), new MyDate(deadLine));
 			constructProject.setTeamMemberList(new TeamMemberList(teamMembersForProject));
-			ColourItGui.getModel().getProjectList().addProject(constructProject);
+			ColourItGui.getModel().addProject(constructProject);
 
 			statusLabel.setText("Project Created");
 			statusLabel.setTextFill(Color.web("#22DD33"));
@@ -95,6 +100,9 @@ public class PopUpController_Project_Create extends Controller {
 			statusLabel.setTextFill(Color.web("#FF3344"));
 		} catch (NullPointerException nullPointerException) {
 			statusLabel.setText("Failed | Missing Date(s)");
+			statusLabel.setTextFill(Color.web("#FF3344"));
+		}catch (InputMismatchException e){
+			statusLabel.setText("Project name already in use");
 			statusLabel.setTextFill(Color.web("#FF3344"));
 		}
 	}
@@ -113,6 +121,6 @@ public class PopUpController_Project_Create extends Controller {
 	@Override
 	public void goBack() {
 		getParentController( ).init();
-		((Stage) confirm.getScene( ).getWindow( )).close();
+		((Stage) confirm.getScene( ).getWindow( )).close(); // TODO: Fix this
 	}
 }
