@@ -45,7 +45,6 @@ public class PopUpController_Task_Details extends Controller {
 
 	private void generalButtonLogic(){
 
-
 	}
 
 

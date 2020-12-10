@@ -72,8 +72,9 @@ public class Controller_RequirementList extends Controller {
 	public void init( ) {
 		Project project = ColourItGui.getSelectedProject( );
 
-		populateRequirementChoiceBox(project);
+		populateProjectInfo(project);
 
+		populateRequirementChoiceBox(project);
 		populateAddTeamMemberChoiceBox(project);
 		populateRemoveTeamMemberChoiceBox(project);
 		populateRoleChoiceBox(project);
@@ -81,15 +82,28 @@ public class Controller_RequirementList extends Controller {
 		populateRequirementTable(project);
 		populateTeamMemberTable(project);
 
-		totalTimeSpentLabel.setText(ColourItGui.getSelectedProject( ).getTotalTime( ) +
-				" hours spent on " +
-				ColourItGui.getSelectedProject( ).getName( ));
-		teamMemberTable.setSelectionModel(null);
-		deadlineLabel.setText("Deadline: " + ColourItGui.getSelectedProject( ).getDeadLine( ).toString( ));
-		if ( ColourItGui.getSelectedProject( ).getRequirementList( ).getRequirements( ).size( ) <= ColourItGui.getSelectedProject( ).getRequirementList( ).getFinishedRequirements( ).size( ) )
-			ColourItGui.getSelectedProject( ).setEndDate( );
+		activateRoleButtonLogic();
 	}
 
+
+	// functions for Button disable/enable logic
+
+	private void generalButtonLogic(){
+
+	}
+
+	private void activateRoleButtonLogic(){
+		if (ColourItGui.getModel().getUserRole() == 3){
+			projectCreatorButtonLogic();
+		}
+	}
+
+	private void projectCreatorButtonLogic(){
+		deleteProjectButton.setVisible(true);
+	}
+
+
+	// functions for populating data on scene
 	private void populateRoleChoiceBox(Project project) {
 		selectRoleChoiceBox.getItems( ).clear( );
 
@@ -154,6 +168,23 @@ public class Controller_RequirementList extends Controller {
 
 		teamMemberTable.setItems(observableTeamMembers);
 	}
+
+	private void populateProjectInfo(Project project){
+
+		totalTimeSpentLabel.setText(project.getTotalTime( ) + " hours spent on " + project.getName( ));
+
+		teamMemberTable.setSelectionModel(null);
+
+		deadlineLabel.setText("Deadline: " + project.getDeadLine( ).toString( ));
+
+		if ( project.getRequirementList( ).getRequirements( ).size( ) <= project.getRequirementList( )
+				.getFinishedRequirements( ).size( ) )
+
+			project.setEndDate( );
+	}
+
+
+	// functions for button functionality
 
 	public void editButton( ) throws IOException {
 		createPopUp("popUp_Project_Edit");
