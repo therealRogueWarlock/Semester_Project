@@ -129,8 +129,8 @@ public class  Controller_TaskList extends Controller {
 
 	private void removeProductOwnerButtons(){
 		editRequirementButton.setVisible(false);
-		approveButton.setVisible(true);
-		rejectButton.setVisible(true);
+		approveButton.setVisible(false);
+		rejectButton.setVisible(false);
 	}
 
 	private void productOwnerButtonsLogic(){
