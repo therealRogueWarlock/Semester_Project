@@ -15,7 +15,7 @@ public class Controller_LoginScreen extends Controller {
 
     @Override public void goBack()
     {
-
+init();
     }
 
     @FXML

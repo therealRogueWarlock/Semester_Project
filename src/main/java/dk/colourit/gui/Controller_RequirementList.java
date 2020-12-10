@@ -241,6 +241,7 @@ public class Controller_RequirementList extends Controller {
 	}
 
 	public void goBack( ) throws IOException {
+		init();
 		ColourItGui.setRoot("projectList");
 	}
 
