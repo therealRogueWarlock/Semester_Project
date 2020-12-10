@@ -8,92 +8,94 @@ import dk.colourit.model.Task;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.ImageCursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import java.io.IOException;
 
+import java.io.IOException;
 
 public class ColourItGui extends Application {
 
+	private static final
+	ColourITProjectManagement model = new ColourITProjectManagement( );
+	private static Scene scene;
 
-    private static Scene scene;
-    private static final
-    ColourITProjectManagement model = new ColourITProjectManagement();
+	private static Project selectedProject;
+	private static Requirement selectedRequirement;
+	private static Task selectedTask;
+	private static Documentation selectedDocumentation;
 
-    private static Project selectedProject;
-    private static Requirement selectedRequirement;
-    private static Task selectedTask;
-    private static Documentation selectedDocumentation;
+	static void setRoot(String fxml) throws IOException {
+		scene.setRoot(loadFXML(fxml));
+//		System.out.println(scene.getCursor() );
+	}
 
+	public static Project getSelectedProject( ) {
+		return selectedProject;
+	}
 
-    @Override
-    public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("loginScreen"), 1280, 720);
-        stage.setScene(scene);
-        stage.show();
+	public static void setSelectedProject(Project selectedProject) {
+		ColourItGui.selectedProject = selectedProject;
+	}
 
-        // when primary stage is closed, close all other open windows.
-        stage.setOnCloseRequest(e -> Platform.exit());
-    }
+	public static Requirement getSelectedRequirement( ) {
+		return selectedRequirement;
+	}
 
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
-    }
+	public static void setSelectedRequirement(Requirement selectedRequirement) {
+		ColourItGui.selectedRequirement = selectedRequirement;
+	}
 
-    public static void setSelectedProject(Project selectedProject) {
-        ColourItGui.selectedProject = selectedProject;
-    }
+	public static Task getSelectedTask( ) {
+		return selectedTask;
+	}
 
-    public static Project getSelectedProject() {
-        return selectedProject;
-    }
+	public static void setSelectedTask(Task selectedTask) {
+		ColourItGui.selectedTask = selectedTask;
+	}
 
-    public static void setSelectedRequirement(Requirement selectedRequirement) {
-        ColourItGui.selectedRequirement = selectedRequirement;
-    }
+	public static Documentation getSelectedDocumentation( ) {
+		return selectedDocumentation;
+	}
 
-    public static Requirement getSelectedRequirement() {
-        return selectedRequirement;
-    }
+	public static void setSelectedDocumentation(Documentation selectedDocumentation) {
+		ColourItGui.selectedDocumentation = selectedDocumentation;
+	}
 
-    public static void setSelectedTask(Task selectedTask) {
-        ColourItGui.selectedTask = selectedTask;
-    }
+	private static Parent loadFXML(String fxml) throws IOException {
 
-    public static Task getSelectedTask() {
-        return selectedTask;
-    }
+		FXMLLoader loader = new FXMLLoader( );
+		loader.setLocation(ColourItGui.class.getResource(fxml + ".fxml"));
+		Parent root = loader.load( );
 
-    public static void setSelectedDocumentation(Documentation selectedDocumentation) {
-        ColourItGui.selectedDocumentation = selectedDocumentation;
-    }
+		Controller controller = loader.getController( );
 
-    public static Documentation getSelectedDocumentation() {
-        return selectedDocumentation;
-    }
+		controller.init( );
 
-    private static Parent loadFXML(String fxml) throws IOException {
+		return root;
 
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(ColourItGui.class.getResource(fxml + ".fxml"));
-        Parent root = loader.load();
+	}
 
-        Controller controller = loader.getController();
+	public static ColourITProjectManagement getModel( ) {
+		return model;
+	}
 
-        controller.init();
+	public static void launchApp( ) {
+		launch( );
+	}
 
-        return root;
+	@Override
+	public void start(Stage stage) throws IOException {
+		scene = new Scene(loadFXML("loginScreen"), 1280, 720);
+		scene.setCursor(new ImageCursor(new Image("file:colourItCursor.png")));
+		stage.setScene(scene);
+		stage.show( );
 
-    }
-
-    public static ColourITProjectManagement getModel(){
-        return model;
-    }
-
-    public static void launchApp() {
-        launch();
-    }
+		// when primary stage is closed, close all other open windows.
+		stage.setOnCloseRequest(e -> Platform.exit( ));
+	}
 
 }
 
