@@ -1,5 +1,6 @@
 package dk.colourit.mediator;
 
+import dk.colourit.gui.ColourItGui;
 import dk.colourit.model.*;
 
 import java.util.concurrent.ThreadLocalRandom;
@@ -10,6 +11,13 @@ public class ColourITProjectManagement {
 	private TeamMemberList teamMemberList;
 	private ColourItFileHandler colourItFileHandler;
 	private int userRole;
+
+	private  Project selectedProject;
+	private  Requirement selectedRequirement;
+	private  Task selectedTask;
+	private  Documentation selectedDocumentation;
+
+
 
 	public ColourITProjectManagement() {
 		//Dummy Data ??
@@ -68,6 +76,43 @@ public class ColourITProjectManagement {
 		}
 		//Dummy data ??
 	}
+
+
+
+	public Project getSelectedProject( ) {
+		return selectedProject;
+	}
+
+	public void setSelectedProject(Project selectedProject) {
+		this.selectedProject = selectedProject;
+	}
+
+	public Requirement getSelectedRequirement( ) {
+		return selectedRequirement;
+	}
+
+	public void setSelectedRequirement(Requirement selectedRequirement) {
+		this.selectedRequirement = selectedRequirement;
+	}
+
+	public Task getSelectedTask( ) {
+		return selectedTask;
+	}
+
+	public void setSelectedTask(Task selectedTask) {
+		this.selectedTask = selectedTask;
+	}
+
+	public  Documentation getSelectedDocumentation( ) {
+		return selectedDocumentation;
+	}
+
+
+	public void setSelectedDocumentation(Documentation selectedDocumentation) {
+		this.selectedDocumentation = selectedDocumentation;
+	}
+
+
 
 	public void selectUserRole(int role) {
 		userRole = role;

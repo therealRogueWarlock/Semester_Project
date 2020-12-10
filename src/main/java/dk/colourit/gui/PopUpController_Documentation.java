@@ -49,13 +49,13 @@ public class PopUpController_Documentation extends Controller {
     // functions for populating data on popup.
     private void populateComboBox() {
         selectMember.getItems().clear();
-        ArrayList<TeamMember> teamMembers = ColourItGui.getSelectedProject().getTeamMemberList().getTeamMembers();
+        ArrayList<TeamMember> teamMembers = ColourItGui.getModel().getSelectedProject().getTeamMemberList().getTeamMembers();
         System.out.println(teamMembers);
         selectMember.getItems().addAll(teamMembers);
     }
 
     private void populateTableView() {
-        ArrayList<Documentation> documentations = ColourItGui.getSelectedTask().getDocumentations();
+        ArrayList<Documentation> documentations = ColourItGui.getModel().getSelectedTask().getDocumentations();
 
         ObservableList<Documentation> observableDocumentations = FXCollections.observableArrayList();
 
@@ -77,7 +77,7 @@ public class PopUpController_Documentation extends Controller {
     }
 
     public void confirm(){
-        ColourItGui.getSelectedTask().setFinito(taskFinished.isSelected());
+        ColourItGui.getModel().getSelectedTask().setFinito(taskFinished.isSelected());
         getParentController().getParentController().init();
         goBack();
     }
@@ -91,7 +91,7 @@ public class PopUpController_Documentation extends Controller {
         TeamMember member = (TeamMember) selectMember.getSelectionModel().getSelectedItem();
         int timeSpent = Integer.parseInt(addTimeSpent.getText());
         MyDate date = new MyDate(selectDate.getValue());
-        ColourItGui.getSelectedTask().getDocumentations().add(new Documentation(member, timeSpent, date));
+        ColourItGui.getModel().getSelectedTask().getDocumentations().add(new Documentation(member, timeSpent, date));
         init();
         getParentController().init();
         getParentController().getParentController().init();

@@ -22,47 +22,11 @@ public class ColourItGui extends Application {
 	ColourITProjectManagement model = new ColourITProjectManagement( );
 	private static Scene scene;
 
-	private static Project selectedProject;
-	private static Requirement selectedRequirement;
-	private static Task selectedTask;
-	private static Documentation selectedDocumentation;
 
 	static void setRoot(String fxml) throws IOException {
 		scene.setRoot(loadFXML(fxml));
-//		System.out.println(scene.getCursor() );
 	}
 
-	public static Project getSelectedProject( ) {
-		return selectedProject;
-	}
-
-	public static void setSelectedProject(Project selectedProject) {
-		ColourItGui.selectedProject = selectedProject;
-	}
-
-	public static Requirement getSelectedRequirement( ) {
-		return selectedRequirement;
-	}
-
-	public static void setSelectedRequirement(Requirement selectedRequirement) {
-		ColourItGui.selectedRequirement = selectedRequirement;
-	}
-
-	public static Task getSelectedTask( ) {
-		return selectedTask;
-	}
-
-	public static void setSelectedTask(Task selectedTask) {
-		ColourItGui.selectedTask = selectedTask;
-	}
-
-	public static Documentation getSelectedDocumentation( ) {
-		return selectedDocumentation;
-	}
-
-	public static void setSelectedDocumentation(Documentation selectedDocumentation) {
-		ColourItGui.selectedDocumentation = selectedDocumentation;
-	}
 
 	private static Parent loadFXML(String fxml) throws IOException {
 
