@@ -104,11 +104,12 @@
                     </GridPane.margin>
                 </Button>
             </GridPane>
-            <TableView fx:id="requirementTable" onMouseClicked="#itemSelected" prefHeight="493.0" prefWidth="391.0">
+            <TableView fx:id="requirementTable" onMouseClicked="#itemSelected" prefHeight="550.0" prefWidth="636.0">
                 <columns>
                     <TableColumn fx:id="requirementPriorityColumn" maxWidth="1.7976931348623157E308" prefWidth="57.0" text="Priority" />
                     <TableColumn fx:id="requirementNameColumn" prefWidth="274.0" text="Name" />
-                    <TableColumn fx:id="requirementStatusColumn" prefWidth="114.0" text="Status" />
+                    <TableColumn fx:id="requirementStatusColumn" prefWidth="141.0" text="Status" />
+               <TableColumn fx:id="requirementTimeEstimateColumn" prefWidth="163.0" text="Time Estimate" />
                 </columns>
             </TableView>
         </VBox>
