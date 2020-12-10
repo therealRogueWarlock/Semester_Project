@@ -75,11 +75,12 @@ public class Controller_ProjectList extends Controller {
 
 	private void buttonLogic( ) {
 		// If role picked on LoginScreen is Project Creator, set visibility of Create Project button to True. Otherwise set it to false
-		if ( ! ( ColourItGui.getModel( ).getUserRole( ) == 3 ) )
-			createButton.setVisible(false);
-		else
+		if ( ColourItGui.getModel( ).getUserRole( ) == 3 )
 			createButton.setVisible(true);
+
 	}
+
+
 
 	public void exportToWebsite( ) {
 		// TODO: Skal eksportere til vores hjemmeside via XML.
