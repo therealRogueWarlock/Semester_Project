@@ -224,10 +224,11 @@ public class Controller_RequirementList extends Controller {
 	}
 
 	public void removeRequirementButton( ) {
-
+		ColourItGui.getModel().getSelectedProject().getRequirementList().removeRequirement(requirementChoiceBox.getSelectionModel().getSelectedItem().getName());
+		init();
 	}
 
-	public void addTeamMemberButton( ) throws IOException {
+	public void addTeamMemberButton( ) {
 
 		TeamMember selectedTeamMember = addTeamMemberChoiceBox.getSelectionModel( ).getSelectedItem( );
 
