@@ -18,7 +18,7 @@ public class PopUpController_Project_DeleteConfirmation extends Controller
   public void confirmDelete() throws IOException {
     ColourItGui.getModel().deleteProject(ColourItGui.getSelectedProject());
     ((Stage) cancelDeleteButton.getScene().getWindow()).close();
-    ColourItGui.setRoot("projectListView");
+    ColourItGui.setRoot("projectList");
   }
 
 
