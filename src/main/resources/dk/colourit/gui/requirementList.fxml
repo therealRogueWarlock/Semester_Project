@@ -51,12 +51,12 @@
                 </Label>
                 <Separator orientation="VERTICAL" prefHeight="46.0" prefWidth="0.0" />
             </HBox>
-            <Button fx:id="editButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#editButton" text="Edit" HBox.hgrow="ALWAYS">
+            <Button fx:id="editButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#editButton" prefHeight="46.0" prefWidth="133.0" text="Edit Project" HBox.hgrow="ALWAYS">
                 <padding>
                     <Insets left="15.0" right="15.0" />
                 </padding>
             </Button>
-            <Button fx:id="backButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#goBack" text="Back" HBox.hgrow="ALWAYS">
+            <Button fx:id="backButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="46.0" prefWidth="113.0" text="Back" HBox.hgrow="ALWAYS">
                 <padding>
                     <Insets left="15.0" right="15.0" />
                 </padding>
