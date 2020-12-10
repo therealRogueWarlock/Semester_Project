@@ -19,38 +19,34 @@ import java.util.ArrayList;
 
 public class CreateProjectPopUpController extends Controller
 {
-
-	public TableView<TeamMember> teamMemberTableView;
-	public TableColumn<TeamMember, String> nameColumn;
-	public TableColumn<TeamMember, Integer> idColumn;
-
-
-
 	@FXML private TextField projectName;
 	@FXML private DatePicker startDate;
 	@FXML private DatePicker deadLine;
 	@FXML private ComboBox<TeamMember> selectMember;
+	@FXML private Button confirm;
+	@FXML private Label statusLabel;
+
+	@FXML private TableView<TeamMember> teamMemberTableView;
+	@FXML private TableColumn<TeamMember, String> nameColumn;
+	@FXML private TableColumn<TeamMember, Integer> idColumn;
 
 	private ArrayList<TeamMember> teamMembersForProject;
-
-
-	@FXML private Button confirm;
-
-
-	@FXML public Label statusLabel;
-
-
-	public CreateProjectPopUpController(){
-		teamMembersForProject = new ArrayList<>();
-	}
-
 
 	@Override public void init()
 	{
 		populateTeamMemberChoiceBox();
 		populateTeamMemberTableView();
+
+		/*Editable false, to make sure user can't make invalid input. Like strings
+		and invalid MyDate data.
+		*/
+		startDate.setEditable(false);
+		deadLine.setEditable(false);
 	}
 
+	public CreateProjectPopUpController(){
+		teamMembersForProject = new ArrayList<>();
+	}
 
 	private void populateTeamMemberTableView(){
 		nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));

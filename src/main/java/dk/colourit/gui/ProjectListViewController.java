@@ -23,6 +23,10 @@ import java.io.IOException;
 
 public class ProjectListViewController extends Controller
 {
+	public Button backButton;
+	public Button createButton;
+	public Button addEmployeeButton;
+	public Button exportButton;
 
 	public TableView<Project> projectTableView;
 	public TableColumn<Project, String> projectName;
@@ -30,20 +34,10 @@ public class ProjectListViewController extends Controller
 	public TableColumn<Project, MyDate> deadLine;
 	public TableColumn<Project, String> projectStatus;
 
-	// feeling cute might delete later
-	public Button backButton;
-	public Button createButton;
-	public Button addEmployeeButton;
-	public Button exportButton;
-
 	public TableView<TeamMember> employeeTableView;
 	public TableColumn<TeamMember, String> employeeNameColumn;
 	public TableColumn<TeamMember, Integer> idNumberColumn;
 	public TableColumn<TeamMember, MyDate> birthdayColumn;
-
-	public ProjectListViewController(){
-	}
-
 
 	@Override public void init()
 	{
@@ -79,6 +73,10 @@ public class ProjectListViewController extends Controller
 
 		employeeTableView.setSelectionModel(null);
 	}
+
+	public ProjectListViewController(){
+	}
+
 
 	public void exportToWebsite()
 	{

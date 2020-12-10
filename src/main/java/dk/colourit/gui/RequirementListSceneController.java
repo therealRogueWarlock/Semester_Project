@@ -17,43 +17,35 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class RequirementListSceneController extends Controller {
+	//Hvorfor skal alle knapper være Public og ikke Private?
 	public Button editButton;
 	public Button backButton;
-
-	public Button addRequirementButton;
-
-
-	public ChoiceBox<Requirement> requirementChoiceBox;
-
 	public Button removeRequirementButton;
+	public Button addRequirementButton;
 	public Button deleteProjectButton;
-
 	public Button addTeamMemberButton;
 	public Button removeTeamMemberButton;
 
-	public TableView<Requirement> requirementTable;
-	public TableColumn<Requirement, Integer> requirementPriorityColumn;
-	public TableColumn<Requirement, String> requirementNameColumn;
-	public TableColumn<Requirement, Integer> requirementStatusColumn;
+	@FXML private Label totalTimeSpentLabel;
 
-	public TableView<TeamMember> teamMemberTable;
-	public TableColumn<TeamMember, String> teamMemberNameColumn;
-	public TableColumn<TeamMember, Integer> idNumberColumn;
-	public TableColumn<TeamMember, Integer> roleColumn;
+	@FXML private ChoiceBox<Requirement> requirementChoiceBox;
+	@FXML private ChoiceBox<TeamMember> addTeamMemberChoiceBox;
+	@FXML private ChoiceBox<TeamMember> removeTeamMemberChoiceBox;
+	@FXML private ChoiceBox<String> selectRoleChoiceBox;
 
-	public ChoiceBox<TeamMember> addTeamMemberChoiceBox;
-	public ChoiceBox<TeamMember> removeTeamMemberChoiceBox;
-	public ChoiceBox<String> selectRoleChoiceBox;
-	public Label totalTimeSpentLabel;
+	@FXML private TableView<Requirement> requirementTable;
+	@FXML private TableColumn<Requirement, Integer> requirementPriorityColumn;
+	@FXML private TableColumn<Requirement, String> requirementNameColumn;
+	@FXML private TableColumn<Requirement, Integer> requirementStatusColumn;
 
+	@FXML private TableView<TeamMember> teamMemberTable;
+	@FXML private TableColumn<TeamMember, String> teamMemberNameColumn;
+	@FXML private TableColumn<TeamMember, Integer> idNumberColumn;
+	@FXML private TableColumn<TeamMember, Integer> roleColumn;
 
-	public RequirementListSceneController() {
+	@FXML private Label projectNameLabel;
 
-	}
-
-
-	public Label projectNameLabel;
-	public Label statusLabel;
+	@FXML private Label statusLabel;
 
 	private RequirementList requirementList;
 
@@ -71,9 +63,13 @@ public class RequirementListSceneController extends Controller {
 		populateTeamMemberTable(project);
 
 		totalTimeSpentLabel.setText(ColourItGui.getSelectedProject().getTotalTime() +
-				" hours spent on " +
-				ColourItGui.getSelectedProject().getName());
+			" hours spent on " +
+			ColourItGui.getSelectedProject().getName());
 		teamMemberTable.setSelectionModel(null);
+	}
+
+	public RequirementListSceneController() {
+
 	}
 
 	private void populateRoleChoiceBox(Project project) {

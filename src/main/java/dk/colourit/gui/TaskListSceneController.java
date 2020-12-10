@@ -21,8 +21,6 @@ public class TaskListSceneController extends Controller {
 
     public GridPane mainContainer;
 
-
-
     private TaskList taskList;
 
     public TableView<Task> highPriorityTableView;

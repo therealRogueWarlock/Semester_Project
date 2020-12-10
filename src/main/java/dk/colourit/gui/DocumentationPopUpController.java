@@ -15,72 +15,82 @@ import java.util.ArrayList;
 
 public class DocumentationPopUpController extends Controller {
 
-	public Label taskName;
-	public Label totalTimeSpent;
-	public ComboBox<TeamMember> selectMember;
-	public TextField addTimeSpent;
-	public DatePicker selectDate;
-	public Button logSpentTime;
-	public CheckBox taskFinished;
+    public Label taskName;
+    public Label totalTimeSpent;
 
-	public TableView<Documentation> documentationTableView;
-	public TableColumn<Documentation, String> memberNameColumn;
-	public TableColumn<Documentation, Integer> timeSpentColumn;
-	public TableColumn<Documentation, MyDate> daySelectedColumn;
+    @FXML private Button logSpentTime;
+    @FXML private Button confirm;
 
-	public Button confirm;
+    @FXML private TextField addTimeSpent;
 
-	public void init() {
-		populateComboBox();
-		populateTableView();
-	}
+    @FXML private ComboBox<TeamMember> selectMember;
+
+    @FXML private DatePicker selectDate;
+
+    @FXML private CheckBox taskFinished;
+
+    @FXML private TableView<Documentation> documentationTableView;
+    @FXML private TableColumn<Documentation, String> memberNameColumn;
+    @FXML private TableColumn<Documentation, Integer> timeSpentColumn;
+    @FXML private TableColumn<Documentation, MyDate> daySelectedColumn;
 
 
-	private void populateComboBox() {
-		selectMember.getItems().clear();
-		ArrayList<TeamMember> teamMembers = ColourItGui.getSelectedProject().getTeamMemberList().getTeamMembers();
-		System.out.println(teamMembers);
-		selectMember.getItems().addAll(teamMembers);
-	}
+    public void init() {
+        populateComboBox();
+        populateTableView();
 
-	private void populateTableView() {
-		ArrayList<Documentation> documentations = ColourItGui.getSelectedTask().getDocumentations();
+        /*Editable false, to make sure user can't make invalid input. Like strings
+		and invalid MyDate data.
+		*/
+        selectDate.setEditable(false);
+    }
 
-		ObservableList<Documentation> observableDocumentations = FXCollections.observableArrayList();
 
-		observableDocumentations.addAll(documentations);
+    private void populateComboBox() {
+        selectMember.getItems().clear();
+        ArrayList<TeamMember> teamMembers = ColourItGui.getSelectedProject().getTeamMemberList().getTeamMembers();
+        System.out.println(teamMembers);
+        selectMember.getItems().addAll(teamMembers);
+    }
 
-		memberNameColumn.setCellValueFactory(new PropertyValueFactory<>("teamMemberName"));
-		timeSpentColumn.setCellValueFactory(new PropertyValueFactory<>("timeSpent"));
-		daySelectedColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+    private void populateTableView() {
+        ArrayList<Documentation> documentations = ColourItGui.getSelectedTask().getDocumentations();
 
-		documentationTableView.setItems(observableDocumentations);
-	}
+        ObservableList<Documentation> observableDocumentations = FXCollections.observableArrayList();
 
-	@Override
-	public void goBack() {
-		getParentController().init();
-		((Stage) confirm.getScene().getWindow()).close(); // Get's the Window the button is in, and casts to a Stage, which can be closed with .close()
-	}
+        observableDocumentations.addAll(documentations);
 
-	public void confirm(){
-		ColourItGui.getSelectedTask().setFinito(taskFinished.isSelected());
-		getParentController().getParentController().init();
-		goBack();
-	}
+        memberNameColumn.setCellValueFactory(new PropertyValueFactory<>("teamMemberName"));
+        timeSpentColumn.setCellValueFactory(new PropertyValueFactory<>("timeSpent"));
+        daySelectedColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
 
-	public void toggleDisabledLogSpentTimeButton(){
-		logSpentTime.setDisable(!(logSpentTime.isDisable()));
-	}
+        documentationTableView.setItems(observableDocumentations);
+    }
 
-	@FXML
-	private void addDocumentation() {
-		TeamMember member = (TeamMember) selectMember.getSelectionModel().getSelectedItem();
-		int timeSpent = Integer.parseInt(addTimeSpent.getText());
-		MyDate date = new MyDate(selectDate.getValue());
-		ColourItGui.getSelectedTask().getDocumentations().add(new Documentation(member, timeSpent, date));
-		init();
-		getParentController().init();
-		getParentController().getParentController().init();
-	}
+    @Override
+    public void goBack() {
+        getParentController().init();
+        ((Stage) confirm.getScene().getWindow()).close(); // Get's the Window the button is in, and casts to a Stage, which can be closed with .close()
+    }
+
+    public void confirm(){
+        ColourItGui.getSelectedTask().setFinito(taskFinished.isSelected());
+        getParentController().getParentController().init();
+        goBack();
+    }
+
+    public void toggleDisabledLogSpentTimeButton(){
+        logSpentTime.setDisable(!(logSpentTime.isDisable()));
+    }
+
+    @FXML
+    private void addDocumentation() {
+        TeamMember member = (TeamMember) selectMember.getSelectionModel().getSelectedItem();
+        int timeSpent = Integer.parseInt(addTimeSpent.getText());
+        MyDate date = new MyDate(selectDate.getValue());
+        ColourItGui.getSelectedTask().getDocumentations().add(new Documentation(member, timeSpent, date));
+        init();
+        getParentController().init();
+        getParentController().getParentController().init();
+    }
 }
