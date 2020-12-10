@@ -165,7 +165,7 @@
                 </TableView>
             </children>
         </GridPane>
-      <HBox GridPane.rowIndex="3">
+      <HBox prefHeight="20.0" prefWidth="1273.0" GridPane.rowIndex="3">
          <children>
               <Label text="Colour IT © Group 7" textFill="#545454">
                   <font>
@@ -177,6 +177,9 @@
               </Label>
             <Label fx:id="roleSelectedLabel" text="Role Selected" />
          </children>
+         <GridPane.margin>
+            <Insets top="10.0" />
+         </GridPane.margin>
       </HBox>
     </children>
     <padding>
