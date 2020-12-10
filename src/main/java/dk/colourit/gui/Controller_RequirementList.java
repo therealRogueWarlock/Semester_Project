@@ -118,7 +118,6 @@ public class Controller_RequirementList extends Controller {
 		removeTeamMemberChoiceBox.setVisible(false);
 		removeTeamMemberButton.setVisible(false);
 		editProjectButton.setVisible(false);
-
 	}
 
 	private void removeProductOwnerButtons(){

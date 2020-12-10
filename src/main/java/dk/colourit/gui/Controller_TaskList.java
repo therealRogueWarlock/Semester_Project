@@ -129,18 +129,19 @@ public class  Controller_TaskList extends Controller {
 
 	private void removeProductOwnerButtons(){
 		editRequirementButton.setVisible(false);
+		approveButton.setVisible(true);
+		rejectButton.setVisible(true);
 	}
-
 
 	private void productOwnerButtonsLogic(){
 		// if the requirement is ready for review the approve or reject button will show
 		if ( ( ColourItGui.getModel().getSelectedRequirement( ).getStatus( )
 				.equalsIgnoreCase("ready for review"))) {
-			approveButton.setVisible(true);
-			rejectButton.setVisible(true);
+			approveButton.setDisable(false);
+			rejectButton.setDisable(false);
 		} else {
-			approveButton.setVisible(false);
-			rejectButton.setVisible(false);
+			approveButton.setDisable(true);
+			rejectButton.setDisable(true);
 		}
 	}
 
