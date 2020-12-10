@@ -9,14 +9,15 @@ public class ColourITProjectManagement {
 
 	private ProjectList projectList;
 	private TeamMemberList teamMemberList;
+
 	private ColourItFileHandler colourItFileHandler;
+
 	private int userRole;
 
 	private  Project selectedProject;
 	private  Requirement selectedRequirement;
 	private  Task selectedTask;
 	private  Documentation selectedDocumentation;
-
 
 
 	public ColourITProjectManagement() {
@@ -77,8 +78,6 @@ public class ColourITProjectManagement {
 		//Dummy data ??
 	}
 
-
-
 	public Project getSelectedProject( ) {
 		return selectedProject;
 	}
@@ -107,11 +106,9 @@ public class ColourITProjectManagement {
 		return selectedDocumentation;
 	}
 
-
 	public void setSelectedDocumentation(Documentation selectedDocumentation) {
 		this.selectedDocumentation = selectedDocumentation;
 	}
-
 
 
 	public void selectUserRole(int role) {
@@ -121,6 +118,7 @@ public class ColourITProjectManagement {
 	public int getUserRole() {
 		return userRole;
 	}
+
 
 	public String getUseRoleString(){
 		switch (userRole){
@@ -155,7 +153,6 @@ public class ColourITProjectManagement {
 	}
 
 	public void addMemberToProject(Project project, TeamMember teamMember, String memberRole) {
-
 		teamMember.setRole(memberRole);
 		project.getTeamMemberList().addTeamMember(teamMember);
 
@@ -188,7 +185,6 @@ public class ColourITProjectManagement {
 		Requirement requirement = new Requirement(requirementName, timeEstimate, priority);
 
 		project.getRequirementList().addRequirement(requirement);
-
 	}
 
 	public void removeRequirement(String projectName, String requirementName) {
@@ -219,5 +215,7 @@ public class ColourITProjectManagement {
 	public void removeTask(String projectName, String requirementName, String taskName) {
 		projectList.getProjectByName(projectName).getRequirementList().getRequirementByName(requirementName)
 				.getTaskList().removeTask(taskName);
+
 	}
+
 }

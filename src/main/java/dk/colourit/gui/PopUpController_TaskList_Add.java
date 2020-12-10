@@ -1,5 +1,6 @@
 package dk.colourit.gui;
 
+import dk.colourit.model.Task;
 import dk.colourit.model.TeamMember;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -24,12 +25,14 @@ public class PopUpController_TaskList_Add extends Controller {
 	private void addTask() {
 		String name = taskNameTextField.getText();
 		int time = Integer.parseInt(estimatedHoursTextField.getText());
-		TeamMember member = responsibleTeamMember.getSelectionModel().getSelectedItem();
+		String memberName = responsibleTeamMember.getSelectionModel().getSelectedItem().getName();
 		boolean priority = highPriorityCheckBox.isSelected();
 		String taskDesc = taskDescription.getText();
-//		ColourItGui.getSelectedRequirement().getTaskList().addTask(new Task(name, time, member, priority, taskDesc));
 
-		ColourItGui.getModel().addTask(ColourItGui.getModel().getSelectedProject().getName(), ColourItGui.getModel().getSelectedRequirement().getName(), name, member.getName(), time, priority, taskDesc);
+		// getting the task list from selected requirement, adding a new task to the list
+		ColourItGui.getModel().getSelectedRequirement()
+				.getTaskList().addTask(new Task(name, time, memberName, priority, taskDesc));
+
 		goBack();
 	}
 

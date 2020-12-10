@@ -1,10 +1,6 @@
 package dk.colourit.gui;
 
 import dk.colourit.mediator.ColourITProjectManagement;
-import dk.colourit.model.Documentation;
-import dk.colourit.model.Project;
-import dk.colourit.model.Requirement;
-import dk.colourit.model.Task;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -18,10 +14,9 @@ import java.io.IOException;
 
 public class ColourItGui extends Application {
 
-	private static final
-	ColourITProjectManagement model = new ColourITProjectManagement( );
-	private static Scene scene;
+	private static final ColourITProjectManagement model = new ColourITProjectManagement( );
 
+	private static Scene scene;
 
 	static void setRoot(String fxml) throws IOException {
 		scene.setRoot(loadFXML(fxml));
@@ -37,9 +32,7 @@ public class ColourItGui extends Application {
 		Controller controller = loader.getController( );
 
 		controller.init( );
-
 		return root;
-
 	}
 
 	public static ColourITProjectManagement getModel( ) {

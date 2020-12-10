@@ -31,13 +31,11 @@ public class PopUpController_Task_Details extends Controller {
 	public void init() {
 		Task task = ColourItGui.getModel().getSelectedTask();
 
-		System.out.println("init task info for popup");
 		taskNameEditTextField.setText(task.getName());
 		estimatedHoursTextField.setText(Integer.toString(task.getTimeEstimateHour()));
 		responsibleTeamMemberTextField.setText(task.getResponsible());
 		taskTextArea.setText(task.getDescription());
 		highPriorityCheckBox.setSelected(task.getPriority());
-
 
 		activateRoleButtonLogic();
 	}

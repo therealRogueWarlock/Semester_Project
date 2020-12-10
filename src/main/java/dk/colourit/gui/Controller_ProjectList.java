@@ -43,6 +43,8 @@ public class Controller_ProjectList extends Controller {
 
 		buttonLogic( );
 
+
+
 		roleSelectedLabel.setText(ColourItGui.getModel().getUseRoleString());
 	}
 

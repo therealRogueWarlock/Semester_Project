@@ -73,7 +73,9 @@ public class Controller_RequirementList extends Controller {
 
 	@Override
 	public void init( ) {
+
 		Project project = ColourItGui.getModel().getSelectedProject( );
+
 
 		populateProjectInfo(project);
 
@@ -209,17 +211,18 @@ public class Controller_RequirementList extends Controller {
 
 		String selectedRole = selectRoleChoiceBox.getSelectionModel( ).getSelectedItem( );
 
+		// if the the choice boxes er selected
 		if ( selectedTeamMember != null && selectedRole != null ) {
-
+			// getting selected project
 			Project selectedProject = ColourItGui.getModel().getSelectedProject( );
 
-			ColourItGui.getModel( ).addMemberToProject(selectedProject, selectedTeamMember, selectedRole);
+			// adding the selected role to the selected team member
+			selectedTeamMember.setRole(selectedRole);
+			// adding the team member to the projects team member list
+			selectedProject.getTeamMemberList().addTeamMember(selectedTeamMember);
 
-			//selectedTeamMember.setRole(selectedRole);
-			//selectedProject.getTeamMemberList().addTeamMember(selectedTeamMember);
-			init( );
+			init();
 		}
-
 	}
 
 	public void removeTeamMemberButton( ) {
