@@ -15,9 +15,11 @@ public class PopUpController_Project_Edit extends Controller {
 	private TextField nameField;
 
 	@FXML
-	private void confirm() throws IOException {
-		ColourItGui.getSelectedProject( ).setName(nameField.getText( ));
-		goBack();
+	private void confirm( ) throws IOException {
+		if ( ! nameField.getText( ).isBlank( ) && ! nameField.getText( ).isEmpty( ) ) {
+			ColourItGui.getSelectedProject( ).setName(nameField.getText( ));
+			goBack( );
+		}
 	}
 
 	@Override
