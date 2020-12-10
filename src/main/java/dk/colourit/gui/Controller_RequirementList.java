@@ -101,11 +101,31 @@ public class Controller_RequirementList extends Controller {
 		if (ColourItGui.getModel().getUserRole() == 3){
 			projectCreatorButtonLogic();
 		}
+
+		if (ColourItGui.getModel().getUserRole() == 1){
+			productOwnerButtonLogic();
+		}
 	}
 
 	private void projectCreatorButtonLogic(){
+
 		deleteProjectButton.setVisible(true);
+		addTeamMemberChoiceBox.setVisible(true);
+		selectRoleChoiceBox.setVisible(true);
+		addTeamMemberButton.setVisible(true);
+		removeTeamMemberChoiceBox.setVisible(true);
+		removeTeamMemberButton.setVisible(true);
+
 	}
+
+	private void productOwnerButtonLogic(){
+
+		addRequirementButton.setVisible(true);
+		removeRequirementButton.setVisible(true);
+		requirementChoiceBox.setVisible(true);
+
+	}
+
 
 	// functions for populating data on scene
 	private void populateProjectInfo(Project project){

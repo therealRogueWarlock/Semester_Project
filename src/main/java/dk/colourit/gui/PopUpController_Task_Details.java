@@ -61,6 +61,8 @@ public class PopUpController_Task_Details extends Controller {
 
 
 
+
+
 	public void deleteTask() {
 		ColourItGui.getModel().getSelectedRequirement().getTaskList().removeTask(ColourItGui.getModel().getSelectedTask().getName());
 

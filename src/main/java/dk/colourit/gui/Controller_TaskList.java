@@ -40,7 +40,7 @@ public class  Controller_TaskList extends Controller {
 	public Button backButton;
 	public Button rejectButton;
 	public Button approveButton;
-	public Button editRequirement;
+	public Button editRequirementButton;
     public Label roleSelectedLabel;
 
     private TaskList taskList;
@@ -118,6 +118,7 @@ public class  Controller_TaskList extends Controller {
 		if (ColourItGui.getModel().getUserRole() == 1){
 			productOwnerButtonLogic();
 		}
+
 	}
 
 	private void productOwnerButtonLogic(){
@@ -133,6 +134,8 @@ public class  Controller_TaskList extends Controller {
 			rejectButton.setDisable(true);
 			rejectButton.setVisible(false);
 		}
+
+		editRequirementButton.setVisible(true);
 	}
 
 
