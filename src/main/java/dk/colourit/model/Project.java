@@ -63,7 +63,7 @@ public class Project {
 		int percentage, finishedRequirement = 0;
 
 		for ( Requirement requirement : requirements ) {
-			if ( requirement.getStatus( ).equals("Finished") )
+			if ( requirement.getStatus( ).equals("Approved") )
 				finishedRequirement++;
 		}
 

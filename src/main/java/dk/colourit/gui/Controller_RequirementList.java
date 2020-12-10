@@ -17,8 +17,10 @@ import java.util.ArrayList;
 
 public class Controller_RequirementList extends Controller {
 
-	public Label statusLabel;
-    public Label roleSelectedLabel;
+	@FXML
+	protected Label statusLabel;
+	@FXML
+    protected Label roleSelectedLabel;
     @FXML
 	protected Button editProjectButton;
 	@FXML
@@ -75,7 +77,6 @@ public class Controller_RequirementList extends Controller {
 	public void init( ) {
 
 		Project project = ColourItGui.getModel().getSelectedProject( );
-
 
 		populateProjectInfo(project);
 
@@ -140,8 +141,8 @@ public class Controller_RequirementList extends Controller {
 
 		if ( project.getRequirementList( ).getRequirements( ).size( ) <= project.getRequirementList( )
 				.getFinishedRequirements( ).size( ) )
-
 			project.setEndDate( );
+		statusLabel.setText(project.getStatus());
 
 		roleSelectedLabel.setText(ColourItGui.getModel().getUseRoleString());
 	}
