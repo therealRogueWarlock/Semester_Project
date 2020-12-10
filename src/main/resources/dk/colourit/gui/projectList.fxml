@@ -76,11 +76,19 @@
                 </TableView>
             </children>
         </HBox>
-        <Label text="Colour IT © Group 7" textFill="#545454">
-            <font>
-                <Font name="System Italic" size="12.0" />
-            </font>
-        </Label>
+      <HBox>
+         <children>
+              <Label text="Colour IT © Group 7" textFill="#545454">
+                  <font>
+                      <Font name="System Italic" size="12.0" />
+                  </font>
+               <HBox.margin>
+                  <Insets right="480.0" />
+               </HBox.margin>
+              </Label>
+            <Label fx:id="roleSelectedLabel" text="Role Selected" />
+         </children>
+      </HBox>
     </children>
 
 </VBox>
