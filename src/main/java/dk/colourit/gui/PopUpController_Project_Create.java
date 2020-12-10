@@ -121,6 +121,6 @@ public class PopUpController_Project_Create extends Controller {
 	@Override
 	public void goBack() {
 		getParentController( ).init();
-		((Stage) confirm.getScene( ).getWindow( )).close();
+		((Stage) confirm.getScene( ).getWindow( )).close(); // TODO: Fix this
 	}
 }
