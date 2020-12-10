@@ -25,6 +25,11 @@ public class Documentation {
 		this.date = date;
 	}
 
+	public void removeTeamMember()
+	{
+		teamMemberName = null;
+	}
+
 	public int getTimeSpent() {
 		return timeSpent;
 	}
