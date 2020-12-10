@@ -155,7 +155,7 @@ public class Controller_RequirementList extends Controller {
 	}
 
 	public void editButton( ) {
-		// TODO: Implement Edit Scene and Functionality for a Project
+		// TODO: Implement Edit Scene and Functionality for a Project - use popUp_Project_Edit.fxml and PopUpController_Project_Edit.java
 	}
 
 	public void addRequirementButton( ) throws IOException {
