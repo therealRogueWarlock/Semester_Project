@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -111,44 +112,28 @@
                   </Text>
                     </children>
                 </GridPane>
-            <Button fx:id="approveButton" disable="true" layoutX="685.0" layoutY="149.0" mnemonicParsing="false" onMouseClicked="#approve" text="Approve" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets right="360.0" />
-               </GridPane.margin>
-            </Button>
-            <Button fx:id="rejectButton" disable="true" layoutX="685.0" layoutY="149.0" mnemonicParsing="false" onMouseClicked="#reject" text="Reject" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets right="300.0" />
-               </GridPane.margin>
-            </Button>
-                <Button fx:id="addTaskButton" mnemonicParsing="false" onMouseClicked="#popUpAddTask" text="Add task" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
-                    <GridPane.margin>
-                        <Insets right="100.0" />
-                    </GridPane.margin>
-                </Button>
-                <Button fx:id="backButton" layoutX="542.0" layoutY="149.0" mnemonicParsing="false" onMouseClicked="#goBack" text="Back" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
-                    <GridPane.margin>
-                        <Insets right="40.0" />
-                    </GridPane.margin>
-                </Button>
-                <Text fx:id="requirementDescriptionText" strokeType="OUTSIDE" strokeWidth="0.0" text="Requirement Description" GridPane.rowIndex="1">
-                    <GridPane.margin>
-                        <Insets left="40.0" top="5.0" />
-                    </GridPane.margin>
-                </Text>
-            <Button fx:id="editRequirementButton" mnemonicParsing="false" onMouseClicked="#editRequirement" text="Edit Requirement" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets right="180.0" />
-               </GridPane.margin>
-            </Button>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Requirement Description" GridPane.rowIndex="1" GridPane.valignment="TOP">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-               <GridPane.margin>
-                  <Insets left="40.0" top="10.0" />
-               </GridPane.margin>
-            </Text>
+            <AnchorPane GridPane.rowIndex="1">
+               <children>
+                  <HBox layoutX="847.0" layoutY="40.0" spacing="10.0" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="35.0">
+                     <children>
+                        <Button fx:id="approveButton" disable="true" mnemonicParsing="false" onMouseClicked="#approve" text="Approve" />
+                        <Button fx:id="rejectButton" disable="true" mnemonicParsing="false" onMouseClicked="#reject" text="Reject" />
+                        <Button fx:id="editRequirementButton" mnemonicParsing="false" onMouseClicked="#editRequirement" text="Edit Requirement" />
+                            <Button fx:id="addTaskButton" mnemonicParsing="false" onMouseClicked="#popUpAddTask" text="Add task" />
+                            <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#goBack" text="Back" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+                      <Text fx:id="requirementDescriptionText" layoutX="40.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Requirement Description" />
+                  <Text layoutX="40.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Requirement Description">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
             </children>
         </GridPane>
         <GridPane GridPane.rowIndex="1">
