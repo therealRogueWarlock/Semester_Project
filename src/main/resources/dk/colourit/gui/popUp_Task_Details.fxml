@@ -92,7 +92,7 @@
                   <VBox alignment="CENTER" prefHeight="105.0" prefWidth="128.0" spacing="5.0">
                      <children>
                         <Button fx:id="deleteTask" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#deleteTask" prefHeight="25.0" prefWidth="100.0" text="Delete task" />
-                        <Button fx:id="documentationButton" layoutX="29.0" layoutY="68.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#documentationPopup" prefHeight="25.0" prefWidth="100.0" text="Documentation" />
+                        <Button fx:id="documentationButton" layoutX="29.0" layoutY="68.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#documentationPopup" prefHeight="25.0" prefWidth="100.0" text="Documentation" visible="false" />
                      </children>
                      <padding>
                         <Insets bottom="10.0" top="10.0" />

@@ -55,7 +55,15 @@ public class  Controller_TaskList extends Controller {
 		populateHighPriorityTable( );
 		populateLowPriorityTable( );
 
-		scrumButtons( );
+
+
+
+		// logic
+		generalButtonLogic();
+
+		// checking logic for button for the different roles.
+		activateRoleButtonLogic();
+
 
 		// setting information text on scene
 		projectNameText.setText(ColourItGui.getSelectedProject( ).getName( ));
@@ -99,26 +107,37 @@ public class  Controller_TaskList extends Controller {
 		lowPriorityTableView.setItems(observableLowPriorityTasks);
 	}
 
-	private void scrumButtons( ) {
-		if ( ! ( ColourItGui.getSelectedRequirement( ).getStatus( ).equalsIgnoreCase("ready for review") ) ) {
-			approveButton.setDisable(true);
-			approveButton.setVisible(false);
-			rejectButton.setDisable(true);
-			rejectButton.setVisible(false);
-		} else {
+
+	private void generalButtonLogic(){
+		if (ColourItGui.getSelectedRequirement().getStatus().equalsIgnoreCase("Approved") ||
+				ColourItGui.getSelectedProject().getTeamMemberList().getTeamMembers().size() == 0 ) {
+			addTaskButton.setDisable(true);
+		}
+	}
+
+
+	private void activateRoleButtonLogic(){
+		if (ColourItGui.getModel().getUserRole() == 1){
+			productOwnerButtonLogic();
+		}
+	}
+
+
+	private void productOwnerButtonLogic(){
+		// if the requirement is ready for review the approve or reject button will show
+		if ( ( ColourItGui.getSelectedRequirement( ).getStatus( ).equalsIgnoreCase("ready for review") ) ) {
 			approveButton.setDisable(false);
 			approveButton.setVisible(true);
 			rejectButton.setDisable(false);
 			rejectButton.setVisible(true);
+		} else {
+			approveButton.setDisable(true);
+			approveButton.setVisible(false);
+			rejectButton.setDisable(true);
+			rejectButton.setVisible(false);
 		}
-
-		if ( ColourItGui.getSelectedRequirement( ).getStatus( ).equalsIgnoreCase("Approved") ) {
-			addTaskButton.setDisable(true);
-			addTaskButton.setVisible(false);
-		}
-
-
 	}
+
 
 	public void approve( ) throws IOException {
 		ColourItGui.getSelectedRequirement( ).setStatus("Approved");

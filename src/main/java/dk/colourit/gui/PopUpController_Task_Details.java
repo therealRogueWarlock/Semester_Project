@@ -37,11 +37,32 @@ public class PopUpController_Task_Details extends Controller {
 		responsibleTeamMemberTextField.setText(task.getResponsible());
 		taskTextArea.setText(task.getDescription());
 		highPriorityCheckBox.setSelected(task.getPriority());
+
+
+		activateRoleButtonLogic();
 	}
 
-	public PopUpController_Task_Details() {
+
+	private void generalButtonLogic(){
+
 
 	}
+
+
+	private void activateRoleButtonLogic(){
+		if (ColourItGui.getModel().getUserRole() == 2){
+			scrumMasterButtonLogic();
+		}
+	}
+
+	private void scrumMasterButtonLogic(){
+		documentationButton.setVisible(true);
+	}
+
+
+
+
+
 
 	public void deleteTask() {
 		ColourItGui.getSelectedRequirement().getTaskList().removeTask(ColourItGui.getSelectedTask().getName());
