@@ -82,12 +82,12 @@
                         </Text>
                     </children>
                 </GridPane>
-            <Button fx:id="approveButton" layoutX="685.0" layoutY="149.0" mnemonicParsing="false" onMouseClicked="#approve" text="Approve" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+            <Button fx:id="approveButton" disable="true" layoutX="685.0" layoutY="149.0" mnemonicParsing="false" onMouseClicked="#approve" text="Approve" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="240.0" />
                </GridPane.margin>
             </Button>
-            <Button fx:id="rejectButton" layoutX="685.0" layoutY="149.0" mnemonicParsing="false" onMouseClicked="#reject" text="Reject" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+            <Button fx:id="rejectButton" disable="true" layoutX="685.0" layoutY="149.0" mnemonicParsing="false" onMouseClicked="#reject" text="Reject" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="180.0" />
                </GridPane.margin>
