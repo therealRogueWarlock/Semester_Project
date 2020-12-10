@@ -10,17 +10,17 @@ public class ConfirmDeleteProjectController extends Controller
   public Button confirmDeleteButton;
   public Button cancelDeleteButton;
 
+  @Override
+  public void init() {
+
+  }
+
   public void confirmDelete() throws IOException {
     ColourItGui.getModel().deleteProject(ColourItGui.getSelectedProject());
     ((Stage) cancelDeleteButton.getScene().getWindow()).close();
     ColourItGui.setRoot("projectListView");
   }
 
-
-  @Override
-  public void init() {
-
-  }
 
   @Override
   public void goBack() throws IOException {

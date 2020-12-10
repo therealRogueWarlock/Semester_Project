@@ -27,16 +27,6 @@ public class TaskDetailsPopUpController extends Controller {
 	public TextArea taskTextArea;
 
 
-	public TaskDetailsPopUpController() {
-
-	}
-
-	public void deleteTask() {
-		ColourItGui.getSelectedRequirement().getTaskList().removeTask(ColourItGui.getSelectedTask().getName());
-
-		goBack();
-	}
-
 	@Override
 	public void init() {
 		Task task = ColourItGui.getSelectedTask();
@@ -47,6 +37,16 @@ public class TaskDetailsPopUpController extends Controller {
 		responsibleTeamMemberTextField.setText(task.getResponsible());
 		taskTextArea.setText(task.getDescription());
 		highPriorityCheckBox.setSelected(task.getPriority());
+	}
+
+	public TaskDetailsPopUpController() {
+
+	}
+
+	public void deleteTask() {
+		ColourItGui.getSelectedRequirement().getTaskList().removeTask(ColourItGui.getSelectedTask().getName());
+
+		goBack();
 	}
 
 	public void confirmEdit() {

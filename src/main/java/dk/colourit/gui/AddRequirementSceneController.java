@@ -1,7 +1,6 @@
 package dk.colourit.gui;
 
 import dk.colourit.model.Project;
-import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -12,8 +11,15 @@ public class AddRequirementSceneController extends Controller {
 	public TextField requirementNameTextField;
 	public TextField priorityTextField;
 	public TextField timeEstimateField;
+
 	public TextArea requirementDescriptionTextArea;
+
 	public Button addRequirementButton;
+
+	@Override
+	public void init() {
+		// Doesn't need anything initialized
+	}
 
 	public void addRequirement() {
 		String requirementNameTextFieldText = requirementNameTextField.getText();
@@ -30,11 +36,6 @@ public class AddRequirementSceneController extends Controller {
 		clearInputFields();
 
 		getParentController().init();
-	}
-
-	@Override
-	public void init() {
-		// Doesn't need anything initialized
 	}
 
 	private void clearInputFields() {

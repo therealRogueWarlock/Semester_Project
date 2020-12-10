@@ -8,10 +8,6 @@ import java.io.IOException;
 public class LoginScreenController extends Controller {
 
 
-    public LoginScreenController(){
-
-    }
-
     @Override
     public void init() {
 

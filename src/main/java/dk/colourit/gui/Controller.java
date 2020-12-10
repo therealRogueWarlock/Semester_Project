@@ -14,6 +14,8 @@ public abstract class Controller
 
     private Controller parentController;
 
+    public abstract void init();
+
     protected Controller(){
 
     }
@@ -22,8 +24,6 @@ public abstract class Controller
     {
         ColourItGui.setRoot("loginScreen");
     }
-
-    public abstract void init();
 
     public abstract void goBack() throws IOException;
 
