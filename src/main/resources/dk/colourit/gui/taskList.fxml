@@ -107,7 +107,7 @@
                         <Insets left="40.0" />
                     </GridPane.margin>
                 </Text>
-            <Button mnemonicParsing="false" text="Edit Requirement" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+            <Button fx:id="editRequirement" mnemonicParsing="false" onMouseClicked="#editRequirement" text="Edit Requirement" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="180.0" />
                </GridPane.margin>
