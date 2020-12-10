@@ -50,25 +50,18 @@ public class  Controller_TaskList extends Controller {
 		Requirement requirement = ColourItGui.getSelectedRequirement( );
 		taskList = requirement.getTaskList( );
 
+		populateHighPriorityTable();
+		populateLowPriorityTable();
+		populateInformationText(requirement);
 
-		populateHighPriorityTable( );
-		populateLowPriorityTable( );
-
-
-		// logic
+		// logic for buttons
 		generalButtonLogic();
 
-		// checking logic for button for the different roles.
+		// checking logic for buttons for the different roles.
 		activateRoleButtonLogic();
-
-
-		// setting information text on scene
-		projectNameText.setText(ColourItGui.getSelectedProject( ).getName( ));
-		statusText.setText(requirement.getStatus( ));
-		requirementNameText.setText(requirement.getName( ));
 	}
 
-
+	// functions for populating data / tables on scene
 	private void populateHighPriorityTable( ) {
 		highPriorityTableView.getItems( ).clear( );
 		// getting high priority task from task list
@@ -86,7 +79,6 @@ public class  Controller_TaskList extends Controller {
 
 		// adding the observable list to the high priority table
 		highPriorityTableView.setItems(observableHighPriorityTasks);
-
 	}
 
 	private void populateLowPriorityTable( ) {
@@ -105,7 +97,15 @@ public class  Controller_TaskList extends Controller {
 		lowPriorityTableView.setItems(observableLowPriorityTasks);
 	}
 
+	private void populateInformationText(Requirement requirement){
+		// setting information text on scene
+		projectNameText.setText(ColourItGui.getSelectedProject( ).getName( ));
+		statusText.setText(requirement.getStatus( ));
+		requirementNameText.setText(requirement.getName( ));
+	}
 
+
+	// functions for button disable/enable logic
 	private void generalButtonLogic(){
 		if (ColourItGui.getSelectedRequirement().getStatus().equalsIgnoreCase("Approved") ||
 				ColourItGui.getSelectedProject().getTeamMemberList().getTeamMembers().size() == 0 ) {
@@ -187,5 +187,4 @@ public class  Controller_TaskList extends Controller {
 			}
 		}
 	}
-
 }
