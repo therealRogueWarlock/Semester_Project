@@ -67,6 +67,10 @@ public class Project {
 		return name;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public MyDate getStartDate( ) {
 		return startDate;
 	}
@@ -91,7 +95,6 @@ public class Project {
 	public void setEndDate( ) {
 		this.endDate = MyDate.now( );
 	}
-
 }
 
 

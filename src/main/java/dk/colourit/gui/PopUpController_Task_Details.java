@@ -71,7 +71,7 @@ public class PopUpController_Task_Details extends Controller {
 
 	@FXML
 	private void documentationPopup() throws IOException {
-		createPopUp("documentationPopUp");
+		createPopUp("popUp_Documentation");
 	}
 
 	@FXML

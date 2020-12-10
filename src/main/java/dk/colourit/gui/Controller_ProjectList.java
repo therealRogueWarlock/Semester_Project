@@ -94,20 +94,17 @@ public class Controller_ProjectList extends Controller {
 		try {
 			Project selectedProject = projectTableView.getSelectionModel( ).getSelectedItem( );
 			ColourItGui.setSelectedProject( selectedProject );
-			ColourItGui.setRoot( "requirementListScene" );
+			ColourItGui.setRoot( "requirementList" );
 		} catch ( Exception e ) {
 			System.out.println( "No project selected" );
 		}
 	}
 
 	public void addEmployee( ) throws IOException {
-
-		createPopUp( "addTeamMemberScene" );
-
+		createPopUp( "popUp_TaskList_Add" );
 	}
 
 	public void createProjectButton( ) throws IOException {
-		createPopUp( "createProjectPopUp" );
-
+		createPopUp( "popUp_Project_Create" );
 	}
 }

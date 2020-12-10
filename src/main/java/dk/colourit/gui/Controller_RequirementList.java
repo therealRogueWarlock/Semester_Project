@@ -159,14 +159,13 @@ public class Controller_RequirementList extends Controller {
 		teamMemberTable.setItems(observableTeamMembers);
 	}
 
-	public void editButton( ) {
+	public void editButton( ) throws IOException {
+		createPopUp("popUp_Project_Edit");
 		// TODO: Implement Edit Scene and Functionality for a Project - use popUp_Project_Edit.fxml and PopUpController_Project_Edit.java
 	}
 
 	public void addRequirementButton( ) throws IOException {
-
-		createPopUp("addRequirementScenePopUp");
-
+		createPopUp("popUp_Requirement_Add");
 	}
 
 	public void removeRequirementButton( ) {
@@ -207,24 +206,19 @@ public class Controller_RequirementList extends Controller {
 	}
 
 	public void deleteProjectButton( ) throws IOException {
-
-		createPopUp("confirmDeleteProject");
-
+		createPopUp("popUp_Project_DeleteConfirmation");
 	}
 
 	public void goBack( ) throws IOException {
-		ColourItGui.setRoot("projectListView");
+		ColourItGui.setRoot("projectList");
 	}
 
 	public void itemSelected( ) throws IOException //SANDER DON'T FUCKING REMOVE THIS PLEASE
 	{
-
 		Requirement selectedRequirement = requirementTable.getSelectionModel( ).getSelectedItem( );
 		ColourItGui.setSelectedRequirement(selectedRequirement);
-		ColourItGui.setRoot("taskListScene");
-
+		ColourItGui.setRoot("taskList");
 	}
-
 }
 
 

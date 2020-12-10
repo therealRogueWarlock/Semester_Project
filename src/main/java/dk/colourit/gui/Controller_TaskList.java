@@ -102,14 +102,14 @@ public class Controller_TaskList extends Controller {
 
 	@FXML
 	private void popUpAddTask() throws IOException {
-		createPopUp("taskListAddPopUp");
+		createPopUp("popUp_TaskList_Add");
 
 	}
 
 	@FXML
 	private void popUpTaskDetails() throws IOException {
 
-		createPopUp("taskDetailsPopUp");
+		createPopUp("popUp_Task_Details");
 
 	}
 
