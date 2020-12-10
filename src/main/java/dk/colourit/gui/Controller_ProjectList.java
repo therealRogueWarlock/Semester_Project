@@ -101,7 +101,7 @@ public class Controller_ProjectList extends Controller {
 	}
 
 	public void addEmployee( ) throws IOException {
-		createPopUp( "popUp_TaskList_Add" );
+		createPopUp( "popUp_TeamMemberList_Add" );
 	}
 
 	public void createProjectButton( ) throws IOException {
