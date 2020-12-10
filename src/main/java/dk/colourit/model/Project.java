@@ -52,14 +52,18 @@ public class Project {
 
 		int totalRequirements = requirements.size( );
 
-		int finishedRequirement = 0;
+		int percentage, finishedRequirement = 0;
 
 		for ( Requirement requirement : requirements ) {
 			if ( requirement.getStatus( ).equals("Finished") )
 				finishedRequirement++;
 		}
 
-		return finishedRequirement + " / " + totalRequirements + " requirements finished";
+		if ( totalRequirements < 1 )
+			percentage = Math.floorDiv(finishedRequirement, 1);
+		else
+			percentage = Math.floorDiv(100 * finishedRequirement, totalRequirements);
+		return percentage + "% Completed";
 		// TODO: Lege projekt - Skal fungere ordentligt! (Andreas er nysgerrig på hvad der menes)
 	}
 
