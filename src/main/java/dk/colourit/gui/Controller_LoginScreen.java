@@ -42,4 +42,10 @@ init();
         ColourItGui.setRoot("projectList");
     }
 
+    @FXML
+    private void selectedAdminRole() throws IOException {
+        ColourItGui.getModel().selectUserRole(4);
+        ColourItGui.setRoot("projectList");
+    }
+
 }

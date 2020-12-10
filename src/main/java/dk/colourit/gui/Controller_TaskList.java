@@ -116,15 +116,20 @@ public class  Controller_TaskList extends Controller {
 	}
 
 	private void activateRoleButtonLogic(){
-		if (ColourItGui.getModel().getUserRole() != 1){
-			removeProductOwnerButtons();
+
+		// if the role is not admin check what buttons should be removed. else skip.
+		if (ColourItGui.getModel().getUserRole() != 4) {
+			if (ColourItGui.getModel().getUserRole() != 1) {
+				removeProductOwnerButtons();
+			}
+
 		}
 
-		// if the role is product Owner activate logic for product owner buttons
-		if (ColourItGui.getModel().getUserRole() == 1){
+		// if the role is product Owner or admin activate logic for product owner buttons
+		if (ColourItGui.getModel().getUserRole() == 1
+				|| ColourItGui.getModel().getUserRole() == 4) {
 			productOwnerButtonsLogic();
 		}
-
 	}
 
 	private void removeProductOwnerButtons(){

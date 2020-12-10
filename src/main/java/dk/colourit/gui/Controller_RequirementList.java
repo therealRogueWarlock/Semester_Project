@@ -99,13 +99,15 @@ public class Controller_RequirementList extends Controller {
 
 	private void activateRoleButtonLogic(){
 
-		// if the role is not 1 ( product owner) make buttons associated with the role invisible
-		if (ColourItGui.getModel().getUserRole() != 1){
-			removeProductOwnerButtons();
-		}
-
-		if (ColourItGui.getModel().getUserRole() != 3){
-			removeProjectCreatorButtons();
+		// if the role is not admin check what buttons should be removed. else skip.
+		if (ColourItGui.getModel().getUserRole() != 4) {
+			// if the role is not 1 ( product owner) make buttons associated with the role invisible
+			if (ColourItGui.getModel().getUserRole() != 1) {
+				removeProductOwnerButtons();
+			}
+			if (ColourItGui.getModel().getUserRole() != 3) {
+				removeProjectCreatorButtons();
+			}
 		}
 
 	}

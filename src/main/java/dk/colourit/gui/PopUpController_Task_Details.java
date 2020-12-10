@@ -46,12 +46,13 @@ public class PopUpController_Task_Details extends Controller {
 
 
 	private void activateRoleButtonLogic(){
-
-		// if the user role is not scrum master, remove scrum masters buttons.
-		if (ColourItGui.getModel().getUserRole() != 2){
-			removeScrumMasterButtons();
+		// if the role is not admin check what buttons should be removed. else skip.
+		if (ColourItGui.getModel().getUserRole() != 4) {
+			// if the user role is not scrum master, remove scrum masters buttons.
+			if (ColourItGui.getModel().getUserRole() != 2) {
+				removeScrumMasterButtons();
+			}
 		}
-
 	}
 
 	private void removeScrumMasterButtons(){

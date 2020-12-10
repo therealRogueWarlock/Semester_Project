@@ -49,9 +49,12 @@ public class Controller_ProjectList extends Controller {
 
 	// general button logic
 	private void buttonLogic( ) {
-		// If the role is not project creator hide create button
-		if ( ColourItGui.getModel( ).getUserRole( ) != 3 )
-			createButton.setVisible(false);
+		// if the role is not admin check what buttons should be removed. else skip.
+		if (ColourItGui.getModel().getUserRole() != 4) {
+			// If the role is not project creator hide create button
+			if (ColourItGui.getModel().getUserRole() != 3)
+				createButton.setVisible(false);
+		}
 	}
 
 	// functions for populating data one scene
