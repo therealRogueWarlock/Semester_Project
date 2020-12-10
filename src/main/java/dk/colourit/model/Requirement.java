@@ -10,6 +10,7 @@ public class Requirement {
 	private int timeEstimate;
 	private int priority;
 	private String status;
+	private String requirementDescription;
 
 
 	public Requirement(String name, int timeEstimate, int priority) {
@@ -20,6 +21,20 @@ public class Requirement {
 		creationDate = MyDate.now();
 		status = "Not Done";
 		taskList = new TaskList();
+		requirementDescription = "No Description";
+
+	}
+
+	public Requirement(String name, int timeEstimate, int priority, String requirementDescription) {
+		setName(name);
+		setTimeEstimate(timeEstimate);
+		setPriority(priority);
+		setRequirementDescription(requirementDescription);
+
+		creationDate = MyDate.now();
+		status = "Not Done";
+		taskList = new TaskList();
+
 
 	}
 
@@ -36,6 +51,14 @@ public class Requirement {
 
 	public MyDate getCreationDate() {
 		return creationDate;
+	}
+
+	public String getRequirementDescription() {
+		return requirementDescription;
+	}
+
+	public void setRequirementDescription(String requirementDescription) {
+		this.requirementDescription = requirementDescription;
 	}
 
 	public int getTimeEstimate() {

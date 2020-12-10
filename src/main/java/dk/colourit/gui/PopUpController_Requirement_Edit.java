@@ -39,23 +39,23 @@ public class PopUpController_Requirement_Edit extends Controller{
 
     @Override
     public void goBack() throws IOException {
-
+        getParentController().init();
+        ((Stage) editRequirementButton.getScene().getWindow()).close(); // Get's the Window the button is in, and casts to a Stage, which can be closed with .close()
     }
 
-    public void confirmEdit()
-    {
+    public void confirmEdit() throws IOException {
         String name = requirementNameTextField.getText();
         int priority = Integer.parseInt(priorityTextField.getText());
         int timeEstimate = Integer.parseInt(timeEstimateField.getText());
+        String requiredDescription = requirementDescriptionTextArea.getText();
 
         ColourItGui.getSelectedRequirement().setName(name);
         ColourItGui.getSelectedRequirement().setPriority(priority);
         ColourItGui.getSelectedRequirement().setTimeEstimate(timeEstimate);
-        //TODO: requirementDescriptionTextArea - Virker ikke endnu..
+        ColourItGui.getSelectedRequirement().setRequirementDescription(requiredDescription);
+        //TODO: requirementDescriptionTextArea - Virker den nu?
 
-        //String taskDescription = taskTextArea.getText();
-
-        //goBack(); ??
+        goBack();
     }
 
 }
