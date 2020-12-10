@@ -44,6 +44,8 @@ public class Controller_RequirementList extends Controller {
 	@FXML
 	private TableColumn<Requirement, Integer> requirementStatusColumn;
 	@FXML
+	private TableColumn<Requirement, Integer> requirementTimeEstimateColumn;
+	@FXML
 	private TableView<TeamMember> teamMemberTable;
 	@FXML
 	private TableColumn<TeamMember, String> teamMemberNameColumn;
@@ -167,6 +169,7 @@ public class Controller_RequirementList extends Controller {
 		requirementNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 		requirementPriorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
 		requirementStatusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+		requirementTimeEstimateColumn.setCellValueFactory(new PropertyValueFactory<>("timeEstimate"));
 
 		requirementTable.setItems(observableRequirementList);
 	}
