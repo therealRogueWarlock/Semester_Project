@@ -35,8 +35,8 @@
                 <GridPane>
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
@@ -52,7 +52,7 @@
                                 <Font name="System Bold" size="13.0" />
                             </font>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Status" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Status" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                             <GridPane.margin>
                                 <Insets top="10.0" />
                             </GridPane.margin>
@@ -73,7 +73,7 @@
                                 <Insets top="5.0" />
                             </GridPane.margin>
                         </Text>
-                        <Text fx:id="statusText" strokeType="OUTSIDE" strokeWidth="0.0" text="notdone" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                        <Text fx:id="statusText" strokeType="OUTSIDE" strokeWidth="0.0" text="notdone" GridPane.columnIndex="2" GridPane.halignment="CENTER">
                             <GridPane.margin>
                                 <Insets top="5.0" />
                             </GridPane.margin>
@@ -83,6 +83,32 @@
                                 <Insets top="5.0" />
                             </GridPane.margin>
                         </Text>
+                  <Text fx:id="priorityText" strokeType="OUTSIDE" strokeWidth="0.0" text="Priority" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                     <GridPane.margin>
+                        <Insets top="5.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <Text fx:id="timeEstimateText" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Estimate" GridPane.columnIndex="3" GridPane.halignment="CENTER">
+                     <GridPane.margin>
+                        <Insets top="5.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Priority" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets top="10.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Time Estimate" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets top="10.0" />
+                     </GridPane.margin>
+                  </Text>
                     </children>
                 </GridPane>
             <Button fx:id="approveButton" disable="true" layoutX="685.0" layoutY="149.0" mnemonicParsing="false" onMouseClicked="#approve" text="Approve" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
@@ -105,9 +131,9 @@
                         <Insets right="40.0" />
                     </GridPane.margin>
                 </Button>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="All tasks of the requirement" GridPane.rowIndex="1">
+                <Text fx:id="requirementDescriptionText" strokeType="OUTSIDE" strokeWidth="0.0" text="Requirement Description" GridPane.rowIndex="1">
                     <GridPane.margin>
-                        <Insets left="40.0" />
+                        <Insets left="40.0" top="5.0" />
                     </GridPane.margin>
                 </Text>
             <Button fx:id="editRequirement" mnemonicParsing="false" onMouseClicked="#editRequirement" text="Edit Requirement" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
@@ -115,6 +141,14 @@
                   <Insets right="180.0" />
                </GridPane.margin>
             </Button>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Requirement Description" GridPane.rowIndex="1" GridPane.valignment="TOP">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+               <GridPane.margin>
+                  <Insets left="40.0" top="10.0" />
+               </GridPane.margin>
+            </Text>
             </children>
         </GridPane>
         <GridPane GridPane.rowIndex="1">
