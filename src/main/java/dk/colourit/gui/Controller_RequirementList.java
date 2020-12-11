@@ -15,56 +15,36 @@ import java.util.ArrayList;
 
 public class Controller_RequirementList extends Controller {
 
-	@FXML
-	protected Label statusLabel;
-	@FXML
-    protected Label roleSelectedLabel;
-    @FXML
-	protected Button editProjectButton;
-	@FXML
-	protected Button backButton;
-	@FXML
-	protected Button addRequirementButton;
-	@FXML
-	protected Button removeRequirementButton;
-	@FXML
-	protected Button deleteProjectButton;
-	@FXML
-	protected Button addTeamMemberButton;
-	@FXML
-	protected Button removeTeamMemberButton;
-	@FXML
-	private Label projectNameLabel;
-	@FXML
-	private TableView<Requirement> requirementTable;
-	@FXML
-	private TableColumn<Requirement, Integer> requirementPriorityColumn;
-	@FXML
-	private TableColumn<Requirement, String> requirementNameColumn;
-	@FXML
-	private TableColumn<Requirement, Integer> requirementStatusColumn;
-	@FXML
-	private TableColumn<Requirement, Integer> requirementTimeEstimateColumn;
-	@FXML
-	private TableView<TeamMember> teamMemberTable;
-	@FXML
-	private TableColumn<TeamMember, String> teamMemberNameColumn;
-	@FXML
-	private TableColumn<TeamMember, Integer> idNumberColumn;
-	@FXML
-	private TableColumn<TeamMember, Integer> roleColumn;
-	@FXML
-	private ChoiceBox<TeamMember> addTeamMemberChoiceBox;
-	@FXML
-	private ChoiceBox<TeamMember> removeTeamMemberChoiceBox;
-	@FXML
-	private ChoiceBox<Requirement> requirementChoiceBox;
-	@FXML
-	private ChoiceBox<String> selectRoleChoiceBox;
-	@FXML
-	private Label totalTimeSpentLabel;
-	@FXML
-	private Label deadlineLabel;
+	@FXML private Label projectNameLabel;
+	@FXML private Label totalTimeSpentLabel;
+	@FXML private Label deadlineLabel;
+	@FXML protected Label statusLabel;
+	@FXML protected Label roleSelectedLabel;
+
+    @FXML protected Button editProjectButton;
+	@FXML protected Button backButton;
+	@FXML protected Button addRequirementButton;
+	@FXML protected Button removeRequirementButton;
+	@FXML protected Button deleteProjectButton;
+	@FXML protected Button addTeamMemberButton;
+	@FXML protected Button removeTeamMemberButton;
+
+
+	@FXML private TableView<Requirement> requirementTable;
+	@FXML private TableColumn<Requirement, Integer> requirementPriorityColumn;
+	@FXML private TableColumn<Requirement, String> requirementNameColumn;
+	@FXML private TableColumn<Requirement, Integer> requirementStatusColumn;
+	@FXML private TableColumn<Requirement, Integer> requirementTimeEstimateColumn;
+
+	@FXML private TableView<TeamMember> teamMemberTable;
+	@FXML private TableColumn<TeamMember, String> teamMemberNameColumn;
+	@FXML private TableColumn<TeamMember, Integer> idNumberColumn;
+	@FXML private TableColumn<TeamMember, Integer> roleColumn;
+	@FXML private ChoiceBox<TeamMember> addTeamMemberChoiceBox;
+	@FXML private ChoiceBox<TeamMember> removeTeamMemberChoiceBox;
+	@FXML private ChoiceBox<Requirement> requirementChoiceBox;
+	@FXML private ChoiceBox<String> selectRoleChoiceBox;
+
 
 	public Controller_RequirementList( ) {
 

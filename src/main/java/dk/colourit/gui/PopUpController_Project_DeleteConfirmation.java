@@ -12,7 +12,7 @@ public class PopUpController_Project_DeleteConfirmation extends Controller
 
   @Override
   public void init() {
-
+    // Abstract filler.
   }
 
   public void confirmDelete() throws IOException {
@@ -20,7 +20,6 @@ public class PopUpController_Project_DeleteConfirmation extends Controller
     ((Stage) cancelDeleteButton.getScene().getWindow()).close();
     ColourItGui.setRoot("projectList");
   }
-
 
   @Override
   public void goBack() throws IOException {
