@@ -40,24 +40,43 @@ public class ColourItFileHandler {
         //should save team member list to binary file.
     }
 
-    /*
 
-    public static TeamMemberList readFromBinary() throws IOException {
+    public static TeamMemberList readTeamMemberList() throws IOException, ClassNotFoundException {
+
         String filename = "teamMemberList.bin";
         File file = new File(filename);
 
-        FileOutputStream fis = new FileOutputStream(file);
-        ObjectOutputStream in = new ObjectOutputStream(fis);
+        FileInputStream fis = new FileInputStream(file);
+        ObjectInputStream in = new ObjectInputStream(fis);
 
         TeamMemberList list1 = (TeamMemberList) in.readObject();
-        System.out.println(list1);
+        System.out.println(list1.getTeamMembers());
 
-        in.close();
+        in.close(); // Close the file
 
-        System.out.println("End reading data from file: " + file.getAbsoulutePath());
+        System.out.println("End reading data from file: " + file.getAbsolutePath());
+
+        return list1;
     }
 
-     */
+    public static ProjectList readProjectList() throws IOException, ClassNotFoundException {
+
+        String filename = "projectList.bin";
+        File file = new File(filename);
+
+        FileInputStream fis = new FileInputStream(file);
+        ObjectInputStream in = new ObjectInputStream(fis);
+
+        ProjectList projectList = (ProjectList) in.readObject();
+        System.out.println(projectList.getProjects());
+
+        in.close(); // Close the file
+
+        System.out.println("End reading data from file: " + file.getAbsolutePath());
+
+        return projectList;
+    }
+
 
 
     public static void saveToXML(ProjectList list)
