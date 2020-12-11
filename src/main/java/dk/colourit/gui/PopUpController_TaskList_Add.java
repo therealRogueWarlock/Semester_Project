@@ -25,7 +25,7 @@ public class PopUpController_TaskList_Add extends Controller {
 	private void addTask() {
 		String name = taskNameTextField.getText();
 		int time = Integer.parseInt(estimatedHoursTextField.getText());
-		String memberName = responsibleTeamMember.getSelectionModel().getSelectedItem().getName();
+		String memberName = responsibleTeamMember.getSelectionModel().getSelectedItem().getMemberName();
 		boolean priority = highPriorityCheckBox.isSelected();
 		String taskDesc = taskDescription.getText();
 

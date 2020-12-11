@@ -59,7 +59,7 @@ public class TaskList implements Serializable {
 
     public Task getTaskByName(String name) {
         for (Task task : tasks) {
-            if (task.getName().equalsIgnoreCase(name)) {
+            if (task.getTaskName().equalsIgnoreCase(name)) {
                 return task;
             }
         }
@@ -72,7 +72,7 @@ public class TaskList implements Serializable {
 
     public void removeTask(String taskName) {
         for (Task task : tasks) {
-            if (task.getName().equalsIgnoreCase(taskName)) {
+            if (task.getTaskName().equalsIgnoreCase(taskName)) {
                 tasks.remove(task);
                 break;
             }

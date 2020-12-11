@@ -6,7 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -31,17 +30,13 @@ public class PopUpController_Task_Details extends Controller {
 	public void init() {
 		Task task = ColourItGui.getModel().getSelectedTask();
 
-		taskNameEditTextField.setText(task.getName());
-		estimatedHoursTextField.setText(Integer.toString(task.getTimeEstimateHour()));
-		responsibleTeamMemberTextField.setText(task.getResponsible());
-		taskTextArea.setText(task.getDescription());
+		taskNameEditTextField.setText(task.getTaskName());
+		estimatedHoursTextField.setText(Integer.toString(task.getTaskTimeEstimate()));
+		responsibleTeamMemberTextField.setText(task.getTaskResponsible());
+		taskTextArea.setText(task.getTaskDescription());
 		highPriorityCheckBox.setSelected(task.getPriority());
 
 		activateRoleButtonLogic();
-	}
-
-
-	private void generalButtonLogic(){
 	}
 
 
@@ -62,7 +57,7 @@ public class PopUpController_Task_Details extends Controller {
 
 	public void deleteTask() {
 		ColourItGui.getModel().getSelectedRequirement().getTaskList()
-				.removeTask(ColourItGui.getModel().getSelectedTask().getName());
+				.removeTask(ColourItGui.getModel().getSelectedTask().getTaskName());
 
 		goBack();
 	}

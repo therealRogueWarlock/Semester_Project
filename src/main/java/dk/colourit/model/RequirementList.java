@@ -17,7 +17,7 @@ public class RequirementList implements Serializable {
 
 	public Requirement getRequirementByName(String requirementName) {
 		for ( Requirement requirement : requirements ) {
-			if ( requirement.getName( ).equals(requirementName) ) {
+			if ( requirement.getRequirementName( ).equals(requirementName) ) {
 				return requirement;
 			}
 		}
@@ -40,7 +40,7 @@ public class RequirementList implements Serializable {
 
 	public void removeRequirement(String requirementName) {
 		for ( Requirement requirement : requirements ) {
-			if ( requirement.getName( ).equalsIgnoreCase(requirementName) ) {
+			if ( requirement.getRequirementName( ).equalsIgnoreCase(requirementName) ) {
 				requirements.remove(requirement);
 				break;
 			}

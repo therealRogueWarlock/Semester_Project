@@ -31,7 +31,7 @@ public class PopUpController_Requirement_Add extends Controller {
 
 		try {
 			for ( Requirement req : ColourItGui.getModel( ).getSelectedProject( ).getRequirementList( ).getRequirements( ) ) {
-				if ( req.getName( ).equalsIgnoreCase(requirementNameTextField.getText( )) )
+				if ( req.getRequirementName( ).equalsIgnoreCase(requirementNameTextField.getText( )) )
 					throw new InputMismatchException("Duplicate Name");
 			}
 			String requirementNameTextFieldText = requirementNameTextField.getText( );

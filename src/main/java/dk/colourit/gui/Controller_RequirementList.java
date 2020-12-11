@@ -7,8 +7,6 @@ import dk.colourit.model.TeamMemberList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -113,11 +111,11 @@ public class Controller_RequirementList extends Controller {
 	// functions for populating data on scene
 	private void populateProjectInfo(Project project){
 
-		totalTimeSpentLabel.setText(project.getTotalTime( ) + " hours spent on " + project.getName( ));
+		totalTimeSpentLabel.setText(project.getTotalTime( ) + " hours spent on " + project.getProjectName( ));
 
 		teamMemberTable.setSelectionModel(null);
 
-		deadlineLabel.setText("Deadline: " + project.getDeadLine( ).toString( ));
+		deadlineLabel.setText("Deadline: " + project.getProjectDeadline( ).toString( ));
 
 		if ( project.getRequirementList( ).getRequirements( ).size( ) <= project.getRequirementList( )
 				.getFinishedRequirements( ).size( ) )
@@ -133,7 +131,7 @@ public class Controller_RequirementList extends Controller {
 		selectRoleChoiceBox.getItems( ).addAll("Team Member", "Project Creator", "Scrum Master", "Product Owner");
 
 		// setting information text on scene
-		projectNameLabel.setText(ColourItGui.getModel().getSelectedProject( ).getName( ));
+		projectNameLabel.setText(ColourItGui.getModel().getSelectedProject( ).getProjectName( ));
 		statusLabel.setText(project.getStatus( ));
 	}
 
@@ -205,7 +203,7 @@ public class Controller_RequirementList extends Controller {
 	}
 
 	public void removeRequirementButton( ) {
-		ColourItGui.getModel().getSelectedProject().getRequirementList().removeRequirement(requirementChoiceBox.getSelectionModel().getSelectedItem().getName());
+		ColourItGui.getModel().getSelectedProject().getRequirementList().removeRequirement(requirementChoiceBox.getSelectionModel().getSelectedItem().getRequirementName());
 		init();
 	}
 
