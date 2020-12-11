@@ -89,7 +89,7 @@ public class Controller_ProjectList extends Controller {
 
 	// functions for button/table functionality
 	public void exportToWebsite( ) {
-		ColourItGui.getModel().saveToFile();
+		ColourItGui.getModel().saveToXml();
 	}
 
 	@Override
