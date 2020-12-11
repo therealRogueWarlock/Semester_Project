@@ -40,6 +40,7 @@ public class Controller_RequirementList extends Controller {
 	@FXML private TableColumn<TeamMember, String> teamMemberNameColumn;
 	@FXML private TableColumn<TeamMember, Integer> idNumberColumn;
 	@FXML private TableColumn<TeamMember, Integer> roleColumn;
+
 	@FXML private ChoiceBox<TeamMember> addTeamMemberChoiceBox;
 	@FXML private ChoiceBox<TeamMember> removeTeamMemberChoiceBox;
 	@FXML private ChoiceBox<Requirement> requirementChoiceBox;
@@ -121,6 +122,9 @@ public class Controller_RequirementList extends Controller {
 				.getFinishedRequirements( ).size( ) )
 			project.setEndDate( );
 		statusLabel.setText(project.getProjectStatus());
+		// setting information text on scene
+		projectNameLabel.setText(ColourItGui.getModel().getSelectedProject( ).getProjectName( ));
+		statusLabel.setText(project.getProjectStatus());
 
 		roleSelectedLabel.setText(ColourItGui.getModel().getUseRoleString());
 	}
@@ -129,10 +133,8 @@ public class Controller_RequirementList extends Controller {
 		selectRoleChoiceBox.getItems( ).clear( );
 
 		selectRoleChoiceBox.getItems( ).addAll("Team Member", "Project Creator", "Scrum Master", "Product Owner");
+		selectRoleChoiceBox.getSelectionModel().select(0);
 
-		// setting information text on scene
-		projectNameLabel.setText(ColourItGui.getModel().getSelectedProject( ).getProjectName( ));
-		statusLabel.setText(project.getProjectStatus());
 	}
 
 	private void populateRequirementChoiceBox(Project project) {
@@ -140,12 +142,16 @@ public class Controller_RequirementList extends Controller {
 
 		ArrayList<Requirement> requirements = project.getRequirementList( ).getRequirements( );
 		requirementChoiceBox.getItems( ).addAll(requirements);
+		// preselecting first item in choice box
+		requirementChoiceBox.getSelectionModel().select(0);
 	}
 
 	private void populateRemoveTeamMemberChoiceBox(Project project) {
 		removeTeamMemberChoiceBox.getItems( ).clear( );
 
 		removeTeamMemberChoiceBox.getItems( ).addAll(project.getTeamMemberList( ).getTeamMembers( ));
+		// preselecting first item in choice box
+		removeTeamMemberChoiceBox.getSelectionModel().select(0);
 	}
 
 	private void populateAddTeamMemberChoiceBox(Project project) {
@@ -159,6 +165,8 @@ public class Controller_RequirementList extends Controller {
 		TeamMemberList employeesNotInProject = employeesCopy.subtractArgListFromThisList(projectTeamMemberList);
 
 		addTeamMemberChoiceBox.getItems( ).addAll(employeesNotInProject.getTeamMembers( ));
+		// preselecting first item in choice box
+		addTeamMemberChoiceBox.getSelectionModel().select(0);
 
 	}
 
