@@ -69,11 +69,11 @@ public class  Controller_TaskList extends Controller {
 		// creating an observable list from the high Priority tasks list
 		observableHighPriorityTasks.addAll(highPriorityTasks);
 
-		taskNameHighColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-		estimatedTimeHighColumn.setCellValueFactory(new PropertyValueFactory<>("timeEstimateHour"));
+		taskNameHighColumn.setCellValueFactory(new PropertyValueFactory<>("taskName"));
+		estimatedTimeHighColumn.setCellValueFactory(new PropertyValueFactory<>("taskTimeEstimate"));
 		totalTimeSpentHighColumn.setCellValueFactory(new PropertyValueFactory<>("totalTimeSpent"));
-		responsibleHighColumn.setCellValueFactory(new PropertyValueFactory<>("responsible"));
-		taskStatusHighColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+		responsibleHighColumn.setCellValueFactory(new PropertyValueFactory<>("taskResponsible"));
+		taskStatusHighColumn.setCellValueFactory(new PropertyValueFactory<>("taskStatus"));
 
 		// adding the observable list to the high priority table
 		highPriorityTableView.setItems(observableHighPriorityTasks);
@@ -87,11 +87,11 @@ public class  Controller_TaskList extends Controller {
 
 		observableLowPriorityTasks.addAll(lowPriorityTasks);
 
-		taskNameLowColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-		estimatedTimeLowColumn.setCellValueFactory(new PropertyValueFactory<>("timeEstimateHour"));
+		taskNameLowColumn.setCellValueFactory(new PropertyValueFactory<>("taskName"));
+		estimatedTimeLowColumn.setCellValueFactory(new PropertyValueFactory<>("taskTimeEstimate"));
 		totalTimeSpentLowColumn.setCellValueFactory(new PropertyValueFactory<>("totalTimeSpent"));
-		responsibleLowColumn.setCellValueFactory(new PropertyValueFactory<>("responsible"));
-		taskStatusLowColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+		responsibleLowColumn.setCellValueFactory(new PropertyValueFactory<>("taskResponsible"));
+		taskStatusLowColumn.setCellValueFactory(new PropertyValueFactory<>("taskStatus"));
 		lowPriorityTableView.setItems(observableLowPriorityTasks);
 	}
 

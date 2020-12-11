@@ -10,14 +10,13 @@ import java.io.*;
 public class ColourItFileHandler {
 
 
-    public static void saveToBinary(ProjectList list) throws IOException {
+    public static void saveToBinary(ProjectList projectList) throws IOException {
         String filename = "projectList.bin";
         File file = new File(filename);
 
         FileOutputStream fos = new FileOutputStream(file);
         ObjectOutputStream out = new ObjectOutputStream(fos);
 
-        ProjectList projectList = list;
 
         out.writeObject(projectList);
         out.close();
@@ -26,14 +25,13 @@ public class ColourItFileHandler {
 
         //should save project list to binary file.
     }
-    public static void saveToBinary(TeamMemberList list) throws IOException {
+
+    public static void saveToBinary(TeamMemberList teamMemberList) throws IOException {
         String filename = "teamMemberList.bin";
         File file = new File(filename);
 
         FileOutputStream fos = new FileOutputStream(file);
         ObjectOutputStream out = new ObjectOutputStream(fos);
-
-        TeamMemberList teamMemberList = list;
 
         out.writeObject(teamMemberList);
         out.close();
@@ -41,6 +39,7 @@ public class ColourItFileHandler {
         System.out.println("End of data writing: " + file.getAbsolutePath());
         //should save team member list to binary file.
     }
+
 
     public static void saveToXML(ProjectList list)
     {

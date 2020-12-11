@@ -77,9 +77,13 @@ public class ColourITProjectManagement {
 		//Dummy data ??
 	}
 
-	public void saveToFile() throws IOException {
-		ColourItFileHandler.saveToBinary(projectList);
-		ColourItFileHandler.saveToBinary(teamMemberList);
+	public void saveToFile() {
+		try {
+			ColourItFileHandler.saveToBinary(projectList);
+			ColourItFileHandler.saveToBinary(teamMemberList);
+		}catch (IOException e){
+			System.out.println(e);
+		}
 	}
 
 	public void saveToXml(){

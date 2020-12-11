@@ -56,7 +56,7 @@ public class Project implements Serializable {
 		return time;
 	}
 
-	public String getStatus( ) {
+	public String getProjectStatus( ) {
 		ArrayList<Requirement> requirements = requirementList.getRequirements( );
 
 		int totalRequirements = requirements.size( );

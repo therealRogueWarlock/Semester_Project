@@ -63,10 +63,10 @@ public class Controller_ProjectList extends Controller {
 		ObservableList<Project> observableProjects = FXCollections.observableArrayList( );
 		observableProjects.addAll(ColourItGui.getModel( ).getProjectList( ).getProjects( ));
 
-		projectName.setCellValueFactory(new PropertyValueFactory<>("name"));
-		startDate.setCellValueFactory(new PropertyValueFactory<>("startDate"));
-		deadLine.setCellValueFactory(new PropertyValueFactory<>("deadLine"));
-		projectStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+		projectName.setCellValueFactory(new PropertyValueFactory<>("projectName"));
+		startDate.setCellValueFactory(new PropertyValueFactory<>("projectStartDate"));
+		deadLine.setCellValueFactory(new PropertyValueFactory<>("projectDeadline"));
+		projectStatus.setCellValueFactory(new PropertyValueFactory<>("projectStatus"));
 
 		projectTableView.setItems(observableProjects);
 	}
@@ -76,7 +76,7 @@ public class Controller_ProjectList extends Controller {
 
 		observableTeamMembers.addAll(ColourItGui.getModel( ).getTeamMemberList( ).getTeamMembers( ));
 
-		employeeNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+		employeeNameColumn.setCellValueFactory(new PropertyValueFactory<>("memberName"));
 		idNumberColumn.setCellValueFactory(new PropertyValueFactory<>("employeeNumber"));
 		birthdayColumn.setCellValueFactory(new PropertyValueFactory<>("birthday"));
 
@@ -90,6 +90,7 @@ public class Controller_ProjectList extends Controller {
 	// functions for button/table functionality
 	public void exportToWebsite( ) {
 		ColourItGui.getModel().saveToXml();
+		ColourItGui.getModel().saveToFile();
 	}
 
 	@Override

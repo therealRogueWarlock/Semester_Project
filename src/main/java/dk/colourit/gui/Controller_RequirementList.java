@@ -120,7 +120,7 @@ public class Controller_RequirementList extends Controller {
 		if ( project.getRequirementList( ).getRequirements( ).size( ) <= project.getRequirementList( )
 				.getFinishedRequirements( ).size( ) )
 			project.setEndDate( );
-		statusLabel.setText(project.getStatus());
+		statusLabel.setText(project.getProjectStatus());
 
 		roleSelectedLabel.setText(ColourItGui.getModel().getUseRoleString());
 	}
@@ -132,7 +132,7 @@ public class Controller_RequirementList extends Controller {
 
 		// setting information text on scene
 		projectNameLabel.setText(ColourItGui.getModel().getSelectedProject( ).getProjectName( ));
-		statusLabel.setText(project.getStatus( ));
+		statusLabel.setText(project.getProjectStatus());
 	}
 
 	private void populateRequirementChoiceBox(Project project) {
@@ -169,10 +169,10 @@ public class Controller_RequirementList extends Controller {
 
 		observableRequirementList.addAll(requirements);
 
-		requirementNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+		requirementNameColumn.setCellValueFactory(new PropertyValueFactory<>("requirementName"));
 		requirementPriorityColumn.setCellValueFactory(new PropertyValueFactory<>("priority"));
 		requirementStatusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
-		requirementTimeEstimateColumn.setCellValueFactory(new PropertyValueFactory<>("timeEstimate"));
+		requirementTimeEstimateColumn.setCellValueFactory(new PropertyValueFactory<>("requirementTimeEstimate"));
 
 		requirementTable.setItems(observableRequirementList);
 	}
@@ -183,7 +183,7 @@ public class Controller_RequirementList extends Controller {
 
 		observableTeamMembers.addAll(teamMembers);
 
-		teamMemberNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+		teamMemberNameColumn.setCellValueFactory(new PropertyValueFactory<>("memberName"));
 		idNumberColumn.setCellValueFactory(new PropertyValueFactory<>("employeeNumber"));
 		roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
 

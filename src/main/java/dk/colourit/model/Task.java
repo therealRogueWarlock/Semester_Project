@@ -76,7 +76,7 @@ public class Task implements Serializable {
 		return finito;
 	}
 
-	public String getStatus() {
+	public String getTaskStatus() {
 		if (finito)
 			return "Finished";
 		else

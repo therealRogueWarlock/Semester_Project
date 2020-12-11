@@ -70,8 +70,8 @@ public class PopUpController_Documentation extends Controller {
 		observableDocumentations.addAll(documentations);
 
 		memberNameColumn.setCellValueFactory(new PropertyValueFactory<>("teamMemberName"));
-		timeSpentColumn.setCellValueFactory(new PropertyValueFactory<>("timeSpent"));
-		daySelectedColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+		timeSpentColumn.setCellValueFactory(new PropertyValueFactory<>("timeSpentDocumentation"));
+		daySelectedColumn.setCellValueFactory(new PropertyValueFactory<>("documentationDate"));
 
 		documentationTableView.setItems(observableDocumentations);
 	}
