@@ -30,7 +30,7 @@ public class TeamMemberList implements Serializable {
 
         if (searchMethod.equalsIgnoreCase("name")) {
             for (TeamMember teamMember : teamMembers) {
-                if (teamMember.getName().equalsIgnoreCase(searchTerm))
+                if (teamMember.getMemberName().equalsIgnoreCase(searchTerm))
                     return teamMember;
             }
         }
@@ -59,7 +59,7 @@ public class TeamMemberList implements Serializable {
     public TeamMemberList subtractArgListFromThisList(TeamMemberList teamMemberList){
 
         for (TeamMember teamMember:teamMemberList.getTeamMembers()) {
-            TeamMember duplicate  = this.getTeamMember("name", teamMember.getName());
+            TeamMember duplicate  = this.getTeamMember("name", teamMember.getMemberName());
             this.removeTeamMember(duplicate);
         }
 

@@ -7,8 +7,6 @@ import dk.colourit.model.TeamMemberList;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -225,7 +223,7 @@ public class Controller_RequirementList extends Controller {
 	}
 
 	public void removeRequirementButton( ) {
-		ColourItGui.getModel().getSelectedProject().getRequirementList().removeRequirement(requirementChoiceBox.getSelectionModel().getSelectedItem().getName());
+		ColourItGui.getModel().getSelectedProject().getRequirementList().removeRequirement(requirementChoiceBox.getSelectionModel().getSelectedItem().getRequirementName());
 		init();
 	}
 

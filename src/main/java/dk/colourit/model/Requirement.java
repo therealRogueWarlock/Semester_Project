@@ -6,7 +6,7 @@ import java.security.InvalidParameterException;
 public class Requirement implements Serializable {
 
 	private TaskList taskList;
-	private String name;
+	private String requirementName;
 	private final MyDate creationDate;
 	private int timeEstimate;
 	private int priority;
@@ -15,7 +15,7 @@ public class Requirement implements Serializable {
 
 
 	public Requirement(String name, int timeEstimate, int priority) {
-		setName(name);
+		setRequirementName(name);
 		setTimeEstimate(timeEstimate);
 		setPriority(priority);
 
@@ -27,7 +27,7 @@ public class Requirement implements Serializable {
 	}
 
 	public Requirement(String name, int timeEstimate, int priority, String requirementDescription) {
-		setName(name);
+		setRequirementName(name);
 		setTimeEstimate(timeEstimate);
 		setPriority(priority);
 		setRequirementDescription(requirementDescription);
@@ -39,15 +39,15 @@ public class Requirement implements Serializable {
 
 	}
 
-	public String getName() {
-		return name;
+	public String getRequirementName() {
+		return requirementName;
 	}
 
-	public void setName(String name) {
-		if (name.isEmpty() || name.isBlank())
+	public void setRequirementName(String requirementName) {
+		if (requirementName.isEmpty() || requirementName.isBlank())
 			throw new InvalidParameterException("No name found");
 		else
-			this.name = name;
+			this.requirementName = requirementName;
 	}
 
 	public MyDate getCreationDate() {
@@ -101,7 +101,7 @@ public class Requirement implements Serializable {
 	}
 
 	public String toString() {
-		return name;
+		return requirementName;
 	}
 }
 

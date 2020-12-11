@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class TeamMember implements Serializable
 {
-    private String name;
+    private String memberName;
     private int employeeNumber;
     private String role;
     /*
@@ -15,22 +15,22 @@ public class TeamMember implements Serializable
      */
     private MyDate birthday;
 
-    public TeamMember(String name, int employeeNumber, MyDate birthday)
+    public TeamMember(String MemberName, int employeeNumber, MyDate birthday)
     {
-        this.name = name;
+        this.memberName = MemberName;
         this.employeeNumber = employeeNumber;
         this.birthday = birthday;
 //        setRole("Team Member");
     }
 
-    public String getName()
+    public String getMemberName()
     {
-        return name;
+        return memberName;
     }
 
-    public void setName(String name)
+    public void setMemberName(String memberName)
     {
-        this.name = name;
+        this.memberName = memberName;
     }
 
     public int getEmployeeNumber()
@@ -65,11 +65,11 @@ public class TeamMember implements Serializable
 
     @Override public String toString()
     {
-        return name + " | ID: " + employeeNumber;
+        return memberName + " | ID: " + employeeNumber;
     }
 
     public TeamMember getCopy(){
-        return new TeamMember(name,employeeNumber,birthday);
+        return new TeamMember(memberName,employeeNumber,birthday);
     }
 
 

@@ -1,6 +1,5 @@
 package dk.colourit.gui;
 
-import dk.colourit.mediator.ColourITProjectManagement;
 import dk.colourit.model.Requirement;
 import dk.colourit.model.Task;
 import dk.colourit.model.TaskList;
@@ -100,7 +99,7 @@ public class  Controller_TaskList extends Controller {
 		// setting information text on scene
 		projectNameText.setText(ColourItGui.getModel().getSelectedProject( ).getName( ));
 		statusText.setText(requirement.getStatus( ));
-		requirementNameText.setText(requirement.getName( ));
+		requirementNameText.setText(requirement.getRequirementName( ));
 
 		roleSelectedLabel.setText(ColourItGui.getModel().getUseRoleString());
 	}

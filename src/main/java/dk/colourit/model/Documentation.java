@@ -22,7 +22,7 @@ public class Documentation implements Serializable {
 	}
 
 	public Documentation(TeamMember member, int timeSpent, MyDate date) {
-		teamMemberName = member.getName();
+		teamMemberName = member.getMemberName();
 		this.timeSpent = timeSpent;
 		this.date = date;
 	}
