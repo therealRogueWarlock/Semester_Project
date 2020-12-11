@@ -52,7 +52,7 @@ public class ColourItGui extends Application {
 
 		// when primary stage is closed, close all other open windows.
 		stage.setOnCloseRequest(e -> Platform.exit( ));
+		stage.setOnCloseRequest(e -> getModel().saveToFile());
 	}
-
 }
 

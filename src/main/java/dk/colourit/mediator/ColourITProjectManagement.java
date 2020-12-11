@@ -20,61 +20,18 @@ public class ColourITProjectManagement {
 
 	public ColourITProjectManagement() {
 
-		//Dummy Data ??
 		projectList = new ProjectList();
 		teamMemberList = new TeamMemberList();
 
-		String[] names = {"Sander", "Andreas", "Seb", "Marker", "Crimmer", "Peter"};
-
-		projectList.addProject(new Project("project1", MyDate.now(), new MyDate(12, 12, 2021)));
-		projectList.addProject(new Project("project2", MyDate.now(), new MyDate(12, 1, 2023)));
-		projectList.addProject(new Project("project3", MyDate.now(), new MyDate(1, 12, 2024)));
-		projectList.addProject(new Project("project4", MyDate.now(), new MyDate(12, 1, 2025)));
-		projectList.addProject(new Project("project5", MyDate.now(), new MyDate(12, 1, 2026)));
-		projectList.addProject(new Project("project6", MyDate.now(), new MyDate(1, 12, 2027)));
-
-
-		teamMemberList.addTeamMember(new TeamMember("Sander", 16233, MyDate.now()));
-		teamMemberList.addTeamMember(new TeamMember("john", 12833, MyDate.now()));
-		teamMemberList.addTeamMember(new TeamMember("seb", 12333, MyDate.now()));
-		teamMemberList.addTeamMember(new TeamMember("pølle", 12833, MyDate.now()));
-		teamMemberList.addTeamMember(new TeamMember("marker", 12303, MyDate.now()));
-		teamMemberList.addTeamMember(new TeamMember("johnbob", 12133, MyDate.now()));
-
-
-		for (int i = 0; i < projectList.getProjects().size(); i++) {
-			Project project = projectList.getProjects().get(i);
-
-			int j = 0;
-
-			for (String name : names) {
-
-				project.getRequirementList().addRequirement(new Requirement(("requirement" + j), 10 + j, j));
-
-				Requirement requirement = project.getRequirementList().getRequirementByName(("requirement" + j));
-
-
-				requirement.setStatus("Not Done");
-
-				for (int k = 0; k < 5; k++) {
-					Task randomTask = new Task(("randomTask" + k), 10 + k, names[k], (k % 2 == 0), "Gay person: " + names[k]);
-
-					requirement.getTaskList().addTask(randomTask);
-				}
-
-
-                Task task = requirement.getTaskList()
-                    .getTaskByName(("randomTask1"));
-
-                for (int l = 0; l <5 ; l++) {
-                    task.getDocumentations().add(new Documentation(teamMemberList.getTeamMembers().get(l), 10 + l, MyDate.now()));
-                }
-
-				j++;
-			}
-
+		try {
+			projectList= ColourItFileHandler.readProjectList();
+			teamMemberList = ColourItFileHandler.readTeamMemberList();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
-		//Dummy data ??
+
 	}
 
 	public void saveToFile() {

@@ -10,6 +10,7 @@ import java.io.*;
 public class ColourItFileHandler {
 
 
+
     public static void saveToBinary(ProjectList projectList) throws IOException {
         String filename = "projectList.bin";
         File file = new File(filename);
@@ -79,6 +80,19 @@ public class ColourItFileHandler {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     public static void saveToXML(ProjectList list)
     {
         XmlJsonParser parser = new XmlJsonParser();
@@ -89,5 +103,9 @@ public class ColourItFileHandler {
             e.printStackTrace();
         }
     }
+
+
+
+
 
 }
