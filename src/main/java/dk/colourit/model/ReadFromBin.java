@@ -1,3 +1,5 @@
+package dk.colourit.model;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
