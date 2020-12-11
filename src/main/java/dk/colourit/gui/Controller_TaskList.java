@@ -41,8 +41,10 @@ public class  Controller_TaskList extends Controller {
 	public Button approveButton;
 	public Button editRequirementButton;
     public Label roleSelectedLabel;
+	public Text priorityText;
+	public Text timeEstimateText;
 
-    private TaskList taskList;
+	private TaskList taskList;
 
 	public void init( ) {
 		Requirement requirement = ColourItGui.getModel().getSelectedRequirement( );
@@ -107,7 +109,7 @@ public class  Controller_TaskList extends Controller {
 
 	// functions for button disable/enable logic
 	private void generalButtonLogic(){
-		// if the requirement is Approved or the project team mebmer list is 0 you cant add a task.
+		// if the requirement is Approved or the project team member list is 0 you cant add a task.
 		if (ColourItGui.getModel().getSelectedRequirement().getStatus().equalsIgnoreCase("Approved") ||
 				ColourItGui.getModel().getSelectedProject().getTeamMemberList().getTeamMembers().size() == 0 ) {
 			addTaskButton.setDisable(true);
