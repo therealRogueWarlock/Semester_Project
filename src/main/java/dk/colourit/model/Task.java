@@ -106,7 +106,7 @@ public class Task implements Serializable {
 	public int getTotalTimeSpent() {
 		totalTimeSpent = 0;
 		for (Documentation documentation : documentations) {
-			totalTimeSpent += documentation.getTimeSpent();
+			totalTimeSpent += documentation.getTimeSpentDocumentation();
 		}
 		return totalTimeSpent;
 	}

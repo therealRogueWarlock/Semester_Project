@@ -97,7 +97,7 @@ public class  Controller_TaskList extends Controller {
 
 	private void populateInformationText(Requirement requirement){
 		// setting information text on scene
-		projectNameText.setText(ColourItGui.getModel().getSelectedProject( ).getName( ));
+		projectNameText.setText(ColourItGui.getModel().getSelectedProject( ).getProjectName( ));
 		statusText.setText(requirement.getStatus( ));
 		requirementNameText.setText(requirement.getRequirementName( ));
 

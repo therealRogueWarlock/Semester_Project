@@ -131,11 +131,11 @@ public class Controller_RequirementList extends Controller {
 	// functions for populating data on scene
 	private void populateProjectInfo(Project project){
 
-		totalTimeSpentLabel.setText(project.getTotalTime( ) + " hours spent on " + project.getName( ));
+		totalTimeSpentLabel.setText(project.getTotalTime( ) + " hours spent on " + project.getProjectName( ));
 
 		teamMemberTable.setSelectionModel(null);
 
-		deadlineLabel.setText("Deadline: " + project.getDeadLine( ).toString( ));
+		deadlineLabel.setText("Deadline: " + project.getProjectDeadline( ).toString( ));
 
 		if ( project.getRequirementList( ).getRequirements( ).size( ) <= project.getRequirementList( )
 				.getFinishedRequirements( ).size( ) )
@@ -151,7 +151,7 @@ public class Controller_RequirementList extends Controller {
 		selectRoleChoiceBox.getItems( ).addAll("Team Member", "Project Creator", "Scrum Master", "Product Owner");
 
 		// setting information text on scene
-		projectNameLabel.setText(ColourItGui.getModel().getSelectedProject( ).getName( ));
+		projectNameLabel.setText(ColourItGui.getModel().getSelectedProject( ).getProjectName( ));
 		statusLabel.setText(project.getStatus( ));
 	}
 

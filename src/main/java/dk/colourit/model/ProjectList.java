@@ -27,7 +27,7 @@ public class ProjectList implements Serializable {
 	{
 		for (Project project : projects)
 		{
-			if (project.getName().equalsIgnoreCase(projectName))
+			if (project.getProjectName().equalsIgnoreCase(projectName))
 			{
 				return project;
 			}

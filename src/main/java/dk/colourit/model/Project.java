@@ -7,43 +7,43 @@ import java.util.MissingFormatArgumentException;
 
 public class Project implements Serializable {
 
-	private String name;
-	private MyDate creationDate;
-	private MyDate startDate;
-	private MyDate deadLine;
-	private MyDate endDate;
-	private double status; // TODO: Forklar denne til Andreas
+	private String projectName;
+	private MyDate projectCreationDate;
+	private MyDate projectStartDate;
+	private MyDate projectDeadline;
+	private MyDate projectEndDate;
+	private double status; // TODO: Forklar denne til Andreas - Kan vi få den over i vores parser uden dette?
 
 	private RequirementList requirementList;
 	private TeamMemberList teamMemberList;
 
 	// Throws second Error and not the First error when all fields are blank | ???
-	public Project(String name, MyDate startDate, MyDate deadLine) {
-		this.creationDate = MyDate.now( );
-		this.endDate = null;
+	public Project(String projectName, MyDate projectStartDate, MyDate projectDeadline) {
+		this.projectCreationDate = MyDate.now( );
+		this.projectEndDate = null;
 		status = 0;
 		requirementList = new RequirementList( );
 		teamMemberList = new TeamMemberList( );
 
-		if ( name.isEmpty( ) || name.isBlank( ) ) {
+		if ( projectName.isEmpty( ) || projectName.isBlank( ) ) {
 			throw new MissingFormatArgumentException("Empty Name Field");
 		} else {
-			this.name = name;
+			this.projectName = projectName;
 		}
-		if ( startDate.isBefore(creationDate) || deadLine.isBefore(creationDate) || deadLine.isBefore(startDate) ) {
+		if ( projectStartDate.isBefore(projectCreationDate) || projectDeadline.isBefore(projectCreationDate) || projectDeadline.isBefore(projectStartDate) ) {
 			throw new DateTimeException("Invalid Date");
 		} else {
-			this.startDate = startDate;
-			this.deadLine = deadLine;
+			this.projectStartDate = projectStartDate;
+			this.projectDeadline = projectDeadline;
 		}
 	}
 
-	public void setStartDate(MyDate startDate) {
-		this.startDate = startDate;
+	public void setProjectStartDate(MyDate projectStartDate) {
+		this.projectStartDate = projectStartDate;
 	}
 
-	public void setDeadLine(MyDate deadLine) {
-		this.deadLine = deadLine;
+	public void setProjectDeadline(MyDate projectDeadline) {
+		this.projectDeadline = projectDeadline;
 	}
 
 	public int getTotalTime( ) {
@@ -75,20 +75,20 @@ public class Project implements Serializable {
 		return percentage + "% Completed";
 	}
 
-	public String getName( ) {
-		return name;
+	public String getProjectName( ) {
+		return projectName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
 	}
 
-	public MyDate getStartDate( ) {
-		return startDate;
+	public MyDate getProjectStartDate( ) {
+		return projectStartDate;
 	}
 
-	public MyDate getDeadLine( ) {
-		return deadLine;
+	public MyDate getProjectDeadline( ) {
+		return projectDeadline;
 	}
 
 	public RequirementList getRequirementList( ) {
@@ -105,7 +105,7 @@ public class Project implements Serializable {
 	}
 
 	public void setEndDate( ) {
-		this.endDate = MyDate.now( );
+		this.projectEndDate = MyDate.now( );
 	}
 }
 

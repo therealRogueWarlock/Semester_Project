@@ -7,32 +7,32 @@ public class Requirement implements Serializable {
 
 	private TaskList taskList;
 	private String requirementName;
-	private final MyDate creationDate;
-	private int timeEstimate;
+	private final MyDate requirementCreationDate;
+	private int requirementTimeEstimate;
 	private int priority;
 	private String status;
 	private String requirementDescription;
 
 
-	public Requirement(String name, int timeEstimate, int priority) {
+	public Requirement(String name, int requirementTimeEstimate, int priority) {
 		setRequirementName(name);
-		setTimeEstimate(timeEstimate);
+		setRequirementTimeEstimate(requirementTimeEstimate);
 		setPriority(priority);
 
-		creationDate = MyDate.now();
+		requirementCreationDate = MyDate.now();
 		status = "Not Done";
 		taskList = new TaskList();
 		requirementDescription = "No Description";
 
 	}
 
-	public Requirement(String name, int timeEstimate, int priority, String requirementDescription) {
+	public Requirement(String name, int requirementTimeEstimate, int priority, String requirementDescription) {
 		setRequirementName(name);
-		setTimeEstimate(timeEstimate);
+		setRequirementTimeEstimate(requirementTimeEstimate);
 		setPriority(priority);
 		setRequirementDescription(requirementDescription);
 
-		creationDate = MyDate.now();
+		requirementCreationDate = MyDate.now();
 		status = "Not Done";
 		taskList = new TaskList();
 
@@ -50,8 +50,8 @@ public class Requirement implements Serializable {
 			this.requirementName = requirementName;
 	}
 
-	public MyDate getCreationDate() {
-		return creationDate;
+	public MyDate getRequirementCreationDate() {
+		return requirementCreationDate;
 	}
 
 	public String getRequirementDescription() {
@@ -62,14 +62,14 @@ public class Requirement implements Serializable {
 		this.requirementDescription = requirementDescription;
 	}
 
-	public int getTimeEstimate() {
-		return timeEstimate;
+	public int getRequirementTimeEstimate() {
+		return requirementTimeEstimate;
 	}
 
-	public void setTimeEstimate(int timeEstimate) {
-		if (timeEstimate < 0)
-			timeEstimate = 0;
-		this.timeEstimate = timeEstimate;
+	public void setRequirementTimeEstimate(int requirementTimeEstimate) {
+		if (requirementTimeEstimate < 0)
+			requirementTimeEstimate = 0;
+		this.requirementTimeEstimate = requirementTimeEstimate;
 	}
 
 	public int getPriority() {

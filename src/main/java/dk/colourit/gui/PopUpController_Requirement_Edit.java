@@ -29,7 +29,7 @@ public class PopUpController_Requirement_Edit extends Controller{
 
             requirementNameTextField.setText(requirement.getRequirementName());
             priorityTextField.setText(Integer.toString(requirement.getPriority()));
-            timeEstimateField.setText(Integer.toString(requirement.getTimeEstimate()));
+            timeEstimateField.setText(Integer.toString(requirement.getRequirementTimeEstimate()));
             //TODO:Få linjen under til at fungere. (Tror ikke vi har en Description på vores Requirements lige nu?)
 
             /*
@@ -52,7 +52,7 @@ public class PopUpController_Requirement_Edit extends Controller{
 
         ColourItGui.getModel().getSelectedRequirement().setRequirementName(name);
         ColourItGui.getModel().getSelectedRequirement().setPriority(priority);
-        ColourItGui.getModel().getSelectedRequirement().setTimeEstimate(timeEstimate);
+        ColourItGui.getModel().getSelectedRequirement().setRequirementTimeEstimate(timeEstimate);
         ColourItGui.getModel().getSelectedRequirement().setRequirementDescription(requiredDescription);
         //TODO: requirementDescriptionTextArea - Virker den nu?
 
