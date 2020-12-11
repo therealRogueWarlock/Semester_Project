@@ -1,11 +1,9 @@
 package dk.colourit.gui;
 
 import dk.colourit.model.Task;
+import dk.colourit.model.TeamMember;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,20 +17,22 @@ public class PopUpController_Task_Details extends Controller {
 
 	public TextField taskNameEditTextField;
 	public TextField estimatedHoursTextField;
-	public TextField responsibleTeamMemberTextField;
-
 	public CheckBox highPriorityCheckBox;
 
 	public TextArea taskTextArea;
+	public ChoiceBox<TeamMember> responsibleTeamMember;
 
 
 	@Override
 	public void init() {
 		Task task = ColourItGui.getModel().getSelectedTask();
 
+		responsibleTeamMember.getItems().addAll(ColourItGui.getModel().getSelectedProject().getTeamMemberList().getTeamMembers());
+		responsibleTeamMember.getSelectionModel().select(0);
+
 		taskNameEditTextField.setText(task.getTaskName());
 		estimatedHoursTextField.setText(Integer.toString(task.getTaskTimeEstimate()));
-		responsibleTeamMemberTextField.setText(task.getTaskResponsible());
+
 		taskTextArea.setText(task.getTaskDescription());
 		highPriorityCheckBox.setSelected(task.getPriority());
 
@@ -65,7 +65,7 @@ public class PopUpController_Task_Details extends Controller {
 	public void confirmEdit() {
 		String name = taskNameEditTextField.getText();
 		int time = Integer.parseInt(estimatedHoursTextField.getText());
-		String memberName = responsibleTeamMemberTextField.getText();
+		String memberName = responsibleTeamMember.getSelectionModel().getSelectedItem().getMemberName();
 		boolean checked = highPriorityCheckBox.isSelected();
 		String taskDescription = taskTextArea.getText();
 

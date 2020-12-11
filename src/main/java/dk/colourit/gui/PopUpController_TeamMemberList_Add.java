@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.time.DateTimeException;
+import java.util.InputMismatchException;
 
 public class PopUpController_TeamMemberList_Add extends Controller {
 	@FXML
@@ -30,18 +31,29 @@ public class PopUpController_TeamMemberList_Add extends Controller {
 	@FXML
 	private void addTeamMember( ) {
 		try {
+
 			String teamMemberName = nameTextField.getText( );
+
+
 			int employeeIdNumber = Integer.parseInt(idNumberTextField.getText( ));
+
+			if ( ColourItGui.getModel().getTeamMemberList()
+					.getTeamMember("id", Integer.toString( employeeIdNumber)) != null)
+				throw new InputMismatchException("Employee with same id already exists");
+
+
 			if ( MyDate.now( ).isBefore(new MyDate(birthdateDatePicker.getValue( ))) )
 				throw new DateTimeException("Birthdate cannot be earlier than current date");
+
 			MyDate birthday = new MyDate(birthdateDatePicker.getValue( ));
 
 			ColourItGui.getModel( ).addEmployee(teamMemberName, employeeIdNumber, birthday);
 
 			getParentController( ).init( );
-		} catch ( DateTimeException dateTimeException ) {
-			validationLabel.setText(dateTimeException.getMessage( ));
+		} catch ( DateTimeException | InputMismatchException exception ) {
+			validationLabel.setText(exception.getMessage( ));
 		}
+
 	}
 
 	@Override

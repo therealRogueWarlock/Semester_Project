@@ -1,7 +1,7 @@
 # dk.colourit.model.Project exclude paths
 /target/
+
 /EmployeeData.xml
 /ProjectDate.xml
 /projectList.bin
 /teamMemberList.bin
-

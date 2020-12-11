@@ -14,6 +14,7 @@ public class PopUpController_TaskList_Add extends Controller {
 	public TextField estimatedHoursTextField;
 	public TextArea taskDescription;
 	public Button cancelButton;
+
 	public ChoiceBox<TeamMember> responsibleTeamMember;
 
 	@Override
@@ -24,6 +25,7 @@ public class PopUpController_TaskList_Add extends Controller {
 	@FXML
 	private void addTask() {
 		String name = taskNameTextField.getText();
+
 		int time = Integer.parseInt(estimatedHoursTextField.getText());
 		String memberName = responsibleTeamMember.getSelectionModel().getSelectedItem().getMemberName();
 		boolean priority = highPriorityCheckBox.isSelected();
