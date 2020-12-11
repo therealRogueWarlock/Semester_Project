@@ -42,7 +42,7 @@ public class ColourItFileHandler {
     }
 
 
-    public static TeamMemberList readTeamMemberList() throws IOException, ClassNotFoundException {
+    public static TeamMemberList readTeamMemberListFromBin() throws IOException, ClassNotFoundException {
 
         String filename = "teamMemberList.bin";
         File file = new File(filename);
@@ -60,7 +60,7 @@ public class ColourItFileHandler {
         return list1;
     }
 
-    public static ProjectList readProjectList() throws IOException, ClassNotFoundException {
+    public static ProjectList readProjectListFromBin() throws IOException, ClassNotFoundException {
 
         String filename = "projectList.bin";
         File file = new File(filename);
@@ -69,7 +69,6 @@ public class ColourItFileHandler {
         ObjectInputStream in = new ObjectInputStream(fis);
 
         ProjectList projectList = (ProjectList) in.readObject();
-        System.out.println(projectList.getProjects());
 
         in.close(); // Close the file
 
@@ -77,17 +76,6 @@ public class ColourItFileHandler {
 
         return projectList;
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -104,7 +92,16 @@ public class ColourItFileHandler {
         }
     }
 
+    public static void saveToXML(TeamMemberList list)
+    {
+        XmlJsonParser parser = new XmlJsonParser();
 
+        try {
+            parser.toXml(list, "EmployeeData.xml");
+        } catch (ParserException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 

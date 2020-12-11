@@ -2,7 +2,6 @@ package dk.colourit.gui;
 
 import dk.colourit.mediator.ColourITProjectManagement;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.ImageCursor;
 import javafx.scene.Parent;

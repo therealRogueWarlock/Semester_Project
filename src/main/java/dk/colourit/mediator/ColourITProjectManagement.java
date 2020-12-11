@@ -24,8 +24,8 @@ public class ColourITProjectManagement {
 		teamMemberList = new TeamMemberList();
 
 		try {
-			projectList= ColourItFileHandler.readProjectList();
-			teamMemberList = ColourItFileHandler.readTeamMemberList();
+			projectList= ColourItFileHandler.readProjectListFromBin();
+			teamMemberList = ColourItFileHandler.readTeamMemberListFromBin();
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
@@ -45,6 +45,7 @@ public class ColourITProjectManagement {
 
 	public void saveToXml(){
 		ColourItFileHandler.saveToXML(projectList);
+		ColourItFileHandler.saveToXML(teamMemberList);
 	}
 
 
