@@ -77,8 +77,14 @@ public class ColourITProjectManagement {
 	}
 
 	public void saveToFile(){
-		ColourItFileHandler.save(projectList);
+		ColourItFileHandler.saveToBinary(projectList);
+		ColourItFileHandler.saveToBinary(teamMemberList);
 	}
+
+	public void saveToXml(){
+		ColourItFileHandler.saveToXML(projectList);
+	}
+
 
 	public Project getSelectedProject( ) {
 		return selectedProject;
