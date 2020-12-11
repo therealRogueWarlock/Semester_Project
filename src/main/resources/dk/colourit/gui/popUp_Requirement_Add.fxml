@@ -44,13 +44,14 @@
          <GridPane.margin>
             <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
          </GridPane.margin></TextField>
-      <SplitPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="160.0" prefWidth="200.0" style="-fx-background-color: e1e1e1;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+      <SplitPane dividerPositions="0.5" nodeOrientation="RIGHT_TO_LEFT" prefHeight="160.0" prefWidth="200.0" style="-fx-background-color: e1e1e1;" GridPane.columnIndex="1" GridPane.rowIndex="4">
         <items>
             <Button fx:id="addRequirementButton" alignment="CENTER" contentDisplay="RIGHT" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addRequirement" prefWidth="50.0" style="-fx-background-color: #5f5; -fx-background-radius: 10;" text="Add">
                <padding>
                   <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
                </padding>
             </Button>
+            <Label fx:id="validationLabel" />
         </items>
          <GridPane.margin>
             <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />

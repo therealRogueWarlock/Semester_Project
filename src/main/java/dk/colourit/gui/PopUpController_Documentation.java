@@ -59,7 +59,6 @@ public class PopUpController_Documentation extends Controller {
     private void populateComboBox( ) {
 		selectMember.getItems( ).clear( );
 		ArrayList<TeamMember> teamMembers = ColourItGui.getModel( ).getSelectedProject( ).getTeamMemberList( ).getTeamMembers( );
-		System.out.println(teamMembers);
 		selectMember.getItems( ).addAll(teamMembers);
 	}
 	private void populateTableView( ) {

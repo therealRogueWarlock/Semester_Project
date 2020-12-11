@@ -30,12 +30,8 @@ public class PopUpController_Requirement_Edit extends Controller{
             requirementNameTextField.setText(requirement.getRequirementName());
             priorityTextField.setText(Integer.toString(requirement.getPriority()));
             timeEstimateField.setText(Integer.toString(requirement.getRequirementTimeEstimate()));
-            //TODO:Få linjen under til at fungere. (Tror ikke vi har en Description på vores Requirements lige nu?)
+            requirementDescriptionTextArea.setText(requirement.getRequirementDescription());
 
-            /*
-            requirementDescriptionTextArea.setText(requirement.set); - Kan denne laves endnu? - Se nedeunder for eksempel
-            taskTextArea.setText(task.getDescription());
-             */
         }
 
     @Override

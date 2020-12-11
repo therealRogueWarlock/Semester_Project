@@ -42,7 +42,11 @@ public class  Controller_TaskList extends Controller {
 	public Button editRequirementButton;
     public Label roleSelectedLabel;
 
-    private TaskList taskList;
+    public Text priorityText;
+	public Text timeEstimateText;
+	public Text requirementDescriptionText;
+
+	private TaskList taskList;
 
 	public void init( ) {
 		Requirement requirement = ColourItGui.getModel().getSelectedRequirement( );
@@ -102,6 +106,11 @@ public class  Controller_TaskList extends Controller {
 		requirementNameText.setText(requirement.getRequirementName( ));
 
 		roleSelectedLabel.setText(ColourItGui.getModel().getUseRoleString());
+
+		priorityText.setText(Integer.toString(requirement.getPriority()) );
+		timeEstimateText.setText(Integer.toString(requirement.getRequirementTimeEstimate()));
+		requirementDescriptionText.setText(requirement.getRequirementDescription());
+
 	}
 
 

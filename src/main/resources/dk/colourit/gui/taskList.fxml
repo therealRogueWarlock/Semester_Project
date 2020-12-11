@@ -126,12 +126,12 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                   </HBox>
-                      <Text fx:id="requirementDescriptionText" layoutX="40.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Requirement Description" />
                   <Text layoutX="40.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Requirement Description">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Text>
+                      <Text fx:id="requirementDescriptionText" layoutX="40.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Requirement Description" />
                </children>
             </AnchorPane>
             </children>

@@ -19,8 +19,8 @@ public class PopUpController_Requirement_Add extends Controller {
 	public TextArea requirementDescriptionTextArea;
 
 	public Button addRequirementButton;
-	@FXML
-	private Label validationLabel;
+
+	public Label validationLabel;
 
 	@Override
 	public void init( ) {
@@ -30,27 +30,28 @@ public class PopUpController_Requirement_Add extends Controller {
 	public void addRequirement( ) {
 
 		try {
-			for ( Requirement req : ColourItGui.getModel( ).getSelectedProject( ).getRequirementList( ).getRequirements( ) ) {
-				if ( req.getRequirementName( ).equalsIgnoreCase(requirementNameTextField.getText( )) )
-					throw new InputMismatchException("Duplicate Name");
-			}
-			String requirementNameTextFieldText = requirementNameTextField.getText( );
-			String timeEstimateText = timeEstimateField.getText( );
+
+			if ( ColourItGui.getModel().getSelectedProject().getRequirementList()
+					.getRequirementByName(requirementNameTextField.getText()) != null){
+				throw new InputMismatchException("Duplicate Name");}
+
+			String requirementNameTextFieldText = requirementNameTextField.getText();
+			String timeEstimateText = timeEstimateField.getText();
 			String priorityText;
 			int timeEstimate = Integer.parseInt(timeEstimateText);
-			if ( ! ( priorityTextField.getText( ).isBlank( ) ) )
-				priorityText = priorityTextField.getText( );
+			if ( ! ( priorityTextField.getText().isBlank() ) )
+				priorityText = priorityTextField.getText();
 			else
 				priorityText = "0";
 			int priority = Integer.parseInt(priorityText);
-			Project selectedProject = ColourItGui.getModel( ).getSelectedProject( );
+			Project selectedProject = ColourItGui.getModel().getSelectedProject();
 
 			// getting RequirementList from selected project and adding a new requirement.
-			selectedProject.getRequirementList( )
+			selectedProject.getRequirementList()
 					.addRequirement(new Requirement(requirementNameTextFieldText, timeEstimate, priority));
 
-			clearInputFields( );
-			getParentController( ).init( );
+			getParentController().init();
+			clearInputFields();
 		} catch ( InputMismatchException inputMismatchException ) {
 			validationLabel.setText("Invalid information");
 		}

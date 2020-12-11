@@ -51,7 +51,6 @@ public class ColourItFileHandler {
         ObjectInputStream in = new ObjectInputStream(fis);
 
         TeamMemberList list1 = (TeamMemberList) in.readObject();
-        System.out.println(list1.getTeamMembers());
 
         in.close(); // Close the file
 
