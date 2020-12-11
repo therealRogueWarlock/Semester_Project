@@ -41,10 +41,6 @@ public class PopUpController_Task_Details extends Controller {
 	}
 
 
-	private void generalButtonLogic(){
-	}
-
-
 	private void activateRoleButtonLogic(){
 		// if the role is not admin check what buttons should be removed. else skip.
 		if (ColourItGui.getModel().getUserRole() != 4) {
