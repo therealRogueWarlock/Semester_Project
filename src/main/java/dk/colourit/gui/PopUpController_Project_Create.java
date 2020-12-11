@@ -57,7 +57,7 @@ public class PopUpController_Project_Create extends Controller {
 
 	private void populateTeamMemberTableView() {
 		// setting cell factory to new Property Factory. will check for if obj has getter for field and use return value
-		nameColumn.setCellValueFactory(new PropertyValueFactory<>("memberMame"));
+		nameColumn.setCellValueFactory(new PropertyValueFactory<>("memberName"));
 		idColumn.setCellValueFactory(new PropertyValueFactory<>("employeeNumber"));
 
 		// Converting a TeamMember ArrayList to an ObservableArrayList

@@ -50,8 +50,8 @@ public class ColourItGui extends Application {
 		stage.setScene(scene);
 		stage.show( );
 
-		// when primary stage is closed, close all other open windows.
-		stage.setOnCloseRequest(e -> Platform.exit( ));
+
+		// when primary stage closes save to bin files.
 		stage.setOnCloseRequest(e -> getModel().saveToFile());
 	}
 }
