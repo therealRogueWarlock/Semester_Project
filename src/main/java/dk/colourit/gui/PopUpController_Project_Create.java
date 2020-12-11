@@ -26,20 +26,14 @@ public class PopUpController_Project_Create extends Controller {
 	public TableColumn<TeamMember, String> nameColumn;
 	public TableColumn<TeamMember, Integer> idColumn;
 
-	@FXML
-	private TextField projectName;
-	@FXML
-	private DatePicker startDate;
-	@FXML
-	private DatePicker deadLine;
-	@FXML
-	private ComboBox<TeamMember> selectMember;
+	@FXML private TextField projectName;
+	@FXML private DatePicker startDate;
+	@FXML private DatePicker deadLine;
+	@FXML private ComboBox<TeamMember> selectMember;
 
-	@FXML
-	private Button confirm;
+	@FXML private Button confirm;
 
-	@FXML
-	public Label statusLabel;
+	@FXML public Label statusLabel;
 
 	private ArrayList<TeamMember> teamMembersForProject;
 
