@@ -40,6 +40,25 @@ public class ColourItFileHandler {
         //should save team member list to binary file.
     }
 
+    /*
+
+    public static TeamMemberList readFromBinary() throws IOException {
+        String filename = "teamMemberList.bin";
+        File file = new File(filename);
+
+        FileOutputStream fis = new FileOutputStream(file);
+        ObjectOutputStream in = new ObjectOutputStream(fis);
+
+        TeamMemberList list1 = (TeamMemberList) in.readObject();
+        System.out.println(list1);
+
+        in.close();
+
+        System.out.println("End reading data from file: " + file.getAbsoulutePath());
+    }
+
+     */
+
 
     public static void saveToXML(ProjectList list)
     {
