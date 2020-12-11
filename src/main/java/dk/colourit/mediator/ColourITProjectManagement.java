@@ -3,6 +3,7 @@ package dk.colourit.mediator;
 import dk.colourit.gui.ColourItGui;
 import dk.colourit.model.*;
 
+import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ColourITProjectManagement {
@@ -76,7 +77,7 @@ public class ColourITProjectManagement {
 		//Dummy data ??
 	}
 
-	public void saveToFile(){
+	public void saveToFile() throws IOException {
 		ColourItFileHandler.saveToBinary(projectList);
 		ColourItFileHandler.saveToBinary(teamMemberList);
 	}
