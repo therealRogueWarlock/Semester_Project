@@ -44,6 +44,7 @@ public class Controller_RequirementList extends Controller {
 	@FXML private ChoiceBox<TeamMember> removeTeamMemberChoiceBox;
 
 	@FXML private ChoiceBox<String> selectRoleChoiceBox;
+
 	@FXML
 	private VBox mainContainer;
 
