@@ -1,6 +1,7 @@
 package dk.colourit.gui;
 
 import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -8,7 +9,7 @@ import java.io.IOException;
 public class Controller_LoginScreen extends Controller {
 
 	@FXML
-	private BorderPane mainContainer;
+	private AnchorPane mainContainer;
 
 	@Override
 	public void init( ) {

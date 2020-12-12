@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ColourITProjectManagement {
 
 	private ProjectList projectList;
-	private TeamMemberList teamMemberList;
+	private TeamMemberList employeeList;
 
 	private int userRole;
 
@@ -21,14 +21,12 @@ public class ColourITProjectManagement {
 	public ColourITProjectManagement() {
 
 		projectList = new ProjectList();
-		teamMemberList = new TeamMemberList();
+		employeeList = new TeamMemberList();
 
 		try {
 			projectList= ColourItFileHandler.readProjectListFromBin();
-			teamMemberList = ColourItFileHandler.readTeamMemberListFromBin();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
+			employeeList = ColourItFileHandler.readTeamMemberListFromBin();
+		} catch ( ClassNotFoundException | IOException e) {
 			e.printStackTrace();
 		}
 
@@ -37,7 +35,7 @@ public class ColourITProjectManagement {
 	public void saveToFile() {
 		try {
 			ColourItFileHandler.saveToBinary(projectList);
-			ColourItFileHandler.saveToBinary(teamMemberList);
+			ColourItFileHandler.saveToBinary(employeeList);
 		}catch (IOException e){
 			System.out.println(e);
 		}
@@ -45,7 +43,7 @@ public class ColourITProjectManagement {
 
 	public void saveToXml(){
 		ColourItFileHandler.saveToXML(projectList);
-		ColourItFileHandler.saveToXML(teamMemberList);
+		ColourItFileHandler.saveToXML(employeeList);
 	}
 
 
@@ -108,7 +106,7 @@ public class ColourITProjectManagement {
 	}
 
 	public void addEmployee(String name, int employeeNumber, MyDate birthday) {
-		teamMemberList.addTeamMember(new TeamMember(name, employeeNumber, birthday));
+		employeeList.addTeamMember(new TeamMember(name, employeeNumber, birthday));
 	}
 
 	public ProjectList getProjectList() {
@@ -116,7 +114,7 @@ public class ColourITProjectManagement {
 	}
 
 	public TeamMemberList getTeamMemberList() {
-		return teamMemberList;
+		return employeeList;
 	}
 
 
@@ -133,7 +131,7 @@ public class ColourITProjectManagement {
 
 	public void taskDocumentation(String projectName, String requirementName, String taskName, int hours, MyDate date,
 								  String memberName) {
-		Documentation documentation = new Documentation(teamMemberList.getTeamMember("name", memberName), hours, date);
+		Documentation documentation = new Documentation(employeeList.getTeamMember("name", memberName), hours, date);
 		projectList.getProjectByName(projectName).getRequirementList().getRequirementByName(requirementName)
 				.getTaskList().getTaskByName(taskName).setDocumentation(documentation);
 	}
