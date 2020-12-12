@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Controller_LoginScreen extends Controller {
 
 	@FXML
-	private AnchorPane mainContainer;
+	private BorderPane mainContainer;
 
 	@Override
 	public void init( ) {
