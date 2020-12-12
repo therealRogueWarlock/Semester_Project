@@ -46,6 +46,7 @@ public class ColourItGui extends Application {
 		Region root = loader.load( );
 
 		Controller controller = loader.getController( );
+
 		controller.init( );
 		return root;
 	}
