@@ -20,6 +20,9 @@ public class PopUpController_TaskList_Add extends Controller {
 	@Override
 	public void init() {
 		responsibleTeamMember.getItems().addAll(ColourItGui.getModel().getSelectedProject().getTeamMemberList().getTeamMembers());
+
+		// preselect first team member in choice box
+		responsibleTeamMember.getSelectionModel().select(0);
 	}
 
 	@FXML
@@ -34,6 +37,7 @@ public class PopUpController_TaskList_Add extends Controller {
 		// getting the task list from selected requirement, adding a new task to the list
 		ColourItGui.getModel().getSelectedRequirement()
 				.getTaskList().addTask(new Task(name, time, memberName, priority, taskDesc));
+
 
 		goBack();
 	}
