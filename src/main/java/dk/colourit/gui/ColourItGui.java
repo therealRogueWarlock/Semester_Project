@@ -54,7 +54,7 @@ public class ColourItGui extends Application {
 		scene = new Scene(loadFXML("loadingScreen"));
 		scene.setCursor(new ImageCursor(new Image("file:colourItCursor.png")));
 		stage.setScene(scene);
-//		stage.r;
+//		setRoot used to circumvent unwanted window size change
 		setRoot("loginScreen");
 
 		stage.show( );
