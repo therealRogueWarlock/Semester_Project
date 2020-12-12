@@ -90,7 +90,7 @@
                   <VBox alignment="CENTER" prefHeight="105.0" prefWidth="128.0" spacing="5.0">
                      <children>
                         <Button fx:id="confirmEditButton" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#confirmEdit" prefWidth="100.0" text="Confirm edit" textFill="#009000" />
-                        <Button fx:id="cancelButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="25.0" prefWidth="100.0" text="Cancel" />
+                        <Button fx:id="cancelButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="25.0" prefWidth="100.0" text="Close" />
                      </children>
                      <padding>
                         <Insets bottom="10.0" top="10.0" />
