@@ -40,7 +40,7 @@
                         <Font size="18.0" />
                     </font>
                 </Button>
-                <Button fx:id="backButton" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#loginScreen" prefHeight="21.0" prefWidth="93.0" text="Back" GridPane.columnIndex="2">
+                <Button fx:id="backButton" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#loginScreen" prefHeight="21.0" prefWidth="93.0" text="Back" GridPane.columnIndex="4">
                     <font>
                         <Font size="18.0" />
                     </font>
@@ -50,7 +50,7 @@
                         <Font size="18.0" />
                     </font>
                 </Button>
-                <Button fx:id="exportButton" mnemonicParsing="false" onMouseClicked="#exportToWebsite" prefHeight="39.0" prefWidth="184.0" text="Export to website" GridPane.columnIndex="4">
+                <Button fx:id="exportButton" mnemonicParsing="false" onMouseClicked="#exportToWebsite" prefHeight="39.0" prefWidth="184.0" text="Export to website" GridPane.columnIndex="2">
                     <font>
                         <Font size="18.0" />
                     </font>

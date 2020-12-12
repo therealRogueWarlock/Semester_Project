@@ -49,7 +49,6 @@ public class ColourItGui extends Application {
 		stage.setScene(scene);
 		stage.show( );
 
-
 		// when primary stage closes save to bin files.
 		stage.setOnCloseRequest(e -> getModel().saveToFile());
 	}

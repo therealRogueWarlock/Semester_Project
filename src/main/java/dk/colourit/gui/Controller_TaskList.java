@@ -12,6 +12,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -47,7 +48,7 @@ public class  Controller_TaskList extends Controller {
 
     public Text priorityText;
 	public Text timeEstimateText;
-	public TextArea requirementDescriptionText;
+	public Text requirementDescriptionText;
 
 
 

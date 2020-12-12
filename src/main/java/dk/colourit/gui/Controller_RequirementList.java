@@ -24,11 +24,9 @@ public class Controller_RequirementList extends Controller {
     @FXML protected Button editProjectButton;
 	@FXML protected Button backButton;
 	@FXML protected Button addRequirementButton;
-	@FXML protected Button removeRequirementButton;
 	@FXML protected Button deleteProjectButton;
 	@FXML protected Button addTeamMemberButton;
 	@FXML protected Button removeTeamMemberButton;
-
 
 	@FXML private TableView<Requirement> requirementTable;
 	@FXML private TableColumn<Requirement, Integer> requirementPriorityColumn;
@@ -187,7 +185,6 @@ public class Controller_RequirementList extends Controller {
 	}
 
 
-
 	// functions for button functionality
 	public void editButton( ) throws IOException {
 		createPopUp("popUp_Project_Edit");
@@ -251,6 +248,7 @@ public class Controller_RequirementList extends Controller {
 			ColourItGui.getModel().setSelectedRequirement(selectedRequirement);
 			ColourItGui.setRoot("taskList");
 		}
+
 	}
 }
 
