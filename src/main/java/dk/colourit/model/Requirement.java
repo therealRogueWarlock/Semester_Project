@@ -5,23 +5,24 @@ import java.security.InvalidParameterException;
 
 public class Requirement implements Serializable {
 
+	private final MyDate requirementCreationDate;
 	private TaskList taskList;
 	private String requirementName;
-	private final MyDate requirementCreationDate;
 	private int requirementTimeEstimate;
 	private int priority;
+	private boolean checked;
 	private String status;
 	private String requirementDescription;
-
 
 	public Requirement(String name, int requirementTimeEstimate, int priority) {
 		setRequirementName(name);
 		setRequirementTimeEstimate(requirementTimeEstimate);
 		setPriority(priority);
 
-		requirementCreationDate = MyDate.now();
+		checked = false;
+		requirementCreationDate = MyDate.now( );
 		status = "Not Done";
-		taskList = new TaskList();
+		taskList = new TaskList( );
 		requirementDescription = "No Description";
 
 	}
@@ -32,29 +33,28 @@ public class Requirement implements Serializable {
 		setPriority(priority);
 		setRequirementDescription(requirementDescription);
 
-		requirementCreationDate = MyDate.now();
+		requirementCreationDate = MyDate.now( );
 		status = "Not Done";
-		taskList = new TaskList();
-
+		taskList = new TaskList( );
 
 	}
 
-	public String getRequirementName() {
+	public String getRequirementName( ) {
 		return requirementName;
 	}
 
 	public void setRequirementName(String requirementName) {
-		if (requirementName.isEmpty() || requirementName.isBlank())
+		if ( requirementName.isEmpty( ) || requirementName.isBlank( ) )
 			throw new InvalidParameterException("No name found");
 		else
 			this.requirementName = requirementName;
 	}
 
-	public MyDate getRequirementCreationDate() {
+	public MyDate getRequirementCreationDate( ) {
 		return requirementCreationDate;
 	}
 
-	public String getRequirementDescription() {
+	public String getRequirementDescription( ) {
 		return requirementDescription;
 	}
 
@@ -62,55 +62,67 @@ public class Requirement implements Serializable {
 		this.requirementDescription = requirementDescription;
 	}
 
-	public int getRequirementTimeEstimate() {
+	public int getRequirementTimeEstimate( ) {
 		return requirementTimeEstimate;
 	}
 
-	public int getTotalTimeSpent(){
+	public void setRequirementTimeEstimate(int requirementTimeEstimate) {
+		if ( requirementTimeEstimate < 0 )
+			requirementTimeEstimate = 0;
+		this.requirementTimeEstimate = requirementTimeEstimate;
+	}
+
+	public int getTotalTimeSpent( ) {
 		int totalTime = 0;
-		for (Task task: taskList.getTasks()){
-			totalTime += task.getTotalTimeSpent();
+		for ( Task task : taskList.getTasks( ) ) {
+			totalTime += task.getTotalTimeSpent( );
 		}
 
 		return totalTime;
 	}
 
-	public void setRequirementTimeEstimate(int requirementTimeEstimate) {
-		if (requirementTimeEstimate < 0)
-			requirementTimeEstimate = 0;
-		this.requirementTimeEstimate = requirementTimeEstimate;
-	}
-
-	public int getPriority() {
+	public int getPriority( ) {
 		return priority;
 	}
 
 	public void setPriority(int priority) {
-		if (priority < 0)
+		if ( priority < 0 )
 			priority = 0;
 		this.priority = priority;
 	}
 
-	public TaskList getTaskList() {
+	public TaskList getTaskList( ) {
 		return taskList;
+	}
+
+	public String getStatus( ) {
+		System.out.println("Requirement: " + requirementName);
+		System.out.println("Status: " + status);
+		System.out.println("Checked: " + checked);
+		if ( ! checked ) {
+			System.out.println("Requirement.checked has been set to true");
+			if ( taskList.getListSize( ) == 0 ) return "No Tasks";
+			if ( ! ( status.equalsIgnoreCase("Approved") ) ) {
+				if ( taskList.getListSize( ) > taskList.getFinishedTasks( ).size( ) ) setStatus("Not Done");
+				else setStatus("Ready for Review");
+			}
+			System.out.println("Status has been set to " + status );
+			setChecked(true);
+		}
+		System.out.println("<\n");
+		return status;
 	}
 
 	public void setStatus(String status) {
 		this.status = status;
 	}
 
-	public String getStatus() {
-		if (taskList.getListSize() == 0) return "No Tasks";
-
-		if (!(status.equalsIgnoreCase("Approved") || status.equalsIgnoreCase("rejected"))) {
-			if (taskList.getListSize() > taskList.getFinishedTasks().size()) return "Not Done";
-			else return "Ready for Review";
-		}
-		return status;
+	public String toString( ) {
+		return requirementName;
 	}
 
-	public String toString() {
-		return requirementName;
+	public void setChecked(boolean checked) {
+		this.checked = checked;
 	}
 }
 
