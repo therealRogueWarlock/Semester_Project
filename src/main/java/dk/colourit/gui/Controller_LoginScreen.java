@@ -12,8 +12,7 @@ public class Controller_LoginScreen extends Controller {
 
 	@Override
 	public void init( ) {
-//		ColourItGui.getScene().getWindow( ).setHeight(mainContainer.getPrefHeight( ));
-//		ColourItGui.getScene( ).getWindow( ).setWidth(mainContainer.getPrefWidth( ));
+
 	}
 
 	@Override
