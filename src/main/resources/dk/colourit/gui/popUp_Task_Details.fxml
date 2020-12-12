@@ -40,9 +40,18 @@
             <RowConstraints maxHeight="218.0" minHeight="10.0" prefHeight="218.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Task name" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Estimated hours" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Responsible Team Member" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Task name" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin></Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Estimated hours" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin></Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Responsible Team Member" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin></Text>
             <TextField fx:id="taskNameEditTextField" onMouseClicked="#enableEditConfirmationButton" prefHeight="25.0" prefWidth="238.0" promptText="Name" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="30.0" />
@@ -80,7 +89,7 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="105.0" prefWidth="128.0" spacing="5.0">
                      <children>
-                        <Button fx:id="confirmEditButton" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#confirmEdit" prefWidth="100.0" text="Confirm edit" />
+                        <Button fx:id="confirmEditButton" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#confirmEdit" prefWidth="100.0" text="Confirm edit" textFill="#009000" />
                         <Button fx:id="cancelButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="25.0" prefWidth="100.0" text="Cancel" />
                      </children>
                      <padding>
@@ -92,7 +101,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="105.0" prefWidth="128.0" spacing="5.0">
                      <children>
-                        <Button fx:id="deleteTask" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#deleteTask" prefHeight="25.0" prefWidth="100.0" text="Delete task" />
+                        <Button fx:id="deleteTask" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#deleteTask" prefHeight="25.0" prefWidth="100.0" text="Delete task" textFill="#a40000" />
                         <Button fx:id="documentationButton" layoutX="29.0" layoutY="68.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#documentationPopup" prefHeight="25.0" prefWidth="100.0" text="Documentation" />
                      </children>
                      <padding>

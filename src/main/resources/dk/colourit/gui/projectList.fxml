@@ -35,7 +35,7 @@
                         <Insets left="20.0" />
                     </GridPane.margin>
                 </Text>
-                <Button fx:id="createButton" mnemonicParsing="false" onMouseClicked="#createProjectButton" prefHeight="21.0" prefWidth="93.0" text="Create" GridPane.columnIndex="1">
+                <Button fx:id="createButton" mnemonicParsing="false" onMouseClicked="#createProjectButton" prefHeight="21.0" prefWidth="93.0" text="Create" textFill="#009000" GridPane.columnIndex="1">
                     <font>
                         <Font size="18.0" />
                     </font>
@@ -45,7 +45,7 @@
                         <Font size="18.0" />
                     </font>
                 </Button>
-                <Button fx:id="addEmployeeButton" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#addEmployee" prefHeight="21.0" prefWidth="160.0" text="Add Employee" GridPane.columnIndex="3">
+                <Button fx:id="addEmployeeButton" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#addEmployee" prefHeight="21.0" prefWidth="160.0" text="Add Employee" textFill="#009000" GridPane.columnIndex="3">
                     <font>
                         <Font size="18.0" />
                     </font>

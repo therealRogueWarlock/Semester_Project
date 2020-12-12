@@ -29,7 +29,7 @@
       </BorderPane>
       <BorderPane prefHeight="139.0" prefWidth="241.0" GridPane.rowIndex="1">
          <center>
-            <Button fx:id="confirmDeleteButton" mnemonicParsing="false" onMouseClicked="#confirmDelete" prefHeight="20.0" prefWidth="70.0" text="Confirm" />
+            <Button fx:id="confirmDeleteButton" mnemonicParsing="false" onMouseClicked="#confirmDelete" prefHeight="20.0" prefWidth="70.0" text="Confirm" textFill="#009000" />
          </center>
       </BorderPane>
       <BorderPane prefHeight="24.0" prefWidth="526.0" GridPane.rowIndex="2">

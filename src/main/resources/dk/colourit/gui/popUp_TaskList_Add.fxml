@@ -38,9 +38,18 @@
             <RowConstraints maxHeight="218.0" minHeight="10.0" prefHeight="218.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Task name" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Estimated hours" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Responsible Team Member" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Task name" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin></Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Estimated hours" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin></Text>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Responsible Team Member" GridPane.halignment="LEFT" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="20.0" />
+               </GridPane.margin></Text>
             <TextField fx:id="taskNameTextField" prefHeight="25.0" prefWidth="238.0" promptText="Name" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <GridPane.margin>
                   <Insets right="30.0" />
@@ -76,7 +85,7 @@
             <HBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="65.0" prefWidth="407.0" spacing="20.0">
                <children>
                   <CheckBox fx:id="highPriorityCheckBox" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="17.0" prefWidth="98.0" text="High Priority" />
-                  <Button fx:id="confirmButton" mnemonicParsing="false" onMouseClicked="#addTask" prefHeight="25.0" prefWidth="128.0" text="Confirm" />
+                  <Button fx:id="confirmButton" mnemonicParsing="false" onMouseClicked="#addTask" prefHeight="25.0" prefWidth="128.0" text="Confirm" textFill="#009000" />
                   <Button fx:id="cancelButton" layoutX="209.0" layoutY="30.0" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="25.0" prefWidth="128.0" text="Cancel" />
                </children>
             </HBox>
