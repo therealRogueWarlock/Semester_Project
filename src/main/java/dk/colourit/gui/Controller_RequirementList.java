@@ -13,6 +13,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class Controller_RequirementList extends Controller {
 
@@ -48,6 +49,10 @@ public class Controller_RequirementList extends Controller {
 	@FXML
 	private VBox mainContainer;
 
+
+
+	private Project selectedProject = ColourItGui.getModel().getSelectedProject( );
+
 	public Controller_RequirementList( ) {
 
 	}
@@ -58,16 +63,16 @@ public class Controller_RequirementList extends Controller {
 //		mainContainer.getScene().getWindow().setHeight(mainContainer.getPrefHeight());
 //		mainContainer.getScene().getWindow().setWidth(mainContainer.getPrefWidth());
 
-		Project project = ColourItGui.getModel().getSelectedProject( );
+		selectedProject = ColourItGui.getModel().getSelectedProject( );
 
-		populateProjectInfo(project);
+		populateProjectInfo(selectedProject);
 
-		populateAddTeamMemberChoiceBox(project);
-		populateRemoveTeamMemberChoiceBox(project);
-		populateRoleChoiceBox(project);
+		populateAddTeamMemberChoiceBox(selectedProject);
+		populateRemoveTeamMemberChoiceBox(selectedProject);
+		populateRoleChoiceBox(selectedProject);
 
-		populateRequirementTable(project);
-		populateTeamMemberTable(project);
+		populateRequirementTable(selectedProject);
+		populateTeamMemberTable(selectedProject);
 
 		activateRoleButtonLogic();
 	}
@@ -235,8 +240,28 @@ public class Controller_RequirementList extends Controller {
 
 	}
 
-	public void deleteProjectButton( ) throws IOException {
-		createPopUp("popUp_Project_DeleteConfirmation");
+	public void deleteProjectButton( ) {
+
+		String projectName = selectedProject.getProjectName();
+		String projectStatus = selectedProject.getProjectStatus();
+		int totalTimeSpent = selectedProject.getTotalTime();
+
+		// creation a confirmation alert
+		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+		// setting Displayed text for Confirmation
+		alert.setTitle("Delete Project");
+		alert.setHeaderText("Are you sure you want to delete: \n" + projectName + " ?");
+		alert.setContentText("Name: " + projectName+ "\nStatus: "
+				+ projectStatus + "\nTime spent: " + totalTimeSpent + "" );
+
+		// getting what button was clicked
+		Optional<ButtonType> result = alert.showAndWait();
+		// if the button type is OK, delete selected requirement
+		if (result.get() == ButtonType.OK){
+			ColourItGui.getModel().deleteProject(selectedProject);
+			init();
+		}
+
 	}
 
 

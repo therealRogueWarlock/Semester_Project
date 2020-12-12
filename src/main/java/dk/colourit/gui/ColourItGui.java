@@ -22,11 +22,21 @@ public class ColourItGui extends Application {
 		return scene;
 	}
 
+
 	static void setRoot(String fxml) throws IOException {
-		scene.setRoot(loadFXML(fxml));
-		Pane mainContainer = (Pane) scene.lookup("#mainContainer");
-		scene.getWindow().setHeight(mainContainer.getPrefHeight());
-		scene.getWindow().setWidth(mainContainer.getPrefWidth());
+		Double oldX =  scene.getWindow().getX()+ (scene.getWidth()/2);
+
+		// get root from fxml
+		Region root = loadFXML(fxml);
+		// setting root of scene
+		scene.setRoot(root);
+		// Setting different stage sizes from preferred height and width
+		// setting stage height to preferred height from pane.
+		scene.getWindow().setHeight(root.getPrefHeight());
+		// setting stage width to preferred height from pane.
+		scene.getWindow().setWidth(root.getPrefWidth());
+
+		scene.getWindow().setX(oldX - (root.getPrefWidth()/2));
 	}
 
 	private static Region loadFXML(String fxml) throws IOException {
@@ -36,7 +46,6 @@ public class ColourItGui extends Application {
 		Region root = loader.load( );
 
 		Controller controller = loader.getController( );
-
 		controller.init( );
 		return root;
 	}
@@ -51,13 +60,20 @@ public class ColourItGui extends Application {
 
 	@Override
 	public void start(Stage stage) throws IOException {
-		scene = new Scene(loadFXML("loadingScreen"));
+		Region root = loadFXML("loginScreen");
+		scene = new Scene(root);
 		scene.setCursor(new ImageCursor(new Image("file:colourItCursor.png")));
+		// setting scene on stage
 		stage.setScene(scene);
-//		stage.r;
-		setRoot("loginScreen");
 
 		stage.show( );
+		// setting minimum size of the stage
+		stage.setMinHeight(root.getHeight());
+		stage.setMinWidth(root.getWidth());
+		// setting the maximum size of the stage
+		stage.setMaxHeight(800);
+		stage.setMaxWidth(1400);
+
 		// when primary stage closes save to bin files.
 		stage.setOnCloseRequest(e -> getModel( ).saveToFile( ));
 	}

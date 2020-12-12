@@ -182,7 +182,7 @@ public class  Controller_TaskList extends Controller {
 		createPopUp("popUp_Requirement_Edit");
 	}
 
-	public void removeRequirement() throws IOException {
+	public void removeRequirement() {
 		String requirementName = selectedRequirement.getRequirementName();
 		String requirementStatus = selectedRequirement.getStatus();
 		int totalTimeSpent = selectedRequirement.getTotalTimeSpent();
@@ -202,7 +202,7 @@ public class  Controller_TaskList extends Controller {
 			Project selectedProject = ColourItGui.getModel().getSelectedProject();
 
 			selectedProject.getRequirementList().removeRequirement(selectedRequirement.getRequirementName());
-			goBack();
+			init();
 		}
 
 	}

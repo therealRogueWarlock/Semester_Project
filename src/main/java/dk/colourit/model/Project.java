@@ -12,7 +12,7 @@ public class Project implements Serializable {
 	private MyDate projectStartDate;
 	private MyDate projectDeadline;
 	private MyDate projectEndDate;
-	private double status; // TODO: Forklar denne til Andreas - Kan vi få den over i vores parser uden dette?
+	//private double status; // TODO: Forklar denne til Andreas - Kan vi få den over i vores parser uden dette?
 
 	private RequirementList requirementList;
 	private TeamMemberList teamMemberList;
@@ -21,7 +21,7 @@ public class Project implements Serializable {
 	public Project(String projectName, MyDate projectStartDate, MyDate projectDeadline) {
 		this.projectCreationDate = MyDate.now( );
 		this.projectEndDate = null;
-		status = 0;
+		//status = 0;
 		requirementList = new RequirementList( );
 		teamMemberList = new TeamMemberList( );
 
@@ -49,9 +49,7 @@ public class Project implements Serializable {
 	public int getTotalTime( ) {
 		int time = 0;
 		for ( Requirement req : requirementList.getRequirements( ) ) {
-			for ( Task task : req.getTaskList( ).getTasks( ) ) {
-				time += task.getTotalTimeSpent( );
-			}
+			time += req.getTotalTimeSpent();
 		}
 		return time;
 	}
