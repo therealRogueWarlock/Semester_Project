@@ -1,5 +1,6 @@
 package dk.colourit.gui;
 
+import dk.colourit.model.Project;
 import dk.colourit.model.Requirement;
 import dk.colourit.model.Task;
 import dk.colourit.model.TaskList;
@@ -14,6 +15,7 @@ import javafx.scene.text.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class  Controller_TaskList extends Controller {
 
@@ -35,6 +37,7 @@ public class  Controller_TaskList extends Controller {
 	public Text projectNameText;
 	public Text statusText;
 	public Text requirementNameText;
+	public Button deleteRequirementButton;
 	public Button addTaskButton;
 	public Button backButton;
 	public Button rejectButton;
@@ -44,17 +47,22 @@ public class  Controller_TaskList extends Controller {
 
     public Text priorityText;
 	public Text timeEstimateText;
-	public Text requirementDescriptionText;
+	public TextArea requirementDescriptionText;
 
+
+
+	// fields for selected objects
+	private Requirement selectedRequirement;
 	private TaskList taskList;
 
-	public void init( ) {
-		Requirement requirement = ColourItGui.getModel().getSelectedRequirement( );
-		taskList = requirement.getTaskList( );
+
+	public void init() {
+		selectedRequirement = ColourItGui.getModel().getSelectedRequirement( );
+		taskList = selectedRequirement.getTaskList( );
 
 		populateHighPriorityTable();
 		populateLowPriorityTable();
-		populateInformationText(requirement);
+		populateInformationText();
 
 		// logic for buttons
 		generalButtonLogic();
@@ -99,17 +107,17 @@ public class  Controller_TaskList extends Controller {
 		lowPriorityTableView.setItems(observableLowPriorityTasks);
 	}
 
-	private void populateInformationText(Requirement requirement){
+	private void populateInformationText(){
 		// setting information text on scene
 		projectNameText.setText(ColourItGui.getModel().getSelectedProject( ).getProjectName( ));
-		statusText.setText(requirement.getStatus( ));
-		requirementNameText.setText(requirement.getRequirementName( ));
+		statusText.setText(selectedRequirement.getStatus( ));
+		requirementNameText.setText(selectedRequirement.getRequirementName( ));
 
 		roleSelectedLabel.setText(ColourItGui.getModel().getUseRoleString());
 
-		priorityText.setText(Integer.toString(requirement.getPriority()) );
-		timeEstimateText.setText(Integer.toString(requirement.getRequirementTimeEstimate()));
-		requirementDescriptionText.setText(requirement.getRequirementDescription());
+		priorityText.setText(Integer.toString(selectedRequirement.getPriority()) );
+		timeEstimateText.setText(Integer.toString(selectedRequirement.getRequirementTimeEstimate()));
+		requirementDescriptionText.setText(selectedRequirement.getRequirementDescription());
 
 	}
 
@@ -117,7 +125,7 @@ public class  Controller_TaskList extends Controller {
 	// functions for button disable/enable logic
 	private void generalButtonLogic(){
 		// if the requirement is Approved or the project team mebmer list is 0 you cant add a task.
-		if (ColourItGui.getModel().getSelectedRequirement().getStatus().equalsIgnoreCase("Approved") ||
+		if (selectedRequirement.getStatus().equalsIgnoreCase("Approved") ||
 				ColourItGui.getModel().getSelectedProject().getTeamMemberList().getTeamMembers().size() == 0 ) {
 			addTaskButton.setDisable(true);
 		}
@@ -140,13 +148,14 @@ public class  Controller_TaskList extends Controller {
 
 	private void removeProductOwnerButtons(){
 		editRequirementButton.setVisible(false);
+		deleteRequirementButton.setVisible(false);
 		approveButton.setVisible(false);
 		rejectButton.setVisible(false);
 	}
 
 	private void productOwnerButtonsLogic(){
 		// if the requirement is ready for review the approve or reject button will show
-		if ( ( ColourItGui.getModel().getSelectedRequirement( ).getStatus( )
+		if ( ( selectedRequirement.getStatus( )
 				.equalsIgnoreCase("ready for review"))) {
 			approveButton.setDisable(false);
 			rejectButton.setDisable(false);
@@ -159,17 +168,48 @@ public class  Controller_TaskList extends Controller {
 
 	// functions for button functionality
 	public void approve( ) throws IOException {
-		ColourItGui.getModel().getSelectedRequirement( ).setStatus("Approved");
-		goBack( );
+		selectedRequirement.setStatus("Approved");
+		goBack();
 	}
 
 	public void reject( ) throws IOException {
-		ColourItGui.getModel().getSelectedRequirement( ).setStatus("Rejected");
-		goBack( );
+		selectedRequirement.setStatus("Rejected");
+		goBack();
 	}
 
+	@FXML
+	private void editRequirement( ) throws IOException {
+		createPopUp("popUp_Requirement_Edit");
+	}
+
+	public void removeRequirement() throws IOException {
+		String requirementName = selectedRequirement.getRequirementName();
+		String requirementStatus = selectedRequirement.getStatus();
+		int totalTimeSpent = selectedRequirement.getTotalTimeSpent();
+
+		// creation a confirmation alert
+		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+		// setting Displayed text for Confirmation
+		alert.setTitle("Delete Requirement");
+		alert.setHeaderText("Are you sure you want to delete: \n" + requirementName + " ?");
+		alert.setContentText("Name: " + requirementName+ "\nStatus: "
+				+ requirementStatus + "\nTime spent: " + totalTimeSpent + "" );
+
+		// getting what button was clicked
+		Optional<ButtonType> result = alert.showAndWait();
+		// if the button type is OK, delete selected requirement
+		if (result.get() == ButtonType.OK){
+			Project selectedProject = ColourItGui.getModel().getSelectedProject();
+
+			selectedProject.getRequirementList().removeRequirement(selectedRequirement.getRequirementName());
+			goBack();
+		}
+
+	}
+
+
 	@Override
-	public void goBack( ) throws IOException {
+	public void goBack() throws IOException {
 		init( );
 		ColourItGui.setRoot("requirementList");
 	}
@@ -179,10 +219,6 @@ public class  Controller_TaskList extends Controller {
 		createPopUp("popUp_TaskList_Add");
 	}
 
-	@FXML
-	private void editRequirement( ) throws IOException {
-		createPopUp("popUp_Requirement_Edit");
-	}
 
 	@FXML
 	private void popUpTaskDetails( ) throws IOException {

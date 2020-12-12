@@ -43,7 +43,7 @@ public class Controller_RequirementList extends Controller {
 
 	@FXML private ChoiceBox<TeamMember> addTeamMemberChoiceBox;
 	@FXML private ChoiceBox<TeamMember> removeTeamMemberChoiceBox;
-	@FXML private ChoiceBox<Requirement> requirementChoiceBox;
+
 	@FXML private ChoiceBox<String> selectRoleChoiceBox;
 
 
@@ -59,7 +59,6 @@ public class Controller_RequirementList extends Controller {
 
 		populateProjectInfo(project);
 
-		populateRequirementChoiceBox(project);
 		populateAddTeamMemberChoiceBox(project);
 		populateRemoveTeamMemberChoiceBox(project);
 		populateRoleChoiceBox(project);
@@ -104,8 +103,6 @@ public class Controller_RequirementList extends Controller {
 
 	private void removeProductOwnerButtons(){
 		addRequirementButton.setVisible(false);
-		removeRequirementButton.setVisible(false);
-		requirementChoiceBox.setVisible(false);
 	}
 
 
@@ -135,15 +132,6 @@ public class Controller_RequirementList extends Controller {
 		selectRoleChoiceBox.getItems( ).addAll("Team Member", "Project Creator", "Scrum Master", "Product Owner");
 		selectRoleChoiceBox.getSelectionModel().select(0);
 
-	}
-
-	private void populateRequirementChoiceBox(Project project) {
-		requirementChoiceBox.getItems( ).clear( );
-
-		ArrayList<Requirement> requirements = project.getRequirementList( ).getRequirements( );
-		requirementChoiceBox.getItems( ).addAll(requirements);
-		// preselecting first item in choice box
-		requirementChoiceBox.getSelectionModel().select(0);
 	}
 
 	private void populateRemoveTeamMemberChoiceBox(Project project) {
@@ -210,10 +198,6 @@ public class Controller_RequirementList extends Controller {
 		createPopUp("popUp_Requirement_Add");
 	}
 
-	public void removeRequirementButton( ) {
-		ColourItGui.getModel().getSelectedProject().getRequirementList().removeRequirement(requirementChoiceBox.getSelectionModel().getSelectedItem().getRequirementName());
-		init();
-	}
 
 	public void addTeamMemberButton( ) {
 
@@ -253,13 +237,13 @@ public class Controller_RequirementList extends Controller {
 		createPopUp("popUp_Project_DeleteConfirmation");
 	}
 
-	public void goBack( ) throws IOException {
+
+	public void goBack() throws IOException {
 		init();
 		ColourItGui.setRoot("projectList");
 	}
 
-	public void itemSelected( ) throws IOException //SANDER DON'T FUCKING REMOVE THIS PLEASE
-	{
+	public void itemSelected( ) throws IOException {
 		Requirement selectedRequirement = requirementTable.getSelectionModel( ).getSelectedItem( );
 
 		if(selectedRequirement!=null)

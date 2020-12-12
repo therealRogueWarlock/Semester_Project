@@ -66,6 +66,15 @@ public class Requirement implements Serializable {
 		return requirementTimeEstimate;
 	}
 
+	public int getTotalTimeSpent(){
+		int totalTime = 0;
+		for (Task task: taskList.getTasks()){
+			totalTime += task.getTotalTimeSpent();
+		}
+
+		return totalTime;
+	}
+
 	public void setRequirementTimeEstimate(int requirementTimeEstimate) {
 		if (requirementTimeEstimate < 0)
 			requirementTimeEstimate = 0;
