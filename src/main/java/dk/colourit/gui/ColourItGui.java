@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class ColourItGui extends Application {
 
-	private static final ColourITProjectManagement model = new ColourITProjectManagement( );
+	private static final ColourITProjectManagement model = new ColourITProjectManagement();
 
 	protected static Scene scene;
 
@@ -31,13 +31,13 @@ public class ColourItGui extends Application {
 
 	private static Region loadFXML(String fxml) throws IOException {
 
-		FXMLLoader loader = new FXMLLoader( );
+		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(ColourItGui.class.getResource(fxml + ".fxml"));
-		Region root = loader.load( );
+		Region root = loader.load();
 
-		Controller controller = loader.getController( );
+		Controller controller = loader.getController();
 
-		controller.init( );
+		controller.init();
 		return root;
 	}
 
@@ -46,7 +46,7 @@ public class ColourItGui extends Application {
 	}
 
 	public static void launchApp( ) {
-		launch( );
+		launch();
 	}
 
 	@Override
@@ -57,9 +57,9 @@ public class ColourItGui extends Application {
 //		setRoot used to circumvent unwanted window size change
 		setRoot("loginScreen");
 
-		stage.show( );
+		stage.show();
 		// when primary stage closes save to bin files.
-		stage.setOnCloseRequest(e -> getModel( ).saveToFile( ));
+		stage.setOnCloseRequest(e -> getModel().saveToFile());
 	}
 }
 
