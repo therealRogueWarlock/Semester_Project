@@ -51,7 +51,7 @@
                   <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
                </padding>
             </Button>
-            <Button fx:id="addTeamMemberButton1" alignment="CENTER" layoutX="70.0" layoutY="15.0" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addTeamMember" prefWidth="50.0" text="Cancel" textAlignment="CENTER">
+            <Button fx:id="closeButton" alignment="CENTER" layoutX="70.0" layoutY="15.0" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goBack" prefWidth="50.0" text="Close" textAlignment="CENTER">
                <padding>
                   <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
                </padding>

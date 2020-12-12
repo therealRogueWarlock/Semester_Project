@@ -2,9 +2,11 @@ package dk.colourit.gui;
 
 import dk.colourit.model.MyDate;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.time.DateTimeException;
 import java.util.InputMismatchException;
@@ -19,6 +21,8 @@ public class PopUpController_TeamMemberList_Add extends Controller {
 	private DatePicker birthdateDatePicker;
 	@FXML
 	protected Label validationLabel;
+	@FXML
+	private Button closeButton;
 
 	@Override
 	public void init( ) {
@@ -59,6 +63,7 @@ public class PopUpController_TeamMemberList_Add extends Controller {
 	@Override
 	public void goBack( ) {
 		getParentController( ).init( );
+		((Stage)closeButton.getScene().getWindow()).close();
 	}
 
 }
