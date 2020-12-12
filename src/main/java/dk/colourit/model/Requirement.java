@@ -20,9 +20,9 @@ public class Requirement implements Serializable {
 		setPriority(priority);
 
 		checked = false;
-		requirementCreationDate = MyDate.now( );
+		requirementCreationDate = MyDate.now();
 		status = "Not Done";
-		taskList = new TaskList( );
+		taskList = new TaskList();
 		requirementDescription = "No Description";
 
 	}
@@ -33,9 +33,9 @@ public class Requirement implements Serializable {
 		setPriority(priority);
 		setRequirementDescription(requirementDescription);
 
-		requirementCreationDate = MyDate.now( );
+		requirementCreationDate = MyDate.now();
 		status = "Not Done";
-		taskList = new TaskList( );
+		taskList = new TaskList();
 
 	}
 
@@ -44,7 +44,7 @@ public class Requirement implements Serializable {
 	}
 
 	public void setRequirementName(String requirementName) {
-		if ( requirementName.isEmpty( ) || requirementName.isBlank( ) )
+		if (requirementName.isEmpty() || requirementName.isBlank())
 			throw new InvalidParameterException("No name found");
 		else
 			this.requirementName = requirementName;
@@ -67,15 +67,15 @@ public class Requirement implements Serializable {
 	}
 
 	public void setRequirementTimeEstimate(int requirementTimeEstimate) {
-		if ( requirementTimeEstimate < 0 )
+		if (requirementTimeEstimate < 0)
 			requirementTimeEstimate = 0;
 		this.requirementTimeEstimate = requirementTimeEstimate;
 	}
 
 	public int getTotalTimeSpent( ) {
 		int totalTime = 0;
-		for ( Task task : taskList.getTasks( ) ) {
-			totalTime += task.getTotalTimeSpent( );
+		for (Task task : taskList.getTasks()) {
+			totalTime += task.getTotalTimeSpent();
 		}
 
 		return totalTime;
@@ -86,7 +86,7 @@ public class Requirement implements Serializable {
 	}
 
 	public void setPriority(int priority) {
-		if ( priority < 0 )
+		if (priority < 0)
 			priority = 0;
 		this.priority = priority;
 	}
@@ -96,10 +96,10 @@ public class Requirement implements Serializable {
 	}
 
 	public String getStatus( ) {
-		if ( ! checked ) {
-			if ( taskList.getListSize( ) == 0 ) return "No Tasks";
-			if ( ! ( status.equalsIgnoreCase("Approved") ) ) {
-				if ( taskList.getListSize( ) > taskList.getFinishedTasks( ).size( ) ) setStatus("Not Done");
+		if (! (status.equalsIgnoreCase("Ready for Review") || (status.equalsIgnoreCase("Rejected") && checked))) {
+			if (taskList.getListSize() == 0) return "No Tasks";
+			if (! (status.equalsIgnoreCase("Approved"))) {
+				if (taskList.getListSize() > taskList.getFinishedTasks().size()) setStatus("Not Done");
 				else setStatus("Ready for Review");
 			}
 			setChecked(true);
