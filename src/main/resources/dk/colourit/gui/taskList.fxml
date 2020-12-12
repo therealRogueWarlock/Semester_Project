@@ -162,7 +162,7 @@
                         <TableColumn fx:id="taskStatusHighColumn" prefWidth="75.0" text="Task status" />
                     </columns>
                 </TableView>
-                <Button fx:id="addTaskButton" mnemonicParsing="false" onMouseClicked="#popUpAddTask" text="Add task" GridPane.halignment="RIGHT">
+                <Button fx:id="addTaskButton" mnemonicParsing="false" textFill="#009000" onMouseClicked="#popUpAddTask" text="Add task" GridPane.halignment="RIGHT">
                <GridPane.margin>
                   <Insets right="50.0" />
                </GridPane.margin>
