@@ -46,10 +46,21 @@
          </GridPane.margin></TextField>
       <HBox nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <children>
+            <Button fx:id="closeButton" alignment="CENTER" contentDisplay="RIGHT" layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#goBack" prefWidth="50.0" text="Close">
+               <padding>
+                  <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets left="2.0" right="2.0" />
+               </HBox.margin>
+            </Button>
             <Button fx:id="addRequirementButton" alignment="CENTER" contentDisplay="RIGHT" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addRequirement" prefWidth="50.0" text="Add" textFill="#009000">
                <padding>
                   <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
                </padding>
+               <HBox.margin>
+                  <Insets left="2.0" right="2.0" />
+               </HBox.margin>
             </Button>
             <Label fx:id="validationLabel" />
          </children>

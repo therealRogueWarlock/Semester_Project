@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.InputMismatchException;
@@ -19,6 +20,7 @@ public class PopUpController_Requirement_Add extends Controller {
 	public TextArea requirementDescriptionTextArea;
 
 	public Button addRequirementButton;
+	public Button closeButton;
 
 	public Label validationLabel;
 
@@ -68,6 +70,7 @@ public class PopUpController_Requirement_Add extends Controller {
 	@Override
 	public void goBack( ) throws IOException {
 		getParentController( ).init( );
+		((Stage)closeButton.getScene().getWindow()).close();
 	}
 
 }
