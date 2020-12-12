@@ -44,7 +44,7 @@ public class ColourItGui extends Application {
 
 	@Override
 	public void start(Stage stage) throws IOException {
-		scene = new Scene(loadFXML("loginScreen"), 1280, 720);
+		scene = new Scene(loadFXML("loginScreen"));
 		scene.setCursor(new ImageCursor(new Image("file:colourItCursor.png")));
 		stage.setScene(scene);
 		stage.show( );
