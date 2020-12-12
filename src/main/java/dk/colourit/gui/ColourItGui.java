@@ -16,9 +16,10 @@ public class ColourItGui extends Application {
 
 	private static final ColourITProjectManagement model = new ColourITProjectManagement( );
 
-	private static Scene scene;
+	protected static Scene scene;
 
 	public static Scene getScene( ) {
+		System.out.println("ColourItGui.java | getScene() " + scene);
 		return scene;
 	}
 
@@ -52,7 +53,7 @@ public class ColourItGui extends Application {
 		scene.setCursor(new ImageCursor(new Image("file:colourItCursor.png")));
 		stage.setScene(scene);
 		stage.show( );
-
+		System.out.println("ColourItGui.java | start() " + scene);
 		// when primary stage closes save to bin files.
 		stage.setOnCloseRequest(e -> getModel( ).saveToFile( ));
 	}

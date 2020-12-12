@@ -12,7 +12,7 @@ public class Controller_LoginScreen extends Controller {
 
 	@Override
 	public void init( ) {
-
+		ColourItGui.getScene();
 	}
 
 	@Override
