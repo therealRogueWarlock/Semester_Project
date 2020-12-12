@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,7 +44,8 @@ public class Controller_RequirementList extends Controller {
 	@FXML private ChoiceBox<TeamMember> removeTeamMemberChoiceBox;
 
 	@FXML private ChoiceBox<String> selectRoleChoiceBox;
-
+	@FXML
+	private VBox mainContainer;
 
 	public Controller_RequirementList( ) {
 
@@ -52,6 +54,8 @@ public class Controller_RequirementList extends Controller {
 
 	@Override
 	public void init( ) {
+//		mainContainer.getScene().getWindow().setHeight(mainContainer.getPrefHeight());
+//		mainContainer.getScene().getWindow().setWidth(mainContainer.getPrefWidth());
 
 		Project project = ColourItGui.getModel().getSelectedProject( );
 

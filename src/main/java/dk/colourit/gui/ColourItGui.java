@@ -7,6 +7,7 @@ import javafx.scene.ImageCursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -17,16 +18,19 @@ public class ColourItGui extends Application {
 
 	private static Scene scene;
 
+	public static Scene getScene( ) {
+		return scene;
+	}
+
 	static void setRoot(String fxml) throws IOException {
 		scene.setRoot(loadFXML(fxml));
 	}
 
-
-	private static Parent loadFXML(String fxml) throws IOException {
+	private static Region loadFXML(String fxml) throws IOException {
 
 		FXMLLoader loader = new FXMLLoader( );
 		loader.setLocation(ColourItGui.class.getResource(fxml + ".fxml"));
-		Parent root = loader.load( );
+		Region root = loader.load( );
 
 		Controller controller = loader.getController( );
 
@@ -50,7 +54,7 @@ public class ColourItGui extends Application {
 		stage.show( );
 
 		// when primary stage closes save to bin files.
-		stage.setOnCloseRequest(e -> getModel().saveToFile());
+		stage.setOnCloseRequest(e -> getModel( ).saveToFile( ));
 	}
 }
 
