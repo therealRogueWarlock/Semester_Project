@@ -3,214 +3,208 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane fx:id="mainContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.colourit.gui.Controller_TaskList">
+<GridPane fx:id="mainContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.colourit.gui.Controller_TaskList">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="180.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="1.7976931348623157E308" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" percentHeight="2.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
-        <GridPane maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity">
+        <GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="202.0" prefWidth="615.0">
             <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="80.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="-Infinity" minHeight="30.0" prefHeight="90.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <GridPane maxWidth="1.7976931348623157E308">
+                <GridPane>
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="140.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="80.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="80.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="130.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="170.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints maxHeight="-Infinity" minHeight="60.0" prefHeight="70.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
-                  <VBox spacing="20.0">
-                     <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Project Name">
-                                  <font>
-                                      <Font name="System Bold Italic" size="16.0" />
-                                  </font>
-                              </Text>
-                              <Text fx:id="projectNameText" strokeType="OUTSIDE" strokeWidth="0.0" text="nameHere" />
-                     </children>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </VBox>
-                  <VBox spacing="20.0" GridPane.columnIndex="1">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Priority">
-                           <font>
-                              <Font name="System Bold Italic" size="16.0" />
-                           </font>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Project Name" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                            <GridPane.margin>
+                                <Insets top="10.0" />
+                            </GridPane.margin>
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
                         </Text>
-                        <Text fx:id="priorityText" strokeType="OUTSIDE" strokeWidth="0.0" text="Priority" />
-                     </children>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </VBox>
-                  <VBox spacing="20.0" GridPane.columnIndex="2">
-                     <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Status">
-                                  <font>
-                                      <Font name="System Bold Italic" size="16.0" />
-                                  </font>
-                              </Text>
-                              <Text fx:id="statusText" strokeType="OUTSIDE" strokeWidth="0.0" text="notdone" />
-                     </children>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </VBox>
-                  <VBox spacing="20.0" GridPane.columnIndex="4">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Time Estimate">
-                           <font>
-                              <Font name="System Bold Italic" size="16.0" />
-                           </font>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Status" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                            <GridPane.margin>
+                                <Insets top="10.0" />
+                            </GridPane.margin>
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
                         </Text>
-                        <Text fx:id="timeEstimateText" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Estimate" />
-                     </children>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </VBox>
-                  <VBox spacing="20.0" GridPane.columnIndex="5">
-                     <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Requirement">
-                                  <font>
-                                      <Font name="System Bold Italic" size="16.0" />
-                                  </font>
-                              </Text>
-                              <Text fx:id="requirementNameText" strokeType="OUTSIDE" strokeWidth="0.0" text="somename" />
-                     </children>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </VBox>
-                  <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Requirement" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                            <GridPane.margin>
+                                <Insets top="10.0" />
+                            </GridPane.margin>
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Text>
+                        <Text fx:id="projectNameText" strokeType="OUTSIDE" strokeWidth="0.0" text="nameHere" GridPane.halignment="CENTER">
+                            <GridPane.margin>
+                                <Insets top="5.0" />
+                            </GridPane.margin>
+                        </Text>
+                        <Text fx:id="statusText" strokeType="OUTSIDE" strokeWidth="0.0" text="notdone" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                            <GridPane.margin>
+                                <Insets top="5.0" />
+                            </GridPane.margin>
+                        </Text>
+                        <Text fx:id="requirementNameText" strokeType="OUTSIDE" strokeWidth="0.0" text="somename" GridPane.columnIndex="4" GridPane.halignment="CENTER">
+                            <GridPane.margin>
+                                <Insets top="5.0" />
+                            </GridPane.margin>
+                        </Text>
+                  <Text fx:id="priorityText" strokeType="OUTSIDE" strokeWidth="0.0" text="Priority" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                     <GridPane.margin>
+                        <Insets top="5.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <Text fx:id="timeEstimateText" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Estimate" GridPane.columnIndex="3" GridPane.halignment="CENTER">
+                     <GridPane.margin>
+                        <Insets top="5.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Priority" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets top="10.0" />
+                     </GridPane.margin>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Time Estimate" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets top="10.0" />
+                     </GridPane.margin>
+                  </Text>
+                      <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="62.0" prefWidth="100.0" text="Back" GridPane.columnIndex="5" GridPane.halignment="CENTER" />
                     </children>
                 </GridPane>
-            <Separator prefWidth="200.0" GridPane.rowIndex="1" />
-            <AnchorPane GridPane.rowIndex="2">
+            <AnchorPane GridPane.rowIndex="1">
                <children>
-                  <HBox alignment="CENTER_RIGHT" layoutX="847.0" layoutY="40.0" minHeight="30.0" minWidth="375.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="0.0">
+                  <HBox layoutX="850.0" layoutY="13.0" spacing="10.0" AnchorPane.bottomAnchor="57.0" AnchorPane.rightAnchor="37.0" AnchorPane.topAnchor="13.0">
                      <children>
                         <Button fx:id="approveButton" disable="true" mnemonicParsing="false" onMouseClicked="#approve" text="Approve" />
                         <Button fx:id="rejectButton" disable="true" mnemonicParsing="false" onMouseClicked="#reject" text="Reject" />
                         <Button fx:id="editRequirementButton" mnemonicParsing="false" onMouseClicked="#editRequirement" text="Edit Requirement" />
-                            <Button fx:id="addTaskButton" mnemonicParsing="false" onMouseClicked="#popUpAddTask" text="Add task" />
-                            <Button fx:id="backButton" mnemonicParsing="false" onMouseClicked="#goBack" text="Back" />
+                        <Button fx:id="deleteRequirementButton" mnemonicParsing="false" onMouseClicked="#removeRequirement" text="Delete Requirement" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                   </HBox>
-                  <VBox layoutX="40.0" layoutY="25.9716796875" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Requirement Description">
-                           <font>
-                              <Font name="System Bold Italic" size="14.0" />
-                           </font>
-                        </Text>
-                            <Text fx:id="requirementDescriptionText" strokeType="OUTSIDE" strokeWidth="0.0" text="Requirement Description" />
-                     </children>
-                     <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                     </padding>
-                  </VBox>
+                  <Text layoutX="40.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Requirement Description">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Text>
+                  <HBox alignment="CENTER" layoutX="850.0" layoutY="57.0" prefHeight="53.0" prefWidth="373.0" />
+                  <TextArea fx:id="requirementDescriptionText" layoutX="40.0" layoutY="53.0" prefHeight="62.0" prefWidth="329.0" />
                </children>
             </AnchorPane>
             </children>
         </GridPane>
         <GridPane GridPane.rowIndex="1">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="780.0" />
-            <ColumnConstraints hgrow="SOMETIMES" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints percentHeight="50.0" vgrow="SOMETIMES" />
-                <RowConstraints percentHeight="50.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="96.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="162.0" minHeight="10.0" prefHeight="161.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-            <VBox>
-               <children>
-                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="High Priority Tasks">
-                     <font>
-                        <Font name="System Bold Italic" size="12.0" />
-                     </font>
-                      </Text>
-                      <TableView fx:id="highPriorityTableView" maxWidth="-Infinity" onMouseClicked="#itemSelected" prefHeight="200.0" prefWidth="750.0">
-                          <columns>
-                              <TableColumn fx:id="taskNameHighColumn" prefWidth="248.0" text="Task name" />
-                              <TableColumn fx:id="estimatedTimeHighColumn" prefWidth="107.0" text="Estimated time" />
-                              <TableColumn fx:id="totalTimeSpentHighColumn" prefWidth="86.0" text="Time spent" />
-                              <TableColumn fx:id="responsibleHighColumn" prefWidth="193.0" text="Responsible" />
-                              <TableColumn fx:id="taskStatusHighColumn" prefWidth="75.0" text="Task status" />
-                          </columns>
-                      </TableView>
-               </children>
-            </VBox>
-            <VBox GridPane.rowIndex="1">
-               <children>
-                      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Low Prority Tasks">
-                     <font>
-                        <Font name="System Bold Italic" size="12.0" />
-                     </font>
-                      </Text>
-                      <TableView fx:id="lowPriorityTableView" maxWidth="-Infinity" onMouseClicked="#itemSelected" prefHeight="200.0" prefWidth="750.0">
-                          <columns>
-                              <TableColumn fx:id="taskNameLowColumn" prefWidth="250.0" text="Task name" />
-                              <TableColumn fx:id="estimatedTimeLowColumn" prefWidth="105.0" text="Estimated time" />
-                              <TableColumn fx:id="totalTimeSpentLowColumn" prefWidth="84.0" text="Time spent" />
-                              <TableColumn fx:id="responsibleLowColumn" prefWidth="195.0" text="Responsible" />
-                              <TableColumn fx:id="taskStatusLowColumn" prefWidth="75.0" text="Task status" />
-                          </columns>
-                      </TableView>
-               </children>
-            </VBox>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="High Priority">
+                    <GridPane.margin>
+                        <Insets left="30.0" />
+                    </GridPane.margin>
+                </Text>
+                <TableView fx:id="highPriorityTableView" onMouseClicked="#itemSelected" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                    <columns>
+                        <TableColumn fx:id="taskNameHighColumn" prefWidth="248.0" text="Task name" />
+                        <TableColumn fx:id="estimatedTimeHighColumn" prefWidth="107.0" text="Estimated time" />
+                        <TableColumn fx:id="totalTimeSpentHighColumn" prefWidth="86.0" text="Time spent" />
+                        <TableColumn fx:id="responsibleHighColumn" prefWidth="193.0" text="Responsible" />
+                        <TableColumn fx:id="taskStatusHighColumn" prefWidth="75.0" text="Task status" />
+                    </columns>
+                </TableView>
+                <Button fx:id="addTaskButton" mnemonicParsing="false" onMouseClicked="#popUpAddTask" text="Add task" GridPane.halignment="RIGHT">
+               <GridPane.margin>
+                  <Insets right="50.0" />
+               </GridPane.margin>
+            </Button>
             </children>
         </GridPane>
-      <HBox prefHeight="20.0" prefWidth="1273.0" GridPane.rowIndex="2">
+        <GridPane GridPane.rowIndex="2">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="96.0" minHeight="10.0" prefHeight="37.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="164.0" minHeight="10.0" prefHeight="164.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Low Prority">
+                    <GridPane.margin>
+                        <Insets left="30.0" />
+                    </GridPane.margin>
+                </Text>
+                <TableView fx:id="lowPriorityTableView" onMouseClicked="#itemSelected" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                    <columns>
+                        <TableColumn fx:id="taskNameLowColumn" prefWidth="250.0" text="Task name" />
+                        <TableColumn fx:id="estimatedTimeLowColumn" prefWidth="105.0" text="Estimated time" />
+                        <TableColumn fx:id="totalTimeSpentLowColumn" prefWidth="84.0" text="Time spent" />
+                        <TableColumn fx:id="responsibleLowColumn" prefWidth="195.0" text="Responsible" />
+                        <TableColumn fx:id="taskStatusLowColumn" prefWidth="75.0" text="Task status" />
+                    </columns>
+                </TableView>
+            </children>
+        </GridPane>
+      <HBox prefHeight="20.0" prefWidth="1273.0" GridPane.rowIndex="3">
          <children>
               <Label text="Colour IT © Group 7" textFill="#545454">
                   <font>
                       <Font name="System Italic" size="12.0" />
                   </font>
                <HBox.margin>
-                  <Insets />
+                  <Insets right="480.0" />
                </HBox.margin>
               </Label>
-            <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
-               <children>
-                  <Label fx:id="roleSelectedLabel" alignment="CENTER" contentDisplay="CENTER" text="Role Selected" />
-               </children>
-            </HBox>
+            <Label fx:id="roleSelectedLabel" text="Role Selected" />
          </children>
          <GridPane.margin>
             <Insets top="10.0" />

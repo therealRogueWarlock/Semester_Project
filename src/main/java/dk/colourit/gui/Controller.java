@@ -49,6 +49,8 @@ public abstract class Controller
         stage.showAndWait();
     }
 
+
+
     public void setParentController(Controller parentController) {
         this.parentController = parentController;
     }
