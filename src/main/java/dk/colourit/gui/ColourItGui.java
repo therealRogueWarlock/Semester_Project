@@ -4,9 +4,9 @@ import dk.colourit.mediator.ColourITProjectManagement;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.ImageCursor;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
@@ -25,6 +25,9 @@ public class ColourItGui extends Application {
 
 	static void setRoot(String fxml) throws IOException {
 		scene.setRoot(loadFXML(fxml));
+		Pane mainContainer = (Pane) scene.lookup("#mainContainer");
+		scene.getWindow().setHeight(mainContainer.getPrefHeight());
+		scene.getWindow().setWidth(mainContainer.getPrefWidth());
 	}
 
 	private static Region loadFXML(String fxml) throws IOException {
