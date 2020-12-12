@@ -96,20 +96,14 @@ public class Requirement implements Serializable {
 	}
 
 	public String getStatus( ) {
-		System.out.println("Requirement: " + requirementName);
-		System.out.println("Status: " + status);
-		System.out.println("Checked: " + checked);
 		if ( ! checked ) {
-			System.out.println("Requirement.checked has been set to true");
 			if ( taskList.getListSize( ) == 0 ) return "No Tasks";
 			if ( ! ( status.equalsIgnoreCase("Approved") ) ) {
 				if ( taskList.getListSize( ) > taskList.getFinishedTasks( ).size( ) ) setStatus("Not Done");
 				else setStatus("Ready for Review");
 			}
-			System.out.println("Status has been set to " + status );
 			setChecked(true);
 		}
-		System.out.println("<\n");
 		return status;
 	}
 
