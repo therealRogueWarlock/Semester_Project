@@ -117,7 +117,7 @@
                 </GridPane>
             <AnchorPane GridPane.rowIndex="1">
                <children>
-                  <HBox layoutX="850.0" layoutY="13.0" spacing="10.0" AnchorPane.bottomAnchor="57.0" AnchorPane.rightAnchor="37.0" AnchorPane.topAnchor="13.0">
+                  <HBox layoutX="850.0" layoutY="13.0" prefHeight="40.0" prefWidth="381.0" spacing="10.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="15.0">
                      <children>
                         <Button fx:id="approveButton" disable="true" mnemonicParsing="false" onMouseClicked="#approve" text="Approve" />
                         <Button fx:id="rejectButton" disable="true" mnemonicParsing="false" onMouseClicked="#reject" text="Reject" />
@@ -133,7 +133,6 @@
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Text>
-                  <HBox alignment="CENTER" layoutX="850.0" layoutY="57.0" prefHeight="53.0" prefWidth="373.0" />
                   <TextArea fx:id="requirementDescriptionText" editable="false" layoutX="40.0" layoutY="59.0" prefHeight="68.0" prefWidth="334.0" wrapText="true" />
                </children>
             </AnchorPane>
@@ -162,7 +161,7 @@
                         <TableColumn fx:id="taskStatusHighColumn" prefWidth="75.0" text="Task status" />
                     </columns>
                 </TableView>
-                <Button fx:id="addTaskButton" mnemonicParsing="false" textFill="#009000" onMouseClicked="#popUpAddTask" text="Add task" GridPane.halignment="RIGHT">
+                <Button fx:id="addTaskButton" mnemonicParsing="false" onMouseClicked="#popUpAddTask" text="Add task" textFill="#009000" GridPane.halignment="RIGHT">
                <GridPane.margin>
                   <Insets right="50.0" />
                </GridPane.margin>
