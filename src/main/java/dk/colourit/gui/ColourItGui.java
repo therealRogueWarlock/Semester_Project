@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.ImageCursor;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
@@ -14,7 +13,7 @@ import java.io.IOException;
 
 public class ColourItGui extends Application {
 
-	private static final ColourITProjectManagement model = new ColourITProjectManagement( );
+	private static final ColourITProjectManagement model = new ColourITProjectManagement();
 
 	protected static Scene scene;
 
@@ -22,32 +21,31 @@ public class ColourItGui extends Application {
 		return scene;
 	}
 
-
 	static void setRoot(String fxml) throws IOException {
-		Double oldX =  scene.getWindow().getX()+ (scene.getWidth()/2);
+		double oldX = scene.getWindow().getX() + (scene.getWidth() / 2);
 
-		// get root from fxml
+		// Get root from fxml
 		Region root = loadFXML(fxml);
-		// setting root of scene
+		// Setting root of scene
 		scene.setRoot(root);
 		// Setting different stage sizes from preferred height and width
 		// setting stage height to preferred height from pane.
 		scene.getWindow().setHeight(root.getPrefHeight());
-		// setting stage width to preferred height from pane.
+		// Setting stage width to preferred height from pane.
 		scene.getWindow().setWidth(root.getPrefWidth());
 
-		scene.getWindow().setX(oldX - (root.getPrefWidth()/2));
+		scene.getWindow().setX(oldX - (root.getPrefWidth() / 2));
 	}
 
 	private static Region loadFXML(String fxml) throws IOException {
 
-		FXMLLoader loader = new FXMLLoader( );
+		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(ColourItGui.class.getResource(fxml + ".fxml"));
-		Region root = loader.load( );
+		Region root = loader.load();
 
-		Controller controller = loader.getController( );
+		Controller controller = loader.getController();
 
-		controller.init( );
+		controller.init();
 		return root;
 	}
 
@@ -56,7 +54,7 @@ public class ColourItGui extends Application {
 	}
 
 	public static void launchApp( ) {
-		launch( );
+		launch();
 	}
 
 	@Override
@@ -67,16 +65,16 @@ public class ColourItGui extends Application {
 		// setting scene on stage
 		stage.setScene(scene);
 
-		stage.show( );
-		// setting minimum size of the stage
+		stage.show();
+		// Setting minimum size of the stage
 		stage.setMinHeight(root.getHeight());
 		stage.setMinWidth(root.getWidth());
-		// setting the maximum size of the stage
+		// Setting the maximum size of the stage
 		stage.setMaxHeight(800);
 		stage.setMaxWidth(1400);
 
-		// when primary stage closes save to bin files.
-		stage.setOnCloseRequest(e -> getModel( ).saveToFile( ));
+		// When primary stage closes save to bin files.
+		stage.setOnCloseRequest(e -> getModel().saveToFile());
 	}
 }
 
