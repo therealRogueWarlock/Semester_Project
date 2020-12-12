@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -33,12 +34,17 @@ public class Controller_ProjectList extends Controller {
 	@FXML private TableColumn<TeamMember, String> employeeNameColumn;
 	@FXML private TableColumn<TeamMember, Integer> idNumberColumn;
 	@FXML private TableColumn<TeamMember, MyDate> birthdayColumn;
+	@FXML
+	private VBox mainContainer;
 
 	public Controller_ProjectList( ) {
 	}
 
 	@Override
 	public void init( ) {
+//		mainContainer.getScene().getWindow().setHeight(mainContainer.getPrefHeight());
+//		mainContainer.getScene().getWindow().setWidth(mainContainer.getPrefWidth());
+
 		populateProjectTable();
 		populateEmployeeTable();
 

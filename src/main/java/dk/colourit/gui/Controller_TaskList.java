@@ -49,6 +49,9 @@ public class  Controller_TaskList extends Controller {
 	private TaskList taskList;
 
 	public void init( ) {
+//		mainContainer.getScene().getWindow().setHeight(mainContainer.getPrefHeight());
+//		mainContainer.getScene().getWindow().setWidth(mainContainer.getPrefWidth());
+
 		Requirement requirement = ColourItGui.getModel().getSelectedRequirement( );
 		taskList = requirement.getTaskList( );
 
