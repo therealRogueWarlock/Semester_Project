@@ -14,9 +14,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.text.Font?>
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="517.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.colourit.gui.PopUpController_Project_Create">
+
+<VBox prefHeight="517.0" prefWidth="483.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.colourit.gui.PopUpController_Project_Create">
    <children>
       <GridPane prefHeight="218.0" prefWidth="483.0">
         <columnConstraints>
@@ -48,7 +48,7 @@
                   <Insets left="5.0" />
                </GridPane.margin>
             </Label>
-            <Button fx:id="addMember" onMouseClicked="#addTeamMember" mnemonicParsing="false" text="Add Member" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Button fx:id="addMember" mnemonicParsing="false" onMouseClicked="#addTeamMember" text="Add Member" textFill="#009000" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
@@ -84,10 +84,10 @@
       </TableView>
       <AnchorPane maxHeight="-Infinity" prefHeight="57.0" prefWidth="483.0">
          <children>
-            <HBox layoutX="14.0" layoutY="16.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="198.0">
+            <HBox layoutX="14.0" layoutY="16.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="198.0" spacing="20.0">
                <children>
-                  <Button fx:id="confirm" mnemonicParsing="false" onMouseClicked="#confirmCreateProject" text="Confirm" />
-                  <Button fx:id="cancel" mnemonicParsing="false" onMouseClicked="#goBack" text="Reject" />
+                  <Button fx:id="confirm" mnemonicParsing="false" onMouseClicked="#confirmCreateProject" text="Confirm" textFill="#009000" />
+                  <Button fx:id="cancel" mnemonicParsing="false" onMouseClicked="#goBack" text="Cancel" />
                </children>
             </HBox>
             <HBox layoutX="275.0" layoutY="16.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="198.0">
