@@ -48,7 +48,7 @@
                         <Font name="Segoe UI Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="productOwnderButton" alignment="CENTER" layoutX="10.0" layoutY="17.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#selectedProductOwnerRole" text="Product Owner" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <Button fx:id="productOwnerButton" alignment="CENTER" layoutX="10.0" layoutY="17.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#selectedProductOwnerRole" text="Product Owner" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </GridPane.margin>
