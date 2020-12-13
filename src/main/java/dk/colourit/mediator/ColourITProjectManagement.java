@@ -1,10 +1,8 @@
 package dk.colourit.mediator;
 
-import dk.colourit.gui.ColourItGui;
 import dk.colourit.model.*;
 
 import java.io.IOException;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class ColourITProjectManagement {
 
@@ -13,39 +11,36 @@ public class ColourITProjectManagement {
 
 	private int userRole;
 
-	private  Project selectedProject;
-	private  Requirement selectedRequirement;
-	private  Task selectedTask;
-	private  Documentation selectedDocumentation;
+	private Project selectedProject;
+	private Requirement selectedRequirement;
+	private Task selectedTask;
+	private Documentation selectedDocumentation;
 
-	public ColourITProjectManagement() {
-
+	public ColourITProjectManagement( ) {
 		projectList = new ProjectList();
 		employeeList = new TeamMemberList();
 
 		try {
-			projectList= ColourItFileHandler.readProjectListFromBin();
+			projectList = ColourItFileHandler.readProjectListFromBin();
 			employeeList = ColourItFileHandler.readTeamMemberListFromBin();
-		} catch ( ClassNotFoundException | IOException e) {
+		} catch (ClassNotFoundException | IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 
-	public void saveToFile() {
+	public void saveToFile( ) {
 		try {
 			ColourItFileHandler.saveToBinary(projectList);
 			ColourItFileHandler.saveToBinary(employeeList);
-		}catch (IOException e){
-			System.out.println(e);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 
-	public void saveToXml(){
+	public void saveToXml( ) {
 		ColourItFileHandler.saveToXML(projectList);
 		ColourItFileHandler.saveToXML(employeeList);
 	}
-
 
 	public Project getSelectedProject( ) {
 		return selectedProject;
@@ -71,28 +66,24 @@ public class ColourITProjectManagement {
 		this.selectedTask = selectedTask;
 	}
 
-	public  Documentation getSelectedDocumentation( ) {
-		return selectedDocumentation;
-	}
-
-	public void setSelectedDocumentation(Documentation selectedDocumentation) {
-		this.selectedDocumentation = selectedDocumentation;
-	}
-
 	public void selectUserRole(int role) {
 		userRole = role;
 	}
 
-	public int getUserRole() {
+	public int getUserRole( ) {
 		return userRole;
 	}
 
-	public String getUseRoleString(){
-		switch (userRole){
-			case 0: return "Team member";
-			case 1: return "Product owner";
-			case 2: return "Scrum master";
-			case 3: return "Project creator";
+	public String getUseRoleString( ) {
+		switch (userRole) {
+			case 0:
+				return "Team member";
+			case 1:
+				return "Product owner";
+			case 2:
+				return "Scrum master";
+			case 3:
+				return "Project creator";
 		}
 		return "";
 	}
@@ -109,19 +100,18 @@ public class ColourITProjectManagement {
 		employeeList.addTeamMember(new TeamMember(name, employeeNumber, birthday));
 	}
 
-	public ProjectList getProjectList() {
+	public ProjectList getProjectList( ) {
 		return projectList;
 	}
 
-	public TeamMemberList getTeamMemberList() {
+	public TeamMemberList getTeamMemberList( ) {
 		return employeeList;
 	}
 
-
+	// Should these just be removed? ~Andreas 13/12 13:30
 	public void addMemberToProject(Project project, TeamMember teamMember, String memberRole) {
 		teamMember.setRole(memberRole);
 		project.getTeamMemberList().addTeamMember(teamMember);
-
 	}
 
 	public void assignRoleToTeamMember(String projectName, String memberName, String memberRole) {
@@ -181,7 +171,13 @@ public class ColourITProjectManagement {
 	public void removeTask(String projectName, String requirementName, String taskName) {
 		projectList.getProjectByName(projectName).getRequirementList().getRequirementByName(requirementName)
 				.getTaskList().removeTask(taskName);
-
 	}
 
+	public Documentation getSelectedDocumentation( ) {
+		return selectedDocumentation;
+	}
+
+	public void setSelectedDocumentation(Documentation selectedDocumentation) {
+		this.selectedDocumentation = selectedDocumentation;
+	}
 }
