@@ -19,15 +19,14 @@ public class Controller_RequirementList extends Controller {
 	@FXML private Label projectNameLabel;
 	@FXML private Label totalTimeSpentLabel;
 	@FXML private Label deadlineLabel;
-	@FXML protected Label statusLabel;
-	@FXML protected Label roleSelectedLabel;
+	@FXML private Label statusLabel;
+	@FXML private Label roleSelectedLabel;
 
-    @FXML protected Button editProjectButton;
-	@FXML protected Button backButton;
-	@FXML protected Button addRequirementButton;
-	@FXML protected Button deleteProjectButton;
-	@FXML protected Button addTeamMemberButton;
-	@FXML protected Button removeTeamMemberButton;
+    @FXML private Button editProjectButton;
+	@FXML private Button deleteProjectButton;
+	@FXML private Button addTeamMemberButton;
+	@FXML private Button removeTeamMemberButton;
+	@FXML private Button addRequirementButton;
 
 	@FXML private TableView<Requirement> requirementTable;
 	@FXML private TableColumn<Requirement, Integer> requirementPriorityColumn;
