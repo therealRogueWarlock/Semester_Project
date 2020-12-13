@@ -10,21 +10,27 @@ import java.io.IOException;
 
 public class PopUpController_Task_Details extends Controller {
 
-	public Button confirmEditButton;
-	public Button deleteTask;
-	public Button documentationButton;
-	public Button cancelButton;
+	@FXML
+	private Button confirmEditButton;
+	@FXML
+	private Button deleteTask;
+	@FXML
+	private Button documentationButton;
 
-	public TextField taskNameEditTextField;
-	public TextField estimatedHoursTextField;
-	public CheckBox highPriorityCheckBox;
+	@FXML
+	private TextField taskNameEditTextField;
+	@FXML
+	private TextField estimatedHoursTextField;
+	@FXML
+	private CheckBox highPriorityCheckBox;
 
-	public TextArea taskTextArea;
-	public ChoiceBox<TeamMember> responsibleTeamMember;
-
+	@FXML
+	private TextArea taskTextArea;
+	@FXML
+	private ChoiceBox<TeamMember> responsibleTeamMember;
 
 	@Override
-	public void init() {
+	public void init( ) {
 		Task task = ColourItGui.getModel().getSelectedTask();
 
 		responsibleTeamMember.getItems().addAll(ColourItGui.getModel().getSelectedProject().getTeamMemberList().getTeamMembers());
@@ -39,8 +45,7 @@ public class PopUpController_Task_Details extends Controller {
 		activateRoleButtonLogic();
 	}
 
-
-	private void activateRoleButtonLogic(){
+	private void activateRoleButtonLogic( ) {
 		// if the role is not admin check what buttons should be removed. else skip.
 		if (ColourItGui.getModel().getUserRole() != 4) {
 			// if the user role is not scrum master, remove scrum masters buttons.
@@ -50,23 +55,20 @@ public class PopUpController_Task_Details extends Controller {
 		}
 	}
 
-	private void removeScrumMasterButtons(){
+	private void removeScrumMasterButtons( ) {
 		documentationButton.setVisible(false);
 	}
 
-
-
-
-
-
-	public void deleteTask() {
+	@FXML
+	private void deleteTask( ) {
 		ColourItGui.getModel().getSelectedRequirement().getTaskList()
 				.removeTask(ColourItGui.getModel().getSelectedTask().getTaskName());
 
 		goBack();
 	}
 
-	public void confirmEdit() {
+	@FXML
+	private void confirmEdit( ) {
 		String name = taskNameEditTextField.getText();
 		int time = Integer.parseInt(estimatedHoursTextField.getText());
 		String memberName = responsibleTeamMember.getSelectionModel().getSelectedItem().getMemberName();
@@ -78,21 +80,19 @@ public class PopUpController_Task_Details extends Controller {
 		goBack();
 	}
 
-	@Override
-	public void goBack()
-	{
-		getParentController().init();
-		((Stage) deleteTask.getScene().getWindow()).close(); // Get's the Window the button is in, and casts to a Stage, which can be closed with .close()
-	}
-
-
 	@FXML
-	private void documentationPopup() throws IOException {
+	private void documentationPopup( ) throws IOException {
 		createPopUp("popUp_Documentation");
 	}
 
 	@FXML
-	private void enableEditConfirmationButton() {
+	private void enableEditConfirmationButton( ) {
 		confirmEditButton.setDisable(false);
+	}
+
+	@Override
+	public void goBack( ) {
+		getParentController().init();
+		((Stage) deleteTask.getScene().getWindow()).close(); // Get's the Window the button is in, and casts to a Stage, which can be closed with .close()
 	}
 }

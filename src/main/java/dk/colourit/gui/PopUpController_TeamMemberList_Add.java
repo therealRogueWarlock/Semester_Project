@@ -20,7 +20,7 @@ public class PopUpController_TeamMemberList_Add extends Controller {
 	@FXML
 	private DatePicker birthdateDatePicker;
 	@FXML
-	protected Label validationLabel;
+	private Label validationLabel;
 	@FXML
 	private Button closeButton;
 
@@ -36,34 +36,30 @@ public class PopUpController_TeamMemberList_Add extends Controller {
 	private void addTeamMember( ) {
 		try {
 
-			String teamMemberName = nameTextField.getText( );
+			String teamMemberName = nameTextField.getText();
 
+			int employeeIdNumber = Integer.parseInt(idNumberTextField.getText());
 
-			int employeeIdNumber = Integer.parseInt(idNumberTextField.getText( ));
-
-			if ( ColourItGui.getModel().getTeamMemberList()
-					.getTeamMember("id", Integer.toString( employeeIdNumber)) != null)
+			if (ColourItGui.getModel().getTeamMemberList()
+					.getTeamMember("id", Integer.toString(employeeIdNumber)) != null)
 				throw new InputMismatchException("Employee with same id already exists");
 
-
-			if ( MyDate.now( ).isBefore(new MyDate(birthdateDatePicker.getValue( ))) )
+			if (MyDate.now().isBefore(new MyDate(birthdateDatePicker.getValue())))
 				throw new DateTimeException("Birthdate cannot be earlier than current date");
 
-			MyDate birthday = new MyDate(birthdateDatePicker.getValue( ));
+			MyDate birthday = new MyDate(birthdateDatePicker.getValue());
 
-			ColourItGui.getModel( ).addEmployee(teamMemberName, employeeIdNumber, birthday);
+			ColourItGui.getModel().addEmployee(teamMemberName, employeeIdNumber, birthday);
 
-			getParentController( ).init( );
-		} catch ( DateTimeException | InputMismatchException exception ) {
-			validationLabel.setText(exception.getMessage( ));
+			getParentController().init();
+		} catch (DateTimeException | InputMismatchException exception) {
+			validationLabel.setText(exception.getMessage());
 		}
-
 	}
 
 	@Override
 	public void goBack( ) {
-		getParentController( ).init( );
-		((Stage)closeButton.getScene().getWindow()).close();
+		getParentController().init();
+		((Stage) closeButton.getScene().getWindow()).close();
 	}
-
 }

@@ -11,18 +11,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class Controller_ProjectList extends Controller {
 
     public Label roleSelectedLabel;
-    @FXML protected Button backButton;
-	@FXML protected Button createButton;
-	@FXML protected Button addEmployeeButton;
-	@FXML protected Button exportButton;
+	@FXML private Button createButton;
 
 	@FXML private TableView<Project> projectTableView;
 	@FXML private TableColumn<Project, String> projectName;
@@ -34,8 +29,6 @@ public class Controller_ProjectList extends Controller {
 	@FXML private TableColumn<TeamMember, String> employeeNameColumn;
 	@FXML private TableColumn<TeamMember, Integer> idNumberColumn;
 	@FXML private TableColumn<TeamMember, MyDate> birthdayColumn;
-	@FXML
-	private VBox mainContainer;
 
 	public Controller_ProjectList( ) {
 	}
@@ -98,13 +91,7 @@ public class Controller_ProjectList extends Controller {
 		ColourItGui.getModel().saveToXml();
 	}
 
-	@Override
-	public void goBack( ) {
-		init();
-	}
-
-
-	public void itemSelected( ) {  //SANDER DON'T FUCKING REMOVE THIS PLEASE
+	@FXML private void itemSelected( ) {  //SANDER DON'T FUCKING REMOVE THIS PLEASE
 
 		try {
 			Project selectedProject = projectTableView.getSelectionModel( ).getSelectedItem( );
@@ -115,12 +102,17 @@ public class Controller_ProjectList extends Controller {
 		}
 	}
 
-	public void addEmployee( ) throws IOException {
+	@FXML private void addEmployee( ) throws IOException {
 		createPopUp("popUp_TeamMemberList_Add");
 	}
 
-	public void createProjectButton( ) throws IOException {
+	@FXML private void createProjectButton( ) throws IOException {
 		createPopUp("popUp_Project_Create");
+	}
+
+	@Override
+	public void goBack( ) {
+		init();
 	}
 
 }

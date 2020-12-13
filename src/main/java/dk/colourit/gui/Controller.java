@@ -1,6 +1,5 @@
 package dk.colourit.gui;
 
-import dk.colourit.mediator.ColourITProjectManagement;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -9,74 +8,63 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public abstract class Controller
-{
+public abstract class Controller {
+	private Controller parentController;
 
-    private Controller parentController;
+	protected Controller( ) {
+	}
 
-    public abstract void init();
+	public abstract void init( );
 
-    protected Controller(){
+	public void loginScreen( ) throws IOException {
+		ColourItGui.setRoot("loginScreen");
+	}
 
-    }
+	public abstract void goBack( ) throws IOException;
 
-    public void loginScreen() throws IOException
-    {
-        ColourItGui.setRoot("loginScreen");
-    }
+	// creating a popup using the fxml loader.
+	public void createPopUp(String fxmlName) throws IOException {
+		// loading scene and initializing controller for scene
+		Parent root = loadFXML(fxmlName);
+		// creating a scene from loaded root
+		Scene scene = new Scene(root);
 
-    public abstract void goBack() throws IOException;
+		Stage stage = new Stage();
+		// setting sage with scene
+		stage.setScene(scene);
 
-    // creating a popup using the fxml loader.
-    public void createPopUp(String fxmlName) throws IOException {
+		// When the user closes with X the popup calls init on this controller(Parent), this updates data on scene
+		stage.setOnCloseRequest(WindowEvent -> this.init());
+		// Popups will most often have a confirm/add button that calls getParentController.init()
 
-        // loading scene and initializing controller for scene
-        Parent root = loadFXML(fxmlName);
-        // creating a scene from loaded root
-        Scene scene = new Scene(root);
+		// when popup is open primary stage cant be accessed.
+		stage.initModality(Modality.APPLICATION_MODAL);
+		stage.showAndWait();
+	}
 
-        Stage stage = new Stage();
-        // setting sage with scene
-        stage.setScene(scene);
+	public Controller getParentController( ) {
+		return parentController;
+	}
 
-        // When the user closes with X the popup calls init on this controller(Parent), this updates data on scene
-        stage.setOnCloseRequest(WindowEvent -> this.init());
-        // Popups will most often have a confirm/add button that calls getParentController.init()
+	public void setParentController(Controller parentController) {
+		this.parentController = parentController;
+	}
 
+	// all controllers are able to load fxml to create there own stages(Popups)
+	private Parent loadFXML(String fxml) throws IOException {
 
-        // when popup is open primary stage cant be accessed.
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.showAndWait();
-    }
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(ColourItGui.class.getResource(fxml + ".fxml"));
+		Parent root = loader.load();
+		Controller controller = loader.getController();
+		// calling init on controller, this will populate data views for scene.
+		controller.init();
 
+		// setting the parent controller for the popup
+		// The popup is able to update the parent controller(the scene) when data is added,
+		// giving instant feedback
+		controller.setParentController(this);
 
-
-    public void setParentController(Controller parentController) {
-        this.parentController = parentController;
-    }
-
-
-    public Controller getParentController() {
-        return parentController;
-    }
-
-
-    // all controllers are able to load fxml to create there own stages(Popups)
-    private Parent loadFXML(String fxml) throws IOException {
-
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(ColourItGui.class.getResource(fxml + ".fxml"));
-        Parent root = loader.load();
-        Controller controller = loader.getController();
-        // calling init on controller, this will populate data views for scene.
-        controller.init();
-
-        // setting the parent controller for the popup
-        // The popup is able to update the parent controller(the scene) when data is added,
-        // giving instant feedback
-        controller.setParentController(this);
-
-        return root;
-    }
-
+		return root;
+	}
 }

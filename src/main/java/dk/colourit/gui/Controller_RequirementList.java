@@ -9,7 +9,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,23 +45,13 @@ public class Controller_RequirementList extends Controller {
 
 	@FXML private ChoiceBox<String> selectRoleChoiceBox;
 
-	@FXML
-	private VBox mainContainer;
-
-
-
 	private Project selectedProject = ColourItGui.getModel().getSelectedProject( );
 
 	public Controller_RequirementList( ) {
-
 	}
-
 
 	@Override
 	public void init( ) {
-//		mainContainer.getScene().getWindow().setHeight(mainContainer.getPrefHeight());
-//		mainContainer.getScene().getWindow().setWidth(mainContainer.getPrefWidth());
-
 		selectedProject = ColourItGui.getModel().getSelectedProject( );
 
 		populateProjectInfo(selectedProject);
@@ -77,15 +66,8 @@ public class Controller_RequirementList extends Controller {
 		activateRoleButtonLogic();
 	}
 
-
 	// functions for Button disable/enable logic
-
-	private void generalButtonLogic(){
-
-	}
-
 	private void activateRoleButtonLogic(){
-
 		// if the role is not admin check what buttons should be removed. else skip.
 		if (ColourItGui.getModel().getUserRole() != 4) {
 			// if the role is not 1 ( product owner) make buttons associated with the role invisible
@@ -96,7 +78,6 @@ public class Controller_RequirementList extends Controller {
 				removeProjectCreatorButtons();
 			}
 		}
-
 	}
 
 	private void removeProjectCreatorButtons(){
@@ -113,10 +94,8 @@ public class Controller_RequirementList extends Controller {
 		addRequirementButton.setVisible(false);
 	}
 
-
 	// functions for populating data on scene
 	private void populateProjectInfo(Project project){
-
 		totalTimeSpentLabel.setText(project.getTotalTime( ) + " hours spent on " + project.getProjectName( ));
 
 		teamMemberTable.setSelectionModel(null);
@@ -167,7 +146,6 @@ public class Controller_RequirementList extends Controller {
 	}
 
 	private void populateRequirementTable(Project project) {
-
 		ArrayList<Requirement> requirements = project.getRequirementList( ).getRequirements( );
 		ObservableList<Requirement> observableRequirementList = FXCollections.observableArrayList( );
 
@@ -194,20 +172,16 @@ public class Controller_RequirementList extends Controller {
 		teamMemberTable.setItems(observableTeamMembers);
 	}
 
-
 	// functions for button functionality
-	public void editButton( ) throws IOException {
+	@FXML private void editButton( ) throws IOException {
 		createPopUp("popUp_Project_Edit");
-		// TODO: Implement Edit Scene and Functionality for a Project - use popUp_Project_Edit.fxml and PopUpController_Project_Edit.java
 	}
 
-	public void addRequirementButton( ) throws IOException {
+	@FXML private void addRequirementButton( ) throws IOException {
 		createPopUp("popUp_Requirement_Add");
 	}
 
-
-	public void addTeamMemberButton( ) {
-
+	@FXML private void addTeamMemberButton( ) {
 		TeamMember selectedTeamMember = addTeamMemberChoiceBox.getSelectionModel( ).getSelectedItem( );
 
 		String selectedRole = selectRoleChoiceBox.getSelectionModel( ).getSelectedItem( );
@@ -226,8 +200,7 @@ public class Controller_RequirementList extends Controller {
 		}
 	}
 
-	public void removeTeamMemberButton( ) {
-
+	@FXML private void removeTeamMemberButton( ) {
 		TeamMember selectedTeamMember = removeTeamMemberChoiceBox.getSelectionModel( ).getSelectedItem( );
 
 		if ( selectedTeamMember != null ) {
@@ -237,11 +210,9 @@ public class Controller_RequirementList extends Controller {
 
 			init( );
 		}
-
 	}
 
-	public void deleteProjectButton( ) {
-
+	@FXML private void deleteProjectButton( ) {
 		String projectName = selectedProject.getProjectName();
 		String projectStatus = selectedProject.getProjectStatus();
 		int totalTimeSpent = selectedProject.getTotalTime();
@@ -261,16 +232,9 @@ public class Controller_RequirementList extends Controller {
 			ColourItGui.getModel().deleteProject(selectedProject);
 			init();
 		}
-
 	}
 
-
-	public void goBack() throws IOException {
-		init();
-		ColourItGui.setRoot("projectList");
-	}
-
-	public void itemSelected( ) throws IOException {
+	@FXML private void itemSelected( ) throws IOException {
 		Requirement selectedRequirement = requirementTable.getSelectionModel( ).getSelectedItem( );
 
 		if(selectedRequirement!=null)
@@ -278,7 +242,11 @@ public class Controller_RequirementList extends Controller {
 			ColourItGui.getModel().setSelectedRequirement(selectedRequirement);
 			ColourItGui.setRoot("taskList");
 		}
+	}
 
+	public void goBack() throws IOException {
+		init();
+		ColourItGui.setRoot("projectList");
 	}
 }
 

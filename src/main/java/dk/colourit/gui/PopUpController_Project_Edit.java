@@ -22,24 +22,24 @@ public class PopUpController_Project_Edit extends Controller {
 
 	@FXML
 	private void confirm( ) throws IOException {
-		if ( ! nameField.getText( ).isBlank( ) && ! nameField.getText( ).isEmpty( ) ) {
-			ColourItGui.getModel().getSelectedProject( ).setProjectName(nameField.getText( ));
-			if ( ! ( startDate.getValue() == null ) )
-				ColourItGui.getModel().getSelectedProject( ).setProjectStartDate(new MyDate(startDate.getValue( )));
-			if ( ! ( deadLine.getValue() == null ) && ColourItGui.getModel().getSelectedProject( ).getProjectStartDate( ).isBefore(new MyDate(deadLine.getValue( ))) )
-				ColourItGui.getModel().getSelectedProject( ).setProjectDeadline(new MyDate(deadLine.getValue( )));
-			goBack( );
+		if (! nameField.getText().isBlank() && ! nameField.getText().isEmpty()) {
+			ColourItGui.getModel().getSelectedProject().setProjectName(nameField.getText());
+			if (! (startDate.getValue() == null))
+				ColourItGui.getModel().getSelectedProject().setProjectStartDate(new MyDate(startDate.getValue()));
+			if (! (deadLine.getValue() == null) && ColourItGui.getModel().getSelectedProject().getProjectStartDate().isBefore(new MyDate(deadLine.getValue())))
+				ColourItGui.getModel().getSelectedProject().setProjectDeadline(new MyDate(deadLine.getValue()));
+			goBack();
 		}
 	}
 
 	@Override
 	public void init( ) {
-		nameField.clear( );
+		nameField.clear();
 	}
 
 	@Override
 	public void goBack( ) throws IOException {
-		getParentController( ).init( );
-		( (Stage) confirmationButton.getScene( ).getWindow( ) ).close( );
+		getParentController().init();
+		((Stage) confirmationButton.getScene().getWindow()).close();
 	}
 }

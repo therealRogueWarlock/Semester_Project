@@ -13,35 +13,40 @@ import java.io.IOException;
 import java.util.InputMismatchException;
 
 public class PopUpController_Requirement_Add extends Controller {
-	public TextField requirementNameTextField;
-	public TextField priorityTextField;
-	public TextField timeEstimateField;
+	@FXML
+	private TextField requirementNameTextField;
+	@FXML
+	private TextField priorityTextField;
+	@FXML
+	private TextField timeEstimateField;
 
-	public TextArea requirementDescriptionTextArea;
+	@FXML
+	private TextArea requirementDescriptionTextArea;
 
-	public Button addRequirementButton;
-	public Button closeButton;
+	@FXML
+	private Button closeButton;
 
-	public Label validationLabel;
+	@FXML
+	private Label validationLabel;
 
 	@Override
 	public void init( ) {
 		// Doesn't need anything initialized
 	}
 
-	public void addRequirement( ) {
-
+	@FXML
+	private void addRequirement( ) {
 		try {
-
-			if ( ColourItGui.getModel().getSelectedProject().getRequirementList()
-					.getRequirementByName(requirementNameTextField.getText()) != null){
-				throw new InputMismatchException("Duplicate Name");}
+			if (ColourItGui.getModel().getSelectedProject().getRequirementList()
+					.getRequirementByName(requirementNameTextField.getText()) != null) {
+				throw new InputMismatchException("Duplicate Name");
+			}
 
 			String requirementNameTextFieldText = requirementNameTextField.getText();
 			String timeEstimateText = timeEstimateField.getText();
 			String priorityText;
 			int timeEstimate = Integer.parseInt(timeEstimateText);
-			if ( ! ( priorityTextField.getText().isBlank() ) )
+			if (! (priorityTextField.getText().isBlank()))
 				priorityText = priorityTextField.getText();
 			else
 				priorityText = "0";
@@ -54,23 +59,23 @@ public class PopUpController_Requirement_Add extends Controller {
 
 			getParentController().init();
 			clearInputFields();
-		} catch ( InputMismatchException inputMismatchException ) {
+		} catch (InputMismatchException inputMismatchException) {
 			validationLabel.setText("Invalid information");
 		}
 	}
 
+	@FXML
 	private void clearInputFields( ) {
-		requirementNameTextField.clear( );
-		priorityTextField.clear( );
-		timeEstimateField.clear( );
-		requirementDescriptionTextArea.clear( );
+		requirementNameTextField.clear();
+		priorityTextField.clear();
+		timeEstimateField.clear();
+		requirementDescriptionTextArea.clear();
 		validationLabel.setText("");
 	}
 
 	@Override
 	public void goBack( ) throws IOException {
-		getParentController( ).init( );
-		((Stage)closeButton.getScene().getWindow()).close();
+		getParentController().init();
+		((Stage) closeButton.getScene().getWindow()).close();
 	}
-
 }

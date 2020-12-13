@@ -17,48 +17,43 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
 
-public class  Controller_TaskList extends Controller {
+public class Controller_TaskList extends Controller {
+	@FXML private GridPane mainContainer;
+	@FXML private TableView<Task> highPriorityTableView;
+	@FXML private TableColumn<Task, String> taskNameHighColumn;
+	@FXML private TableColumn<Task, Integer> estimatedTimeHighColumn;
+	@FXML private TableColumn<Task, Integer> totalTimeSpentHighColumn;
+	@FXML private TableColumn<Task, String> responsibleHighColumn;
+	@FXML private TableColumn<Task, String> taskStatusHighColumn;
 
-	public GridPane mainContainer;
-	public TableView<Task> highPriorityTableView;
-	public TableColumn<Task, String> taskNameHighColumn;
-	public TableColumn<Task, Integer> estimatedTimeHighColumn;
-	public TableColumn<Task, Integer> totalTimeSpentHighColumn;
-	public TableColumn<Task, String> responsibleHighColumn;
-	public TableColumn<Task, String> taskStatusHighColumn;
+	@FXML private TableView<Task> lowPriorityTableView;
+	@FXML private TableColumn<Task, String> taskNameLowColumn;
+	@FXML private TableColumn<Task, Integer> estimatedTimeLowColumn;
+	@FXML private TableColumn<Task, Integer> totalTimeSpentLowColumn;
+	@FXML private TableColumn<Task, String> responsibleLowColumn;
+	@FXML private TableColumn<Task, String> taskStatusLowColumn;
 
-	public TableView<Task> lowPriorityTableView;
-	public TableColumn<Task, String> taskNameLowColumn;
-	public TableColumn<Task, Integer> estimatedTimeLowColumn;
-	public TableColumn<Task, Integer> totalTimeSpentLowColumn;
-	public TableColumn<Task, String> responsibleLowColumn;
-	public TableColumn<Task, String> taskStatusLowColumn;
+	@FXML private Text projectNameText;
+	@FXML private Text statusText;
+	@FXML private Text requirementNameText;
+	@FXML private Button deleteRequirementButton;
+	@FXML private Button addTaskButton;
+	@FXML private Button rejectButton;
+	@FXML private Button approveButton;
+	@FXML private Button editRequirementButton;
+	@FXML private Label roleSelectedLabel;
 
-	public Text projectNameText;
-	public Text statusText;
-	public Text requirementNameText;
-	public Button deleteRequirementButton;
-	public Button addTaskButton;
-	public Button backButton;
-	public Button rejectButton;
-	public Button approveButton;
-	public Button editRequirementButton;
-    public Label roleSelectedLabel;
-
-    public Text priorityText;
-	public Text timeEstimateText;
-	public TextArea requirementDescriptionText;
-
-
+	@FXML private Text priorityText;
+	@FXML private Text timeEstimateText;
+	@FXML private TextArea requirementDescriptionText;
 
 	// fields for selected objects
 	private Requirement selectedRequirement;
 	private TaskList taskList;
 
-
-	public void init() {
-		selectedRequirement = ColourItGui.getModel().getSelectedRequirement( );
-		taskList = selectedRequirement.getTaskList( );
+	public void init( ) {
+		selectedRequirement = ColourItGui.getModel().getSelectedRequirement();
+		taskList = selectedRequirement.getTaskList();
 
 		populateHighPriorityTable();
 		populateLowPriorityTable();
@@ -73,10 +68,10 @@ public class  Controller_TaskList extends Controller {
 
 	// functions for populating data / tables on scene
 	private void populateHighPriorityTable( ) {
-		highPriorityTableView.getItems( ).clear( );
+		highPriorityTableView.getItems().clear();
 		// getting high priority task from task list
-		ArrayList<Task> highPriorityTasks = taskList.getHighPriority( );
-		ObservableList<Task> observableHighPriorityTasks = FXCollections.observableArrayList( );
+		ArrayList<Task> highPriorityTasks = taskList.getHighPriority();
+		ObservableList<Task> observableHighPriorityTasks = FXCollections.observableArrayList();
 
 		// creating an observable list from the high Priority tasks list
 		observableHighPriorityTasks.addAll(highPriorityTasks);
@@ -92,10 +87,10 @@ public class  Controller_TaskList extends Controller {
 	}
 
 	private void populateLowPriorityTable( ) {
-		lowPriorityTableView.getItems( ).clear( );
+		lowPriorityTableView.getItems().clear();
 		// getting the low priority task from task list
-		ArrayList<Task> lowPriorityTasks = taskList.getLowPriority( );
-		ObservableList<Task> observableLowPriorityTasks = FXCollections.observableArrayList( );
+		ArrayList<Task> lowPriorityTasks = taskList.getLowPriority();
+		ObservableList<Task> observableLowPriorityTasks = FXCollections.observableArrayList();
 
 		observableLowPriorityTasks.addAll(lowPriorityTasks);
 
@@ -107,31 +102,29 @@ public class  Controller_TaskList extends Controller {
 		lowPriorityTableView.setItems(observableLowPriorityTasks);
 	}
 
-	private void populateInformationText(){
+	private void populateInformationText( ) {
 		// setting information text on scene
-		projectNameText.setText(ColourItGui.getModel().getSelectedProject( ).getProjectName( ));
-		statusText.setText(selectedRequirement.getStatus( ));
-		requirementNameText.setText(selectedRequirement.getRequirementName( ));
+		projectNameText.setText(ColourItGui.getModel().getSelectedProject().getProjectName());
+		statusText.setText(selectedRequirement.getStatus());
+		requirementNameText.setText(selectedRequirement.getRequirementName());
 
 		roleSelectedLabel.setText(ColourItGui.getModel().getUseRoleString());
 
-		priorityText.setText(Integer.toString(selectedRequirement.getPriority()) );
+		priorityText.setText(Integer.toString(selectedRequirement.getPriority()));
 		timeEstimateText.setText(Integer.toString(selectedRequirement.getRequirementTimeEstimate()));
 		requirementDescriptionText.setText(selectedRequirement.getRequirementDescription());
-
 	}
 
-
 	// functions for button disable/enable logic
-	private void generalButtonLogic(){
+	private void generalButtonLogic( ) {
 		// if the requirement is Approved or the project team mebmer list is 0 you cant add a task.
 		if (selectedRequirement.getStatus().equalsIgnoreCase("Approved") ||
-				ColourItGui.getModel().getSelectedProject().getTeamMemberList().getTeamMembers().size() == 0 ) {
+				ColourItGui.getModel().getSelectedProject().getTeamMemberList().getTeamMembers().size() == 0) {
 			addTaskButton.setDisable(true);
 		}
 	}
 
-	private void activateRoleButtonLogic(){
+	private void activateRoleButtonLogic( ) {
 		// if the role is not admin check what buttons should be removed. else skip.
 		if (ColourItGui.getModel().getUserRole() != 4) {
 			if (ColourItGui.getModel().getUserRole() != 1) {
@@ -146,16 +139,16 @@ public class  Controller_TaskList extends Controller {
 		}
 	}
 
-	private void removeProductOwnerButtons(){
+	private void removeProductOwnerButtons( ) {
 		editRequirementButton.setVisible(false);
 		deleteRequirementButton.setVisible(false);
 		approveButton.setVisible(false);
 		rejectButton.setVisible(false);
 	}
 
-	private void productOwnerButtonsLogic(){
+	private void productOwnerButtonsLogic( ) {
 		// if the requirement is ready for review the approve or reject button will show
-		if ( ( selectedRequirement.getStatus( )
+		if ((selectedRequirement.getStatus()
 				.equalsIgnoreCase("ready for review"))) {
 			approveButton.setDisable(false);
 			rejectButton.setDisable(false);
@@ -165,14 +158,15 @@ public class  Controller_TaskList extends Controller {
 		}
 	}
 
-
 	// functions for button functionality
-	public void approve( ) throws IOException {
+	@FXML
+	private void approve( ) throws IOException {
 		selectedRequirement.setStatus("Approved");
 		goBack();
 	}
 
-	public void reject( ) throws IOException {
+	@FXML
+	private void reject( ) throws IOException {
 		selectedRequirement.setStatus("Rejected");
 		goBack();
 	}
@@ -182,7 +176,8 @@ public class  Controller_TaskList extends Controller {
 		createPopUp("popUp_Requirement_Edit");
 	}
 
-	public void removeRequirement() {
+	@FXML
+	private void removeRequirement( ) {
 		String requirementName = selectedRequirement.getRequirementName();
 		String requirementStatus = selectedRequirement.getStatus();
 		int totalTimeSpent = selectedRequirement.getTotalTimeSpent();
@@ -192,26 +187,18 @@ public class  Controller_TaskList extends Controller {
 		// setting Displayed text for Confirmation
 		alert.setTitle("Delete Requirement");
 		alert.setHeaderText("Are you sure you want to delete: \n" + requirementName + " ?");
-		alert.setContentText("Name: " + requirementName+ "\nStatus: "
-				+ requirementStatus + "\nTime spent: " + totalTimeSpent + "" );
+		alert.setContentText("Name: " + requirementName + "\nStatus: "
+				+ requirementStatus + "\nTime spent: " + totalTimeSpent + "");
 
 		// getting what button was clicked
 		Optional<ButtonType> result = alert.showAndWait();
 		// if the button type is OK, delete selected requirement
-		if (result.get() == ButtonType.OK){
+		if (result.get() == ButtonType.OK) {
 			Project selectedProject = ColourItGui.getModel().getSelectedProject();
 
 			selectedProject.getRequirementList().removeRequirement(selectedRequirement.getRequirementName());
 			init();
 		}
-
-	}
-
-
-	@Override
-	public void goBack() throws IOException {
-		init( );
-		ColourItGui.setRoot("requirementList");
 	}
 
 	@FXML
@@ -219,38 +206,37 @@ public class  Controller_TaskList extends Controller {
 		createPopUp("popUp_TaskList_Add");
 	}
 
-
 	@FXML
 	private void popUpTaskDetails( ) throws IOException {
-
 		createPopUp("popUp_Task_Details");
-
 	}
 
-	public void itemSelected(Event event) throws IOException {//SANDER DON'T FUCKING REMOVE THIS PLEASE
+	@FXML private void itemSelected(Event event) throws IOException {//SANDER DON'T FUCKING REMOVE THIS PLEASE
 		// getting what table is clicked by id
 
-		String selectedTableId = ( (Control) event.getSource( ) ).getId( );
+		String selectedTableId = ((Control) event.getSource()).getId();
 
-		if ( selectedTableId != null ) {
-			if ( selectedTableId.equals("highPriorityTableView") ) {
+		if (selectedTableId != null) {
+			if (selectedTableId.equals("highPriorityTableView")) {
 				// getting the selected task from the table View
-				Task selectedTask = highPriorityTableView.getSelectionModel( ).getSelectedItem( );
-
-				if(selectedTask!=null)
-				{
+				Task selectedTask = highPriorityTableView.getSelectionModel().getSelectedItem();
+				if (selectedTask != null) {
 					ColourItGui.getModel().setSelectedTask(selectedTask);
-					popUpTaskDetails( );
+					popUpTaskDetails();
 				}
-			} else if ( selectedTableId.equals("lowPriorityTableView") ) {
-				Task selectedTask = lowPriorityTableView.getSelectionModel( ).getSelectedItem( );
-
-				if(selectedTask!=null)
-				{
+			} else if (selectedTableId.equals("lowPriorityTableView")) {
+				Task selectedTask = lowPriorityTableView.getSelectionModel().getSelectedItem();
+				if (selectedTask != null) {
 					ColourItGui.getModel().setSelectedTask(selectedTask);
-					popUpTaskDetails( );
+					popUpTaskDetails();
 				}
 			}
 		}
+	}
+
+	@Override
+	public void goBack( ) throws IOException {
+		init();
+		ColourItGui.setRoot("requirementList");
 	}
 }
