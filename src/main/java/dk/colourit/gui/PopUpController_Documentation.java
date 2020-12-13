@@ -85,7 +85,7 @@ public class PopUpController_Documentation extends Controller {
 	public void confirm( ) {
 		ColourItGui.getModel( ).getSelectedTask( ).setFinito(taskFinished.isSelected( ));
 		getParentController( ).getParentController( ).init( );
-		goBack( );
+		goBack();
 	}
 
 	public void toggleDisabledLogSpentTimeButton( ) {
@@ -95,11 +95,13 @@ public class PopUpController_Documentation extends Controller {
 	@FXML
 	private void addDocumentation( ) {
 		try {
-			TeamMember member = (TeamMember) selectMember.getSelectionModel( ).getSelectedItem( );
+			TeamMember member = selectMember.getSelectionModel( ).getSelectedItem( );
 			int timeSpent = Integer.parseInt(addTimeSpent.getText( ));
 			if ( MyDate.now( ).isBefore(new MyDate(selectDate.getValue( ))) )
 				throw new DateTimeException("Date can't be later than current day");
 			MyDate date = new MyDate(selectDate.getValue( ));
+
+
 			ColourItGui.getModel( ).getSelectedTask( ).getDocumentations( ).add(new Documentation(member, timeSpent, date));
 			init( );
 //			getParentController( ).init( );

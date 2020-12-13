@@ -240,7 +240,7 @@ public class Controller_RequirementList extends Controller {
 
 	}
 
-	public void deleteProjectButton( ) {
+	public void deleteProjectButton( ) throws IOException {
 
 		String projectName = selectedProject.getProjectName();
 		String projectStatus = selectedProject.getProjectStatus();
@@ -260,6 +260,7 @@ public class Controller_RequirementList extends Controller {
 		if (result.get() == ButtonType.OK){
 			ColourItGui.getModel().deleteProject(selectedProject);
 			init();
+			goBack();
 		}
 
 	}
