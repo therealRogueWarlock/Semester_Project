@@ -5,77 +5,73 @@ import java.util.ArrayList;
 
 public class TaskList implements Serializable {
 
-    private ArrayList<Task> tasks;
+	private final ArrayList<Task> tasks;
 
-    public TaskList() {
-        tasks = new ArrayList<>();
-    }
+	public TaskList( ) {
+		tasks = new ArrayList<>();
+	}
 
-    public ArrayList<Task> getTasks() {
-        return tasks;
-    }
+	public ArrayList<Task> getTasks( ) {
+		return tasks;
+	}
 
-    public ArrayList<Task> getFinishedTasks() {
-        ArrayList<Task> finishedTasks = new ArrayList<>();
-        for (Task task : tasks) {
-            if (task.isFinito()) {
-                finishedTasks.add(task);
-            }
-        }
-        return finishedTasks;
-    }
+	public ArrayList<Task> getFinishedTasks( ) {
+		ArrayList<Task> finishedTasks = new ArrayList<>();
+		for (Task task : tasks) {
+			if (task.isFinito()) {
+				finishedTasks.add(task);
+			}
+		}
+		return finishedTasks;
+	}
 
-    public int getListSize(){
-        return tasks.size();
-    }
+	public int getListSize( ) {
+		return tasks.size();
+	}
 
-    public ArrayList<Task> getHighPriority(){
-        ArrayList<Task> returnArray = new ArrayList<>();
+	public ArrayList<Task> getHighPriority( ) {
+		ArrayList<Task> returnArray = new ArrayList<>();
 
+		for (Task task : tasks) {
+			if (task.isHighPriority()) {
+				returnArray.add(task);
+			}
+		}
 
-        for (Task task: tasks){
-            if (task.isHighPriority()){
-                returnArray.add(task);
-            }
-        }
+		return returnArray;
+	}
 
-        return returnArray;
-    }
+	public ArrayList<Task> getLowPriority( ) {
+		ArrayList<Task> returnArray = new ArrayList<>();
 
-    public ArrayList<Task> getLowPriority(){
-        ArrayList<Task> returnArray = new ArrayList<>();
+		for (Task task : tasks) {
+			if (! task.isHighPriority()) {
+				returnArray.add(task);
+			}
+		}
 
-        for (Task task: tasks){
-            if (!task.isHighPriority()){
-                returnArray.add(task);
-            }
-        }
+		return returnArray;
+	}
 
-        return returnArray;
-    }
+	public Task getTaskByName(String name) {
+		for (Task task : tasks) {
+			if (task.getTaskName().equalsIgnoreCase(name)) {
+				return task;
+			}
+		}
+		return null;
+	}
 
+	public void addTask(Task task) {
+		tasks.add(task);
+	}
 
-
-
-    public Task getTaskByName(String name) {
-        for (Task task : tasks) {
-            if (task.getTaskName().equalsIgnoreCase(name)) {
-                return task;
-            }
-        }
-        return null;
-    }
-
-    public void addTask(Task task) {
-        tasks.add(task);
-    }
-
-    public void removeTask(String taskName) {
-        for (Task task : tasks) {
-            if (task.getTaskName().equalsIgnoreCase(taskName)) {
-                tasks.remove(task);
-                break;
-            }
-        }
-    }
+	public void removeTask(String taskName) {
+		for (Task task : tasks) {
+			if (task.getTaskName().equalsIgnoreCase(taskName)) {
+				tasks.remove(task);
+				break;
+			}
+		}
+	}
 }

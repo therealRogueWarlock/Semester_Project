@@ -4,21 +4,14 @@ import java.io.Serializable;
 
 public class Documentation implements Serializable {
 	// Depending on time, add a description text. Keep out of Constructor (or add overload constructor)
+	private final String teamMemberName;
+	private final int timeSpentDocumentation;
+	private final MyDate documentationDate;
 
-	private String teamMemberName;
-	private int timeSpentDocumentation;
-	private MyDate documentationDate;
-
-
-	public Documentation() {
+	public Documentation( ) {
 		teamMemberName = null;
 		this.timeSpentDocumentation = 0;
 		this.documentationDate = null;
-
-	}
-
-	public String getTeamMemberName() {
-		return teamMemberName;
 	}
 
 	public Documentation(TeamMember member, int timeSpentDocumentation, MyDate date) {
@@ -27,16 +20,19 @@ public class Documentation implements Serializable {
 		this.documentationDate = date;
 	}
 
-	public int getTimeSpentDocumentation() {
+	public String getTeamMemberName( ) {
+		return teamMemberName;
+	}
+
+	public int getTimeSpentDocumentation( ) {
 		return timeSpentDocumentation;
 	}
 
-	public MyDate getDocumentationDate() {
+	public MyDate getDocumentationDate( ) {
 		return documentationDate;
 	}
 
-	public String toString() {
+	public String toString( ) {
 		return "Documentation:" + teamMemberName + " " + documentationDate + " " + timeSpentDocumentation;
 	}
-
 }

@@ -4,18 +4,17 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ProjectList implements Serializable {
+	private final ArrayList<Project> projects;
 
-	private ArrayList<Project> projects;
-
-	public ProjectList() {
+	public ProjectList( ) {
 		projects = new ArrayList<>();
 	}
 
-	public ArrayList<Project> getProjects() {
+	public ArrayList<Project> getProjects( ) {
 		return projects;
 	}
 
-	public ArrayList<Project> getAllProjects() {
+	public ArrayList<Project> getAllProjects( ) {
 		return projects;
 	}
 
@@ -23,26 +22,20 @@ public class ProjectList implements Serializable {
 		projects.add(project);
 	}
 
-	public Project getProjectByName(String projectName)
-	{
-		for (Project project : projects)
-		{
-			if (project.getProjectName().equalsIgnoreCase(projectName))
-			{
+	public Project getProjectByName(String projectName) {
+		for (Project project : projects) {
+			if (project.getProjectName().equalsIgnoreCase(projectName)) {
 				return project;
 			}
 		}
 		return null;
 	}
 
-
 	public ArrayList<Project> getProjectsByTeamMember(String name) {
 		ArrayList<Project> returnArray = new ArrayList<>();
 
-		for (Project project : projects)
-		{
-			if (project.getTeamMemberList().getTeamMember("name", name) != null)
-			{
+		for (Project project : projects) {
+			if (project.getTeamMemberList().getTeamMember("name", name) != null) {
 
 				returnArray.add(project);
 			}
@@ -51,11 +44,7 @@ public class ProjectList implements Serializable {
 		return returnArray;
 	}
 
-	public void removeProject(Project project)
-	{
+	public void removeProject(Project project) {
 		projects.remove(project);
 	}
-
-
-
 }

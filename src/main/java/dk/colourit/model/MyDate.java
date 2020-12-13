@@ -13,13 +13,10 @@ public class MyDate implements Serializable {
 	private int year;
 
 	public MyDate( ) {
-
-
 		Calendar now = GregorianCalendar.getInstance( );
 		day = now.get(Calendar.DAY_OF_MONTH);
 		month = now.get(Calendar.MONTH) + 1;
 		year = now.get(Calendar.YEAR);
-		// TODO: Muligvis brug: MyDate.now(); - Dog får jeg 0/0/0, hver gang jeg prøver det.
 	}
 
 	public MyDate(LocalDate localDate) {

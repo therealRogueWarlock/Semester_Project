@@ -7,30 +7,28 @@ import java.util.MissingFormatArgumentException;
 
 public class Project implements Serializable {
 
+	private final MyDate projectCreationDate;
+	private final RequirementList requirementList;
 	private String projectName;
-	private MyDate projectCreationDate;
 	private MyDate projectStartDate;
 	private MyDate projectDeadline;
 	private MyDate projectEndDate;
-	//private double status; // TODO: Forklar denne til Andreas - Kan vi få den over i vores parser uden dette?
-
-	private RequirementList requirementList;
 	private TeamMemberList teamMemberList;
 
 	// Throws second Error and not the First error when all fields are blank | ???
 	public Project(String projectName, MyDate projectStartDate, MyDate projectDeadline) {
-		this.projectCreationDate = MyDate.now( );
+		this.projectCreationDate = MyDate.now();
 		this.projectEndDate = null;
 		//status = 0;
-		requirementList = new RequirementList( );
-		teamMemberList = new TeamMemberList( );
+		requirementList = new RequirementList();
+		teamMemberList = new TeamMemberList();
 
-		if ( projectName.isEmpty( ) || projectName.isBlank( ) ) {
+		if (projectName.isEmpty() || projectName.isBlank()) {
 			throw new MissingFormatArgumentException("Empty Name Field");
 		} else {
 			this.projectName = projectName;
 		}
-		if ( projectStartDate.isBefore(projectCreationDate) || projectDeadline.isBefore(projectCreationDate) || projectDeadline.isBefore(projectStartDate) ) {
+		if (projectStartDate.isBefore(projectCreationDate) || projectDeadline.isBefore(projectCreationDate) || projectDeadline.isBefore(projectStartDate)) {
 			throw new DateTimeException("Invalid Date");
 		} else {
 			this.projectStartDate = projectStartDate;
@@ -38,35 +36,27 @@ public class Project implements Serializable {
 		}
 	}
 
-	public void setProjectStartDate(MyDate projectStartDate) {
-		this.projectStartDate = projectStartDate;
-	}
-
-	public void setProjectDeadline(MyDate projectDeadline) {
-		this.projectDeadline = projectDeadline;
-	}
-
 	public int getTotalTime( ) {
 		int time = 0;
-		for ( Requirement req : requirementList.getRequirements( ) ) {
+		for (Requirement req : requirementList.getRequirements()) {
 			time += req.getTotalTimeSpent();
 		}
 		return time;
 	}
 
 	public String getProjectStatus( ) {
-		ArrayList<Requirement> requirements = requirementList.getRequirements( );
+		ArrayList<Requirement> requirements = requirementList.getRequirements();
 
-		int totalRequirements = requirements.size( );
+		int totalRequirements = requirements.size();
 
 		int percentage, finishedRequirement = 0;
 
-		for ( Requirement requirement : requirements ) {
-			if ( requirement.getStatus( ).equals("Approved") )
+		for (Requirement requirement : requirements) {
+			if (requirement.getStatus().equals("Approved"))
 				finishedRequirement++;
 		}
 
-		if ( totalRequirements < 1 )
+		if (totalRequirements < 1)
 			percentage = Math.floorDiv(finishedRequirement, 1);
 		else
 			percentage = Math.floorDiv(100 * finishedRequirement, totalRequirements);
@@ -85,8 +75,16 @@ public class Project implements Serializable {
 		return projectStartDate;
 	}
 
+	public void setProjectStartDate(MyDate projectStartDate) {
+		this.projectStartDate = projectStartDate;
+	}
+
 	public MyDate getProjectDeadline( ) {
 		return projectDeadline;
+	}
+
+	public void setProjectDeadline(MyDate projectDeadline) {
+		this.projectDeadline = projectDeadline;
 	}
 
 	public RequirementList getRequirementList( ) {
@@ -103,7 +101,7 @@ public class Project implements Serializable {
 	}
 
 	public void setEndDate( ) {
-		this.projectEndDate = MyDate.now( );
+		this.projectEndDate = MyDate.now();
 	}
 }
 

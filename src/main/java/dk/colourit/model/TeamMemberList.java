@@ -5,66 +5,63 @@ import java.util.ArrayList;
 
 public class TeamMemberList implements Serializable {
 
-    private ArrayList<TeamMember> teamMembers;
+	private final ArrayList<TeamMember> teamMembers;
 
-    public TeamMemberList() {
-        teamMembers = new ArrayList<>();
-    }
+	public TeamMemberList( ) {
+		teamMembers = new ArrayList<>();
+	}
 
-    public TeamMemberList(ArrayList<TeamMember> teamMembers) {
-        this.teamMembers = new ArrayList<>(teamMembers);
-    }
+	public TeamMemberList(ArrayList<TeamMember> teamMembers) {
+		this.teamMembers = new ArrayList<>(teamMembers);
+	}
 
-    public ArrayList<TeamMember> getTeamMembers() {
-        return teamMembers;
-    }
+	public ArrayList<TeamMember> getTeamMembers( ) {
+		return teamMembers;
+	}
 
-    public TeamMember getTeamMember(String searchMethod, String searchTerm) {
+	public void addTeamMember(TeamMember teamMember) {
+		teamMembers.add(teamMember);
+	}
 
-        if (searchMethod.equalsIgnoreCase("id")) {
-            for (TeamMember teamMember : teamMembers) {
-                if (teamMember.getEmployeeNumber() == Integer.parseInt(searchTerm))
-                    return teamMember;
-            }
-        }
+	public void removeTeamMember(TeamMember teamMember) {
 
-        if (searchMethod.equalsIgnoreCase("name")) {
-            for (TeamMember teamMember : teamMembers) {
-                if (teamMember.getMemberName().equalsIgnoreCase(searchTerm))
-                    return teamMember;
-            }
-        }
-        return null;
-    }
+		teamMembers.remove(teamMember);
+	}
 
-    public void addTeamMember(TeamMember teamMember) {
-        teamMembers.add(teamMember);
-    }
+	public TeamMember getTeamMember(String searchMethod, String searchTerm) {
 
-    public void removeTeamMember(TeamMember teamMember) {
+		if (searchMethod.equalsIgnoreCase("id")) {
+			for (TeamMember teamMember : teamMembers) {
+				if (teamMember.getEmployeeNumber() == Integer.parseInt(searchTerm))
+					return teamMember;
+			}
+		}
 
-        teamMembers.remove(teamMember);
+		if (searchMethod.equalsIgnoreCase("name")) {
+			for (TeamMember teamMember : teamMembers) {
+				if (teamMember.getMemberName().equalsIgnoreCase(searchTerm))
+					return teamMember;
+			}
+		}
+		return null;
+	}
 
-    }
+	public TeamMemberList getCopy( ) {
+		ArrayList<TeamMember> teamMembersCopy = new ArrayList<>();
 
-    public TeamMemberList getCopy(){
-        ArrayList<TeamMember> teamMembersCopy = new ArrayList<>();
+		for (TeamMember teamMember : teamMembers) {
+			teamMembersCopy.add(teamMember.getCopy());
+		}
+		return new TeamMemberList(teamMembersCopy);
+	}
 
-        for (TeamMember teamMember: teamMembers){
-            teamMembersCopy.add(teamMember.getCopy());
-        }
-        return new TeamMemberList(teamMembersCopy);
-    }
+	public TeamMemberList subtractArgListFromThisList(TeamMemberList teamMemberList) {
 
-    public TeamMemberList subtractArgListFromThisList(TeamMemberList teamMemberList){
+		for (TeamMember teamMember : teamMemberList.getTeamMembers()) {
+			TeamMember duplicate = this.getTeamMember("name", teamMember.getMemberName());
+			this.removeTeamMember(duplicate);
+		}
 
-        for (TeamMember teamMember:teamMemberList.getTeamMembers()) {
-            TeamMember duplicate  = this.getTeamMember("name", teamMember.getMemberName());
-            this.removeTeamMember(duplicate);
-        }
-
-        return this;
-    }
-
-
+		return this;
+	}
 }

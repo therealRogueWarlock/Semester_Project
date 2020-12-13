@@ -4,11 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class RequirementList implements Serializable {
-
-	private ArrayList<Requirement> requirements;
+	private final ArrayList<Requirement> requirements;
 
 	public RequirementList( ) {
-		requirements = new ArrayList<>( );
+		requirements = new ArrayList<>();
 	}
 
 	public ArrayList<Requirement> getRequirements( ) {
@@ -16,8 +15,8 @@ public class RequirementList implements Serializable {
 	}
 
 	public Requirement getRequirementByName(String requirementName) {
-		for ( Requirement requirement : requirements ) {
-			if ( requirement.getRequirementName( ).equals(requirementName) ) {
+		for (Requirement requirement : requirements) {
+			if (requirement.getRequirementName().equals(requirementName)) {
 				return requirement;
 			}
 		}
@@ -25,9 +24,9 @@ public class RequirementList implements Serializable {
 	}
 
 	public RequirementList getPriorityList( ) {
-		RequirementList priorityList = new RequirementList( );
-		for ( Requirement requirement : requirements ) {
-			if ( requirement.getPriority( ) > 0 ) {
+		RequirementList priorityList = new RequirementList();
+		for (Requirement requirement : requirements) {
+			if (requirement.getPriority() > 0) {
 				priorityList.addRequirement(requirement);
 			}
 		}
@@ -39,8 +38,8 @@ public class RequirementList implements Serializable {
 	}
 
 	public void removeRequirement(String requirementName) {
-		for ( Requirement requirement : requirements ) {
-			if ( requirement.getRequirementName( ).equalsIgnoreCase(requirementName) ) {
+		for (Requirement requirement : requirements) {
+			if (requirement.getRequirementName().equalsIgnoreCase(requirementName)) {
 				requirements.remove(requirement);
 				break;
 			}
@@ -48,10 +47,10 @@ public class RequirementList implements Serializable {
 	}
 
 	public ArrayList<Requirement> getFinishedRequirements( ) {
-		ArrayList<Requirement> returnArrayList = new ArrayList<>( );
-		for ( Requirement requirement : requirements
+		ArrayList<Requirement> returnArrayList = new ArrayList<>();
+		for (Requirement requirement : requirements
 		) {
-			if ( requirement.getStatus( ).equalsIgnoreCase("Finished") )
+			if (requirement.getStatus().equalsIgnoreCase("Finished"))
 				returnArrayList.add(requirement);
 		}
 		return returnArrayList;

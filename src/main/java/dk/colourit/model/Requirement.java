@@ -4,15 +4,14 @@ import java.io.Serializable;
 import java.security.InvalidParameterException;
 
 public class Requirement implements Serializable {
-
 	private final MyDate requirementCreationDate;
-	private TaskList taskList;
+	private final TaskList taskList;
 	private String requirementName;
+	private String status;
+	private String requirementDescription;
 	private int requirementTimeEstimate;
 	private int priority;
 	private boolean checked;
-	private String status;
-	private String requirementDescription;
 
 	public Requirement(String name, int requirementTimeEstimate, int priority) {
 		setRequirementName(name);
@@ -24,7 +23,6 @@ public class Requirement implements Serializable {
 		status = "Not Done";
 		taskList = new TaskList();
 		requirementDescription = "No Description";
-
 	}
 
 	public Requirement(String name, int requirementTimeEstimate, int priority, String requirementDescription) {
@@ -36,7 +34,6 @@ public class Requirement implements Serializable {
 		requirementCreationDate = MyDate.now();
 		status = "Not Done";
 		taskList = new TaskList();
-
 	}
 
 	public String getRequirementName( ) {
@@ -111,12 +108,13 @@ public class Requirement implements Serializable {
 		this.status = status;
 	}
 
-	public String toString( ) {
-		return requirementName;
-	}
-
 	public void setChecked(boolean checked) {
 		this.checked = checked;
+	}
+
+	@Override
+	public String toString( ) {
+		return requirementName;
 	}
 }
 
