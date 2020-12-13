@@ -212,7 +212,7 @@ public class Controller_RequirementList extends Controller {
 		}
 	}
 
-	@FXML private void deleteProjectButton( ) {
+	@FXML private void deleteProjectButton( ) throws IOException {
 		String projectName = selectedProject.getProjectName();
 		String projectStatus = selectedProject.getProjectStatus();
 		int totalTimeSpent = selectedProject.getTotalTime();
@@ -231,6 +231,7 @@ public class Controller_RequirementList extends Controller {
 		if (result.get() == ButtonType.OK){
 			ColourItGui.getModel().deleteProject(selectedProject);
 			init();
+			goBack();
 		}
 	}
 

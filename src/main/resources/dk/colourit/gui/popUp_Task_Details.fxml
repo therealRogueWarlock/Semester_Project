@@ -90,7 +90,7 @@
                   <VBox alignment="CENTER" prefHeight="105.0" prefWidth="128.0" spacing="5.0">
                      <children>
                         <Button fx:id="confirmEditButton" disable="true" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#confirmEdit" prefWidth="100.0" text="Confirm edit" textFill="#009000" />
-                        <Button fx:id="cancelButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="25.0" prefWidth="100.0" text="Close" />
+                        <Button fx:id="documentationButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#documentationPopup" prefHeight="25.0" prefWidth="100.0" text="Documentation" />
                      </children>
                      <padding>
                         <Insets bottom="10.0" top="10.0" />
@@ -102,7 +102,7 @@
                   <VBox alignment="CENTER" prefHeight="105.0" prefWidth="128.0" spacing="5.0">
                      <children>
                         <Button fx:id="deleteTask" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#deleteTask" prefHeight="25.0" prefWidth="100.0" text="Delete task" textFill="#a40000" />
-                        <Button fx:id="documentationButton" layoutX="29.0" layoutY="68.0" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#documentationPopup" prefHeight="25.0" prefWidth="100.0" text="Documentation" />
+                        <Button fx:id="cancelButton" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="25.0" prefWidth="100.0" text="Close" />
                      </children>
                      <padding>
                         <Insets bottom="10.0" top="10.0" />

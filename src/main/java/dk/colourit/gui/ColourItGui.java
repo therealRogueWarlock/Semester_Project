@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.ImageCursor;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
@@ -20,6 +21,7 @@ public class ColourItGui extends Application {
 	public static Scene getScene( ) {
 		return scene;
 	}
+
 
 	static void setRoot(String fxml) throws IOException {
 		double oldX = scene.getWindow().getX() + (scene.getWidth() / 2);
