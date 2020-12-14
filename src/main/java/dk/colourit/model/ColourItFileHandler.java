@@ -39,23 +39,6 @@ public class ColourItFileHandler {
     }
 
 
-    public static TeamMemberList readTeamMemberListFromBin() throws IOException, ClassNotFoundException {
-
-        String filename = "employeeList.bin";
-        File file = new File(filename);
-
-        FileInputStream fis = new FileInputStream(file);
-        ObjectInputStream in = new ObjectInputStream(fis);
-
-        TeamMemberList list1 = (TeamMemberList) in.readObject();
-
-        in.close(); // Close the file
-
-        System.out.println("End reading data from file: " + file.getAbsolutePath());
-
-        return list1;
-    }
-
     public static ProjectList readProjectListFromBin() throws IOException, ClassNotFoundException {
 
         String filename = "projectList.bin";
@@ -71,6 +54,23 @@ public class ColourItFileHandler {
         System.out.println("End reading data from file: " + file.getAbsolutePath());
 
         return projectList;
+    }
+
+    public static TeamMemberList readTeamMemberListFromBin() throws IOException, ClassNotFoundException {
+
+        String filename = "employeeList.bin";
+        File file = new File(filename);
+
+        FileInputStream fis = new FileInputStream(file);
+        ObjectInputStream in = new ObjectInputStream(fis);
+
+        TeamMemberList list1 = (TeamMemberList) in.readObject();
+
+        in.close(); // Close the file
+
+        System.out.println("End reading data from file: " + file.getAbsolutePath());
+
+        return list1;
     }
 
 
