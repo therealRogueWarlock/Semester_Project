@@ -14,6 +14,7 @@ public class Task implements Serializable {
 	private int totalTimeSpent;
 	private String taskDescription;
 	private boolean finito;
+	private int id;
 
 	public Task(String taskName, int timeEstimateHour, String teamMemberName, boolean highPriority, String taskDescription) {
 		documentations = new ArrayList<>();
@@ -30,6 +31,7 @@ public class Task implements Serializable {
 		finito = false;
 
 		totalTimeSpent = 0;
+		id = (int) Math.floor(Math.random() * 1000000);
 	}
 
 	public String getTaskName( ) {
@@ -115,13 +117,17 @@ public class Task implements Serializable {
 		documentations.add(documentation);
 	}
 
+	public MyDate getTaskCreationDate( ) {
+		return taskCreationDate;
+	}
+
+	public int getId() {
+		return id;
+	}
+
 	@Override
 	public String toString( ) {
 		return "Task{" + "name='" + taskName + '\'' + ", responsible='" + taskResponsible + '\'' + ", timeEstimateHour="
 				+ taskTimeEstimate + ", highPriority=" + highPriority + ", totalTimeSpent=" + totalTimeSpent + '}';
-	}
-
-	public MyDate getTaskCreationDate( ) {
-		return taskCreationDate;
 	}
 }
