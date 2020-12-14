@@ -16,7 +16,7 @@ import java.util.Optional;
 
 public class Controller_RequirementList extends Controller {
 
-    public TextArea projectDescriptionLabel;
+    public TextArea projectDescriptionTextArea;
     @FXML private Label projectNameLabel;
 	@FXML private Label totalTimeSpentLabel;
 	@FXML private Label deadlineLabel;
@@ -112,7 +112,7 @@ public class Controller_RequirementList extends Controller {
 
 		roleSelectedLabel.setText(ColourItGui.getModel().getUseRoleString());
 
-		projectDescriptionLabel.setText(project.getProjectDescription());
+		projectDescriptionTextArea.setText(project.getProjectDescription());
 	}
 
 	private void populateRoleChoiceBox(Project project) {
