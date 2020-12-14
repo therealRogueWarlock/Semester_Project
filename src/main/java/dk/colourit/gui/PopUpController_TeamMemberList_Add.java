@@ -29,6 +29,7 @@ public class PopUpController_TeamMemberList_Add extends Controller {
     @Override
     public void init() {
 
+
         /*Editable false, to make sure user can't make invalid input. Like strings
 		and invalid MyDate data.*/
         birthdateDatePicker.setEditable(false);
@@ -59,6 +60,11 @@ public class PopUpController_TeamMemberList_Add extends Controller {
             ColourItGui.getModel().addEmployee(teamMemberName, employeeIdNumber, birthday);
 
             getParentController().init();
+            // calling init to generate ne id.
+            init();
+            // clears name field, rdy to input new employee
+            nameTextField.clear();
+
         } catch (DateTimeException | InputMismatchException exception) {
             validationLabel.setText(exception.getMessage());
         }

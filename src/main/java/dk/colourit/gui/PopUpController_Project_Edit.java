@@ -40,7 +40,7 @@ public class PopUpController_Project_Edit extends Controller {
 				selectedProject.setProjectDeadline(new MyDate(deadLine.getValue()));
 
 			selectedProject.setProjectDescription(projectDescription.getText());
-
+			getParentController().init();
 			goBack();
 		}
 	}
