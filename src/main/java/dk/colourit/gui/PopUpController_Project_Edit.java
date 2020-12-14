@@ -10,7 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.time.LocalDate;
 
 public class PopUpController_Project_Edit extends Controller {
 
@@ -51,9 +50,6 @@ public class PopUpController_Project_Edit extends Controller {
 		Project selectedProject = ColourItGui.getModel().getSelectedProject();
 
 		nameField.setText(selectedProject.getProjectName());
-
-		startDate.setValue(selectedProject.getProjectStartDate().getAsLocalDate());
-		deadLine.setValue(selectedProject.getProjectDeadline().getAsLocalDate());
 
 		projectDescription.setText(selectedProject.getProjectDescription());
 	}

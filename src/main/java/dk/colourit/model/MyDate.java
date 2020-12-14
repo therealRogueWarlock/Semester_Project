@@ -1,7 +1,6 @@
 package dk.colourit.model;
 
 import java.io.Serializable;
-import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -11,7 +10,6 @@ public class MyDate implements Serializable {
 	private int day;
 	private int month;
 	private int year;
-	private LocalDate localDate;
 
 	public MyDate( ) {
 		Calendar now = GregorianCalendar.getInstance( );
@@ -21,7 +19,6 @@ public class MyDate implements Serializable {
 	}
 
 	public MyDate(LocalDate localDate) {
-		this.localDate = localDate;
 		year = localDate.getYear( );
 		month = localDate.getMonthValue( );
 		day = localDate.getDayOfMonth( );
@@ -202,7 +199,4 @@ public class MyDate implements Serializable {
 		return day + "/" + month + "/" + year;
 	}
 
-	public LocalDate getAsLocalDate() {
-		return localDate;
-	}
 }
