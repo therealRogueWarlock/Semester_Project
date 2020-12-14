@@ -62,7 +62,7 @@ public class PopUpController_Requirement_Add extends Controller {
 
 			// getting RequirementList from selected project and adding a new requirement.
 			selectedProject.getRequirementList()
-					.addRequirement(new Requirement(requirementNameTextFieldText, timeEstimate, priority));
+					.addRequirement(newRequirement);
 
 			getParentController().init();
 			clearInputFields();
