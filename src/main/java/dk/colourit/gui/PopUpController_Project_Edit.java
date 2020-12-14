@@ -1,6 +1,7 @@
 package dk.colourit.gui;
 
 import dk.colourit.model.MyDate;
+import dk.colourit.model.Project;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -9,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class PopUpController_Project_Edit extends Controller {
 
@@ -24,19 +26,36 @@ public class PopUpController_Project_Edit extends Controller {
 
 	@FXML
 	private void confirm( ) throws IOException {
+
 		if (! nameField.getText().isBlank() && ! nameField.getText().isEmpty()) {
-			ColourItGui.getModel().getSelectedProject().setProjectName(nameField.getText());
+
+			Project selectedProject = ColourItGui.getModel().getSelectedProject();
+
+			selectedProject.setProjectName(nameField.getText());
+
 			if (! (startDate.getValue() == null))
-				ColourItGui.getModel().getSelectedProject().setProjectStartDate(new MyDate(startDate.getValue()));
-			if (! (deadLine.getValue() == null) && ColourItGui.getModel().getSelectedProject().getProjectStartDate().isBefore(new MyDate(deadLine.getValue())))
-				ColourItGui.getModel().getSelectedProject().setProjectDeadline(new MyDate(deadLine.getValue()));
+				selectedProject.setProjectStartDate(new MyDate(startDate.getValue()));
+			if (! (deadLine.getValue() == null)
+					&& selectedProject.getProjectStartDate().isBefore(new MyDate(deadLine.getValue())))
+				selectedProject.setProjectDeadline(new MyDate(deadLine.getValue()));
+
+			selectedProject.setProjectDescription(projectDescription.getText());
+
 			goBack();
 		}
 	}
 
 	@Override
 	public void init( ) {
-		nameField.clear();
+		// setting data from selected project.
+		Project selectedProject = ColourItGui.getModel().getSelectedProject();
+
+		nameField.setText(selectedProject.getProjectName());
+
+		startDate.setValue(selectedProject.getProjectStartDate().getAsLocalDate());
+		deadLine.setValue(selectedProject.getProjectDeadline().getAsLocalDate());
+
+		projectDescription.setText(selectedProject.getProjectDescription());
 	}
 
 	@Override

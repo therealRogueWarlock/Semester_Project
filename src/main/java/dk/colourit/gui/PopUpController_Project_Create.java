@@ -19,7 +19,7 @@ import java.util.InputMismatchException;
 import java.util.MissingFormatArgumentException;
 
 public class PopUpController_Project_Create extends Controller {
-    public TextArea projectDescription;
+	@FXML private TextArea projectDescription;
     @FXML private TableView<TeamMember> teamMemberTableView;
 	@FXML private TableColumn<TeamMember, String> nameColumn;
 	@FXML private TableColumn<TeamMember, Integer> idColumn;
@@ -83,6 +83,7 @@ public class PopUpController_Project_Create extends Controller {
 
 			Project constructProject = new Project(projectName, new MyDate(startDate), new MyDate(deadLine));
 			constructProject.setTeamMemberList(new TeamMemberList(teamMembersForProject));
+			constructProject.setProjectDescription(projectDescription.getText());
 			ColourItGui.getModel().addProject(constructProject);
 
 			statusLabel.setText("Project Created");
