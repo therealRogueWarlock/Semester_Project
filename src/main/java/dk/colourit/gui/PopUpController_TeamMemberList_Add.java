@@ -36,16 +36,7 @@ public class PopUpController_TeamMemberList_Add extends Controller {
     }
 
     private int generateId() {
-        boolean valid = true;
-        int idNum = (int) Math.floor(Math.random() * 1000000);
-        do {
-            for (TeamMember member : ColourItGui.getModel().getTeamMemberList().getTeamMembers()
-            ) {
-                if (member.getEmployeeNumber() == idNum) ;
-                valid = false;
-            }
-        } while (valid);
-        return idNum;
+        return (int) Math.floor(Math.random() * 1000000);
 
     }
 
