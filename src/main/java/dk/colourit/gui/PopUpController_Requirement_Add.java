@@ -55,7 +55,7 @@ public class PopUpController_Requirement_Add extends Controller {
 			Project selectedProject = ColourItGui.getModel().getSelectedProject();
 
 			// creating a new requirement from input data
-			Requirement newRequirement = new Requirement(requirementNameTextFieldText, timeEstimate, priority)
+			Requirement newRequirement = new Requirement(requirementNameTextFieldText, timeEstimate, priority);
 
 			//Setting requirement description
 			newRequirement.setRequirementDescription(requirementDescriptionTextArea.getText());
