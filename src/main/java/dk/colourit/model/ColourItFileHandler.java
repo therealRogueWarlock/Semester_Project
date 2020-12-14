@@ -41,7 +41,7 @@ public class ColourItFileHandler {
 
     public static TeamMemberList readTeamMemberListFromBin() throws IOException, ClassNotFoundException {
 
-        String filename = "teamMemberList.bin";
+        String filename = "employeeList.bin";
         File file = new File(filename);
 
         FileInputStream fis = new FileInputStream(file);
