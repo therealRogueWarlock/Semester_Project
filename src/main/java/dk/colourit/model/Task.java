@@ -124,21 +124,7 @@ public class Task implements Serializable {
     }
 
     private int generateId() {
-        boolean valid = true;
-        int idNum = (int) Math.floor(Math.random() * 1000000);
-        do {
-            for (Project project : ColourItGui.getModel().getProjectList().getProjects()) {
-                for (Requirement requirement : project.getRequirementList().getRequirements()) {
-                    for (Task task : requirement.getTaskList().getTasks()) {
-                        if (task.getId() == idNum) {
-                            valid = false;
-                            break;
-                        }
-                    }
-                }
-            }
-        } while (valid);
-        return idNum;
+        return (int) Math.floor(Math.random() * 1000000);
     }
 
     public int getId() {
