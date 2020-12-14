@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -52,6 +53,12 @@ public class PopUpController_Requirement_Add extends Controller {
 				priorityText = "0";
 			int priority = Integer.parseInt(priorityText);
 			Project selectedProject = ColourItGui.getModel().getSelectedProject();
+
+			// creating a new requirement from input data
+			Requirement newRequirement = new Requirement(requirementNameTextFieldText, timeEstimate, priority)
+
+			//Setting requirement description
+			newRequirement.setRequirementDescription(requirementDescriptionTextArea.getText());
 
 			// getting RequirementList from selected project and adding a new requirement.
 			selectedProject.getRequirementList()
