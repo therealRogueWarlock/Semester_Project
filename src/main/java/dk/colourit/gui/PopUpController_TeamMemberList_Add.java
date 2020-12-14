@@ -1,6 +1,8 @@
 package dk.colourit.gui;
 
 import dk.colourit.model.MyDate;
+import dk.colourit.model.TeamMember;
+import dk.colourit.model.TeamMemberList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -30,6 +32,21 @@ public class PopUpController_TeamMemberList_Add extends Controller {
         /*Editable false, to make sure user can't make invalid input. Like strings
 		and invalid MyDate data.*/
         birthdateDatePicker.setEditable(false);
+        idNumberTextField.setText("" + generateId());
+    }
+
+    private int generateId() {
+        boolean valid = true;
+        int idNum = (int) Math.floor(Math.random() * 1000000);
+        do {
+            for (TeamMember member : ColourItGui.getModel().getTeamMemberList().getTeamMembers()
+            ) {
+                if (member.getEmployeeNumber() == idNum) ;
+                valid = false;
+            }
+        } while (valid);
+        return idNum;
+
     }
 
     @FXML
@@ -38,10 +55,7 @@ public class PopUpController_TeamMemberList_Add extends Controller {
 
             String teamMemberName = nameTextField.getText();
 
-            int employeeIdNumber;
-            if (!idNumberTextField.getText().isBlank())
-                employeeIdNumber = Integer.parseInt(idNumberTextField.getText());
-            else employeeIdNumber = (int) Math.floor(Math.random() * 1000000);
+            int employeeIdNumber = Integer.parseInt(idNumberTextField.getText());
             if (ColourItGui.getModel().getTeamMemberList()
                     .getTeamMember("id", Integer.toString(employeeIdNumber)) != null)
                 throw new InputMismatchException("Employee with same id already exists");
