@@ -35,8 +35,6 @@ public class Controller_ProjectList extends Controller {
 
 	@Override
 	public void init( ) {
-//		mainContainer.getScene().getWindow().setHeight(mainContainer.getPrefHeight());
-//		mainContainer.getScene().getWindow().setWidth(mainContainer.getPrefWidth());
 
 		populateProjectTable();
 		populateEmployeeTable();
