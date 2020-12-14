@@ -177,7 +177,7 @@ public class Controller_TaskList extends Controller {
 	}
 
 	@FXML
-	private void removeRequirement( ) {
+	private void removeRequirement( ) throws IOException {
 		String requirementName = selectedRequirement.getRequirementName();
 		String requirementStatus = selectedRequirement.getStatus();
 		int totalTimeSpent = selectedRequirement.getTotalTimeSpent();
@@ -197,7 +197,7 @@ public class Controller_TaskList extends Controller {
 			Project selectedProject = ColourItGui.getModel().getSelectedProject();
 
 			selectedProject.getRequirementList().removeRequirement(selectedRequirement.getRequirementName());
-			init();
+			goBack();
 		}
 	}
 
@@ -236,7 +236,7 @@ public class Controller_TaskList extends Controller {
 
 	@Override
 	public void goBack( ) throws IOException {
-		init();
+
 		ColourItGui.setRoot("requirementList");
 	}
 }

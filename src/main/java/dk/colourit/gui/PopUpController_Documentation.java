@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 
 import java.time.DateTimeException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 public class PopUpController_Documentation extends Controller {
 
@@ -42,6 +43,7 @@ public class PopUpController_Documentation extends Controller {
 		populateComboBox();
 		populateTableView();
 
+		taskFinished.setSelected(ColourItGui.getModel().getSelectedTask().isFinito());
 		//Editable false, to make sure user can't make invalid input. Like strings and invalid MyDate data.
 		selectDate.setEditable(false);
 	}
@@ -81,16 +83,41 @@ public class PopUpController_Documentation extends Controller {
 	@FXML
 	private void addDocumentation( ) {
 		try {
+
+			// get selected team member from choice box
 			TeamMember member = selectMember.getSelectionModel().getSelectedItem();
+
+			// check if a member was selected, if not throw Input Mismatch
+			if (member == null) throw new InputMismatchException("No team member selected");
+
+			// if the string cant be parsed to in, it will throw NumberFormatException
 			int timeSpent = Integer.parseInt(addTimeSpent.getText());
+
+			// check if current date is before selected date
 			if (MyDate.now().isBefore(new MyDate(selectDate.getValue())))
 				throw new DateTimeException("Date can't be later than current day");
+
+			// creating a new MyDate object from selected date.
 			MyDate date = new MyDate(selectDate.getValue());
-			ColourItGui.getModel().getSelectedTask().getDocumentations().add(new Documentation(member, timeSpent, date));
+
+			// getting Documentation list from selected task trough mediator.
+			ColourItGui.getModel().getSelectedTask()
+					.getDocumentations().add(new Documentation(member, timeSpent, date));
+
+			// call init to update scene
 			init();
+
+		// catching different exceptions and giving user info.
 		} catch (DateTimeException dateTimeException) {
-			validationLabel.setText("Invalid date");
+			validationLabel.setText("Invalid date: \n" + dateTimeException.getMessage());
+
+		}catch (NumberFormatException numberFormatException){
+			validationLabel.setText("Invalid hour input");
+
+		} catch (InputMismatchException inputMismatchException){
+			validationLabel.setText(inputMismatchException.getMessage());
 		}
+
 	}
 
 	@FXML
