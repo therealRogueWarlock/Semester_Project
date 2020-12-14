@@ -8,9 +8,6 @@ import java.io.*;
 
 
 public class ColourItFileHandler {
-
-
-
     public static void saveToBinary(ProjectList projectList) throws IOException {
         String filename = "projectList.bin";
         File file = new File(filename);
@@ -27,14 +24,14 @@ public class ColourItFileHandler {
         //should save project list to binary file.
     }
 
-    public static void saveToBinary(TeamMemberList teamMemberList) throws IOException {
-        String filename = "teamMemberList.bin";
+    public static void saveToBinary(TeamMemberList employeeList) throws IOException {
+        String filename = "employeeList.bin";
         File file = new File(filename);
 
         FileOutputStream fos = new FileOutputStream(file);
         ObjectOutputStream out = new ObjectOutputStream(fos);
 
-        out.writeObject(teamMemberList);
+        out.writeObject(employeeList);
         out.close();
 
         System.out.println("End of data writing: " + file.getAbsolutePath());
