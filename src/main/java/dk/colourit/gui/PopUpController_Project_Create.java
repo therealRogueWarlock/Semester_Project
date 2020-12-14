@@ -19,7 +19,8 @@ import java.util.InputMismatchException;
 import java.util.MissingFormatArgumentException;
 
 public class PopUpController_Project_Create extends Controller {
-	@FXML private TableView<TeamMember> teamMemberTableView;
+    public TextArea projectDescription;
+    @FXML private TableView<TeamMember> teamMemberTableView;
 	@FXML private TableColumn<TeamMember, String> nameColumn;
 	@FXML private TableColumn<TeamMember, Integer> idColumn;
 
