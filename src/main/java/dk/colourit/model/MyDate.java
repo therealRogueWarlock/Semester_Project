@@ -11,6 +11,7 @@ public class MyDate implements Serializable {
 	private int day;
 	private int month;
 	private int year;
+	private LocalDate localDate;
 
 	public MyDate( ) {
 		Calendar now = GregorianCalendar.getInstance( );
@@ -20,11 +21,10 @@ public class MyDate implements Serializable {
 	}
 
 	public MyDate(LocalDate localDate) {
-
+		this.localDate = localDate;
 		year = localDate.getYear( );
 		month = localDate.getMonthValue( );
 		day = localDate.getDayOfMonth( );
-
 	}
 
 	public MyDate(int year, int month, int day) {
@@ -200,5 +200,9 @@ public class MyDate implements Serializable {
 	@Override
 	public String toString( ) {
 		return day + "/" + month + "/" + year;
+	}
+
+	public LocalDate getAsLocalDate() {
+		return localDate;
 	}
 }

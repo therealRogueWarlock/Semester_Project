@@ -111,6 +111,8 @@ public class Controller_RequirementList extends Controller {
 		statusLabel.setText(project.getProjectStatus());
 
 		roleSelectedLabel.setText(ColourItGui.getModel().getUseRoleString());
+
+		projectDescriptionLabel.setText(project.getProjectDescription());
 	}
 
 	private void populateRoleChoiceBox(Project project) {

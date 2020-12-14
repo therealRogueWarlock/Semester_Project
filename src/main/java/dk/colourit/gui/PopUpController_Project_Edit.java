@@ -1,6 +1,7 @@
 package dk.colourit.gui;
 
 import dk.colourit.model.MyDate;
+import dk.colourit.model.Project;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -9,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class PopUpController_Project_Edit extends Controller {
 
@@ -36,7 +38,15 @@ public class PopUpController_Project_Edit extends Controller {
 
 	@Override
 	public void init( ) {
-		nameField.clear();
+		// setting data from selected project.
+		Project selectedProject = ColourItGui.getModel().getSelectedProject();
+
+		nameField.setText(selectedProject.getProjectName());
+
+		startDate.setValue(selectedProject.getProjectStartDate().getAsLocalDate());
+		deadLine.setValue(selectedProject.getProjectDeadline().getAsLocalDate());
+
+		projectDescription.setText(selectedProject.getProjectDescription());
 	}
 
 	@Override

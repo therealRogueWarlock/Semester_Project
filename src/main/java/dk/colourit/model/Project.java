@@ -16,6 +16,7 @@ public class Project implements Serializable {
 	private String projectDescription;
 	private TeamMemberList teamMemberList;
 
+
 	// Throws second Error and not the First error when all fields are blank | ???
 	public Project(String projectName, MyDate projectStartDate, MyDate projectDeadline) {
 		projectCreationDate = MyDate.now();
@@ -36,7 +37,6 @@ public class Project implements Serializable {
 			this.projectStartDate = projectStartDate;
 			this.projectDeadline = projectDeadline;
 		}
-
 	}
 
 	public int getTotalTime( ) {
@@ -105,6 +105,14 @@ public class Project implements Serializable {
 
 	public void setEndDate( ) {
 		this.projectEndDate = MyDate.now();
+	}
+
+	public String getProjectDescription() {
+		return projectDescription;
+	}
+
+	public void setProjectDescription(String projectDescription) {
+		this.projectDescription = projectDescription;
 	}
 }
 
