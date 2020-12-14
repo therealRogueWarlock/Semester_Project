@@ -4,6 +4,7 @@ import dk.colourit.model.MyDate;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -11,7 +12,8 @@ import java.io.IOException;
 
 public class PopUpController_Project_Edit extends Controller {
 
-	@FXML
+    public TextArea projectDescription;
+    @FXML
 	private Button confirmationButton;
 	@FXML
 	private TextField nameField;
