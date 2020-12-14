@@ -16,7 +16,8 @@ import java.util.Optional;
 
 public class Controller_RequirementList extends Controller {
 
-	@FXML private Label projectNameLabel;
+    public Label projectDescriptionLabel;
+    @FXML private Label projectNameLabel;
 	@FXML private Label totalTimeSpentLabel;
 	@FXML private Label deadlineLabel;
 	@FXML private Label statusLabel;
