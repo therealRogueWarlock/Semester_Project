@@ -15,6 +15,7 @@ public class Project implements Serializable {
 	private MyDate projectEndDate;
 	private String projectDescription;
 	private TeamMemberList teamMemberList;
+	private int percentageComplete;
 
 
 	// Throws second Error and not the First error when all fields are blank | ???
@@ -22,6 +23,7 @@ public class Project implements Serializable {
 		projectCreationDate = MyDate.now();
 		projectEndDate = null;
 		projectDescription = "";
+		percentageComplete = 0;
 
 		requirementList = new RequirementList();
 		teamMemberList = new TeamMemberList();
@@ -52,7 +54,7 @@ public class Project implements Serializable {
 
 		int totalRequirements = requirements.size();
 
-		int percentage, finishedRequirement = 0;
+		int finishedRequirement = 0;
 
 		for (Requirement requirement : requirements) {
 			if (requirement.getStatus().equals("Approved"))
@@ -60,10 +62,10 @@ public class Project implements Serializable {
 		}
 
 		if (totalRequirements < 1)
-			percentage = Math.floorDiv(finishedRequirement, 1);
+			percentageComplete = Math.floorDiv(finishedRequirement, 1);
 		else
-			percentage = Math.floorDiv(100 * finishedRequirement, totalRequirements);
-		return percentage + "% Completed";
+			percentageComplete = Math.floorDiv(100 * finishedRequirement, totalRequirements);
+		return percentageComplete + "% Completed";
 	}
 
 	public String getProjectName( ) {
