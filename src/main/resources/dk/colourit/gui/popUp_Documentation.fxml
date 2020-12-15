@@ -25,11 +25,12 @@
          <children>
             <AnchorPane prefHeight="46.0" prefWidth="422.0">
                <children>
-                  <Label fx:id="taskName" layoutX="14.0" layoutY="12.0" text="Task Name" />
-                  <Text layoutX="137.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Time Spent:" />
-                  <Label fx:id="totalTimeSpent" layoutX="239.0" layoutY="12.0" text="33 timer" />
+                  <Label fx:id="taskName" layoutX="83.0" layoutY="12.0" text="Task Name" />
+                  <Text layoutX="153.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Time Spent:" />
+                  <Label fx:id="totalTimeSpent" layoutX="254.0" layoutY="12.0" text="33 timer" />
                   <Text layoutX="312.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Finished Task" />
                   <CheckBox fx:id="taskFinished" layoutX="390.0" layoutY="12.0" mnemonicParsing="false" onAction="#toggleDisabledLogSpentTimeButton" />
+                  <Text layoutX="14.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Task Name:" />
                </children>
             </AnchorPane>
          </children>

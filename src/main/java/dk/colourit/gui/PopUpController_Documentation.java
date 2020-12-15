@@ -2,6 +2,7 @@ package dk.colourit.gui;
 
 import dk.colourit.model.Documentation;
 import dk.colourit.model.MyDate;
+import dk.colourit.model.Task;
 import dk.colourit.model.TeamMember;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,34 +17,35 @@ import java.util.InputMismatchException;
 
 public class PopUpController_Documentation extends Controller {
 
-	@FXML
-	private Button logSpentTime;
-	@FXML
-	private Button confirm;
-	@FXML
-	private TextField addTimeSpent;
-	@FXML
-	private ComboBox<TeamMember> selectMember;
-	@FXML
-	private DatePicker selectDate;
-	@FXML
-	private CheckBox taskFinished;
-	@FXML
-	private TableView<Documentation> documentationTableView;
-	@FXML
-	private TableColumn<Documentation, String> memberNameColumn;
-	@FXML
-	private TableColumn<Documentation, Integer> timeSpentColumn;
-	@FXML
-	private TableColumn<Documentation, MyDate> daySelectedColumn;
-	@FXML
-	private Label validationLabel;
+	@FXML private Label taskName;
+	@FXML private Label totalTimeSpent;
+
+	@FXML private Button logSpentTime;
+	@FXML private Button confirm;
+	@FXML private TextField addTimeSpent;
+
+	@FXML private ComboBox<TeamMember> selectMember;
+
+	@FXML private DatePicker selectDate;
+	@FXML private CheckBox taskFinished;
+
+	@FXML private TableView<Documentation> documentationTableView;
+	@FXML private TableColumn<Documentation, String> memberNameColumn;
+	@FXML private TableColumn<Documentation, Integer> timeSpentColumn;
+	@FXML private TableColumn<Documentation, MyDate> daySelectedColumn;
+
+	@FXML private Label validationLabel;
 
 	public void init( ) {
+		Task selectedTask = ColourItGui.getModel().getSelectedTask();
+
+		taskName.setText(selectedTask.getTaskName());
+		totalTimeSpent.setText(Integer.toString(selectedTask.getTotalTimeSpent()));
+
 		populateComboBox();
 		populateTableView();
 
-		taskFinished.setSelected(ColourItGui.getModel().getSelectedTask().isFinito());
+		taskFinished.setSelected(selectedTask.isFinito());
 		//Editable false, to make sure user can't make invalid input. Like strings and invalid MyDate data.
 		selectDate.setEditable(false);
 	}

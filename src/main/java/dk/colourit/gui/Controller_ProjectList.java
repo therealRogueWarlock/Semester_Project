@@ -44,6 +44,8 @@ public class Controller_ProjectList extends Controller {
 		roleSelectedLabel.setText(ColourItGui.getModel().getUseRoleString());
 	}
 
+
+
 	// general button logic
 	private void buttonLogic( ) {
 		// if the role is not admin check what buttons should be removed. else skip.
@@ -108,9 +110,15 @@ public class Controller_ProjectList extends Controller {
 		createPopUp("popUp_Project_Create");
 	}
 
+
 	@Override
-	public void goBack( ) {
-		init();
+	public void goBack() throws IOException {
+		ColourItGui.setRoot("loginScreen");
 	}
+
+	public void loginScreen( ) throws IOException {
+		goBack();
+	}
+
 
 }

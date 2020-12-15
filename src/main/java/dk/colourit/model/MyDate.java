@@ -11,7 +11,7 @@ public class MyDate implements Serializable {
 	private int month;
 	private int year;
 
-	public MyDate( ) {
+	public MyDate() {
 		Calendar now = GregorianCalendar.getInstance( );
 		day = now.get(Calendar.DAY_OF_MONTH);
 		month = now.get(Calendar.MONTH) + 1;

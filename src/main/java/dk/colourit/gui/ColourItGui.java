@@ -24,7 +24,9 @@ public class ColourItGui extends Application {
 
 
 	static void setRoot(String fxml) throws IOException {
-		double oldX = scene.getWindow().getX() + (scene.getWidth() / 2);
+
+		// getting center X before scene change.
+		double oldCenterX = scene.getWindow().getX() + (scene.getWindow().getWidth() / 2);
 
 		// Get root from fxml
 		Region root = loadFXML(fxml);
@@ -36,7 +38,8 @@ public class ColourItGui extends Application {
 		// Setting stage width to preferred height from pane.
 		scene.getWindow().setWidth(root.getPrefWidth());
 
-		scene.getWindow().setX(oldX - (root.getPrefWidth() / 2));
+		// setting the new x value relative to new window width
+		scene.getWindow().setX(oldCenterX - (scene.getWindow().getWidth() / 2));
 	}
 
 	private static Region loadFXML(String fxml) throws IOException {

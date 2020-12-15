@@ -9,17 +9,14 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public abstract class Controller {
+
+	// used in popUp controllers
 	private Controller parentController;
 
-	protected Controller( ) {
-	}
-
+	// initialize used to populate data as well as refresh data.
 	public abstract void init( );
 
-	public void loginScreen( ) throws IOException {
-		ColourItGui.setRoot("loginScreen");
-	}
-
+	// every controller has to implement a goBack methode, will go back to previous scene
 	public abstract void goBack( ) throws IOException;
 
 	// creating a popup using the fxml loader.
@@ -42,10 +39,12 @@ public abstract class Controller {
 		stage.showAndWait();
 	}
 
+	// used to get parent controller to call init on
 	public Controller getParentController( ) {
 		return parentController;
 	}
 
+	// Used to set parent controller when creating a pop up.
 	public void setParentController(Controller parentController) {
 		this.parentController = parentController;
 	}

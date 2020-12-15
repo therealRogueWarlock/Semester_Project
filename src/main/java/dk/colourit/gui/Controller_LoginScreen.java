@@ -6,10 +6,6 @@ import java.io.IOException;
 
 public class Controller_LoginScreen extends Controller {
 
-	@Override
-	public void init( ) {
-		ColourItGui.getScene();
-	}
 
 	@FXML
 	private void selectedProjectCreatorRole( ) throws IOException {
@@ -41,8 +37,10 @@ public class Controller_LoginScreen extends Controller {
 		ColourItGui.setRoot("projectList");
 	}
 
+
 	@Override
-	public void goBack( ) {
-		init();
-	}
+	public void init() {}
+
+	@Override
+	public void goBack(){}
 }
