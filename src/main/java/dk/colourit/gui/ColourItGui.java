@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class ColourItGui extends Application {
 
-	private static final ColourITProjectManagement model = new ColourITProjectManagement();
+	private static final ColourITProjectManagement mediatorModel = new ColourITProjectManagement();
 
 	private static Scene scene;
 
@@ -53,7 +53,7 @@ public class ColourItGui extends Application {
 	}
 
 	public static ColourITProjectManagement getModel( ) {
-		return model;
+		return mediatorModel;
 	}
 
 	public static void launchApp( ) {
