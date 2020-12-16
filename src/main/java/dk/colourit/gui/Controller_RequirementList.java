@@ -47,9 +47,6 @@ public class Controller_RequirementList extends Controller {
 
 	private Project selectedProject = ColourItGui.getModel().getSelectedProject( );
 
-	public Controller_RequirementList( ) {
-	}
-
 	@Override
 	public void init( ) {
 		selectedProject = ColourItGui.getModel().getSelectedProject( );

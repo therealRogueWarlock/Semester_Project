@@ -30,9 +30,6 @@ public class Controller_ProjectList extends Controller {
 	@FXML private TableColumn<TeamMember, Integer> idNumberColumn;
 	@FXML private TableColumn<TeamMember, MyDate> birthdayColumn;
 
-	public Controller_ProjectList( ) {
-	}
-
 	@Override
 	public void init( ) {
 
