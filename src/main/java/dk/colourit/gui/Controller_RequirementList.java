@@ -47,11 +47,8 @@ public class Controller_RequirementList extends Controller {
 
 	private Project selectedProject = ColourItGui.getModel().getSelectedProject( );
 
-	public Controller_RequirementList( ) {
-	}
-
 	@Override
-	public void init( ) {
+	public void init() {
 		selectedProject = ColourItGui.getModel().getSelectedProject( );
 
 		populateProjectInfo(selectedProject);
@@ -96,14 +93,14 @@ public class Controller_RequirementList extends Controller {
 
 	// functions for populating data on scene
 	private void populateProjectInfo(Project project){
-		totalTimeSpentLabel.setText(project.getTotalTime( ) + " hours spent on " + project.getProjectName( ));
 
+		totalTimeSpentLabel.setText(project.getTotalTime( ) + " hours spent on " + project.getProjectName( ));
+		// team member table as no selection model, items on the table cant be selected
 		teamMemberTable.setSelectionModel(null);
 
 		deadlineLabel.setText("Deadline: " + project.getProjectDeadline( ).toString( ));
 
-		if ( project.getRequirementList( ).getRequirements( ).size( ) <= project.getRequirementList( )
-				.getFinishedRequirements( ).size( ) )
+		if ( project.getRequirementList( ).getRequirements( ).size( ) <= project.getRequirementList().getFinishedRequirements( ).size( ) )
 			project.setEndDate( );
 		statusLabel.setText(project.getProjectStatus());
 		// setting information text on scene

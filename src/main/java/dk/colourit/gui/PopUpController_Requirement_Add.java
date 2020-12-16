@@ -2,6 +2,7 @@ package dk.colourit.gui;
 
 import dk.colourit.model.Project;
 import dk.colourit.model.Requirement;
+import dk.colourit.model.RequirementList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -38,35 +39,44 @@ public class PopUpController_Requirement_Add extends Controller {
 	@FXML
 	private void addRequirement( ) {
 		try {
-			if (ColourItGui.getModel().getSelectedProject().getRequirementList()
-					.getRequirementByName(requirementNameTextField.getText()) != null) {
+
+			Project selectedProject = ColourItGui.getModel().getSelectedProject();
+
+			RequirementList requirementList = selectedProject.getRequirementList();
+
+			String newRequirementName = requirementNameTextField.getText();
+
+			Requirement existingRequirement = requirementList.getRequirementByName(newRequirementName);
+
+			if (existingRequirement != null) {
 				throw new InputMismatchException("Duplicate Name");
 			}
 
-			String requirementNameTextFieldText = requirementNameTextField.getText();
-			String timeEstimateText = timeEstimateField.getText();
-			String priorityText;
-			int timeEstimate = Integer.parseInt(timeEstimateText);
-			if (! (priorityTextField.getText().isBlank()))
-				priorityText = priorityTextField.getText();
-			else
-				priorityText = "0";
-			int priority = Integer.parseInt(priorityText);
-			Project selectedProject = ColourItGui.getModel().getSelectedProject();
 
+			String timeEstimateText = timeEstimateField.getText();
+
+			String priorityText = priorityTextField.getText();
+
+			if (priorityText.isBlank())
+				priorityText = "0";
+
+			int timeEstimate = Integer.parseInt(timeEstimateText);
+			int priority = Integer.parseInt(priorityText);
 			// creating a new requirement from input data
-			Requirement newRequirement = new Requirement(requirementNameTextFieldText, timeEstimate, priority);
+			Requirement newRequirement = new Requirement(newRequirementName, timeEstimate, priority);
+
+			String requirementDescription = requirementDescriptionTextArea.getText();
 
 			//Setting requirement description
-			newRequirement.setRequirementDescription(requirementDescriptionTextArea.getText());
+			newRequirement.setRequirementDescription(requirementDescription);
 
-			// getting RequirementList from selected project and adding a new requirement.
-			selectedProject.getRequirementList()
-					.addRequirement(newRequirement);
+			//adding the new requirement to the requirement list of the selected project.
+			requirementList.addRequirement(newRequirement);
 
 			getParentController().init();
 			clearInputFields();
-		} catch (InputMismatchException inputMismatchException) {
+
+		} catch (InputMismatchException | NumberFormatException error) {
 			validationLabel.setText("Invalid information");
 		}
 	}

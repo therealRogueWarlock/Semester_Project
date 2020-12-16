@@ -8,6 +8,7 @@ import java.io.*;
 
 
 public class ColourItFileHandler {
+
     public static void saveToBinary(ProjectList projectList) throws IOException {
         String filename = "projectList.bin";
         File file = new File(filename);
@@ -23,6 +24,7 @@ public class ColourItFileHandler {
 
         //should save project list to binary file.
     }
+
 
     public static void saveToBinary(TeamMemberList employeeList) throws IOException {
         String filename = "employeeList.bin";
@@ -56,6 +58,7 @@ public class ColourItFileHandler {
         return projectList;
     }
 
+
     public static TeamMemberList readTeamMemberListFromBin() throws IOException, ClassNotFoundException {
 
         String filename = "employeeList.bin";
@@ -74,11 +77,7 @@ public class ColourItFileHandler {
     }
 
 
-
-
-
-    public static void saveToXML(ProjectList list)
-    {
+    public static void saveToXML(ProjectList list) {
         XmlJsonParser parser = new XmlJsonParser();
 
         try {
@@ -88,8 +87,8 @@ public class ColourItFileHandler {
         }
     }
 
-    public static void saveToXML(TeamMemberList list)
-    {
+
+    public static void saveToXML(TeamMemberList list) {
         XmlJsonParser parser = new XmlJsonParser();
 
         try {
@@ -98,7 +97,5 @@ public class ColourItFileHandler {
             e.printStackTrace();
         }
     }
-
-
 
 }

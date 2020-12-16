@@ -16,12 +16,11 @@ public class ColourItGui extends Application {
 
 	private static final ColourITProjectManagement model = new ColourITProjectManagement();
 
-	protected static Scene scene;
+	private static Scene scene;
 
 	public static Scene getScene( ) {
 		return scene;
 	}
-
 
 	static void setRoot(String fxml) throws IOException {
 

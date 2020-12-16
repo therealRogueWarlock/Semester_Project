@@ -35,7 +35,6 @@ public class Controller_ProjectList extends Controller {
 
 	@Override
 	public void init( ) {
-
 		populateProjectTable();
 		populateEmployeeTable();
 
@@ -119,6 +118,4 @@ public class Controller_ProjectList extends Controller {
 	public void loginScreen( ) throws IOException {
 		goBack();
 	}
-
-
 }
