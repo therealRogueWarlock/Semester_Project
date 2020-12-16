@@ -87,15 +87,16 @@ public class Controller_ProjectList extends Controller {
 		ColourItGui.getModel().saveToXml();
 	}
 
-	@FXML private void itemSelected( ) {  //SANDER DON'T FUCKING REMOVE THIS PLEASE
+	@FXML private void itemSelected( ) throws IOException {
 
-		try {
-			Project selectedProject = projectTableView.getSelectionModel( ).getSelectedItem( );
+		Project selectedProject = projectTableView.getSelectionModel( ).getSelectedItem( );
+
+		if (selectedProject != null){
 			ColourItGui.getModel().setSelectedProject(selectedProject);
 			ColourItGui.setRoot("requirementList");
-		} catch ( Exception e ) {
-			//System.out.println("No project selected");
 		}
+
+
 	}
 
 	@FXML private void addEmployee( ) throws IOException {

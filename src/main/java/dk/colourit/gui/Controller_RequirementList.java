@@ -55,7 +55,7 @@ public class Controller_RequirementList extends Controller {
 
 		populateAddTeamMemberChoiceBox(selectedProject);
 		populateRemoveTeamMemberChoiceBox(selectedProject);
-		populateRoleChoiceBox(selectedProject);
+		populateRoleChoiceBox();
 
 		populateRequirementTable(selectedProject);
 		populateTeamMemberTable(selectedProject);
@@ -100,22 +100,26 @@ public class Controller_RequirementList extends Controller {
 
 		deadlineLabel.setText("Deadline: " + project.getProjectDeadline( ).toString( ));
 
-		if ( project.getRequirementList( ).getRequirements( ).size( ) <= project.getRequirementList().getFinishedRequirements( ).size( ) )
+		// if all requirements are done, set the project as ended.
+		if ( project.getRequirementList().getRequirements().size() <=
+				project.getRequirementList().getFinishedRequirements().size()){
+
 			project.setEndDate( );
+		}
+
 		statusLabel.setText(project.getProjectStatus());
+
 		// setting information text on scene
 		projectNameLabel.setText(ColourItGui.getModel().getSelectedProject( ).getProjectName( ));
 		statusLabel.setText(project.getProjectStatus());
-
 		roleSelectedLabel.setText(ColourItGui.getModel().getUseRoleString());
-
 		projectDescriptionTextArea.setText(project.getProjectDescription());
 	}
 
-	private void populateRoleChoiceBox(Project project) {
-		selectRoleChoiceBox.getItems( ).clear( );
+	private void populateRoleChoiceBox() {
+		selectRoleChoiceBox.getItems().clear( );
 
-		selectRoleChoiceBox.getItems( ).addAll("Team Member", "Project Creator", "Scrum Master", "Product Owner");
+		selectRoleChoiceBox.getItems().addAll("Team Member", "Project Creator", "Scrum Master", "Product Owner");
 		selectRoleChoiceBox.getSelectionModel().select(0);
 
 	}

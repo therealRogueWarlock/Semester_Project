@@ -1,7 +1,6 @@
 package dk.colourit.gui;
 
 import javafx.fxml.FXML;
-
 import java.io.IOException;
 
 public class Controller_LoginScreen extends Controller {
