@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import parser.ParserException;
 
 import java.io.IOException;
 
@@ -83,7 +84,7 @@ public class Controller_ProjectList extends Controller {
 	}
 
 	// functions for button/table functionality
-	public void exportToWebsite( ) {
+	public void exportToWebsite( ) throws ParserException {
 		ColourItGui.getModel().saveToXml();
 	}
 

@@ -81,10 +81,11 @@ public class ColourItFileHandler {
         XmlJsonParser parser = new XmlJsonParser();
 
         try {
-            parser.toXml(list, "ProjectData.xml");
+            parser.toXml(list, "../Sep_Website/ProjectData.xml");
         } catch (ParserException e) {
             e.printStackTrace();
         }
+
     }
 
 
