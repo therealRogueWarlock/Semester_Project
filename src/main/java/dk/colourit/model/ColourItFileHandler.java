@@ -82,8 +82,9 @@ public class ColourItFileHandler {
 
         try {
             parser.toXml(list, "../Sep_Website/ProjectData.xml");
+            System.out.println("Saved Xml file to Website folder");
         } catch (ParserException e) {
-            e.printStackTrace();
+            System.out.println(e.getCause() + ": the file was not saved");
         }
 
     }
