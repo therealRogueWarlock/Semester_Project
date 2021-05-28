@@ -3,6 +3,7 @@ package dk.colourit.model;
 import java.io.Serializable;
 
 public class TeamMember implements Serializable {
+
 	private String memberName;
 	private int employeeNumber;
 	private String role;

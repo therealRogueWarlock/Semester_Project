@@ -220,7 +220,7 @@ public class Controller_RequirementList extends Controller {
 		String projectStatus = selectedProject.getProjectStatus();
 		int totalTimeSpent = selectedProject.getTotalTime();
 
-		// creation a confirmation alert
+		// creation of confirmation alert
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
 		// setting Displayed text for Confirmation
 		alert.setTitle("Delete Project");

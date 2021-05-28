@@ -79,16 +79,13 @@ public class ColourItFileHandler {
 
     public static void saveToXML(ProjectList list) {
         XmlJsonParser parser = new XmlJsonParser();
-
         try {
             parser.toXml(list, "../Sep_Website/ProjectData.xml");
             System.out.println("Saved Xml file to Website folder");
         } catch (ParserException e) {
             System.out.println(e.getCause() + ": the file was not saved");
         }
-
     }
-
 
     public static void saveToXML(TeamMemberList list) {
         XmlJsonParser parser = new XmlJsonParser();
@@ -99,5 +96,4 @@ public class ColourItFileHandler {
             e.printStackTrace();
         }
     }
-
 }

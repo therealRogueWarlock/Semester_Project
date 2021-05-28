@@ -36,7 +36,7 @@ public class Controller_ProjectList extends Controller {
 		populateProjectTable();
 		populateEmployeeTable();
 
-		buttonLogic( );
+		buttonLogic();
 
 		roleSelectedLabel.setText(ColourItGui.getModel().getUseRoleString());
 	}
